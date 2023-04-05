@@ -1,0 +1,716 @@
+menus:
+  killsounds:
+    rows: 5
+    items:
+      '32':
+        ==: org.bukkit.inventory.ItemStack
+        type: REDSTONE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDISBUY}'
+          repair-cost: 1
+      '4':
+        ==: org.bukkit.inventory.ItemStack
+        type: GHAST_TEAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDICON}'
+          repair-cost: 1
+      '20':
+        ==: org.bukkit.inventory.ItemStack
+        type: NOTE_BLOCK
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{KILLSOUNDSOUND}'
+          repair-cost: 1
+          blockMaterial: NOTE_BLOCK
+      '22':
+        ==: org.bukkit.inventory.ItemStack
+        type: DIODE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDVOL1}'
+          repair-cost: 1
+      '24':
+        ==: org.bukkit.inventory.ItemStack
+        type: REDSTONE_COMPARATOR
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{KILLSOUNDVOL2}'
+          repair-cost: 1
+          blockMaterial: REDSTONE_COMPARATOR
+      '40':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDSAVE}'
+          repair-cost: 1
+      '12':
+        ==: org.bukkit.inventory.ItemStack
+        type: DOUBLE_PLANT
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDPRICE}'
+          repair-cost: 1
+      '13':
+        ==: org.bukkit.inventory.ItemStack
+        type: SIGN
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{KILLSOUNDSLOT}'
+          repair-cost: 1
+          blockMaterial: SIGN
+      '14':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDPAGE}'
+          repair-cost: 1
+      '30':
+        ==: org.bukkit.inventory.ItemStack
+        type: EMPTY_MAP
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{KILLSOUNDPERMISSION}'
+          repair-cost: 1
+      '31':
+        ==: org.bukkit.inventory.ItemStack
+        type: BEACON
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{KILLSOUNDNAME}'
+          repair-cost: 1
+          blockMaterial: BEACON
+  trails:
+    rows: 5
+    items:
+      '32':
+        ==: org.bukkit.inventory.ItemStack
+        type: INK_SACK
+        damage: 15
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILPARTICLE}'
+          repair-cost: 1
+      '4':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOW
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILICON}'
+          repair-cost: 1
+      '40':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILSAVE}'
+          repair-cost: 1
+      '10':
+        ==: org.bukkit.inventory.ItemStack
+        type: FEATHER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILSPEED}'
+          repair-cost: 1
+      '12':
+        ==: org.bukkit.inventory.ItemStack
+        type: SULPHUR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILOFFSETX}'
+          repair-cost: 1
+      '13':
+        ==: org.bukkit.inventory.ItemStack
+        type: GLOWSTONE_DUST
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILOFFSETY}'
+          repair-cost: 1
+      '14':
+        ==: org.bukkit.inventory.ItemStack
+        type: SUGAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILOFFSETZ}'
+          repair-cost: 1
+      '16':
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILAMOUNT}'
+          repair-cost: 1
+      '20':
+        ==: org.bukkit.inventory.ItemStack
+        type: DOUBLE_PLANT
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILPRICE}'
+          repair-cost: 1
+      '21':
+        ==: org.bukkit.inventory.ItemStack
+        type: STICK
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILRANGE}'
+          repair-cost: 1
+      '22':
+        ==: org.bukkit.inventory.ItemStack
+        type: PAPER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILPAGE}'
+          repair-cost: 1
+      '23':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILSLOT}'
+          repair-cost: 1
+      '24':
+        ==: org.bukkit.inventory.ItemStack
+        type: REDSTONE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILISBUY}'
+          repair-cost: 1
+      '30':
+        ==: org.bukkit.inventory.ItemStack
+        type: EMPTY_MAP
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TRAILNAME}'
+          repair-cost: 1
+      '31':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK_AND_QUILL
+        meta:
+          ==: ItemMeta
+          meta-type: BOOK
+          display-name: '{TRAILPERMISSION}'
+          repair-cost: 1
+  taunts:
+    rows: 6
+    items:
+      '48':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTPAGE}'
+          repair-cost: 1
+      '49':
+        ==: org.bukkit.inventory.ItemStack
+        type: ARROW
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTICON}'
+          repair-cost: 1
+      '50':
+        ==: org.bukkit.inventory.ItemStack
+        type: EMPTY_MAP
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTPERMISSION}'
+          repair-cost: 1
+      '51':
+        ==: org.bukkit.inventory.ItemStack
+        type: BARRIER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTISBUY}'
+          repair-cost: 3
+      '53':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTSAVE}'
+          repair-cost: 1
+      '38':
+        ==: org.bukkit.inventory.ItemStack
+        type: PAPER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTNAME}'
+          repair-cost: 1
+      '39':
+        ==: org.bukkit.inventory.ItemStack
+        type: SNOW_BALL
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTTITLE}'
+          repair-cost: 1
+      '40':
+        ==: org.bukkit.inventory.ItemStack
+        type: SLIME_BALL
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTSUBTITLE}'
+          repair-cost: 1
+      '41':
+        ==: org.bukkit.inventory.ItemStack
+        type: INK_SACK
+        damage: 10
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTPLAYER}'
+          repair-cost: 1
+      '42':
+        ==: org.bukkit.inventory.ItemStack
+        type: INK_SACK
+        damage: 8
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTNONE}'
+          repair-cost: 1
+      '45':
+        ==: org.bukkit.inventory.ItemStack
+        type: DOUBLE_PLANT
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTPRICE}'
+          repair-cost: 1
+      '47':
+        ==: org.bukkit.inventory.ItemStack
+        type: ANVIL
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TAUNTSLOT}'
+          repair-cost: 1
+  tauntstype:
+    rows: 5
+    items:
+      '40':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TTYPESAVE}'
+          repair-cost: 1
+      '44':
+        ==: org.bukkit.inventory.ItemStack
+        type: EMERALD
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TTYPEADD}'
+          repair-cost: 1
+  setup:
+    rows: 6
+    items:
+      '22':
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_AXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{PROTECTION}'
+          repair-cost: 1
+      '33':
+        ==: org.bukkit.inventory.ItemStack
+        type: BARRIER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SQUARED}'
+          repair-cost: 1
+      '3':
+        ==: org.bukkit.inventory.ItemStack
+        type: COMPASS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBY}'
+          repair-cost: 1
+      '5':
+        ==: org.bukkit.inventory.ItemStack
+        type: COMPASS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SPECT}'
+          repair-cost: 1
+      '39':
+        ==: org.bukkit.inventory.ItemStack
+        type: CHEST
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{NPCKITS}'
+          repair-cost: 1
+          blockMaterial: CHEST
+      '41':
+        ==: org.bukkit.inventory.ItemStack
+        type: ENDER_CHEST
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NPCSHOP}'
+          repair-cost: 1
+      '11':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NAME}'
+          repair-cost: 1
+      '13':
+        ==: org.bukkit.inventory.ItemStack
+        type: PAPER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SCHEMATIC}'
+          repair-cost: 1
+      '15':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK_AND_QUILL
+        meta:
+          ==: ItemMeta
+          meta-type: BOOK
+          display-name: '{MIN}'
+          repair-cost: 1
+      '49':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SAVE}'
+          repair-cost: 1
+      '21':
+        ==: org.bukkit.inventory.ItemStack
+        type: SLIME_BALL
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TEAMSIZE}'
+          repair-cost: 1
+      '23':
+        ==: org.bukkit.inventory.ItemStack
+        type: BANNER
+        damage: 5
+        meta:
+          ==: ItemMeta
+          meta-type: BANNER
+          display-name: '{TEAMS}'
+          repair-cost: 1
+          base-color: PURPLE
+      '29':
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_INGOT
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{WOOLSIZE}'
+          repair-cost: 1
+      '31':
+        ==: org.bukkit.inventory.ItemStack
+        type: ENCHANTMENT_TABLE
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{AMOUNTTEAMS}'
+          repair-cost: 3
+          blockMaterial: ENCHANTMENT_TABLE
+  teamsetup:
+    rows: 5
+    items:
+      '4':
+        ==: org.bukkit.inventory.ItemStack
+        type: BANNER
+        damage: 14
+        meta:
+          ==: ItemMeta
+          meta-type: BANNER
+          display-name: '{TEAMCOLOR}'
+          repair-cost: 1
+          base-color: ORANGE
+      '22':
+        ==: org.bukkit.inventory.ItemStack
+        type: PAINTING
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TEAMSQUARED}'
+          repair-cost: 1
+      '40':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TEAMSAVE}'
+          repair-cost: 1
+      '11':
+        ==: org.bukkit.inventory.ItemStack
+        type: WOOL
+        damage: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TEAMWOOL}'
+          repair-cost: 1
+      '13':
+        ==: org.bukkit.inventory.ItemStack
+        type: BEACON
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{TEAMSPAWN}'
+          repair-cost: 1
+          blockMaterial: BEACON
+      '15':
+        ==: org.bukkit.inventory.ItemStack
+        type: MONSTER_EGG
+        damage: 51
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TEAMSPAWNER}'
+          repair-cost: 1
+  lobby:
+    rows: 6
+    items:
+      '32':
+        ==: org.bukkit.inventory.ItemStack
+        type: FIREBALL
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBYWINEFFECTS}'
+          repair-cost: 1
+      '20':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOW
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBYTRAILS}'
+          repair-cost: 1
+      '22':
+        ==: org.bukkit.inventory.ItemStack
+        type: SIGN
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{LOBBYTAUNTS}'
+          repair-cost: 1
+          blockMaterial: SIGN
+      '24':
+        ==: org.bukkit.inventory.ItemStack
+        type: GOLD_NUGGET
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBYKILLSOUND}'
+          repair-cost: 1
+      '12':
+        ==: org.bukkit.inventory.ItemStack
+        type: MONSTER_EGG
+        damage: 120
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBYKEEPERS}'
+          repair-cost: 1
+      '14':
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_SWORD
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBYKILLEFFECTS}'
+          repair-cost: 1
+      '30':
+        ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_CHESTPLATE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{LOBBYWINDANCES}'
+          repair-cost: 1
+  flag:
+    rows: 6
+    items:
+      '22':
+        ==: org.bukkit.inventory.ItemStack
+        type: IRON_AXE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{PROTECTION}'
+          repair-cost: 1
+      '49':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SAVE}'
+          repair-cost: 1
+      '3':
+        ==: org.bukkit.inventory.ItemStack
+        type: BEACON
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{LOBBY}'
+          repair-cost: 1
+          blockMaterial: BEACON
+      '5':
+        ==: org.bukkit.inventory.ItemStack
+        type: COMPASS
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SPECT}'
+          repair-cost: 1
+      '21':
+        ==: org.bukkit.inventory.ItemStack
+        type: EMPTY_MAP
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{MIN}'
+          repair-cost: 1
+      '23':
+        ==: org.bukkit.inventory.ItemStack
+        type: FIREWORK_CHARGE
+        meta:
+          ==: ItemMeta
+          meta-type: FIREWORK_EFFECT
+          display-name: '{TEAMSIZE}'
+          repair-cost: 1
+      '10':
+        ==: org.bukkit.inventory.ItemStack
+        type: PAPER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NAME}'
+          repair-cost: 1
+      '11':
+        ==: org.bukkit.inventory.ItemStack
+        type: MONSTER_EGG
+        damage: 120
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NPCSHOP}'
+          repair-cost: 1
+      '12':
+        ==: org.bukkit.inventory.ItemStack
+        type: MONSTER_EGG
+        damage: 120
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NPCKITS}'
+          repair-cost: 1
+      '13':
+        ==: org.bukkit.inventory.ItemStack
+        type: MONSTER_EGG
+        damage: 120
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NPCUPGRADE}'
+          repair-cost: 1
+      '14':
+        ==: org.bukkit.inventory.ItemStack
+        type: MONSTER_EGG
+        damage: 120
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{NPCBUFF}'
+          repair-cost: 1
+      '15':
+        ==: org.bukkit.inventory.ItemStack
+        type: BOOK_AND_QUILL
+        meta:
+          ==: ItemMeta
+          meta-type: BOOK
+          display-name: '{SCHEMATIC}'
+          repair-cost: 1
+      '31':
+        ==: org.bukkit.inventory.ItemStack
+        type: EXP_BOTTLE
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{TEAMS}'
+          repair-cost: 1
+  teamflag:
+    rows: 4
+    items:
+      '12':
+        ==: org.bukkit.inventory.ItemStack
+        type: BEACON
+        meta:
+          ==: ItemMeta
+          meta-type: TILE_ENTITY
+          display-name: '{SPAWN}'
+          repair-cost: 1
+          blockMaterial: BEACON
+      '14':
+        ==: org.bukkit.inventory.ItemStack
+        type: PAPER
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{FLAG}'
+          repair-cost: 1
+      '31':
+        ==: org.bukkit.inventory.ItemStack
+        type: NETHER_STAR
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: '{SAVE}'
+          repair-cost: 1

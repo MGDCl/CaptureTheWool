@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>UltraCTW</artifactId>
+    <packaging>jar</packaging>
+
+    <name>UltraCTW</name>
+    <description>Edited by MGDCl</description>
+    <version>2.3.3</version>
+    <url>https://github.com/MGDCl</url>
+
+    <properties>
+        <author>Leonardo0013YT</author>
+        <mainClass>io.github.Leonardo0013YT.UltraCTW.UltraCTW</mainClass>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>dmulloy2-repo</id>
+            <url>https://repo.dmulloy2.net/repository/public/</url>
+       </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>spigot</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <repository>
+            <id>upstream</id>
+            <url>https://ci.nametagedit.com/plugin/repository/everything/</url>
+        </repository>
+    </repositories>
+
+        <!-- Use local dependencies because I didn't find any available repository -->
+
+    <dependencies>
+        <dependency>
+            <groupId>com.comphenix.protocol</groupId>
+            <artifactId>ProtocolLib</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+        <dependency>
+           <groupId>localrepo</groupId>
+           <artifactId>spigot-api</artifactId>
+           <version>1.8.8-R0.1-SNAPSHOT</version>
+           <systemPath>C:\Users\PC GAMER\Desktop\Repositories\spigot-1.8.8.jar</systemPath>
+            <type>jar</type>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.10</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>localrepo</groupId>
+	        <artifactId>UltraCTW-WEOld</artifactId>
+            <version>2.13</version>
+            <systemPath>C:\Users\PC GAMER\Desktop\Repositories\UltraCTW-WEOld.jar</systemPath>
+            <type>jar</type>
+            <scope>system</scope>
+	    </dependency>
+        <dependency>
+            <groupId>localrepo</groupId>
+	        <artifactId>UltraCTW-WENew</artifactId>
+            <version>2.13</version>
+            <systemPath>C:\Users\PC GAMER\Desktop\Repositories\UltraCTW-WENew.jar</systemPath>
+            <type>jar</type>
+            <scope>system</scope>
+	    </dependency>
+	    <dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.26</version>
+		    <scope>provided</scope>
+	    </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.nametagedit</groupId>
+            <artifactId>nametagedit</artifactId>
+            <version>4.4.16</version>
+        </dependency>
+        <dependency>
+            <groupId>localrepo</groupId>
+	        <artifactId>UltraCTW-LobbyProtect</artifactId>
+            <version>2.13</version>
+            <systemPath>C:\Users\PC GAMER\Desktop\Repositories\UltraCTW-LobbyProtect.jar</systemPath>
+            <type>jar</type>
+            <scope>system</scope>
+	    </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${artifactId}</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <defaultGoal>clean install</defaultGoal>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <outputDirectory>../target</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

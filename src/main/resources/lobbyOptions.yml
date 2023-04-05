@@ -1,0 +1,15 @@
+options:
+  lobbyWorld: exampleLobby
+  noBreak: true
+  noPlace: true
+  noDamage: true
+  noHunger: true
+  noWeather: true
+  noExplosion: true
+  noDayCycle: true
+  noMobSpawn: true
+  noDrop: true
+  interactBlocked:
+    - CHEST
+    - ANVIL
+    - ENCHANTMENT_TABLE

@@ -1,0 +1,29 @@
+trails:
+  Test:
+    id: 0
+    name: Test
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: BOW
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aDefault
+        lore:
+          - §7This is a default trail
+          - §7
+          - <price>
+          - §7
+          - <status>
+    permission: ultractw.trails.Test
+    particle: LAVA
+    offsetX: 0.0
+    offsetY: 0.0
+    offsetZ: 0.0
+    speed: 10.0
+    range: 15.0
+    amount: 1
+    slot: 10
+    page: 1
+    price: 500
+    isBuy: true

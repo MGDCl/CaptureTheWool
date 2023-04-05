@@ -1,0 +1,504 @@
+levels:
+  level1:
+    level: 1
+    xp: 0
+    levelUp: 500
+    prefix: '&a[Nivel 1]'
+  level2:
+    level: 2
+    xp: 500
+    levelUp: 1000
+    prefix: '&a[Nivel 2]'
+  level3:
+    level: 3
+    xp: 1000
+    levelUp: 1600
+    prefix: '&a[Nivel 3]'
+  level4:
+    level: 4
+    xp: 1600
+    levelUp: 2000
+    prefix: '&a[Nivel 4]'
+  level5:
+    level: 5
+    xp: 2000
+    levelUp: 2500
+    prefix: '&a[Nivel 5]'
+  level6:
+    level: 6
+    xp: 2500
+    levelUp: 3200
+    prefix: '&a[Nivel 6]'
+  level7:
+    level: 7
+    xp: 3200
+    levelUp: 3700
+    prefix: '&a[Nivel 7]'
+  level8:
+    level: 8
+    xp: 3700
+    levelUp: 4300
+    prefix: '&a[Nivel 8]'
+  level9:
+    level: 9
+    xp: 4300
+    levelUp: 5000
+    prefix: '&a[Nivel 9]'
+  level10:
+    level: 10
+    xp: 5000
+    levelUp: 5500
+    prefix: '&d[Nivel 10]'
+  level11:
+    level: 11
+    xp: 5500
+    levelUp: 6000
+    prefix: '&d[Nivel 11]'
+  level12:
+    level: 12
+    xp: 6000
+    levelUp: 6500
+    prefix: '&d[Nivel 12]'
+  level13:
+    level: 13
+    xp: 6500
+    levelUp: 7000
+    prefix: '&d[Nivel 13]'
+  level14:
+    level: 14
+    xp: 7000
+    levelUp: 7500
+    prefix: '&d[Nivel 14]'
+  level15:
+    level: 15
+    xp: 7500
+    levelUp: 8000
+    prefix: '&d[Nivel 15]'
+  level16:
+    level: 16
+    xp: 8000
+    levelUp: 8500
+    prefix: '&d[Nivel 16]'
+    rewards:
+    - say <player> 60
+  level17:
+    level: 17
+    xp: 8500
+    levelUp: 9000
+    prefix: '&d[Nivel 17]'
+  level18:
+    level: 18
+    xp: 9000
+    levelUp: 9500
+    prefix: '&d[Nivel 18]'
+  level19:
+    level: 19
+    xp: 9500
+    levelUp: 10000
+    prefix: '&d[Nivel 19]'
+  level20:
+    level: 20
+    xp: 10000
+    levelUp: 10500
+    prefix: '&b[Nivel 20]'
+  level21:
+    level: 21
+    xp: 10500
+    levelUp: 11000
+    prefix: '&b[Nivel 21]'
+  level22:
+    level: 22
+    xp: 11000
+    levelUp: 11500
+    prefix: '&b[Nivel 22]'
+  level23:
+    level: 23
+    xp: 11500
+    levelUp: 12000
+    prefix: '&b[Nivel 23]'
+  level24:
+    level: 24
+    xp: 12000
+    levelUp: 12500
+    prefix: '&b[Nivel 24]'
+  level25:
+    level: 25
+    xp: 12500
+    levelUp: 13000
+    prefix: '&b[Nivel 25]'
+  level26:
+    level: 26
+    xp: 13000
+    levelUp: 13500
+    prefix: '&b[Nivel 26]'
+  level27:
+    level: 27
+    xp: 13500
+    levelUp: 14000
+    prefix: '&b[Nivel 27]'
+  level28:
+    level: 28
+    xp: 14000
+    levelUp: 14500
+    prefix: '&b[Nivel 28]'
+  level29:
+    level: 29
+    xp: 14500
+    levelUp: 15000
+    prefix: '&b[Nivel 29]'
+  level30:
+    level: 30
+    xp: 15000
+    levelUp: 15500
+    prefix: '&c[Nivel 30]'
+  level31:
+    level: 31
+    xp: 15500
+    levelUp: 16000
+    prefix: '&c[Nivel 31]'
+  level32:
+    level: 32
+    xp: 16000
+    levelUp: 16500
+    prefix: '&c[Nivel 32]'
+  level33:
+    level: 33
+    xp: 16500
+    levelUp: 17000
+    prefix: '&c[Nivel 33]'
+  level34:
+    level: 34
+    xp: 17000
+    levelUp: 17500
+    prefix: '&c[Nivel 34]'
+  level35:
+    level: 35
+    xp: 17500
+    levelUp: 18000
+    prefix: '&c[Nivel 35]'
+  level36:
+    level: 36
+    xp: 18000
+    levelUp: 18500
+    prefix: '&c[Nivel 36]'
+  level37:
+    level: 37
+    xp: 18500
+    levelUp: 19000
+    prefix: '&c[Nivel 37]'
+  level38:
+    level: 38
+    xp: 19000
+    levelUp: 19500
+    prefix: '&c[Nivel 38]'
+  level39:
+    level: 39
+    xp: 19500
+    levelUp: 20000
+    prefix: '&c[Nivel 39]'
+  level40:
+    level: 40
+    xp: 20000
+    levelUp: 20500
+    prefix: '&1[Nivel 40]'
+  level41:
+    level: 41
+    xp: 20500
+    levelUp: 21000
+    prefix: '&1[Nivel 41]'
+  level42:
+    level: 42
+    xp: 21000
+    levelUp: 21500
+    prefix: '&1[Nivel 42]'
+  level43:
+    level: 43
+    xp: 21500
+    levelUp: 22000
+    prefix: '&1[Nivel 43]'
+  level44:
+    level: 44
+    xp: 22000
+    levelUp: 22500
+    prefix: '&1[Nivel 44]'
+  level45:
+    level: 45
+    xp: 22500
+    levelUp: 23000
+    prefix: '&1[Nivel 45]'
+  level46:
+    level: 46
+    xp: 23000
+    levelUp: 23500
+    prefix: '&1[Nivel 46]'
+  level47:
+    level: 47
+    xp: 23500
+    levelUp: 24000
+    prefix: '&1[Nivel 47]'
+  level48:
+    level: 48
+    xp: 24000
+    levelUp: 24500
+    prefix: '&1[Nivel 48]'
+  level49:
+    level: 49
+    xp: 24500
+    levelUp: 25000
+    prefix: '&1[Nivel 49]'
+  level50:
+    level: 50
+    xp: 25000
+    levelUp: 25500
+    prefix: '&5[Nivel 50]'
+  level51:
+    level: 51
+    xp: 25500
+    levelUp: 26000
+    prefix: '&5[Nivel 51]'
+  level52:
+    level: 52
+    xp: 26000
+    levelUp: 26500
+    prefix: '&5[Nivel 52]'
+  level53:
+    level: 53
+    xp: 26500
+    levelUp: 27000
+    prefix: '&5[Nivel 53]'
+  level54:
+    level: 54
+    xp: 27000
+    levelUp: 27500
+    prefix: '&5[Nivel 54]'
+  level55:
+    level: 55
+    xp: 27500
+    levelUp: 28000
+    prefix: '&5[Nivel 55]'
+  level56:
+    level: 56
+    xp: 28000
+    levelUp: 28500
+    prefix: '&5[Nivel 56]'
+  level57:
+    level: 57
+    xp: 28500
+    levelUp: 29000
+    prefix: '&5[Nivel 57]'
+  level58:
+    level: 58
+    xp: 29000
+    levelUp: 29500
+    prefix: '&5[Nivel 58]'
+  level59:
+    level: 59
+    xp: 29500
+    levelUp: 30000
+    prefix: '&5[Nivel 59]'
+  level60:
+    level: 60
+    xp: 30000
+    levelUp: 30500
+    prefix: '&6[Nivel 60]'
+  level61:
+    level: 61
+    xp: 30500
+    levelUp: 31000
+    prefix: '&6[Nivel 61]'
+  level62:
+    level: 62
+    xp: 31000
+    levelUp: 31500
+    prefix: '&6[Nivel 62]'
+  level63:
+    level: 63
+    xp: 31500
+    levelUp: 32000
+    prefix: '&6[Nivel 63]'
+    rewards:
+    - say <player> 100
+  level64:
+    level: 64
+    xp: 32000
+    levelUp: 32500
+    prefix: '&6[Nivel 64]'
+  level65:
+    level: 65
+    xp: 32500
+    levelUp: 33000
+    prefix: '&6[Nivel 65]'
+  level66:
+    level: 66
+    xp: 33000
+    levelUp: 33500
+    prefix: '&6[Nivel 66]'
+    level: 67
+    xp: 33500
+    levelUp: 34000
+    prefix: '&6[Nivel 67]'
+  level68:
+    level: 68
+    xp: 34000
+    levelUp: 34500
+    prefix: '&6[Nivel 68]'
+  level69:
+    level: 69
+    xp: 34500
+    levelUp: 35000
+    prefix: '&6[Nivel 69]'
+  level70:
+    level: 70
+    xp: 35000
+    levelUp: 36000
+    prefix: '&7[Nivel 70]'
+  level71:
+    level: 71
+    xp: 36000
+    levelUp: 37000
+    prefix: '&7[Nivel 71]'
+  level72:
+    level: 72
+    xp: 37000
+    levelUp: 38000
+    prefix: '&7[Nivel 72]'
+  level73:
+    level: 73
+    xp: 38000
+    levelUp: 39000
+    prefix: '&7[Nivel 73]'
+  level74:
+    level: 74
+    xp: 39000
+    levelUp: 40000
+    prefix: '&7[Nivel 74]'
+  level75:
+    level: 75
+    xp: 40000
+    levelUp: 41000
+    prefix: '&7[Nivel 75]'
+  level76:
+    level: 76
+    xp: 41000
+    levelUp: 42000
+    prefix: '&7[Nivel 76]'
+  level77:
+    level: 77
+    xp: 42000
+    levelUp: 43000
+    prefix: '&7[Nivel 77]'
+  level78:
+    level: 78
+    xp: 43000
+    levelUp: 44000
+    prefix: '&7[Nivel 78]'
+  level79:
+    level: 79
+    xp: 44000
+    levelUp: 45000
+    prefix: '&7[Nivel 79]'
+  level80:
+    level: 80
+    xp: 45000
+    levelUp: 46000
+    prefix: '&9[Nivel 80]'
+  level81:
+    level: 81
+    xp: 46000
+    levelUp: 47000
+    prefix: '&9[Nivel 81]'
+  level82:
+    level: 82
+    xp: 47000
+    levelUp: 48000
+    prefix: '&9[Nivel 82]'
+  level83:
+    level: 83
+    xp: 48000
+    levelUp: 49000
+    prefix: '&9[Nivel 83]'
+  level84:
+    level: 84
+    xp: 49000
+    levelUp: 50000
+    prefix: '&9[Nivel 84]'
+  level85:
+    level: 85
+    xp: 50000
+    levelUp: 51000
+    prefix: '&9[Nivel 85]'
+  level86:
+    level: 86
+    xp: 51000
+    levelUp: 52000
+    prefix: '&9[Nivel 86]'
+  level87:
+    level: 87
+    xp: 52000
+    levelUp: 53000
+    prefix: '&9[Nivel 87]'
+  level88:
+    level: 88
+    xp: 52000
+    levelUp: 53000
+    prefix: '&9[Nivel 88]'
+  level89:
+    level: 89
+    xp: 53000
+    levelUp: 54000
+    prefix: '&9[Nivel 89]'
+  level90:
+    level: 90
+    xp: 54000
+    levelUp: 55000
+    prefix: '&4[Nivel 90]'
+  level91:
+    level: 91
+    xp: 55000
+    levelUp: 60000
+    prefix: '&4[Nivel 91]'
+  level92:
+    level: 92
+    xp: 60000
+    levelUp: 65000
+    prefix: '&4[Nivel 92]'
+  level93:
+    level: 93
+    xp: 65000
+    levelUp: 70000
+    prefix: '&4[Nivel 93]'
+  level94:
+    level: 94
+    xp: 70000
+    levelUp: 75000
+    prefix: '&4[Nivel 94]'
+  level95:
+    level: 95
+    xp: 75000
+    levelUp: 80000
+    prefix: '&4[Nivel 95]'
+  level96:
+    level: 96
+    xp: 80000
+    levelUp: 85000
+    prefix: '&4[Nivel 96]'
+  level97:
+    level: 97
+    xp: 85000
+    levelUp: 90000
+    prefix: '&4[Nivel 97]'
+  level98:
+    level: 98
+    xp: 90000
+    levelUp: 95000
+    prefix: '&4[Nivel 98]'
+  level99:
+    level: 99
+    xp: 95000
+    levelUp: 100000
+    prefix: '&4[Nivel 99]'
+  level100:
+    level: 100
+    xp: 100000
+    levelUp: 200000000
+    prefix: '&e&l[Nivel 100]'

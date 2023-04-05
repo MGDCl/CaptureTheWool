@@ -1,0 +1,92 @@
+## Removed some things that are not used, in the config and in the plugin code.
+## If you need help you can consult the discord server: https://discord.com/invite/3RRWVTGveD
+## Thanks for using this plugin!
+debugMode: false
+addons:
+  placeholdersAPI: true
+mainLobby: null
+mobGriefing: false
+redPanelInLocked: true
+progressBarAmount: 10
+excluideDefKits: true
+kitLevelsOrder: true
+lobbyScoreboard: true
+statsCMD: true
+updatePlayersPlaceholder: 5
+whitelistedCMD:
+  - /leave
+  - /msg
+  - /stats
+effectsOnKill:
+  - "REGENERATION:2:5"
+redPanel:
+  material: STAINED_GLASS_PANE
+  data: 14
+breakMap:
+  enabled: true
+  totalBreak: true
+  bypass:
+    - WEB
+    - GOLD_BLOCK
+    - IRON_BLOCK
+gameDefaults:
+  autoJoinFinish: true
+  hunger: false
+  instaKillOnVoid: true
+  maxMultiplier: 5
+  starting: 30
+  timeToKill: 30
+  limitOfYSpawn: 50
+  ironGenerating: 10
+  gcoins:
+    kill: 3
+    win: 10
+    assists: 1
+    capture: 10
+  coins:
+    kill: 5
+    win: 20
+    assists: 2
+    capture: 10
+  xp:
+    kill: 5
+    win: 10
+    assists: 2
+    capture: 10
+## Does not remove the wool to avoid collection spam
+  noDrop:
+    - WOOL
+bounty:
+  min: 90
+  max: 110
+  perKill: 0.10
+## Replace the commands you will use
+items:
+  lobby:
+    enabled: false
+    slot: 4
+    cmd: /perfil
+items2:
+  lobby:
+    enabled: false
+    slot: 0
+    cmd: /ctw join
+materials:
+  lobby: DIAMOND
+  closeitem: BOOK
+win-commands:
+  enabled: false
+  cmds:
+    - "say <player> is a pro!"
+level-commands:
+  enabled: false
+  cmds:
+    - "say <player> is a pro!"
+death-commands:
+  enabled: false
+  cmds:
+    - "say <player> is a noob!"
+kill-commands:
+  enabled: false
+  cmds:
+    - "say <player> is a killer!"

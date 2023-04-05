@@ -1,0 +1,37 @@
+shopkeepers:
+  zombie:
+    id: 0
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: PAPER
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aZombie
+        lore:
+          - §7You do have ShopKeeper Zombie.
+    entity: "ZOMBIE"
+    name: Zombie
+    price: 0
+    isBuy: false
+    slot: 10
+    page: 1
+    permission: ultractw.shopkeepers.zombie
+  blaze:
+    id: 1
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: PAPER
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aBlaze
+        lore:
+          - §7You do have ShopKeeper Blaze.
+    entity: "BLAZE"
+    name: Blaze
+    price: 0
+    isBuy: false
+    slot: 11
+    page: 1
+    permission: ultractw.shopkeepers.blaze

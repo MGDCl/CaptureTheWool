@@ -1,0 +1,1474 @@
+activated: "&aActivated"
+deactivated: "&cDeactivated"
+stats: |-
+  &b%player_name% &estats
+  &7
+  &eKills: &b%ctw_kills%
+  &eWins: &b%ctw_wins%
+  &eMuertes: &b%ctw_deaths%
+  &eShots: &b%ctw_shots%
+  &eSuccess Shots: &b%ctw_sshots%
+  &eWalked: &b%ctw_walked%
+  &ePlayed: &b%ctw_played%
+  &ePlaced: &b%ctw_placed%
+  &eBroken: &b%ctw_break%
+  &7
+progressBar:
+  symbol: "|"
+  in: "&3"
+  out: "&7"
+  finish: "&8[<progress>&8] &e<percent>%"
+  max: "&cMax"
+chat:
+  mainLobby: "&f<player> &7» &f<msg>"
+  lobby: "&e[CTW] &f<player> &7» &f<msg>"
+  team: "<team> <player> &7» &f<msg>"
+  global: "&6[GLOBAL] <team> <player> &7» &f<msg>"
+coins:
+  add:
+    you: "&aYou've added &e<coins> &acoins to player &e<player>&a."
+    receiver: |-
+      &8&l+ &e<coins> &6Coins
+      &aDelivered by &b<sender>&a.
+  remove:
+    you: "&aYou've removed &e<coins> &acoins to player &e<player>&a."
+    receiver: |-
+      &8&l- &e<coins> &6Coins
+      &aRemoved by &b<sender>&a.
+  set:
+    you: "&aYou've set &e<coins> &acoins to player &e<player>&a."
+    receiver: |-
+      &8&l= &e<coins> &6Coins
+      &aEstablished by &b<sender>&a.
+streaks:
+  double: "&a&lDOUBLE "
+  three: "&e&lTRIPLE "
+  quarter: "&b&lQUADRUPLE "
+  penta: "&6&lPENTA "
+messages:
+  kickCTW: "&cYou can't log in when the game is started."
+  noIngame: '&cYou can''t execute that command in a game.'
+  noPlaceHopper: "&cYou can't put hoppers in this place."
+  noYourWool: "&cThis is not a wool of your team, contact admins about this is not configured."
+  maxPlayers: "&aThe maximum number of people has been reached."
+  startPhase: "&eThe &a<phase> &ehas been applied."
+  winCoins: "&8+&b<coins> &6Coins"
+  onlyBreakPlaced: "&cYou can only break blocks put in the game."
+  alreadyStart: "&cThe game has already started."
+  needItemHand: "&cYou must have the item in your hand."
+  buyedTeam: "&7<player> &6purchased &e<enchant>&6 for your team."
+  buyedOtherTeam: "&7<player>&c purchased &e<enchant>&c for other team."
+  buyed: "&6You have purchased &e<enchant>&6 correctly."
+  maxImprovement: "&cYou've reached the maximum of this improvement"
+  buyLastLevel: "&cYou must buy the previous level."
+  breakFlag: "&7<color><player> &eto steal your flag."
+  stealFlag: "&7<color><player>&e steal the <team>&e team flag."
+  noBreakFlag: "&cYou can't break your own flag."
+  noPlaceInGrace: "&cYou can't build bridges in grace time."
+  limit: "&cYou can't build higher than the limit."
+  balancedTeam: "&aThe teams were unbalanced, now you're part of the <team> Team&a."
+  multiplier: "&aThe &b<type> &amultiplier has been activated by &6<name> &aof &x<amount> &afor &e<time>&a."
+  multiplierFinish: "&aThe &b<type> &amultiplier of &6<name> &ahas been end."
+  kill: "<streak>KILL! &8+&6<coins> Coins &7and &8+&b<xp> XP"
+  streak: "&c&lSTREAK! &7of &c<kills> &7kills by <nameStreak>"
+  bounty: "&6&lBOUNTY! &7of &6&l<coins> &7for <name> for high streak."
+  bountyClaimed: "&6&lBOUNTY CLAIMED! &e<killer> &7killed &e<death> &7for &6&l<coins>"
+  teamMajorPlayers: "&cThere are many players on this team try to get into another."
+  noSelect: "&cYou don't have a selected."
+  noSelected: "&cNot selected"
+  noSelector: "&cYou don't have permission for that, use automatic mode."
+  noBuy: "&cThis cannot be purchased by users."
+  noCoins: "&cYou don't have enough coins."
+  bought: "&aYou bought &6<name>&a correctly."
+  cancelStart: "&cThe game start has been canceled."
+  gameNotExists: "&cThis game not exists."
+  randomTeam: "&aYou've joined a random team, you've had the team <team>"
+  joinTeam: "&aYou've joined the team: <team>"
+  starting: "&eThe game will start in &c<starting>&e second<s>."
+  needStart: "&cThe game is required to have started to choose team."
+  noEntry: "&cYou can't join in here."
+  noBreak: "&cYou can't break here."
+  noPlace: "&cYou can't place here."
+  lost: "&cThe <wool>&c wool catch was lost."
+  placeTeam: "&eYour team has captured the <place>&e wool."
+  capturedWool: "&eThe player &a<player> &ehas captured the <wool> &eWool."
+  incorrectPlace: "&cThis is not the right place for <wool>&c wool."
+  alreadyIngame: "&cYou're already in a game."
+  leaveGame: "&cYou're out of the game."
+  selectShopKeeper: "&aYou've selected the trail: &e<shopkeeper>"
+  selectTrail: "&aYou've selected the trail: &e<trail>"
+  selectTaunt: "&aYou've selected the taunt: &e<taunt>"
+  selectKillSound: "&aYou've selected the killsound: &e<killsound>"
+  selectKillEffect: "&aYou've selected the killeffect: &e<killeffect>"
+  selectWinEffect: "&aYou've selected the wineffect: &e<wineffect>"
+  selectWinDance: "&aYou've selected the windance: &e<windance>"
+  deselectShopKeeper: "&aYou've deselected your current shopkeeper."
+  deselectTrail: "&aYou've deselected your current trail."
+  deselectTaunt: "&aYou've deselected your current taunt."
+  deselectWinEffect: "&aYou've deselected your current wineffect."
+  deselectKillEffect: "&aYou've deselected your current killeffect."
+  deselectWinDance: "&aYou've deselected your current windances."
+  noOther: "&cYou can't enter another game if one is already selected."
+  otherpick: "&c&lPICKED &fThey picked up your wool <wool>"
+  teampick: "<color>&lPICKED &fThey picked up wool <wool>"
+  start:
+    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&7"
+    - "<center>&f&lCAPTURE THE WOOL"
+    - "<center>&7"
+    - "<center>&e&lCapture the wools on the enemy team,"
+    - "<center>&e&lfight so they don't capture your wools,"
+    - "<center>&e&lget a streak of eliminations, bounty"
+    - "<center>&e&lfor killing someone with a streak, have fun."
+    - "<center>&7"
+    - "<center>&a&m&l---------------------------------------------"
+  win:
+    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&7"
+    - "<center>&f&lCAPTURE THE WOOL"
+    - "<center>&7"
+    - "<center>&aWinner &7- <winner>"
+    - "<center>&7"
+    - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
+    - "<center>&6&l2nd Killer &7- <color2><top2> &7- <number2>"
+    - "<center>&c&l3rt Killer &7- <color3><top3> &7- <number3>"
+    - "<center>&7"
+    - "<center>&a&m&l---------------------------------------------"
+topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
+holograms:
+  kits:
+    - "&e&lCAPTURE THE WOOL"
+    - "&7Kits Shop"
+    - "&b(Right-Click to open)"
+  shop:
+    - "&e&lCAPTURE THE WOOL"
+    - "&7Item Shop"
+    - "&b(Right-Click to open)"
+setup:
+  itemInHand: "&cYou must have the item in your hand."
+  setTopKills: "&aYou've set up the top kills."
+  setTopWins: "&aYou've set up the top wins."
+  setTopCaptured: "&aYou've set up the top captured."
+  setTopBounty: "&aYou've set up the top bounty."
+  reload: "&aThe plugin has been reloaded correctly."
+  setMainLobby: "&aThe main lobby has been established."
+  needCreating: "&cYou need to be creating an arena."
+  alreadyCreating: "&cYou are already creating an arena."
+  noOnline: "&cThat player is not online."
+  noSchema: "&cThere is no schematic by that name."
+  noHand: "&cYou must have the icon on the hand."
+  noNumber: "&cPlease write a number."
+  setPermission: "&aWrite the permission to use this in the chat."
+  setSlot: "&aWrite the slot to this in the chat."
+  setPage: "&aWrite the page to this in the chat."
+  setPrice: "&aWrite the price to this in the chat."
+  setBuy: "&eThe state of this is now: <state>"
+  setPosition: "&ePosition &a<pos> &ehas been established"
+  addItem: "&aThe item has been added successfully."
+  team:
+    giveAvailableWools: "&aYou have been given the available wools to set up."
+    removed: "&cThe last Spawner has been removed."
+    noSpawners: "&cSpawners are no longer available."
+    noWools: "&cWools are no longer available."
+  kits:
+    created: "&aYou have created a new kit."
+    setIcon: "&aThe icon has been set."
+    newLevel: "&aA new level has been created."
+    save: "&aThe kit items have been saved."
+    saveLevel: "&aThe kit level has been saved."
+    saveKit: "&aThe kit has been saved."
+  arena:
+    noLast: "&cSquareds are no longer available."
+    removed: "&cThe last Squared has been removed."
+    addMine: "&aA &e<type> &atype mine was added."
+    setNPCBuff: "&aThe location of the buff NPC has been added."
+    setNPCUpgrade: "&aThe location of the upgrade NPC has been added."
+    setNPCShop: "&aThe location of the shop NPC has been added."
+    setNPCKits: "&aThe location of the selector NPC has been added."
+    alreadySetWool: "&aTeam colors have already been set."
+    setSpawn: "&aThe team's spawn has been established in &e<location>&a."
+    addSpawner: "&aA spawner has been added in &e<location>&a."
+    spawnerRemoved: "&aThe last spawner has been removed."
+    noSpawner: "&cThere is no Spawner established."
+    createDontWools: "&cWhen you create the first team, you can no longer change the number of wools."
+    minMin: "&cThe minimum player to start must be 2."
+    minTeamSize: "&cThe minimum team size is 1."
+    minWoolSize: "&cThe minimum wool size is 1."
+    minAmountTeams: "&cThe minimum teams amounts is 2."
+    alreadyTeam: "&cYou can no longer change the amount of wools as you already have a team in place."
+    addColor: "&aThe color of <color>&a wool was added to the team."
+    setColors: "&aAdded colors used by this team."
+    addWool: "&aA wool has been established in &e<loc>&a."
+    setProteccion: "&aA new protection square has been created."
+    needPositions: "&cYou need to have the two positions selected first."
+    firstWool: "&cFirst you must set the colors of wool."
+    teamSaved: "&aThe team has been saved."
+    saveGame: "&aThe sand has been kept."
+    setLobby: |-
+      &6&lARENA SETUP:
+      &aThe lobby location has been established.
+    setSpect: |-
+      &6&lARENA SETUP:
+      &aThe spect location has been established.
+    setMin: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of min in the chat.
+    setTeamSize: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of team size in the chat.
+    setWoolSize: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of wool size in the chat.
+    setAmountTeams: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of teams in the chat.
+    noSet:
+      lobby: "&cThe lobby location has not been established."
+      spectator: "&cThe spectator location has not been established."
+      needTwoTeams: "&cYou need at least two teams."
+      spawn: "&cThe spawn location has not been established."
+      noColors: "&cYou haven't set the colors of the wools."
+      noSpawner: "&cYou have not set the spawners of these colors."
+  menus:
+    finishEdit: "&aYou have edited the menu correctly."
+titles:
+  dropped:
+    title: "&a&lDROPPED"
+    subtitle: "&fDrop the wool <wool>"
+  cancel:
+    title: "&cCANCELLED"
+    subtitle: "&7"
+  starting:
+    title: "&c<time>"
+    subtitle: "&7"
+  captured:
+    title: "<color><player> &lCAPTURED"
+    subtitle: "&fYour team captured <wool>"
+  win:
+    title: "<color>WIN!"
+    subtitle: "&7This team has captured all wools."
+  lose:
+    title: "&c&lLOSE!"
+    subtitle: "&7Game over :c."
+  otherCaptured:
+    title: "<color>Team <name>"
+    subtitle: "<color><player> &7Captured wool <wool>&7."
+items:
+  leave:
+    nameItem: "&cLeave"
+    loreItem: |-
+      &7Click to leave the
+      &7game.
+  lobby:
+    nameItem: "&eCapture The Wool"
+    loreItem: |-
+      &7When you click, you'll open
+      &7the Capture The Wool lobby menu
+      &7
+      &eRight click to open.
+  setup:
+    nameItem: "&eSetup Arena"
+    loreItem: |-
+      &7Item to setup arena.
+      &7
+      &eRight click to open.
+  points:
+    nameItem: "&eSelect Points"
+    loreItem: |-
+      &7Click for position 1.
+      &7Right-click for position 2.
+  teams:
+    nameItem: "&bTeam Selector"
+    loreItem: |-
+      &7Al abrir este menu podras
+      &7elegir el equipo.
+scoreboards:
+  team: "&7» <TColor>Team <TName>"
+  teams: "&7» <TColor><TName> <TWools>"
+  wools:
+    captured: "⬛"
+    inProcess: "⚠"
+    noCaptured: "⬜"
+  main:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      &fCaptured: &a<captured>
+      &7
+      &fKills: &a<kills>
+      &fDeaths: &a<deaths>
+      &fWins: &a<wins>
+      &f
+      &emc.spigot.net
+  waiting:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fMap: &a<map>
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      &fPlayers: &a<players>/<max>
+      &7
+      &emc.spigot.net
+  waitingFlag:
+    title: "&e&lCAPTURE THE FLAG"
+    lines: |-
+      &7
+      &fMap: &a<map>
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      &fPlayers: &a<players>/<max>
+      &7
+      &emc.spigot.net
+  starting:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fMap: &a<map>
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      &fPlayers: &a<players>/<max>
+      &7
+      &fStarting: &a<time>
+      &7
+      &emc.spigot.net
+  simple-game:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fTeam: <team>
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      <T1>
+      <T1Wools>
+      &7
+      <T2>
+      <T2Wools>
+      &7
+      &fKills: &a<kills>
+      &fDeaths: &a<deaths>
+      &7
+      &emc.spigot.net
+  big-game:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fTeam: <team>
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      <teams>
+      &7
+      &fKills: &a<kills>
+      &fDeaths: &a<deaths>
+      &7
+      &emc.spigot.net
+menus:
+  last:
+    nameItem: '&aLast Page'
+    loreItem: |-
+      &7Click to back a last
+      &7page.
+  next:
+    nameItem: '&aNext Page'
+    loreItem: |-
+      &7Click to back a last
+      &7page.
+  upgrades:
+    title: "&eUpgrade NPC"
+  buffDebuff:
+    title: "&eBuff DeBuff NPC"
+  buffItems:
+    title: "&eBuff DeBuff Items"
+  shop:
+    title: "&eShop Items"
+  shopkeeperselector:
+    title: "&eShopKeeper Selector"
+    noPermission: "&cYou can't buy this ShopKeeper!"
+    hasBuy: "&aYou already have this ShopKeeper!"
+    buy: "&eYou can buy this ShopKeeper!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect ShopKeeper"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this ShopKeeper.
+        &7
+        &eClick to deselect!
+    shopkeeper:
+      nameItem: "&eShopKeeper Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this ShopKeeper.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  kitlevels:
+    title: "&eKit Levels"
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  kitflaglevels:
+    title: "&aKit Levels"
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  kitselector:
+    title: "&eKit Selector"
+    noPermission: "&cYou can't buy this kit!"
+    hasBuy: "&aYou already have this kit!"
+    buy: "&eYou can buy this kit!"
+    noMoney: "&cYou don't have money to buy."
+    level: "&aLevel: &6<level>"
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect Kit"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this kit.
+        &7
+        &eClick to deselect!
+    kit:
+      nameItem: "&eKit Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this kit.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  kitflagselector:
+    title: "&aKit Selector"
+    noPermission: "&cYou can't buy this kit!"
+    hasBuy: "&aYou already have this kit!"
+    buy: "&eYou can buy this kit!"
+    noMoney: "&cYou don't have money to buy."
+    level: "&aLevel: &6<level>"
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect Kit"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this kit.
+        &7
+        &eClick to deselect!
+    kit:
+      nameItem: "&eKit Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this kit.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  killsoundsselector:
+    title: "&eKillSound Selector"
+    noPermission: "&cYou can't buy this killsound!"
+    hasBuy: "&aYou already have this killsound!"
+    buy: "&eYou can buy this killsound!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect KillSound"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this killsound.
+        &7
+        &eClick to deselect!
+    killsound:
+      nameItem: "&eKillSound Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this killsound.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  wineffectsselector:
+    title: "&eWinEffect Selector"
+    noPermission: "&cYou can't buy this wineffect!"
+    hasBuy: "&aYou already have this wineffect!"
+    buy: "&eYou can buy this wineffect!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect WinEffect"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this wineffect.
+        &7
+        &eClick to deselect!
+    wineffect:
+      nameItem: "&eWinEffect Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this wineffect.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  killeffectsselector:
+    title: "&eKillEffect Selector"
+    noPermission: "&cYou can't buy this killeffect!"
+    hasBuy: "&aYou already have this killeffect!"
+    buy: "&eYou can buy this killeffect!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect KillEffect"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this killeffect.
+        &7
+        &eClick to deselect!
+    killeffect:
+      nameItem: "&eKillEffect Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this killeffect.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  windancesselector:
+    title: "&eWinDances Selector"
+    noPermission: "&cYou can't buy this windances!"
+    hasBuy: "&aYou already have this windances!"
+    buy: "&eYou can buy this gwindanceslass!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect WinDances"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this windances.
+        &7
+        &eClick to deselect!
+    windance:
+      nameItem: "&eWinDances Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this windances.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  trailsselector:
+    title: "&eTrail Selector"
+    noPermission: "&cYou can't buy this trail!"
+    hasBuy: "&aYou already have this trail!"
+    buy: "&eYou can buy this trail!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect Trail"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this trail.
+        &7
+        &eClick to deselect!
+    trail:
+      nameItem: "&eTrail Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this trail.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  tauntsselector:
+    title: "&eTaunt Selector"
+    noPermission: "&cYou can't buy this taunt!"
+    hasBuy: "&aYou already have this taunt!"
+    buy: "&eYou can buy this taunt!"
+    noMoney: "&cYou don't have money to buy."
+    price: "&aPrice: &6<price>"
+    noBuyable: "&cNot buyable."
+    buyed: "&6Bought"
+    deselect:
+      nameItem: "&eDeselect Taunt"
+      loreItem: |-
+        &7By clicking you will
+        &7deselect this taunt.
+        &7
+        &eClick to deselect!
+    taunt:
+      nameItem: "&eTaunt Selected"
+      loreItem: |-
+        &7By clicking you can see
+        &7the contents of this taunt.
+        &7
+        &eClick to view!
+    close:
+      nameItem: "&cClose"
+      loreItem: |-
+        &7Close this inventory.
+        &7
+        &eClick to close!
+  taunts:
+    title: "&eSetup Taunts"
+    settitle:
+      nameItem: "&eSet Title"
+      loreItem: |-
+        &7When you click you must type
+        &7the title that will
+        &7appear when it dies.
+        &7
+        &eTitle: &b<title>
+        &7
+        &eClick to write in chat!
+    setsubtitle:
+      nameItem: "&eSet SubTitle"
+      loreItem: |-
+        &7When you click you must type
+        &7the subtitle that will
+        &7appear when it dies.
+        &7
+        &eSubTitle: &b<subtitle>
+        &7
+        &eClick to write in chat!
+    setplayer:
+      nameItem: "&eSet Player"
+      loreItem: |-
+        &7By clicking you should
+        &7type in the chat the
+        &7final message when
+        &7there is killer.
+        &7
+        &ePlayer: &b<player>
+        &7
+        &eClick to write in chat!
+    setnone:
+      nameItem: "&eSet None"
+      loreItem: |-
+        &7By clicking you should
+        &7type in the chat the
+        &7final message when
+        &7there is no killer.
+        &7
+        &eNone: &b<none>
+        &7
+        &eClick to write in chat!
+    damage:
+      loreItem: |-
+        &7Clicking will open a
+        &7menu to add messages
+        &7by damage type.
+        &7
+        &eClick to open!
+    icon:
+      nameItem: "&eTaunt Icon"
+      loreItem: |-
+        &7Taunt icon in menu.
+        &7
+        &eClick with item to change!
+    price:
+      nameItem: "&eTaunt Price"
+      loreItem: |-
+        &7Price of Taunt:
+        &7
+        &ePrice: &b<price>
+        &7
+        &eClick to change!
+    slot:
+      nameItem: "&eTaunt Slot"
+      loreItem: |-
+        &7Slot of Taunt:
+        &7
+        &eSlot: &b<slot>
+        &7
+        &eClick to change!
+    page:
+      nameItem: "&eTaunt Page"
+      loreItem: |-
+        &7Page of Taunt:
+        &7
+        &ePage: &b<page>
+        &7
+        &eClick to change!
+    permission:
+      nameItem: "&ePermission of Taunt"
+      loreItem: |-
+        &7The Permission name is:
+        &7
+        &ePermission: &b<permission>
+        &7
+        &eClick to change!
+    name:
+      nameItem: "&aName Taunt"
+      loreItem: |-
+        &7Name of this Taunt:
+        &7
+        &eName: &b<name>
+        &7
+    isBuy:
+      nameItem: "&ePurchasable"
+      loreItem: |-
+        &7Sets whether this taunt
+        &7is purchaseable.
+        &e
+        &eValue: &b<purchasable>
+        &7
+        &eClick to change!
+    save:
+      nameItem: "&eSave"
+      loreItem: |-
+        &7Saves this taunt in config.
+        &7
+        &eClick to save!
+  tauntstype:
+    title: "&eTaunts Type"
+    add:
+      nameItem: "&eAdd Message"
+      loreItem: |-
+        &7When you click you will need
+        &7to type the message in the
+        &7chat, use the following variables:
+        &7
+        &e<death> &7- &aFor the dead.
+        &e<killer> &7- &aFor the killer.
+        &7
+        &eClick to add!
+    save:
+      nameItem: "&eSave Type"
+      loreItem: |-
+        &7Saves the type of taunt.
+        &7
+        &eClick to save!
+  parting:
+    title: "&eSetup Parting"
+    icon:
+      nameItem: "&eParting Icon"
+      loreItem: |-
+        &7Parting icon in menu.
+        &7
+        &eClick with item to change!
+    price:
+      nameItem: "&eParting Price"
+      loreItem: |-
+        &7Price of Parting:
+        &7
+        &ePrice: &b<price>
+        &7
+        &eClick to change!
+    slot:
+      nameItem: "&eParting Slot"
+      loreItem: |-
+        &7Slot of Parting:
+        &7
+        &eSlot: &b<slot>
+        &7
+        &eClick to change!
+    page:
+      nameItem: "&eParting Page"
+      loreItem: |-
+        &7Page of Parting:
+        &7
+        &ePage: &b<page>
+        &7
+        &eClick to change!
+    message:
+      nameItem: "&eParting Message"
+      loreItem: |-
+        &7Messages of Parting:
+        &7
+        <messages>
+        &eClick to add!
+        &eRight Click to remove!
+    permission:
+      nameItem: "&ePermission of Parting"
+      loreItem: |-
+        &7The Permission name is:
+        &7
+        &ePermission: &b<permission>
+        &7
+        &eClick to change!
+    name:
+      nameItem: "&aName Parting"
+      loreItem: |-
+        &7Name of this Parting:
+        &7
+        &eName: &b<name>
+        &7
+    isBuy:
+      nameItem: "&ePurchasable"
+      loreItem: |-
+        &7Sets whether this Parting
+        &7is purchaseable.
+        &e
+        &eValue: &b<purchasable>
+        &7
+        &eClick to change!
+    save:
+      nameItem: "&eSave"
+      loreItem: |-
+        &7Saves this Parting in config.
+        &7
+        &eClick to save!
+  killsounds:
+    title: "&eSetup KillSound"
+    icon:
+      nameItem: "&eKillSound Icon"
+      loreItem: |-
+        &7KillSound icon in menu.
+        &7
+        &eClick with item to change!
+    price:
+      nameItem: "&eKillSound Price"
+      loreItem: |-
+        &7Price of KillSound:
+        &7
+        &ePrice: &b<price>
+        &7
+        &eClick to change!
+    slot:
+      nameItem: "&eKillSound Slot"
+      loreItem: |-
+        &7Slot of KillSound:
+        &7
+        &eSlot: &b<slot>
+        &7
+        &eClick to change!
+    page:
+      nameItem: "&eKillSound Page"
+      loreItem: |-
+        &7Page of KillSound:
+        &7
+        &ePage: &b<page>
+        &7
+        &eClick to change!
+    sound:
+      nameItem: "&eKillSound Sound"
+      loreItem: |-
+        &7Sound of KillSound:
+        &7
+        &eSound: &b<sound>
+        &7
+        &eClick to change!
+    vol1:
+      nameItem: "&eKillSound Vol 1"
+      loreItem: |-
+        &7Vol 1 Sound of KillSound:
+        &7
+        &eVol 1: &b<vol1>
+        &7
+        &eClick to change!
+    vol2:
+      nameItem: "&eKillSound Vol 2"
+      loreItem: |-
+        &7Vol 2 Sound of KillSound:
+        &7
+        &eVol 2: &b<vol2>
+        &7
+        &eClick to change!
+    permission:
+      nameItem: "&ePermission of KillSound"
+      loreItem: |-
+        &7The Permission name is:
+        &7
+        &ePermission: &b<permission>
+        &7
+        &eClick to change!
+    name:
+      nameItem: "&aName KillSound"
+      loreItem: |-
+        &7Name of this KillSound:
+        &7
+        &eName: &b<name>
+        &7
+    isBuy:
+      nameItem: "&ePurchasable"
+      loreItem: |-
+        &7Sets whether this KillSound
+        &7is purchaseable.
+        &e
+        &eValue: &b<purchasable>
+        &7
+        &eClick to change!
+    save:
+      nameItem: "&eSave"
+      loreItem: |-
+        &7Saves this KillSound in config.
+        &7
+        &eClick to save!
+  trails:
+    title: "&eSetup Trail"
+    icon:
+      nameItem: "&eTrail Icon"
+      loreItem: |-
+        &7Trail icon in menu.
+        &7
+        &eClick with item to change!
+    speed:
+      nameItem: "&eTrail Speed"
+      loreItem: |-
+        &7Speed of Trail:
+        &7
+        &eSpeed: &b<speed>
+        &7
+        &eClick to change!
+    offsetX:
+      nameItem: "&eTrail OffSetX"
+      loreItem: |-
+        &7OffSetX of Trail:
+        &7
+        &eOffSetX: &b<offsetX>
+        &7
+        &eClick to change!
+    offsetY:
+      nameItem: "&eTrail OffSetY"
+      loreItem: |-
+        &7OffSetY of Trail:
+        &7
+        &eOffSetY: &b<offsetY>
+        &7
+        &eClick to change!
+    offsetZ:
+      nameItem: "&eTrail OffSetZ"
+      loreItem: |-
+        &7OffSetZ of Trail:
+        &7
+        &eOffSetZ: &b<offsetZ>
+        &7
+        &eClick to change!
+    amount:
+      nameItem: "&eTrail Amount"
+      loreItem: |-
+        &7Amount of Trail:
+        &7
+        &eAmount: &b<amount>
+        &7
+        &eClick to change!
+    range:
+      nameItem: "&eTrail Range"
+      loreItem: |-
+        &7Range of Trail:
+        &7
+        &eRange: &b<range>
+        &7
+        &eClick to change!
+    price:
+      nameItem: "&eTrail Price"
+      loreItem: |-
+        &7Price of Trail:
+        &7
+        &ePrice: &b<price>
+        &7
+        &eClick to change!
+    slot:
+      nameItem: "&eTrail Slot"
+      loreItem: |-
+        &7Slot of Trail:
+        &7
+        &eSlot: &b<slot>
+        &7
+        &eClick to change!
+    page:
+      nameItem: "&eTrail Page"
+      loreItem: |-
+        &7Page of Trail:
+        &7
+        &ePage: &b<page>
+        &7
+        &eClick to change!
+    particle:
+      nameItem: "&eParticle of Trail"
+      loreItem: |-
+        &7The Particle name is:
+        &7
+        &eParticle: &b<particle>
+        &7
+        &eClick to change!
+    permission:
+      nameItem: "&ePermission of Trail"
+      loreItem: |-
+        &7The Permission name is:
+        &7
+        &ePermission: &b<permission>
+        &7
+        &eClick to change!
+    name:
+      nameItem: "&aName Trail"
+      loreItem: |-
+        &7Name of this Trail:
+        &7
+        &eName: &b<name>
+        &7
+    isBuy:
+      nameItem: "&ePurchasable"
+      loreItem: |-
+        &7Sets whether this trail
+        &7is purchaseable.
+        &e
+        &eValue: &b<purchasable>
+        &7
+        &eClick to change!
+    save:
+      nameItem: "&eSave"
+      loreItem: |-
+        &7Saves this Trail in config.
+        &7
+        &eClick to save!
+  lobby:
+    title: "&eLobby Menu"
+    shopkeepers:
+      nameItem: "&aShopKeepers Menu"
+      loreItem: |-
+        &7Open a menu to see
+        &7yours ShopKeepers.
+        &7
+        &eClick to open!
+    trails:
+      nameItem: "&aTrails Menu"
+      loreItem: |-
+        &7Open a menu to select
+        &7or purchase trails.
+        &7
+        &eClick to open!
+    taunts:
+      nameItem: "&aTaunts Menu"
+      loreItem: |-
+        &7Open a menu to select
+        &7or purchase taunts.
+        &7
+        &eClick to open!
+    wineffects:
+      nameItem: "&aWinEffects Menu"
+      loreItem: |-
+        &7Open a menu to select
+        &7or purchase win effects.
+        &7
+        &eClick to open!
+    killeffects:
+      nameItem: "&aKillEffects Menu"
+      loreItem: |-
+        &7Open a menu to select
+        &7or purchase kill effects.
+        &7
+        &eClick to open!
+    windances:
+      nameItem: "&aWinDances Menu"
+      loreItem: |-
+        &7Open a menu to select
+        &7or purchase win dances.
+        &7
+        &eClick to open!
+    killsound:
+      nameItem: "&aKillSound Menu"
+      loreItem: |-
+        &7Open a menu to select
+        &7or purchase kill sounds.
+        &7
+        &eClick to open!
+  teams:
+    title: "&aTeam Selector"
+    random:
+      nameItem: "&eRandom Team"
+      loreItem: |-
+        &7You will automatically enter
+        &7the team with minor people.
+    team:
+      nameItem: "<team>"
+      loreItem: |-
+        &7Join to this team:
+        &7
+        &fPlayers: &a<players>
+        &7
+        &eClick to join!
+  kititems:
+    title: "&aSetup Level Items"
+    analize:
+      nameItem: "&eAnalize"
+      loreItem: |-
+        &7When you click analyze
+        &7the items in order to
+        &7set attributes.
+        &7
+        &eClick to analize!
+    save:
+      nameItem: "&aSave Items"
+      loreItem: |-
+        &7Clicking save items
+        &7will save the items.
+        &7
+        &eClick to save!
+  kitlevelssetup:
+    title: "&aSetup Kit Level"
+    icon:
+      nameItem: "&eKit Icon"
+      loreItem: |-
+        &7Click the item to
+        &7change the icon:
+        &7
+        &eClick with item to change!
+    price:
+      nameItem: "&ePrice of Level"
+      loreItem: |-
+        &7This is the price of this
+        &7level of the kit.
+        &7
+        &ePrice: &b<price>
+        &7
+        &eClick to change!
+    items:
+      nameItem: "&eLevel Items"
+      loreItem: |-
+        &7Here you can set the items
+        &7of this kit.
+        &7
+        &eClick to open!
+    buy:
+      nameItem: "&eBuy"
+      loreItem: |-
+        &7Sets whether this level
+        &7is buyable.
+        &7
+        &eBuy: <status>
+        &7
+        &eClick to alternate!
+    slot:
+      nameItem: "&eSlot of Level"
+      loreItem: |-
+        &7This is the level slot:
+        &7
+        &eSlot: &b<slot>
+        &7
+        &eClick to change!
+    page:
+      nameItem: "&ePage of Level"
+      loreItem: |-
+        &7This is the level page:
+        &7
+        &ePage: &b<page>
+        &7
+        &eClick to change!
+    save:
+      nameItem: "&aSave Level"
+      loreItem: |-
+        &7Save the level in the kit.
+        &7
+        &eClick to save!
+  kitsetup:
+    title: "&aSetup Kit"
+    name:
+      nameItem: "&eName of Kit"
+      loreItem: |-
+        &7This is a kit name:
+        &7
+        &eName: &b<name>
+        &7
+    levels:
+      nameItem: "&eLevels of Kit"
+      loreItem: |-
+        &7Clicking will add a new level,
+        &7if you are setting one and
+        &7did not save it you will open
+        &7the same level.
+        &7
+        &eClick to open!
+    permission:
+      nameItem: "&ePermission of Kit"
+      loreItem: |-
+        &7This is a permission for
+        &7this kit:
+        &7
+        &ePermission: &b<permission>
+        &7
+        &eClick to change!
+    slot:
+      nameItem: "&eSlot of Kit"
+      loreItem: |-
+        &7This is the kit slot:
+        &7
+        &eSlot: &b<slot>
+        &7
+        &eClick to change!
+    page:
+      nameItem: "&ePage of Kit"
+      loreItem: |-
+        &7This is the kit page:
+        &7
+        &ePage: &b<page>
+        &7
+        &eClick to change!
+    flag:
+      nameItem: "&eKit Flag"
+      loreItem: |-
+        &7This is the kit type:
+        &7
+        &eFlag: &b<state>
+        &7
+        &eClick to change!
+    save:
+      nameItem: "&aSave Kit"
+      loreItem: |-
+        &7Save the kit in the file.
+        &7
+        &eClick to save!
+  back:
+    nameItem: "&eReturn Menu"
+    loreItem: |-
+      &7Back to <menu>
+  spawners:
+    title: "&aSetup Spawners"
+  teamsColor:
+    title: "&aSetup Color Team"
+    color:
+      nameItem: "<color><name>"
+      loreItem: |-
+        &7The team color you want
+        &7to set is selected.
+        &7
+        &eClick to setup!
+  teamColor:
+    title: "&aSetup Teams Colors"
+  teamsetup:
+    title: "&aSetup Team"
+    squared:
+      nameItem: "&eSquareds"
+      loreItem: |-
+        &7Team anti-entry protection squared.
+        &7
+        <squareds>
+        &7
+        &eClick to add!
+        &cRigth click to remove last!
+    color:
+      nameItem: "&eTeam Color"
+      loreItem: |-
+        &7The color name is:
+        &7
+        &eColor: &b<color>
+        &7
+    wool:
+      nameItem: "&eSet Wools"
+      loreItem: |-
+        &7You'll set the wool colors
+        &7this team used.
+        &7
+        &eClick to setup!
+    spawner:
+      nameItem: "&eAdd Spawner"
+      loreItem: |-
+        &7Add a wool spawn:
+        &7
+        <generators>
+        &7
+        &eClick to add!
+        &cRigth click to remove last!
+    spawn:
+      nameItem: "&eTeam Spawn"
+      loreItem: |-
+        &7Set the team spawn:
+        &7
+        &eLocation: &b<spawn>
+        &7
+        &eClick to set!
+    save:
+      nameItem: "&eSave Team"
+      loreItem: |-
+        &7Save the team in arena
+        &7
+        &eClick to save!
+  teamflag:
+    title: "&aFlag Team"
+    spawn:
+      nameItem: "&eTeam Spawn"
+      loreItem: |-
+        &7Set the team spawn:
+        &7
+        &eLocation: &b<spawn>
+        &7
+        &eClick to set!
+    flag:
+      nameItem: "&eTeam Flag"
+      loreItem: |-
+        &7Set the team flag:
+        &7
+        &eLocation: &b<flag>
+        &7
+        &eClick to set!
+    save:
+      nameItem: "&eSave Team"
+      loreItem: |-
+        &7Save the team in arena
+        &7
+        &eClick to save!
+  setup:
+    title: "&aSetup Arena"
+    npcKits:
+      nameItem: "&eNPC Kits"
+      loreItem: |-
+        &7Add kits npc.
+        &7
+        &eClick to add NPC Kits.
+    npcShop:
+      nameItem: "&eNPC Shop"
+      loreItem: |-
+        &7Add Shop npc.
+        &7
+        &eClick to add NPC Shop.
+    protection:
+      nameItem: "&eLobby Protection"
+      loreItem: |-
+        &7Lobby protection cuboid.
+        &7
+        &eClick to set protection!
+    squared:
+      nameItem: "&eSquareds"
+      loreItem: |-
+        &7Team anti-break protection squared.
+        &7
+        <squareds>
+        &7
+        &eClick to add!
+        &cRigth click to remove last!
+    name:
+      nameItem: "&eName of Arena"
+      loreItem: |-
+        &7The Arena name is:
+        &7
+        &eName: &b<name>
+        &7
+    schematic:
+      nameItem: "&eName of Schematic"
+      loreItem: |-
+        &7The Schematic name is:
+        &7
+        &eSchematic: &b<schematic>
+        &7
+    teams:
+      nameItem: "&eTeams"
+      loreItem: |-
+        &7Opens the menu team:
+        &7
+        &eClick to open!
+    min:
+      nameItem: "&eMin Players"
+      loreItem: |-
+        &7Min players to start arena:
+        &7
+        &eMin: &b<min>
+        &7
+        &eClick to change!
+    teamsAmount:
+      nameItem: "&eAmount Teams"
+      loreItem: |-
+        &7Sets the number of teams
+        &7the arena will have.
+        &7
+        &eAmount Teams: &b<teamAmount>
+        &7
+        &eClick to change!
+    teamSize:
+      nameItem: "&eTeam Size"
+      loreItem: |-
+        &7Team size of arena:
+        &7
+        &eTeamSize: &b<teamSize>
+        &7
+        &eClick to change!
+    woolSize:
+      nameItem: "&eWool Size"
+      loreItem: |-
+        &7Wool size of arena:
+        &7
+        &eWoolSize: &b<woolSize>
+        &7
+        &eClick to change!
+    lobby:
+      nameItem: "&eLobby Location"
+      loreItem: |-
+        &7Sets the lobby location
+        &7
+        &eLobby: &b<lobby>
+        &7
+        &eClick to set location!
+    spect:
+      nameItem: "&eSpectator Location"
+      loreItem: |-
+        &7Sets the spect location
+        &7
+        &eSpectator: &b<spect>
+        &7
+        &eClick to set location!
+    save:
+      nameItem: "&eSave Arena"
+      loreItem: |-
+        &7Save the arena in config
+        &7
+        &eClick to save!
+teams:
+  aqua: "&bAqua"
+  dark_blue: "&1Dark Blue"
+  black: "&0Black"
+  blue: "&9Blue"
+  dark_aqua: "&3Dark Aqua"
+  dark_red: "&4Dark Red"
+  red: "&cRed"
+  dark_gray: "&8Dark Gray"
+  gray: "&7Gray"
+  dark_green: "&2Dark Green"
+  green: "&aGreen"
+  light_purple: "&dLight Purple"
+  dark_purple: "&5Dark Purple"
+  white: "&fWhite"
+  yellow: "&eYellow"
+  gold: "&6Gold"

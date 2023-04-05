@@ -1,0 +1,80 @@
+kits:
+  default:
+    id: 0
+    name: default
+    permission: ultractw.kits.default
+    slot: 10
+    page: 1
+    levels:
+      '1':
+        level: 1
+        price: 500.0
+        slot: 10
+        page: 1
+        icon:
+          ==: org.bukkit.inventory.ItemStack
+          type: WOOD_SWORD
+          meta:
+            ==: ItemMeta
+            meta-type: UNSPECIFIC
+            display-name: §aTest
+            lore:
+              - '§eDescription:'
+              - §7Kit test.
+              - §7
+              - <price>
+              - §7
+              - <level>
+              - §7
+              - <status>
+        armor:
+          - ==: org.bukkit.inventory.ItemStack
+            type: LEATHER_HELMET
+          - ==: org.bukkit.inventory.ItemStack
+            type: LEATHER_CHESTPLATE
+          - ==: org.bukkit.inventory.ItemStack
+            type: LEATHER_LEGGINGS
+          - ==: org.bukkit.inventory.ItemStack
+            type: LEATHER_BOOTS
+        inv:
+          - ==: org.bukkit.inventory.ItemStack
+            type: WOOD_SWORD
+          - ==: org.bukkit.inventory.ItemStack
+            type: BOW
+          - ==: org.bukkit.inventory.ItemStack
+            type: ARROW
+            amount: 64
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+          - null
+        permission: UltraCTW.kits.default.1

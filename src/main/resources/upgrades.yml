@@ -1,0 +1,374 @@
+buy: "&aClick to buy!"
+noMoney: "&cYou don't have enough coins!"
+max: "&cMaximum improvement!"
+shop:
+  debuff:
+    slot: 14
+    material: COAL
+    name: "&aTeam DeBuffs Shop"
+    lore: |-
+      &7In this menu you will find improvements
+      &7for enemy team like the following:
+      &7
+      &e ■ &2Blindness I &c(2 seconds)
+      &e ■ &2Blindness I &c(4 seconds)
+      &e ■ &2Slowness I &c(5 seconds)
+      &e ■ &2Slowness II &c(8 seconds)
+      &e ■ &2Weakness I &c(5 seconds)
+      &e ■ &2Weakness I &c(10 seconds)
+      &7
+      &eClick to open!
+    items:
+      blindnessI:
+        slot: 11
+        price: 100
+        yourTeam: false
+        material: "POTION:8230"
+        name: "&aBlindness I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to entire enemy team:
+          &7
+          &e ■ &2Blindness I &c(2 seconds)
+          &7
+          <status>
+        effects:
+          - "BLINDNESS:1:2"
+      blindnessII:
+        slot: 12
+        price: 200
+        yourTeam: false
+        material: "POTION:8262"
+        name: "&aBlindness II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to entire enemy team:
+          &7
+          &e ■ &2Blindness I &c(4 seconds)
+          &7
+          <status>
+        effects:
+          - "BLINDNESS:1:4"
+      slownessI:
+        slot: 14
+        price: 100
+        yourTeam: false
+        material: "POTION:8234"
+        name: "&aSlowness I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to entire enemy team:
+          &7
+          &e ■ &2Slowness I &c(5 seconds)
+          &7
+          <status>
+        effects:
+          - "SLOW:1:5"
+      slownessII:
+        slot: 15
+        price: 200
+        yourTeam: false
+        material: "POTION:8266"
+        name: "&aSlowness II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to entire enemy team:
+          &7
+          &e ■ &2Slowness II &c(8 seconds)
+          &7
+          <status>
+        effects:
+          - "SLOW:2:8"
+      weaknessI:
+        slot: 20
+        price: 100
+        yourTeam: false
+        material: "POTION:8232"
+        name: "&aWeakness I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to entire enemy team:
+          &7
+          &e ■ &2Weakness I &c(5 seconds)
+          &7
+          <status>
+        effects:
+          - "WEAKNESS:1:5"
+      weaknessII:
+        slot: 21
+        price: 200
+        yourTeam: false
+        material: "POTION:8264"
+        name: "&aWeakness II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to entire enemy team:
+          &7
+          &e ■ &2Weakness I &c(10 seconds)
+          &7
+          <status>
+        effects:
+          - "WEAKNESS:1:10"
+  buff:
+    slot: 12
+    material: DIAMOND
+    name: "&aTeam Buffs Shop"
+    lore: |-
+      &7In this menu you will find improvements
+      &7for your team like the following:
+      &7
+      &e ■ &bSpeed I &c(10 seconds)
+      &e ■ &bSpeed I &c(20 seconds)
+      &e ■ &bStrength I &c(10 seconds)
+      &e ■ &bStrength I &c(20 seconds)
+      &e ■ &bRegeneration II &c(10 seconds)
+      &e ■ &bRegeneration III &c(10 seconds)
+      &e ■ &bJump Boost III &c(5 seconds)
+      &e ■ &bJump Boost III &c(10 seconds)
+      &7
+      &eClick to open!
+    items:
+      speedI:
+        slot: 11
+        price: 100
+        yourTeam: true
+        material: "POTION:8194"
+        name: "&aSpeed I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bSpeed I &c(10 seconds)
+          &7
+          <status>
+        effects:
+          - "SPEED:1:10"
+      speedII:
+        slot: 12
+        price: 200
+        yourTeam: true
+        material: "POTION:8226"
+        name: "&aSpeed II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bSpeed I &c(20 seconds)
+          &7
+          <status>
+        effects:
+          - "SPEED:1:20"
+      strengthI:
+        slot: 14
+        price: 100
+        yourTeam: true
+        material: "POTION:8201"
+        name: "&aStrength I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bStrength I &c(10 seconds)
+          &7
+          <status>
+        effects:
+          - "INCREASE_DAMAGE:1:10"
+      strengthII:
+        slot: 15
+        price: 200
+        yourTeam: true
+        material: "POTION:8233"
+        name: "&aStrength II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bStrength I &c(20 seconds)
+          &7
+          <status>
+        effects:
+          - "INCREASE_DAMAGE:1:20"
+      regenerationI:
+        slot: 20
+        price: 100
+        yourTeam: true
+        material: "POTION:8193"
+        name: "&aRegeneration I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bRegeneration II &c(10 seconds)
+          &7
+          <status>
+        effects:
+          - "REGENERATION:2:10"
+      regenerationII:
+        slot: 21
+        price: 200
+        yourTeam: true
+        material: "POTION:8225"
+        name: "&aRegeneration II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bRegeneration III &c(10 seconds)
+          &7
+          <status>
+        effects:
+          - "REGENERATION:3:10"
+      jumpI:
+        slot: 23
+        price: 100
+        yourTeam: true
+        material: "POTION:8203"
+        name: "&aJump Boost I"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bJump Boost III &c(5 seconds)
+          &7
+          <status>
+        effects:
+          - "JUMP:3:5"
+      jumpII:
+        slot: 24
+        price: 100
+        yourTeam: true
+        material: "POTION:8235"
+        name: "&aJump Boost II"
+        lore: |-
+          &7By purchasing this, it will apply the
+          &7following effect to your entire team:
+          &7
+          &e ■ &bJump Boost III &c(10 seconds)
+          &7
+          <status>
+        effects:
+          - "JUMP:3:10"
+upgrades:
+  teampickaxe:
+    slot: 12
+    material: DIAMOND_PICKAXE
+    name: "&aPickaxe Upgrades &7(TEAM)"
+    lore: |-
+      &eApply improvements to team pickaxes,
+      &enext upgrade:
+      <now> &7→ <next>
+      &7
+      <status>
+    materials:
+      - NONE
+    levels:
+      level0:
+        level: 0
+        price: 100
+        name: "&cNo Effect"
+        enchants:
+          - "NONE"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"
+      level1:
+        level: 1
+        price: 100
+        name: "&bHaste I"
+        enchants:
+          - "NONE"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "FAST_DIGGING:1:9999"
+      level2:
+        level: 2
+        price: 100
+        name: "&bHaste II"
+        enchants:
+          - "NONE"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "FAST_DIGGING:2:9999"
+  youpickaxe:
+    slot: 14
+    material: IRON_PICKAXE
+    name: "&aPickaxe Upgrades &7(YOU)"
+    lore: |-
+      &eApply improvements to your pickaxe,
+      &enext upgrade:
+      <now> &7→ <next>
+      &7
+      <status>
+    materials:
+      - WOOD_PICKAXE
+      - STONE_PICKAXE
+      - IRON_PICKAXE
+      - DIAMOND_PICKAXE
+    levels:
+      level0:
+        level: 0
+        price: 100
+        name: "&bEfficiency I"
+        enchants:
+          - "NONE"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"
+      level1:
+        level: 1
+        price: 100
+        name: "&bEfficiency II"
+        enchants:
+          - "DIG_SPEED:1:true"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"
+      level2:
+        level: 2
+        price: 100
+        name: "&bEfficiency II &7/ &bFortune I"
+        enchants:
+          - "DIG_SPEED:2:true"
+          - "LOOT_BONUS_BLOCKS:1:true"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"
+      level3:
+        level: 3
+        price: 100
+        name: "&bEfficiency III &7/ &bFortune I"
+        enchants:
+          - "DIG_SPEED:3:true"
+          - "LOOT_BONUS_BLOCKS:1:true"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"
+      level4:
+        level: 4
+        price: 100
+        name: "&bEfficiency III &7/ &bFortune II"
+        enchants:
+          - "DIG_SPEED:3:true"
+          - "LOOT_BONUS_BLOCKS:2:true"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"
+      level5:
+        level: 5
+        price: 100
+        name: "&bEfficiency IV &7/ &bFortune III"
+        enchants:
+          - "DIG_SPEED:4:true"
+          - "LOOT_BONUS_BLOCKS:3:true"
+        selfEffects:
+          - "NONE"
+        teamEffects:
+          - "NONE"

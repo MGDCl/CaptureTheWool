@@ -1,0 +1,366 @@
+killeffects:
+  default:
+    id: 0
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: BARRIER
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aNone
+        lore:
+          - §7You do not have any KillEffect.
+    type: none
+    name: Default
+    price: 0
+    isBuy: false
+    slot: 10
+    page: 1
+    permission: ultractw.killeffect.default
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Default
+  fireworks:
+    id: 1
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: FIREWORK
+      meta:
+        ==: ItemMeta
+        meta-type: FIREWORK
+        display-name: §aFirework
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7Killing a firework explodes
+          - §7instantly.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: fireworks
+    name: Fireworks
+    price: 1000
+    isBuy: true
+    slot: 11
+    page: 1
+    permission: ultractw.killeffect.fireworks
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Fireworks
+  thunder:
+    id: 2
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: IRON_AXE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aThunder
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7When to kill a person thunder
+          - §7falls.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: thunder
+    name: Thunder
+    price: 2000
+    isBuy: true
+    slot: 12
+    page: 1
+    permission: ultractw.killeffect.thunder
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Thunder
+  explode:
+    id: 3
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: TNT
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aTNT
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7It has an effect of explosion
+          - §7when killing.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: explode
+    name: Explode
+    price: 4000
+    isBuy: true
+    slot: 13
+    page: 1
+    permission: ultractw.killeffect.explode
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Explode
+  squid:
+    id: 4
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: MONSTER_EGG
+      damage: 94
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aSquid
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7A flying squid appears striking.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: squid
+    name: Squid
+    price: 4000
+    isBuy: true
+    slot: 14
+    page: 1
+    permission: ultractw.killeffect.squid
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Squid
+    lavaAmount: 1
+    explosionAmount: 1
+  blood:
+    id: 5
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: REDSTONE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aBloody Death
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7Particles explode blood when
+          - §7killing.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: blood
+    name: Blood
+    price: 6000
+    isBuy: true
+    slot: 15
+    page: 1
+    permission: ultractw.killeffect.blood
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Blood
+  diamondexplode:
+    id: 6
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: DIAMOND
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aMillionaire Explosion
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7Expel diamonds that disappear
+          - §7after a while.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: diamondexplode
+    name: Diamond Explode
+    price: 6000
+    isBuy: true
+    slot: 16
+    page: 1
+    permission: ultractw.killeffect.diamond
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Diamond Explode
+  flower:
+    id: 7
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: YELLOW_FLOWER
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aSpring
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7Flowers explode that disappear
+          - §7in autumn.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: flower
+    name: Flower
+    price: 8000
+    isBuy: true
+    slot: 19
+    page: 1
+    permission: ultractw.killeffect.flower
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Flower
+    xRandom: 0.35
+    yRandom: 0.5
+    flowersAmount: 10
+    delayDelete: 40
+  head:
+    id: 8
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: SKULL_ITEM
+      damage: 3
+      meta:
+        ==: ItemMeta
+        meta-type: SKULL
+        display-name: §aHead
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7When the player is killed, this
+          - §7head comes up.
+          - §7
+          - <price>
+          - '§7Requires: §a[VIP]'
+          - §7
+          - <status>
+    type: head
+    name: Head
+    price: 0
+    isBuy: false
+    slot: 21
+    page: 1
+    permission: ultractw.killeffect.head
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Head
+    punchSound: FIREWORK_BLAST
+  snow:
+    id: 9
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: SNOW_BLOCK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aSnow Explosion
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7It blows up the snow and when
+          - §7it falls it changes blocks.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: snow
+    name: Snow
+    price: 8000
+    isBuy: true
+    slot: 20
+    page: 1
+    permission: ultractw.killeffect.snow
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Snow
+    xRandom: 0.35
+    yRandom: 0.5
+    snowsAmount: 20
+    delayDelete: 40
+  cookie:
+    id: 10
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: COOKIE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aCookie Fountain
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7For a while cookies will appear
+          - §7on the enemy's death.
+          - §7
+          - <price>
+          - '§7Requires: §a[VIP§6+§a]'
+          - §7
+          - <status>
+    type: cookie
+    name: Cookie
+    price: 0
+    isBuy: false
+    slot: 22
+    page: 1
+    permission: ultractw.killeffect.cookie
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Cookie
+    xRandom: 0.35
+    yRandom: 0.5
+    roundsDuration: 20
+    delayDelete: 40
+  gift:
+    id: 11
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: GOLD_INGOT
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aGift Explosion
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7When killing an enemy, gifts
+          - §7will appear in the form of
+          - §7an explosion.
+          - §7
+          - <price>
+          - '§7Requieres: §b[MVP]'
+          - §7
+          - <status>
+    type: gift
+    name: Gift
+    price: 0
+    isBuy: false
+    slot: 23
+    page: 1
+    permission: ultractw.killeffect.gift
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Gift
+  heart:
+    id: 12
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: APPLE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aHeart Explosion
+        lore:
+          - §8Kill Effect
+          - §7
+          - §7Particles will appear where
+          - §7the enemy dies.
+          - §7
+          - <price>
+          - '§7Requires: §b[MVP§c+§b]'
+          - §7
+          - <status>
+    type: heart
+    name: Heart
+    price: 0
+    isBuy: false
+    slot: 24
+    page: 1
+    permission: ultractw.killeffect.heart
+    needPermToBuy: false
+    autoGivePermission: ultractw.killeffect.autogive.Heart

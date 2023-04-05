@@ -1,0 +1,15 @@
+name: UltraCaptureTheWool
+main: io.github.Leonardo0013YT.UltraCTW.UltraCTW
+version: 2.3.3
+authors: [Leonardo0013YT, MGDCl]
+description: UltraCTW edited by MGDCl
+softdepend: [ PlaceholderAPI ]
+depend: [ NametagEdit, ProtocolLib, WorldEdit, FastAsyncWorldEdit ]
+commands:
+  stats:
+  ctws:
+    aliases: [ ctwadmin ]
+  ctw:
+    aliases: [ dcl ]
+  leave:
+    aliases: [ salir ]
