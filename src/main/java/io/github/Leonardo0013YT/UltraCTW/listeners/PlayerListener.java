@@ -31,6 +31,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -77,10 +79,15 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         plugin.getLvl().checkUpgrade(p);
         Utils.updateSB(p);
-        if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isBungeeModeAutoJoin() && plugin.getGm().getSelectedGame() != null) {
+        /*if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isBungeeModeAutoJoin() && plugin.getGm().getSelectedGame() != null) {
             Game game = plugin.getGm().getSelectedGame();
             plugin.getGm().addPlayerGame(p, game.getId());
-        }
+        }*/
+        /*Game game = plugin.getGm().getSelectedGame();
+        if (game.isState(State.GAME) && plugin.getGm().getSelectedGame() != null) {
+            plugin.getGm().addPlayerGame(p, game.getId());
+            p.sendMessage("Enviandote a la partida Mini01");
+        }*/
     }
 
     @EventHandler
@@ -485,7 +492,7 @@ public class PlayerListener implements Listener {
             team.sendMessage(" §a➤ §e¡" + team.getColor() + p.getDisplayName() + " recogió la " + c + "§lLANA ⬛§e!");
             team.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió la " + c + "§lLANA ⬛§e!" , 20, 40, 20);
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
-            NametagEdit.getApi().setSuffix(p, c + " ⬛ ");
+            NametagEdit.getApi().setSuffix(p, c + " ░ ");
             ChatColor finalC = c;
             others.forEach(t -> t.sendMessage(" §c§l! ! " + team.getColor() + p.getDisplayName() + " recogió tu " + finalC + "§lLANA ⬛" + " §c§l! !"));
             others.forEach(t -> t.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió tu " + finalC + "§lLANA ⬛§e!", 20, 40, 20));

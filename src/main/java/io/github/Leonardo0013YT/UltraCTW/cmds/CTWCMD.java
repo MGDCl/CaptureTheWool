@@ -114,7 +114,7 @@ public class CTWCMD implements CommandExecutor {
                         p.sendMessage(plugin.getLang().get("messages.maxPlayers"));
                         return true;
                     }
-                    p.sendMessage("§7[§eCTW§7] §7Conectando a §8Mini01...");
+                    p.sendMessage("§7[§eCTW§7] §7Conectando a §a" + selected2.getName());
                     plugin.getGm().addPlayerGame(p, selected2.getId());
                     break;
                 case "kitsmenu":

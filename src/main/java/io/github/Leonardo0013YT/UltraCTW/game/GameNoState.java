@@ -100,6 +100,9 @@ public class GameNoState implements Game {
         NametagEdit.getApi().clearNametag(p);
         Game selected3 = plugin.getGm().getSelectedGame();
         plugin.getGem().createTeamsMenu(p, selected3);
+        if (isState(State.WAITING) || isState(State.STARTING)) {
+            sendGameMessage("§f¡§a" + p.getName() + " §ese ha unido §7(§b" + selected3.getPlayers().size() + "§7/§b" + selected3.getMax() + "§7)§f!");
+        }
         p.sendMessage("§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
         UltraCTW.get().getVc().getNMS().sendActionBar(p, "§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
     }
@@ -315,6 +318,16 @@ public class GameNoState implements Game {
             }
             ctw.addCoins(plugin.getCm().getGCoinsWins());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpWin());
+            //Todo lang
+            w.sendMessage("§a§m§l---------------------------------------------");
+            w.sendMessage("§7");
+            w.sendMessage("§7            §a§lResumen de recompensas          §7");
+            w.sendMessage("§7");
+            w.sendMessage("§7Has obtenido:");
+            w.sendMessage("§7• §6Monedas: +" + plugin.getCm().getGCoinsWins());
+            w.sendMessage("§7• §bExp: +" + plugin.getCm().getXpWin());
+            w.sendMessage("§7");
+            w.sendMessage("§a§m§l---------------------------------------------");
             ctw.setWins(ctw.getWins() + 1);
             plugin.getLvl().checkUpgrade(w);
             plugin.getWem().execute(this, w, ctw.getWinEffect());
