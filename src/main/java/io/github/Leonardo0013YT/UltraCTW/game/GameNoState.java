@@ -353,7 +353,7 @@ public class GameNoState implements Game {
                 }
                 if (count == 5 || count == 4 || count == 3 || count == 2 || count == 1 ) {
                     for(Player on : cached){
-                        plugin.getVc().getReflection().sendTitle( "§fPròximo mapa: §a" + g.getName() ,"§fNueva partida en:§c " + count, 0, 40, 0, on);
+                        plugin.getVc().getReflection().sendTitle( "§fPròximo mapa: §a§l" + g.getName() ,"§fNueva partida en:§c§l " + count, 0, 40, 0, on);
                     }
                 }
                 count--;
