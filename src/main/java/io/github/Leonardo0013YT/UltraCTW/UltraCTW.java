@@ -5,10 +5,7 @@ import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.Leonardo0013YT.UltraCTW.adapters.ICTWPlayerAdapter;
-import io.github.Leonardo0013YT.UltraCTW.cmds.CTWCMD;
-import io.github.Leonardo0013YT.UltraCTW.cmds.LeaveCommand;
-import io.github.Leonardo0013YT.UltraCTW.cmds.SetupCMD;
-import io.github.Leonardo0013YT.UltraCTW.cmds.StatsCMD;
+import io.github.Leonardo0013YT.UltraCTW.cmds.*;
 import io.github.Leonardo0013YT.UltraCTW.config.Settings;
 import io.github.Leonardo0013YT.UltraCTW.controllers.VersionController;
 import io.github.Leonardo0013YT.UltraCTW.controllers.WorldController;
@@ -148,7 +145,8 @@ public class UltraCTW extends JavaPlugin {
         new ProtocolLib(this);
         getCommand("ctws").setExecutor(new SetupCMD(this));
         getCommand("ctw").setExecutor(new CTWCMD(this));
-        getCommand(("leave")).setExecutor(new LeaveCommand(this));
+        getCommand("leave").setExecutor(new LeaveCommand(this));
+        getCommand("join").setExecutor(new JoinCommand(this));
         if (cm.isStatsCMD()) {
             getCommand("stats").setExecutor(new StatsCMD(this));
         }

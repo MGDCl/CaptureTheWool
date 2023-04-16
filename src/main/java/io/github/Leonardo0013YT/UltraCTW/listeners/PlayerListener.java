@@ -213,11 +213,12 @@ public class PlayerListener implements Listener {
         Block b = e.getBlock();
         Location l = b.getLocation();
         if (g.getWools().containsKey(l)) {
-            e.setCancelled(true);
-            b.setType(Material.AIR);
-            ItemStack i = g.getWools().get(l);
+            //e.setCancelled(true);
+            b.setType(Material.WOOL);
+            NametagEdit.getApi().setSuffix(p, "");
+            /*ItemStack i = g.getWools().get(l);
             l.getWorld().dropItemNaturally(l, i);
-            g.getWools().remove(l);
+            g.getWools().remove(l);*/
             return;
         }
         if (plugin.getCm().getBreakBypass().contains(l.getBlock().getType().name())) {
@@ -306,7 +307,7 @@ public class PlayerListener implements Listener {
             ChatColor to = team.getWools().get(l);
             if (!to.equals(c)) {
                 e.setCancelled(true);
-                p.sendMessage("§c¡Este no es el lugar correcto para la " + c + "§lLANA ⬛§c!" + to.name());
+                p.sendMessage("§c¡Este no es el lugar correcto para la " + c + "§lLANA ⬛§c!");
                 return;
             }
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);

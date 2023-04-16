@@ -94,9 +94,14 @@ public class GameNoState implements Game {
         inLobby.add(p);
         cached.add(p);
         players.add(p);
-        givePlayerItems(p);
         Utils.updateSB(p);
         checkStart();
+        p.setGameMode(GameMode.SPECTATOR);
+        NametagEdit.getApi().clearNametag(p);
+        Game selected3 = plugin.getGm().getSelectedGame();
+        plugin.getGem().createTeamsMenu(p, selected3);
+        p.sendMessage("§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
+        UltraCTW.get().getVc().getNMS().sendActionBar(p, "§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
     }
 
     @Override
@@ -194,7 +199,7 @@ public class GameNoState implements Game {
                 sendGameMessage(plugin.getLang().get(null, "messages.starting").replaceAll("<starting>", String.valueOf(starting)).replaceAll("<s>", (starting > 1) ? "s" : ""));
                 sendGameSound(XSound.BLOCK_NOTE_BLOCK_PLING.parseSound());
                 for(Player on : cached){
-                    UltraCTW.get().getVc().getNMS().sendActionBar(on, (plugin.getLang().get(null, "messages.starting").replaceAll("<starting>", String.valueOf(starting)).replaceAll("<s>", (starting > 1) ? "s" : ""))); 
+                    UltraCTW.get().getVc().getNMS().sendActionBar(on, (plugin.getLang().get(null, "messages.starting").replaceAll("<starting>", String.valueOf(starting)).replaceAll("<s>", (starting > 1) ? "s" : "")));
                 }
             }
             if (starting == 29 || starting == 14 || starting == 9 || starting == 0) {
@@ -207,11 +212,12 @@ public class GameNoState implements Game {
                 checkTeamBalance();
                 for (String s : plugin.getLang().getList("messages.start")) {
                     sendGameMessage(s);
-    
+
                 }
                 for (Player on : cached) {
                     on.setFlying(false);
                     on.setAllowFlight(false);
+                    on.setGameMode(GameMode.SURVIVAL);
                     CTWPlayer ctw = plugin.getDb().getCTWPlayer(on);
                     ctw.setPlayed(ctw.getPlayed() + 1);
                     Team t = getTeamPlayer(on);
@@ -247,7 +253,7 @@ public class GameNoState implements Game {
             /*for(Player on : cached){
                 UltraCTW.get().getVc().getNMS().sendActionBar(on, "§a§l¡Estás jugando a Captura la lana!");
             }*/
-            
+
         }
     }
 
@@ -317,41 +323,32 @@ public class GameNoState implements Game {
         //plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle"), 0, 60, 0, team.getMembers());
         plugin.getVc().getReflection().sendTitle(team.getColor() + "§l¡VICTORIA!", team.getColor() + "¡El equipo " + gw.getWinner() + " ha ganado!", 20, 60, 20, team.getMembers());
         ArrayList<Player> back = new ArrayList<>(cached);
-        
+
         //Todo enviar mensaje de lanas capturas
 
         new BukkitRunnable() {
-			int count = 9;
-			@Override
-			public void run() {
-				if(count==0) {
-					cancel();
-					return;
-				}
+            int count = 9;
+            Game g = plugin.getGm().getSelectedGame();
+            @Override
+            public void run() {
+                if(count==0) {
+                    cancel();
+                    return;
+                }
                 for(Player on : cached){
                     on.sendMessage("§7[§eCTW§7] §eUna nueva partida comienza en §a"+ count + "§e...");
                 }
-				count--;
-			}
-		}.runTaskTimer(plugin, 20L, 20L);
-        
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isBungeeModeKickOnFinish()) {
-                    for (Player on : back) {
-                        if (on == null || !on.isOnline()) continue;
-                    }
-                } else {
-                    for (Player on : back) {
-                        if (on == null || !on.isOnline()) continue;
-                        plugin.getGm().removePlayerGame(on, true);
-                        on.sendMessage("§7[§eCTW§7] §eBuscando partida disponible...");
+                if (count == 5 || count == 4 || count == 3 || count == 2 || count == 1 ) {
+                    for(Player on : cached){
+                        plugin.getVc().getReflection().sendTitle( "§fPròximo mapa: §a" + g.getName() ,"§fNueva partida en:§c " + count, 0, 40, 0, on);
                     }
                 }
+                count--;
             }
-        }.runTaskLater(plugin, 20 * 10);
-        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this::reset, 20 * 12);
+        }.runTaskTimer(plugin, 20L, 20L);
+
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this::reset, 20 * 13);
+
         if (plugin.getCm().isAutoJoinFinish()) {
             new BukkitRunnable() {
                 @Override
@@ -363,7 +360,7 @@ public class GameNoState implements Game {
                         on.sendMessage("§7[§eCTW§7] §e¡Fuiste enviado a una nueva partida!");
                     }
                 }
-            }.runTaskLater(plugin, 20 * 15);
+            }.runTaskLater(plugin, 20 * 10);
         }
     }
 
@@ -445,7 +442,7 @@ public class GameNoState implements Game {
         addPlayerTeam(p, t);
         p.sendMessage(plugin.getLang().get("messages.randomTeam").replaceAll("<team>", t.getName()));
         UltraCTW.get().getVc().getNMS().sendActionBar(p, "§e§lFuiste enviado al equipo "+ t.getName());
-        
+
     }
 
     @Override
@@ -461,6 +458,7 @@ public class GameNoState implements Game {
             Utils.updateSB(p);
             inGame.add(p);
             inLobby.remove(p);
+            p.setGameMode(GameMode.SURVIVAL);
             for (Location k : npcKits) {
                 plugin.getSkm().spawnShopKeeper(p, k, ctw.getShopKeeper(), NPCType.KITS);
             }

@@ -1,6 +1,6 @@
-## Removed some things that are not used, in the config and in the plugin code.
-## If you need help you can consult the discord server: https://discord.com/invite/3RRWVTGveD
-## Thanks for using this plugin!
+# Removed some things that are not used, in the config and in the plugin code.
+# If you need help you can consult the discord server: https://discord.com/invite/3RRWVTGveD
+# Thanks for using this plugin!
 debugMode: false
 addons:
   placeholdersAPI: true
@@ -17,6 +17,7 @@ whitelistedCMD:
   - /leave
   - /msg
   - /stats
+  - /join
 effectsOnKill:
   - "REGENERATION:2:5"
 redPanel:
@@ -53,24 +54,19 @@ gameDefaults:
     win: 10
     assists: 2
     capture: 10
-## Does not remove the wool to avoid collection spam
+# Does not remove the wool to avoid collection spam
   noDrop:
     - WOOL
 bounty:
   min: 90
   max: 110
   perKill: 0.10
-## Replace the commands you will use
+# Replace the commands you will use
 items:
   lobby:
     enabled: false
     slot: 4
     cmd: /perfil
-items2:
-  lobby:
-    enabled: false
-    slot: 0
-    cmd: /ctw join
 materials:
   lobby: DIAMOND
   closeitem: BOOK
@@ -81,7 +77,7 @@ win-commands:
 level-commands:
   enabled: false
   cmds:
-    - "say <player> is a pro!"
+    - "say <player> level up!"
 death-commands:
   enabled: false
   cmds:
