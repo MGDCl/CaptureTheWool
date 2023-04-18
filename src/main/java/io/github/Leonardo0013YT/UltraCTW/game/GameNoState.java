@@ -104,7 +104,6 @@ public class GameNoState implements Game {
             sendGameMessage("§f¡§a" + p.getName() + " §ese ha unido §7(§b" + selected3.getPlayers().size() + "§7/§b" + selected3.getMax() + "§7)§f!");
         }
         p.sendMessage("§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
-        UltraCTW.get().getVc().getNMS().sendActionBar(p, "§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
     }
 
     @Override
@@ -202,7 +201,7 @@ public class GameNoState implements Game {
                 sendGameMessage(plugin.getLang().get(null, "messages.starting").replaceAll("<starting>", String.valueOf(starting)).replaceAll("<s>", (starting > 1) ? "s" : ""));
                 sendGameSound(XSound.BLOCK_NOTE_BLOCK_PLING.parseSound());
                 for(Player on : cached){
-                    UltraCTW.get().getVc().getNMS().sendActionBar(on, (plugin.getLang().get(null, "messages.starting").replaceAll("<starting>", String.valueOf(starting)).replaceAll("<s>", (starting > 1) ? "s" : "")));
+                    sendGameActionBar(on, (plugin.getLang().get(null, "messages.starting").replaceAll("<starting>", String.valueOf(starting)).replaceAll("<s>", (starting > 1) ? "s" : "")));
                 }
             }
             if (starting == 29 || starting == 14 || starting == 9 || starting == 0) {
@@ -239,7 +238,7 @@ public class GameNoState implements Game {
                         for (Location s : npcShop) {
                             plugin.getSkm().spawnShopKeeper(on, s, ctw.getShopKeeper(), NPCType.SHOP);
                         }
-                        NametagEdit.getApi().setNametag(on, t.getColor() + "", "");
+                        NametagEdit.getApi().setNametag(on, t.getName() + t.getColor() + "", "");
                         for (Player c : cached) {
                             c.showPlayer(on);
                             on.showPlayer(c);
@@ -252,11 +251,14 @@ public class GameNoState implements Game {
         if (isState(State.GAME)) {
             time++;
             teams.values().forEach(Team::updateSpawner);
-
-            /*for(Player on : cached){
-                UltraCTW.get().getVc().getNMS().sendActionBar(on, "§a§l¡Estás jugando a Captura la lana!");
-            }*/
-
+            for(Player on : cached){
+                Team t = getTeamPlayer(on);
+                if (t == null) {
+                    sendGameActionBar(on, "§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
+                } else {
+                    sendGameActionBar(on, t.getColor() + "§lESTÀS EN EL EQUIPO §l" + t.getName());
+                }
+            }
         }
     }
 
@@ -370,7 +372,7 @@ public class GameNoState implements Game {
                         if (on == null || !on.isOnline()) continue;
                         Game g = plugin.getGm().getSelectedGame();
                         plugin.getGm().addPlayerGame(on, g.getId());
-                        on.sendMessage("§7[§eCTW§7] §e¡Fuiste enviado a una nueva partida!");
+                        on.sendMessage("§7[§eCTW§7] §e¡Fuiste enviado a la partida §a" + g.getName() + "§e!");
                     }
                 }
             }.runTaskLater(plugin, 20 * 10);
@@ -386,6 +388,12 @@ public class GameNoState implements Game {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             ctw.addCoins(plugin.getCm().getGCoinsKills());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpKill());
+            ItemStack i = new ItemStack(322, 1);
+            if (p.getInventory().firstEmpty() == -1) {
+                p.sendMessage("Tu inventario estaba lleno, no recibiste la recompensa de Asesinato");
+            } else {
+                p.getInventory().addItem(i);
+            }
             if (bowKill) {
                 ctw.setBowKills(ctw.getBowKills() + 1);
             } else {

@@ -51,20 +51,10 @@ messages:
   noPlaceHopper: "&cYou can't put hoppers in this place."
   noYourWool: "&cThis is not a wool of your team, contact admins about this is not configured."
   maxPlayers: "&aThe maximum number of people has been reached."
-  startPhase: "&eThe &a<phase> &ehas been applied."
   winCoins: "&8+&b<coins> &6Coins"
   onlyBreakPlaced: "&cYou can only break blocks put in the game."
   alreadyStart: "&cThe game has already started."
   needItemHand: "&cYou must have the item in your hand."
-  buyedTeam: "&7<player> &6purchased &e<enchant>&6 for your team."
-  buyedOtherTeam: "&7<player>&c purchased &e<enchant>&c for other team."
-  buyed: "&6You have purchased &e<enchant>&6 correctly."
-  maxImprovement: "&cYou've reached the maximum of this improvement"
-  buyLastLevel: "&cYou must buy the previous level."
-  breakFlag: "&7<color><player> &eto steal your flag."
-  stealFlag: "&7<color><player>&e steal the <team>&e team flag."
-  noBreakFlag: "&cYou can't break your own flag."
-  noPlaceInGrace: "&cYou can't build bridges in grace time."
   limit: "&cYou can't build higher than the limit."
   balancedTeam: "&aThe teams were unbalanced, now you're part of the <team> Team&a."
   multiplier: "&aThe &b<type> &amultiplier has been activated by &6<name> &aof &x<amount> &afor &e<time>&a."
@@ -304,16 +294,6 @@ scoreboards:
       &emc.spigot.net
   waiting:
     title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &7
-      &fMap: &a<map>
-      &fExp: &a<now>&7/&c<leveUp>
-      &7
-      &fPlayers: &a<players>/<max>
-      &7
-      &emc.spigot.net
-  waitingFlag:
-    title: "&e&lCAPTURE THE FLAG"
     lines: |-
       &7
       &fMap: &a<map>

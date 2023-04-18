@@ -177,7 +177,7 @@ public class ScoreboardManager {
                 .replace("<T1Wools>", Utils.getWoolsString(t1))
                 .replace("<T2Wools>", Utils.getWoolsString(t2))
                 .replace("<T1p>", String.valueOf(t1.getTeamSize()))
-                .replace("<T2p>", String.valueOf(t1.getTeamSize()))
+                .replace("<T2p>", String.valueOf(t2.getTeamSize()))
                 .replace("<T1>", plugin.getLang().get("scoreboards.team").replace("<TColor>", t1.getColor() + "").replace("<TName>", t1.getName()))
                 .replace("<T2>", plugin.getLang().get("scoreboards.team").replace("<TColor>", t2.getColor() + "").replace("<TName>", t2.getName()))
                 .replace("<team>", team.getName())

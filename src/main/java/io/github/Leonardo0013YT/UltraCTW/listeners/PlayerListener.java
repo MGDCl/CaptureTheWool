@@ -488,12 +488,12 @@ public class PlayerListener implements Listener {
         if (!team.getInProgress().get(c).contains(p.getUniqueId())) {
             team.getInProgress().get(c).add(p.getUniqueId());
             team.sendMessage(" §a➤ §e¡" + team.getColor() + p.getDisplayName() + " recogió la " + c + "§lLANA ⬛§e!");
-            team.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió la " + c + "§lLANA ⬛§e!" , 20, 40, 20);
+            team.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió la " + c + "§lLANA ⬛§e!" , 0, 40, 0);
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, c + " ░ ");
             ChatColor finalC = c;
             others.forEach(t -> t.sendMessage(" §c§l! ! " + team.getColor() + p.getDisplayName() + " recogió tu " + finalC + "§lLANA ⬛" + " §c§l! !"));
-            others.forEach(t -> t.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió tu " + finalC + "§lLANA ⬛§e!", 20, 40, 20));
+            others.forEach(t -> t.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió tu " + finalC + "§lLANA ⬛§e!", 0, 40, 0));
             others.forEach(t -> t.playSound(plugin.getCm().getPickUpOthers(), 1.0f, 1.0f));
         }
     }
