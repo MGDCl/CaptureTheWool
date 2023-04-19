@@ -238,7 +238,7 @@ public class GameNoState implements Game {
                         for (Location s : npcShop) {
                             plugin.getSkm().spawnShopKeeper(on, s, ctw.getShopKeeper(), NPCType.SHOP);
                         }
-                        NametagEdit.getApi().setNametag(on,t.getColor() + "", "");
+                        NametagEdit.getApi().setNametag(on,t.getPrefix() + " " + t.getColor() + "", "");
                         for (Player c : cached) {
                             c.showPlayer(on);
                             on.showPlayer(c);
@@ -319,7 +319,6 @@ public class GameNoState implements Game {
             }
             ctw.addCoins(plugin.getCm().getGCoinsWins());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpWin());
-            //Todo lang
             for (String s : plugin.getLang().getList("messages.rewards")){
                 w.sendMessage(s.replaceAll("&", "§").replaceAll("<coins>", plugin.getCm().getGCoinsWins() + "").replaceAll("<xp>", plugin.getCm().getXpWin() + ""));
             }
@@ -477,7 +476,7 @@ public class GameNoState implements Game {
             for (Location s : npcShop) {
                 plugin.getSkm().spawnShopKeeper(p, s, ctw.getShopKeeper(), NPCType.SHOP);
             }
-            NametagEdit.getApi().setNametag(p, team.getColor() + "", "");
+            NametagEdit.getApi().setNametag(p, team.getPrefix() + " " +team.getColor() + "", "");
             cached.forEach(o -> o.showPlayer(p));
         }
     }

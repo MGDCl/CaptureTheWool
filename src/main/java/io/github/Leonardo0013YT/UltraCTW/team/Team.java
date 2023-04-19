@@ -35,6 +35,7 @@ public class Team {
     private int kills;
     private Location spawn;
     private String name;
+    private String prefix;
 
     public Team(UltraCTW plugin, Game game, String path, int id) {
         this.plugin = plugin;
@@ -44,6 +45,7 @@ public class Team {
         this.spawn = Utils.getStringLocation(plugin.getArenas().get(path + ".spawn"));
         this.color = ChatColor.valueOf(plugin.getArenas().get(path + ".color"));
         this.name = plugin.getLang().get("teams." + color.name().toLowerCase());
+        this.prefix = plugin.getLang().get("prefix." + color.name().toLowerCase());
         for (String c : plugin.getArenas().getConfig().getConfigurationSection(path + ".spawners").getKeys(false)) {
             String nowPath = path + ".spawners." + c;
             spawners.put(Utils.getStringLocation(plugin.getArenas().get(nowPath + ".loc")), ChatColor.valueOf(plugin.getArenas().get(nowPath + ".color")));

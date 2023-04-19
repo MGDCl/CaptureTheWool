@@ -723,7 +723,7 @@ public class PlayerListener implements Listener {
         p.teleport(team.getSpawn());
         p.setFoodLevel(20);
         plugin.getKm().giveDefaultKit(p, g, team);
-        NametagEdit.getApi().setNametag(p, team.getColor() + "", "");
+        NametagEdit.getApi().setNametag(p, team.getPrefix() + " " + team.getColor() + "", "");
         for (ChatColor c : team.getColors()) {
             if (team.getInProgress().get(c).isEmpty()) continue;
             team.getInProgress().get(c).remove(p.getUniqueId());

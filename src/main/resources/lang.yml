@@ -81,14 +81,6 @@ messages:
   noBreak: "&cYou can't break here."
   noPlace: "&cYou can't place here."
   lost: "<tcolor><player> dropped the <color>wool <wool>&e!"
-  placeTeam:
-  - ""<center>&7"
-  - ""<center><tcolor><player> caught the <color>wool <wool>&c&l!"
-  - ""<center>&7"
-  capturedWool:
-  - ""<center>&7"
-  - ""<center><tcolor><player> caught the <color>wool <wool>&c&l!"
-  - ""<center>&7"
   incorrectPlace: "&cThis is not the right place for <wool>&c wool."
   alreadyIngame: "&cYou're already in a game."
   leaveGame: "&cYou're out of the game."
@@ -116,6 +108,14 @@ messages:
   newPlayer: "§f¡§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
   play: "&fUse &e&l/play &f to join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
+  placeTeam:
+    - "<center>&7"
+    - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
+    - "<center>&7"
+  capturedWool:
+    - "<center>&7"
+    - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
+    - "<center>&7"
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
@@ -156,6 +156,14 @@ messages:
     - '§7• §bXp: <xp>'
     - "<center>&7"
     - "<center>&a&m&l---------------------------------------------"
+  help:
+    - "&co&m----------------------------------------------o"
+    - "&e"
+    - "§a/ctw join §7- §eEnter a game"
+    - "§a/leave §7- §eLeave the game"
+    - "§a/stats §7- §eShow your stats"
+    - "&e"
+    - "§co§m----------------------------------------------o"
 topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
 holograms:
   kits:
@@ -285,11 +293,11 @@ titles:
     title: '&fNext map: &a&l<map>'
     subtitle: '&fNew game in:&c&l <time>'
   startGame:
-    title: '&e&lMINIGAMESDCl NETWORK'
-    subtitle: '&e&lCAPTURE THE WOOL!'
+    title: '&e&lCAPTURE THE WOOL'
+    subtitle: '&e&lHAVE FUN!'
   levelup:
     title: '&e&lNEW LEVEL'
-    subtitle: '&7you have leveled up <level>'
+    subtitle: '&7You have leveled up <level>'
 actionbar:
   noTeam: "&fUse &e§l/join §fto join a team!"
   myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
@@ -316,6 +324,23 @@ teams:
   white: "&fWhite"
   yellow: "&eYellow"
   gold: "&6Gold"
+prefix:
+  aqua: "&b[A]"
+  dark_blue: "&1[B]"
+  black: "&0[B]"
+  blue: "&9[B]"
+  dark_aqua: "&3[A]"
+  dark_red: "&4[R]"
+  red: "&c[R]"
+  dark_gray: "&8[G]"
+  gray: "&7[G]"
+  dark_green: "&2[G]"
+  green: "&a[G]"
+  light_purple: "&d[P]"
+  dark_purple: "&5[P]"
+  white: "&f[W]"
+  yellow: "&e[Y]"
+  gold: "&6[G]"
 items:
   leave:
     nameItem: "&cLeave"

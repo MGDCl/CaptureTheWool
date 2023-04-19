@@ -401,14 +401,10 @@ public class CTWCMD implements CommandExecutor {
         return false;
     }
 
-    private void sendHelp(CommandSender s) {
-        s.sendMessage("§co§m----------------------------------------------o");
-        s.sendMessage("§e");
-        s.sendMessage("§a/ctw join §7- §eIngresar a una partida");
-        s.sendMessage("§a/leave §7- §eAbandonar la partida");
-        s.sendMessage("§a/stats §7- §eMuestra tus estadísticas ");
-        s.sendMessage("§e");
-        s.sendMessage("§co§m----------------------------------------------o");
+    private void sendHelp(CommandSender p) {
+        for (String s : plugin.getLang().getList("messages.help")){
+            p.sendMessage(s.replaceAll("&", "§"));
+        }
     }
 
 }

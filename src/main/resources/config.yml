@@ -4,6 +4,7 @@
 debugMode: false
 addons:
   placeholdersAPI: true
+# Set the main lobby with /ctws setmainlobby
 mainLobby: null
 mobGriefing: false
 redPanelInLocked: true
@@ -19,7 +20,7 @@ whitelistedCMD:
   - /stats
   - /join
 effectsOnKill:
-  - "REGENERATION:2:5"
+  - "SPEED:2:2"
 redPanel:
   material: STAINED_GLASS_PANE
   data: 14

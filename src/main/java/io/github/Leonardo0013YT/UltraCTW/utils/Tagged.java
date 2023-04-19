@@ -65,8 +65,7 @@ public class Tagged {
             }
             double damage = damagers.get(on);
             double percent = (damage * 100) / maxHealth;
-            on.sendMessage(UltraCTW.get().getLang().get(on, "assists").replaceAll("<percent>", f.format(percent)).replaceAll("<name>", damaged.getName()));
-            on.sendMessage("Has colaborado en el daño " + f.format(percent) + " hacia el jugador" + damaged.getName());
+            on.sendMessage(UltraCTW.get().getLang().get(on, "messages.assists").replaceAll("<percent>", f.format(percent)).replaceAll("<name>", damaged.getName()));
             CTWPlayer up = UltraCTW.get().getDb().getCTWPlayer(on);
             up.addCoins(UltraCTW.get().getCm().getGCoinsAssists());
             up.setXp(up.getXp() + UltraCTW.get().getCm().getXpAssists());

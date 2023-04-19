@@ -167,6 +167,9 @@ public class Placeholders extends PlaceholderExpansion {
         if (id.equals("kills")) {
             return "" + sw.getKills();
         }
+        if (id.equals("assists")){
+            return "" + sw.getAssists();
+        }
         if (id.equals("bow_kills")) {
             return "" + sw.getBowKills();
         }

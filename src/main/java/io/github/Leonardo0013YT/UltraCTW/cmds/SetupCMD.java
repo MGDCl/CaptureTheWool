@@ -290,17 +290,17 @@ public class SetupCMD implements CommandExecutor {
 
     private void sendHelp(CommandSender s) {
         s.sendMessage("§7§m--------------------------------");
-        s.sendMessage("§e/ctws setmainlobby §7- §aEstablecer el Lobby principal.");
-        s.sendMessage("§e/ctws create <name> <schematic> §7- §aCrear un mapa.");
-        s.sendMessage("§e/ctws delete <name> §7- §aBorrar el mapa.");
-        s.sendMessage("§e/ctws addshop §7- §aEstablecer el NPC de Tienda");
-        s.sendMessage("§e/ctws addkits §7- §aEstablecer el NPC de kit.");
-        s.sendMessage("§e/ctw addshopitem <price> §7- §aDebes tener el artículo en tu mano.");
-        s.sendMessage("§e/ctws kits <name> §7- §aCrear un kit.");
-        s.sendMessage("§e/ctws taunts <name> §7- §aCrear una burla.");
-        s.sendMessage("§e/ctws trails <name> §7- §aCrear una partícila.");
-        s.sendMessage("§e/ctws killsounds <name> §7- §aCrear un nuevo sonido.");
-        s.sendMessage("§e/ctws inventory <type> §7- §aEditar el inventario.");
+        s.sendMessage("§e/ctws setmainlobby §7- §aSet main lobby.");
+        s.sendMessage("§e/ctws create <name> <schematic> §7- §aCreate a map.");
+        s.sendMessage("§e/ctws delete <name> §7- §aDelete a map.");
+        s.sendMessage("§e/ctws addshop §7- §aSet the shop npc.");
+        s.sendMessage("§e/ctws addkits §7- §aSet the shop kit.");
+        s.sendMessage("§e/ctw addshopitem <price> §7- §aYou must have the item in your hand.");
+        s.sendMessage("§e/ctws kits <name> §7- §aCreate a kit.");
+        s.sendMessage("§e/ctws taunts <name> §7- §aCreate a taunt.");
+        s.sendMessage("§e/ctws trails <name> §7- §aCreate a trail.");
+        s.sendMessage("§e/ctws killsounds <name> §7- §aCreate a sound.");
+        s.sendMessage("§e/ctws inventory <type> §7- §aEdit an inventory.");
         s.sendMessage("§7§m--------------------------------");
     }
 

@@ -80,9 +80,15 @@ messages:
   noEntry: "&cYou can't join in here."
   noBreak: "&cYou can't break here."
   noPlace: "&cYou can't place here."
-  lost: "&e¡<tcolor><player> &edejo caer la <color>Lana <wool>&e! edited"
-  placeTeam: "&eYour team has captured the <place>&e wool."
-  capturedWool: "&eThe player &a<player> &ehas captured the <wool> &eWool."
+  lost: "<tcolor><player> dropped the <color>wool <wool>&e!"
+  placeTeam:
+  - ""<center>&7"
+  - ""<center><tcolor><player> caught the <color>wool <wool>&c&l!"
+  - ""<center>&7"
+  capturedWool:
+  - ""<center>&7"
+  - ""<center><tcolor><player> caught the <color>wool <wool>&c&l!"
+  - ""<center>&7"
   incorrectPlace: "&cThis is not the right place for <wool>&c wool."
   alreadyIngame: "&cYou're already in a game."
   leaveGame: "&cYou're out of the game."
@@ -100,8 +106,16 @@ messages:
   deselectKillEffect: "&aYou've deselected your current killeffect."
   deselectWinDance: "&aYou've deselected your current windances."
   noOther: "&cYou can't enter another game if one is already selected."
-  otherpick: " &c&l! ! <tcolor><player> &erecogió tu <color>&lLana <wool> &c&l! !"
-  teampick: " &a➤ &e¡<tcolor><player> &erecogió la <color>&lLana <wool>&e!"
+  otherpick: " &c&l! ! <tcolor><player> &epicked up your <color>&lwool <wool> &c&l! !"
+  teampick: " &a➤ &e¡<tcolor><player> &ecollected the <color>wool <wool>&e!"
+  notInGame: '&cYou are not in a game!'
+  alreadyTeam: '&cYou have already chosen a team!'
+  joinGame: '&7Connecting to &a<game>'
+  ending: '&eA new game starts in &c<count>&e segundo<s>.'
+  newGame: 'You were sent to the game &a<map>&e!'
+  newPlayer: "§f¡§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
+  play: "&fUse &e&l/play &f to join a team"
+  levelup: 'The player &a&l<player> &7leveled up to level <level>'
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
@@ -123,6 +137,23 @@ messages:
     - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
     - "<center>&6&l2nd Killer &7- <color2><top2> &7- <number2>"
     - "<center>&c&l3rt Killer &7- <color3><top3> &7- <number3>"
+    - "<center>&7"
+    - "<center>&a&m&l---------------------------------------------"
+  newLevel:
+    - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+    - "<center>&e&lCONGRATULATIONS!"
+    - "<center>&7"
+    - "<center>&7You have reached <level>"
+    - "<center>&7"
+    - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+  rewards:
+    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&7"
+    - "<center>&a&lRewards Summary"
+    - "<center>&7"
+    - '&7You have obtained:'
+    - '§7• §6Coins: <coins>'
+    - '§7• §bXp: <xp>'
     - "<center>&7"
     - "<center>&a&m&l---------------------------------------------"
 topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
@@ -224,14 +255,14 @@ setup:
     finishEdit: "&aYou have edited the menu correctly."
 titles:
   dropped:
-    title: "&a&lDROPPED"
-    subtitle: "&fDrop the wool <wool>"
+    title: ""
+    subtitle: "&c&l<tcolor><player> &edropped <wool>"
   teampick:
     title: ""
-    subtitle: "&e¡<tcolor><player> &erecogió la Lana <wool>&e¡"
+    subtitle: "&e<tcolor><player> &epicked up the Wool <wool>&e!"
   otherpick:
     title: ""
-    subtitle: "&e¡<tcolor><player> &erecogió tu Lana <wool>&e¡"
+    subtitle: "<tcolor><player> &epicked up your wool <wool>&e¡"
   cancel:
     title: "&cCANCELLED"
     subtitle: "&7"
@@ -239,17 +270,69 @@ titles:
     title: "&c<time>"
     subtitle: "&7"
   captured:
-    title: "<color><player> &lCAPTURED"
-    subtitle: "&fYour team captured <wool>"
+    title: ""
+    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
   win:
     title: "<color>WIN!"
-    subtitle: "&7This team has captured all wools."
+    subtitle: "<tcolor>The <winner> team has won!"
   lose:
-    title: "&c&lLOSE!"
-    subtitle: "&7Game over :c."
+    title: "tcolor>GAME OVER!"
+    subtitle: "<tcolor>The <winner> team has won!"
   otherCaptured:
-    title: "<color>Team <name>"
-    subtitle: "<color><player> &7Captured wool <wool>&7."
+    title: ""
+    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
+  ending:
+    title: '&fNext map: &a&l<map>'
+    subtitle: '&fNew game in:&c&l <time>'
+  startGame:
+    title: '&e&lMINIGAMESDCl NETWORK'
+    subtitle: '&e&lCAPTURE THE WOOL!'
+  levelup:
+    title: '&e&lNEW LEVEL'
+    subtitle: '&7you have leveled up <level>'
+actionbar:
+  noTeam: "&fUse &e§l/join §fto join a team!"
+  myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
+  randomTeam: "&eYou were sent to the team <team>"
+  levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
+  double: '&c&lDOUBLEKILL'
+  three: '&a&lTRIPEKILL'
+  quarter: '&1&lULTRAKILL'
+  penta: '&4&lRAMPAGE!'
+teams:
+  aqua: "&bAqua"
+  dark_blue: "&1Dark Blue"
+  black: "&0Black"
+  blue: "&9Blue"
+  dark_aqua: "&3Dark Aqua"
+  dark_red: "&4Dark Red"
+  red: "&cRed"
+  dark_gray: "&8Dark Gray"
+  gray: "&7Gray"
+  dark_green: "&2Dark Green"
+  green: "&aGreen"
+  light_purple: "&dLight Purple"
+  dark_purple: "&5Dark Purple"
+  white: "&fWhite"
+  yellow: "&eYellow"
+  gold: "&6Gold"
+prefix:
+  aqua: "&b[A]"
+  dark_blue: "&1[B]"
+  black: "&0[B]"
+  blue: "&9[B]"
+  dark_aqua: "&3[A]"
+  dark_red: "&4[R]"
+  red: "&c[R]"
+  dark_gray: "&8[G]"
+  gray: "&7[G]"
+  dark_green: "&2[G]"
+  green: "&a[G]"
+  light_purple: "&d[P]"
+  dark_purple: "&5[P]"
+  white: "&f[W]"
+  yellow: "&e[Y]"
+  gold: "&6[G]"
 items:
   leave:
     nameItem: "&cLeave"
@@ -324,18 +407,17 @@ scoreboards:
   simple-game:
     title: "&e&lCAPTURE THE WOOL"
     lines: |-
+      &fGame time: &a<time> ⌛
+      &fGold: &6<coins> &6⛂⛃
       &7
-      &fTeam: <team>
-      &fExp: &a<now>&7/&c<leveUp>
-      &7
-      <T1>
+      &c➣ <T1> &7<T1p>
       <T1Wools>
       &7
-      <T2>
+      &9➢ <T2> &7<T2p>
       <T2Wools>
       &7
-      &fKills: &a<kills>
-      &fDeaths: &a<deaths>
+      &fKills: &a<kills> ⚔
+      &fDeaths: &c<deaths> ☠
       &7
       &emc.spigot.net
   big-game:
@@ -1442,20 +1524,3 @@ menus:
         &7Save the arena in config
         &7
         &eClick to save!
-teams:
-  aqua: "&bAqua"
-  dark_blue: "&1Dark Blue"
-  black: "&0Black"
-  blue: "&9Blue"
-  dark_aqua: "&3Dark Aqua"
-  dark_red: "&4Dark Red"
-  red: "&cRed"
-  dark_gray: "&8Dark Gray"
-  gray: "&7Gray"
-  dark_green: "&2Dark Green"
-  green: "&aGreen"
-  light_purple: "&dLight Purple"
-  dark_purple: "&5Dark Purple"
-  white: "&fWhite"
-  yellow: "&eYellow"
-  gold: "&6Gold"
