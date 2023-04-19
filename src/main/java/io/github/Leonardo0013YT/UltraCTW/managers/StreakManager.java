@@ -129,24 +129,24 @@ public class StreakManager {
         int amount = getKills(p);
         if (amount == 2) {
             p.playSound(p.getLocation(), plugin.getCm().getStreak2(), 1.0f, 1.0f);
-            UltraCTW.get().getVc().getNMS().sendActionBar(p, "§c§lDOBLEKILL");
+            UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.double"));
             return plugin.getLang().get("streaks.double");
             
 
         }
         if (amount == 3) {
             p.playSound(p.getLocation(), plugin.getCm().getStreak3(), 1.0f, 1.0f);
-            UltraCTW.get().getVc().getNMS().sendActionBar(p, "§a§lTRIPLEKILL");
+            UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.three"));
             return plugin.getLang().get("streaks.three");
         }
         if (amount == 4) {
             p.playSound(p.getLocation(), plugin.getCm().getStreak4(), 1.0f, 1.0f);
-            UltraCTW.get().getVc().getNMS().sendActionBar(p, "§1§lULTRAKILL");
+            UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.quarter"));
             return plugin.getLang().get("streaks.quarter");
         }
         if (amount == 5) {
             p.playSound(p.getLocation(), plugin.getCm().getStreak5(), 1.0f, 1.0f);
-            UltraCTW.get().getVc().getNMS().sendActionBar(p, "§4§lRAMPAGE!");
+            UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.penta"));
             return plugin.getLang().get("streaks.penta");
         }
         return "§a§l";

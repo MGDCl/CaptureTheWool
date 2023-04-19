@@ -19,7 +19,7 @@ public class JoinCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player)sender;
             if (!this.plugin.getGm().isPlayerInGame(p)) {
-                p.sendMessage("§7[§eCTW§7] §c¡No estàs en una partida!");
+                p.sendMessage(plugin.getLang().get("messages.notInGame"));
                 return true;
             }
             if (p.getGameMode() == GameMode.SPECTATOR) {
@@ -31,11 +31,10 @@ public class JoinCommand implements CommandExecutor {
                     p.sendMessage(this.plugin.getLang().get("messages.maxPlayers"));
                     return true;
                 }
-                p.sendMessage("§7[§eCTW§7] §f¡Elige tu equipo!");
                 this.plugin.getGem().createTeamsMenu(p, selected3);
             }
             if (p.getGameMode() == GameMode.SURVIVAL) {
-                p.sendMessage("§7[§eCTW§7] §c¡Ya has elegido un equipo!");
+                p.sendMessage(plugin.getLang().get("messages.alreadyTeam"));
             }
         }
         return false;

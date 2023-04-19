@@ -56,6 +56,7 @@ messages:
   alreadyStart: "&cThe game has already started."
   needItemHand: "&cYou must have the item in your hand."
   limit: "&cYou can't build higher than the limit."
+  incorrectWool: "&cThis is not the right place for wool <wool>!"
   balancedTeam: "&aThe teams were unbalanced, now you're part of the <team> Team&a."
   multiplier: "&aThe &b<type> &amultiplier has been activated by &6<name> &aof &x<amount> &afor &e<time>&a."
   multiplierFinish: "&aThe &b<type> &amultiplier of &6<name> &ahas been end."
@@ -79,7 +80,7 @@ messages:
   noEntry: "&cYou can't join in here."
   noBreak: "&cYou can't break here."
   noPlace: "&cYou can't place here."
-  lost: "&cThe <wool>&c wool catch was lost."
+  lost: "&e¡<tcolor><player> &edejo caer la <color>Lana <wool>&e! edited"
   placeTeam: "&eYour team has captured the <place>&e wool."
   capturedWool: "&eThe player &a<player> &ehas captured the <wool> &eWool."
   incorrectPlace: "&cThis is not the right place for <wool>&c wool."
@@ -99,8 +100,8 @@ messages:
   deselectKillEffect: "&aYou've deselected your current killeffect."
   deselectWinDance: "&aYou've deselected your current windances."
   noOther: "&cYou can't enter another game if one is already selected."
-  otherpick: "&c&lPICKED &fThey picked up your wool <wool>"
-  teampick: "<color>&lPICKED &fThey picked up wool <wool>"
+  otherpick: " &c&l! ! <tcolor><player> &erecogió tu <color>&lLana <wool> &c&l! !"
+  teampick: " &a➤ &e¡<tcolor><player> &erecogió la <color>&lLana <wool>&e!"
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
@@ -225,6 +226,12 @@ titles:
   dropped:
     title: "&a&lDROPPED"
     subtitle: "&fDrop the wool <wool>"
+  teampick:
+    title: ""
+    subtitle: "&e¡<tcolor><player> &erecogió la Lana <wool>&e¡"
+  otherpick:
+    title: ""
+    subtitle: "&e¡<tcolor><player> &erecogió tu Lana <wool>&e¡"
   cancel:
     title: "&cCANCELLED"
     subtitle: "&7"

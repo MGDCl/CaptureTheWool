@@ -77,15 +77,6 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         plugin.getLvl().checkUpgrade(p);
         Utils.updateSB(p);
-        /*if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isBungeeModeAutoJoin() && plugin.getGm().getSelectedGame() != null) {
-            Game game = plugin.getGm().getSelectedGame();
-            plugin.getGm().addPlayerGame(p, game.getId());
-        }*/
-        /*Game game = plugin.getGm().getSelectedGame();
-        if (game.isState(State.GAME) && plugin.getGm().getSelectedGame() != null) {
-            plugin.getGm().addPlayerGame(p, game.getId());
-            p.sendMessage("Enviandote a la partida Mini01");
-        }*/
     }
 
     @EventHandler
@@ -218,12 +209,8 @@ public class PlayerListener implements Listener {
         Block b = e.getBlock();
         Location l = b.getLocation();
         if (g.getWools().containsKey(l)) {
-            //e.setCancelled(true);
             b.setType(Material.WOOL);
             NametagEdit.getApi().setSuffix(p, "");
-            /*ItemStack i = g.getWools().get(l);
-            l.getWorld().dropItemNaturally(l, i);
-            g.getWools().remove(l);*/
             return;
         }
         if (plugin.getCm().getBreakBypass().contains(l.getBlock().getType().name())) {
@@ -312,7 +299,7 @@ public class PlayerListener implements Listener {
             ChatColor to = team.getWools().get(l);
             if (!to.equals(c)) {
                 e.setCancelled(true);
-                p.sendMessage("§c¡Este no es el lugar correcto para la " + c + "§lLANA ⬛§c!");
+                p.sendMessage(plugin.getLang().get("messages.incorrectWool").replaceAll("<wool>", c + "⬛"));
                 return;
             }
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
@@ -321,16 +308,16 @@ public class PlayerListener implements Listener {
             ctw.addCoins(plugin.getCm().getGCoinsCapture());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpCapture());
             ctw.addWoolCaptured();
-            team.sendMessage("§r");
-            team.sendMessage("§r          " + "§c§l¡" + team.getColor() +"§l" + p.getDisplayName() + " §c§lcapturó la " + c + "Lana ⬛§c§l!");
-            team.sendMessage("§r");
+            for (String s : plugin.getLang().getList("messages.placeTeam")){
+                team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
+            }
             team.getCaptured().add(c);
-            team.sendTitle("", "§c§l¡" + team.getColor() + "§l" + p.getDisplayName() + " capturó la " + c + "§lLana ⬛§c§l!", 20, 40, 20);
+            team.sendTitle(plugin.getLang().get("titles.captured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titles.captured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + "⬛"), 0, 30, 10);
             g.getTeams().values().stream().filter(t -> t.getId() != team.getId()).forEach(t -> {
-                t.sendMessage("§r");
-                t.sendMessage("§r          " + "§c§l¡" + team.getColor() +"§l" + p.getDisplayName() + " §c§lcapturó la " + c + "Lana ⬛§c§l!");
-                t.sendMessage("§r");
-                t.sendTitle("", "§c§l¡" + team.getColor() + "§l" + p.getDisplayName() + " capturó la " + c + "§lLana ⬛§c§l!", 20, 40, 20);
+                for (String s : plugin.getLang().getList("messages.capturedWool")){
+                    t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
+                }
+                t.sendTitle(plugin.getLang().get("titles.otherCaptured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.otherCaptured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + "⬛"), 0, 30, 10);
             });
             team.playSound(plugin.getCm().getCaptured(), 1.0f, 1.0f);
             if (team.checkWools()) {
@@ -487,13 +474,13 @@ public class PlayerListener implements Listener {
         team.getInProgress().putIfAbsent(c, new ArrayList<>());
         if (!team.getInProgress().get(c).contains(p.getUniqueId())) {
             team.getInProgress().get(c).add(p.getUniqueId());
-            team.sendMessage(" §a➤ §e¡" + team.getColor() + p.getDisplayName() + " recogió la " + c + "§lLANA ⬛§e!");
-            team.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió la " + c + "§lLANA ⬛§e!" , 0, 40, 0);
+            team.sendMessage(plugin.getLang().get("messages.teampick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
+            team.sendTitle(plugin.getLang().get("titles.teampick.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titles.teampick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + "⬛"), 0, 30, 10);
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, c + " ░ ");
             ChatColor finalC = c;
-            others.forEach(t -> t.sendMessage(" §c§l! ! " + team.getColor() + p.getDisplayName() + " recogió tu " + finalC + "§lLANA ⬛" + " §c§l! !"));
-            others.forEach(t -> t.sendTitle("", "§e¡" + team.getColor() + p.getDisplayName() + " §erecogió tu " + finalC + "§lLANA ⬛§e!", 0, 40, 0));
+            others.forEach(t -> t.sendMessage(plugin.getLang().get("messages.otherpick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replaceAll("<wool>", finalC + "⬛")));
+            others.forEach(t -> t.sendTitle(plugin.getLang().get("titles.otherpick.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titles.otherpick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", finalC + "⬛"), 0, 30, 10));
             others.forEach(t -> t.playSound(plugin.getCm().getPickUpOthers(), 1.0f, 1.0f));
         }
     }
@@ -741,10 +728,8 @@ public class PlayerListener implements Listener {
             if (team.getInProgress().get(c).isEmpty()) continue;
             team.getInProgress().get(c).remove(p.getUniqueId());
             if (team.getInProgress().get(c).isEmpty()) {
-                //g.sendGameMessage(plugin.getLang().get("messages.lost").replaceAll("<wool>", c + plugin.getLang().get("scoreboards.wools.captured")));
-                g.sendGameMessage("§e¡" + team.getColor() + p.getDisplayName() + "§e dejó caer la " + c + "§lLANA ⬛§e!");
-                //team.sendTitle(plugin.getLang().get("titles.dropped.title"), plugin.getLang().get("titles.dropped.subtitle").replaceAll("<wool>", c + plugin.getLang().get("scoreboards.wools.captured")), 0, 40, 0);
-                team.sendTitle("", "§c§l¡" + team.getColor() + p.getDisplayName() + "§e dejó caer " + c + "⬛§c§l!", 10, 30, 10);
+                g.sendGameMessage(plugin.getLang().get("messages.lost").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
+                team.sendTitle(plugin.getLang().get("titles.dropped.title"), plugin.getLang().get("titles.dropped.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"), 0, 40, 0);
             }
         }
         p.setFireTicks(0);

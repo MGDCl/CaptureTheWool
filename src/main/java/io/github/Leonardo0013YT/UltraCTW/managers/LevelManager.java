@@ -52,19 +52,14 @@ public class LevelManager {
 
             sw.setLevel(lvl.getLevel());
             p.playSound(p.getLocation(), plugin.getCm().getUpgradeSound(), 1.0f, 1.0f);
-            p.sendMessage("§a§l§m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            p.sendMessage("§f                              §e§l¡FELICIDADES!                  §f");
-            p.sendMessage("§f");
-            p.sendMessage("§7                          §7¡Has subido al §e§lNIVEL " + lvl.getLevel()+"§7!");
-            p.sendMessage("§f");
-            p.sendMessage("§a§l§m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
-            UltraCTW.get().getVc().getReflection().sendTitle("§e§lNUEVO NIVEL", "§7Has subido al nivel §7" + lvl.getLevel(), 20, 60, 20 , p);
-            UltraCTW.get().getVc().getNMS().sendActionBar(p, "§e§lNUEVO NIVEL " + "§7Has subido al nivel §7" + lvl.getLevel());
-
+            for (String s : plugin.getLang().getList("messages.newLevel")){
+                p.sendMessage(s.replaceAll("&", "§").replaceAll("<level>", lvl.getLevel() + ""));
+            }
+            UltraCTW.get().getVc().getReflection().sendTitle(plugin.getLang().get("titles.levelup.title"),plugin.getLang().get("titles.levelup.subtitle").replaceAll("<level>", lvl.getLevel() + ""),20, 60, 20 , p);
+            UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.levelup").replaceAll("<level>", lvl.getLevel() + ""));
             Utils.updateSB(p);
             for (Player on : Bukkit.getOnlinePlayers()) {
-                on.sendMessage("§7[§eCTW§7]§7 ¡El jugador §a§l"+ p.getName() + " §7ha subido al §e§lNIVEL "+ lvl.getLevel()+"§7!");
+                on.sendMessage(plugin.getLang().get("messages.levelup").replaceAll("<player>", p.getDisplayName()).replaceAll("<level>", lvl.getLevel() + ""));
             }
         }
     }

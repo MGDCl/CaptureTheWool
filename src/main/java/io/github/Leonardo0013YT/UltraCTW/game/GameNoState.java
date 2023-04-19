@@ -101,9 +101,9 @@ public class GameNoState implements Game {
         Game selected3 = plugin.getGm().getSelectedGame();
         plugin.getGem().createTeamsMenu(p, selected3);
         if (isState(State.WAITING) || isState(State.STARTING)) {
-            sendGameMessage("§f¡§a" + p.getName() + " §ese ha unido §7(§b" + selected3.getPlayers().size() + "§7/§b" + selected3.getMax() + "§7)§f!");
+            sendGameMessage(plugin.getLang().get("messages.newPlayer").replaceAll("<player>", p.getDisplayName()).replaceAll("<size>", selected3.getPlayers().size() + "").replaceAll("<max>", selected3.getMax() + ""));
         }
-        p.sendMessage("§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
+        p.sendMessage(plugin.getLang().get("messages.play"));
     }
 
     @Override
@@ -208,7 +208,7 @@ public class GameNoState implements Game {
                 sendGameTitle("", "", 0, 1, 0);
             }
             if (starting == 0) {
-                sendGameTitle("§e§l¡CAPTURA LA LANA!", "§a§l¡DIVIÉRTETE!", 20, 60, 20);
+                sendGameTitle(plugin.getLang().get(null, "titles.startGame.title"), plugin.getLang().get(null, "titles.startGame.subtitle"), 0, 60, 0);
                 setState(State.GAME);
                 sendGameSound(XSound.ENTITY_PLAYER_LEVELUP.parseSound());
                 checkTeamBalance();
@@ -238,7 +238,7 @@ public class GameNoState implements Game {
                         for (Location s : npcShop) {
                             plugin.getSkm().spawnShopKeeper(on, s, ctw.getShopKeeper(), NPCType.SHOP);
                         }
-                        NametagEdit.getApi().setNametag(on, t.getName() + t.getColor() + "", "");
+                        NametagEdit.getApi().setNametag(on,t.getColor() + "", "");
                         for (Player c : cached) {
                             c.showPlayer(on);
                             on.showPlayer(c);
@@ -254,9 +254,9 @@ public class GameNoState implements Game {
             for(Player on : cached){
                 Team t = getTeamPlayer(on);
                 if (t == null) {
-                    sendGameActionBar(on, "§7[§eCTW§7] §f¡Usa §e§l/jugar §fpara ingresar a un equipo!");
+                    sendGameActionBar(on, plugin.getLang().get("actionbar.noTeam"));
                 } else {
-                    sendGameActionBar(on, t.getColor() + "§lESTÀS EN EL EQUIPO §l" + t.getName());
+                    sendGameActionBar(on, plugin.getLang().get("actionbar.myTeam").replaceAll("<tcolor>", t.getColor() + "").replaceAll("<team>", t.getName()));
                 }
             }
         }
@@ -310,8 +310,7 @@ public class GameNoState implements Game {
                 on.sendMessage(s.replaceAll("&", "§").replaceAll("<winner>", gw.getWinner()).replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
             }
         }
-        //plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title"), plugin.getLang().get("titles.lose.subtitle"), 0, 60, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
-        plugin.getVc().getReflection().sendTitle(team.getColor() + "§lDERROTA", team.getColor() + "¡El equipo " + gw.getWinner() + " ha ganado!", 20, 60, 20, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
+        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), plugin.getLang().get("titles.lose.subtitle"), 0, 60, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
         for (Player w : team.getMembers()) {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(w);
             if (ctw == null) continue;
@@ -321,22 +320,15 @@ public class GameNoState implements Game {
             ctw.addCoins(plugin.getCm().getGCoinsWins());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpWin());
             //Todo lang
-            w.sendMessage("§a§m§l---------------------------------------------");
-            w.sendMessage("§7");
-            w.sendMessage("§7            §a§lResumen de recompensas          §7");
-            w.sendMessage("§7");
-            w.sendMessage("§7Has obtenido:");
-            w.sendMessage("§7• §6Monedas: +" + plugin.getCm().getGCoinsWins());
-            w.sendMessage("§7• §bExp: +" + plugin.getCm().getXpWin());
-            w.sendMessage("§7");
-            w.sendMessage("§a§m§l---------------------------------------------");
+            for (String s : plugin.getLang().getList("messages.rewards")){
+                w.sendMessage(s.replaceAll("&", "§").replaceAll("<coins>", plugin.getCm().getGCoinsWins() + "").replaceAll("<xp>", plugin.getCm().getXpWin() + ""));
+            }
             ctw.setWins(ctw.getWins() + 1);
             plugin.getLvl().checkUpgrade(w);
             plugin.getWem().execute(this, w, ctw.getWinEffect());
             plugin.getWdm().execute(this, w, ctw.getWinDance());
         }
-        //plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle"), 0, 60, 0, team.getMembers());
-        plugin.getVc().getReflection().sendTitle(team.getColor() + "§l¡VICTORIA!", team.getColor() + "¡El equipo " + gw.getWinner() + " ha ganado!", 20, 60, 20, team.getMembers());
+        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 60, 0, team.getMembers());
         ArrayList<Player> back = new ArrayList<>(cached);
 
         //Todo enviar mensaje de lanas capturas
@@ -351,11 +343,11 @@ public class GameNoState implements Game {
                     return;
                 }
                 for(Player on : cached){
-                    on.sendMessage("§7[§eCTW§7] §eUna nueva partida comienza en §a"+ count + "§e...");
+                    on.sendMessage(plugin.getLang().get("messages.ending").replaceAll("<count>", String.valueOf(count)).replaceAll("<s>", (count > 1) ? "s" : ""));
                 }
                 if (count == 5 || count == 4 || count == 3 || count == 2 || count == 1 ) {
                     for(Player on : cached){
-                        plugin.getVc().getReflection().sendTitle( "§fPròximo mapa: §a§l" + g.getName() ,"§fNueva partida en:§c§l " + count, 0, 40, 0, on);
+                        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.ending.title").replaceAll("<map>", g.getName()).replaceAll("<time>", String.valueOf(count)), plugin.getLang().get("titles.ending.subtitle").replaceAll("<time>", String.valueOf(count)), 0, 40, 0, on);
                     }
                 }
                 count--;
@@ -372,7 +364,7 @@ public class GameNoState implements Game {
                         if (on == null || !on.isOnline()) continue;
                         Game g = plugin.getGm().getSelectedGame();
                         plugin.getGm().addPlayerGame(on, g.getId());
-                        on.sendMessage("§7[§eCTW§7] §e¡Fuiste enviado a la partida §a" + g.getName() + "§e!");
+                        on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
                     }
                 }
             }.runTaskLater(plugin, 20 * 10);
@@ -390,7 +382,7 @@ public class GameNoState implements Game {
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpKill());
             ItemStack i = new ItemStack(322, 1);
             if (p.getInventory().firstEmpty() == -1) {
-                p.sendMessage("Tu inventario estaba lleno, no recibiste la recompensa de Asesinato");
+                p.sendMessage("sexo");
             } else {
                 p.getInventory().addItem(i);
             }
@@ -462,8 +454,7 @@ public class GameNoState implements Game {
         Team t = Utils.getMinorPlayersTeam(this);
         addPlayerTeam(p, t);
         p.sendMessage(plugin.getLang().get("messages.randomTeam").replaceAll("<team>", t.getName()));
-        UltraCTW.get().getVc().getNMS().sendActionBar(p, "§e§lFuiste enviado al equipo "+ t.getName());
-
+        UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.randomTeam").replaceAll("<team>", t.getName()));
     }
 
     @Override
