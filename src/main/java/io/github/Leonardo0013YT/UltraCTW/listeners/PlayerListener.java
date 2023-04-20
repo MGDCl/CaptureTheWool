@@ -7,14 +7,12 @@ import io.github.Leonardo0013YT.UltraCTW.api.events.PlayerLoadEvent;
 import io.github.Leonardo0013YT.UltraCTW.cosmetics.trails.Trail;
 import io.github.Leonardo0013YT.UltraCTW.enums.NPCType;
 import io.github.Leonardo0013YT.UltraCTW.enums.State;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.game.GamePlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.NPC;
 import io.github.Leonardo0013YT.UltraCTW.objects.ObjectPotion;
 import io.github.Leonardo0013YT.UltraCTW.objects.Squared;
-import io.github.Leonardo0013YT.UltraCTW.team.FlagTeam;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
 import io.github.Leonardo0013YT.UltraCTW.utils.Tagged;
@@ -62,17 +60,6 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onLogin(PlayerLoginEvent e){
-        if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isKickOnStarted() && plugin.getGm().getSelectedGame() != null) {
-            Game game = plugin.getGm().getSelectedGame();
-            if (game.isState(State.GAME) || game.isState(State.FINISH) || game.isState(State.RESTARTING)){
-                e.setResult(PlayerLoginEvent.Result.KICK_FULL);
-                e.setKickMessage(plugin.getLang().get("messages.kickCTW"));
-            }
-        }
-    }
-
-    @EventHandler
     public void onLoad(PlayerLoadEvent e) {
         Player p = e.getPlayer();
         plugin.getLvl().checkUpgrade(p);
@@ -111,7 +98,6 @@ public class PlayerListener implements Listener {
     public void onInteractEntity(CTWNPCInteractEvent e) {
         Player p = e.getPlayer();
         Game g = plugin.getGm().getGameByPlayer(p);
-        GameFlag gf = plugin.getGm().getGameFlagByPlayer(p);
         NPC npc = e.getNpc();
         if (npc == null) {
             return;
@@ -122,18 +108,6 @@ public class PlayerListener implements Listener {
                 plugin.getUim().createKitSelectorMenu(p);
             } else if (npc.getNpcType().equals(NPCType.SHOP)) {
                 plugin.getGem().createShopMenu(p);
-            }
-        }
-        if (gf != null) {
-            if (npc.getNpcType().equals(NPCType.KITS)) {
-                plugin.getUim().getPages().put(p, 1);
-                plugin.getUim().createKitSelectorMenu(p);
-            } else if (npc.getNpcType().equals(NPCType.SHOP)) {
-                plugin.getGem().createShopMenu(p);
-            } else if (npc.getNpcType().equals(NPCType.UPGRADES)) {
-                plugin.getFgm().createMainUpgradeMenu(p);
-            } else if (npc.getNpcType().equals(NPCType.BUFF)) {
-                plugin.getFgm().createMainBuffDebuffMenu(p);
             }
         }
     }
@@ -251,16 +225,6 @@ public class PlayerListener implements Listener {
             if (g != null) {
                 if (plugin.getCm().isHungerCTW()) {
                     if (g.isState(State.WAITING) || g.isState(State.STARTING) || g.isState(State.FINISH) || g.isState(State.RESTARTING)) {
-                        e.setCancelled(true);
-                    }
-                } else {
-                    e.setCancelled(true);
-                }
-            }
-            GameFlag gf = plugin.getGm().getGameFlagByPlayer(p);
-            if (gf != null) {
-                if (plugin.getCm().isHungerFlag()) {
-                    if (gf.isState(State.WAITING) || gf.isState(State.STARTING) || gf.isState(State.FINISH) || gf.isState(State.RESTARTING)) {
                         e.setCancelled(true);
                     }
                 } else {
@@ -498,13 +462,6 @@ public class PlayerListener implements Listener {
                 }
                 return;
             }
-            GameFlag gf = plugin.getGm().getGameFlagByPlayer(p);
-            if (gf != null) {
-                FlagTeam team = gf.getTeamPlayer(p);
-                if (team == null || gf.isState(State.WAITING) || gf.isState(State.STARTING)) {
-                    e.setCancelled(true);
-                }
-            }
         }
     }
 
@@ -656,11 +613,8 @@ public class PlayerListener implements Listener {
         }
         if (item.equals(plugin.getIm().getTeams())) {
             Game game = plugin.getGm().getGameByPlayer(p);
-            GameFlag gamef = plugin.getGm().getGameFlagByPlayer(p);
             if (game != null) {
                 plugin.getGem().createTeamsMenu(p, game);
-            } else if (gamef != null) {
-                plugin.getGem().createTeamsMenu(p, gamef);
             }
         }
         if (item.equals(plugin.getIm().getLobby())) {

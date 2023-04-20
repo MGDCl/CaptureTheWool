@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.wineffects;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 
@@ -24,32 +23,6 @@ public class WinEffectChicken implements WinEffect {
     @Override
     public void start(Player p, Game game) {
 		task = new BukkitRunnable() {
-            String name = game.getSpectator().getWorld().getName();
-
-            @Override
-            public void run() {
-                if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
-                    stop();
-                    return;
-                }
-                Chicken chicken = spawnChicken(p.getLocation(), random(-0.5, 0.5), 1.5, random(-0.5, 0.5));
-                chicken.getLocation().getWorld().playSound(chicken.getLocation(), UltraCTW.get().getCm().getWineffectschicken(), 1.0f, 1.0f);
-                chickens.add(chicken);
-                for (Chicken c : new ArrayList<>(chickens)) {
-                    if (c.getTicksLived() > 30) {
-                        c.remove();
-                        UltraCTW.get().getVc().getNMS().broadcastParticle(c.getLocation(), 0, 0, 0, 0, "REDSTONE", 1000, 10);
-                        chicken.getLocation().getWorld().playSound(chicken.getLocation(), UltraCTW.get().getCm().getWineffectschicken(), 1.0f, 1.0f);
-                        chickens.remove(c);
-                    }
-                }
-            }
-        }.runTaskTimer(UltraCTW.get(), 5, 5);
-    }
-
-    @Override
-    public void start(Player p, GameFlag game) {
-        task = new BukkitRunnable() {
             String name = game.getSpectator().getWorld().getName();
 
             @Override

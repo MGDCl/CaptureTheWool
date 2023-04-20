@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cmds;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.game.GamePlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
@@ -121,7 +120,6 @@ public class CTWCMD implements CommandExecutor {
                     plugin.getUim().getPages().put(p, 1);
                     Game game2 = plugin.getGm().getGameByPlayer(p);
                     if (game2 == null) {
-                        plugin.getUim().createKitFlagSelectorMenu(p);
                         return true;
                     }
                     plugin.getUim().createKitSelectorMenu(p);
@@ -327,14 +325,10 @@ public class CTWCMD implements CommandExecutor {
                                 return true;
                             }
                             Game gpgg = plugin.getGm().getGameByPlayer(on);
-                            GameFlag gpgf = plugin.getGm().getGameFlagByPlayer(on);
                             GamePlayer gp;
                             if (gpgg != null) {
                                 gp = gpgg.getGamePlayer(on);
-                            } else {
-                                gp = gpgf.getGamePlayer(on);
                             }
-                            gp.addCoins(amount);
                             sender.sendMessage(plugin.getLang().get("coins.add.you").replaceAll("<coins>", String.valueOf(amount)).replaceAll("<player>", on.getName()));
                             on.sendMessage(plugin.getLang().get("coins.add.receiver").replaceAll("<coins>", String.valueOf(amount)).replaceAll("<sender>", sender.getName()));
                             Utils.updateSB(on);
@@ -353,14 +347,10 @@ public class CTWCMD implements CommandExecutor {
                                 return true;
                             }
                             Game gpgg1 = plugin.getGm().getGameByPlayer(on1);
-                            GameFlag gpgf1 = plugin.getGm().getGameFlagByPlayer(on1);
                             GamePlayer gp1;
                             if (gpgg1 != null) {
                                 gp1 = gpgg1.getGamePlayer(on1);
-                            } else {
-                                gp1 = gpgf1.getGamePlayer(on1);
                             }
-                            gp1.removeCoins(amount1);
                             sender.sendMessage(plugin.getLang().get("coins.remove.you").replaceAll("<coins>", String.valueOf(amount1)).replaceAll("<player>", on1.getName()));
                             on1.sendMessage(plugin.getLang().get("coins.remove.receiver").replaceAll("<coins>", String.valueOf(amount1)).replaceAll("<sender>", sender.getName()));
                             Utils.updateSB(on1);
@@ -379,14 +369,10 @@ public class CTWCMD implements CommandExecutor {
                                 return true;
                             }
                             Game gpgg2 = plugin.getGm().getGameByPlayer(on2);
-                            GameFlag gpgf2 = plugin.getGm().getGameFlagByPlayer(on2);
                             GamePlayer gp2;
                             if (gpgg2 != null) {
                                 gp2 = gpgg2.getGamePlayer(on2);
-                            } else {
-                                gp2 = gpgf2.getGamePlayer(on2);
                             }
-                            gp2.setCoins(amount2);
                             sender.sendMessage(plugin.getLang().get("coins.set.you").replaceAll("<coins>", String.valueOf(amount2)).replaceAll("<player>", on2.getName()));
                             on2.sendMessage(plugin.getLang().get("coins.set.receiver").replaceAll("<coins>", String.valueOf(amount2)).replaceAll("<sender>", sender.getName()));
                             Utils.updateSB(on2);

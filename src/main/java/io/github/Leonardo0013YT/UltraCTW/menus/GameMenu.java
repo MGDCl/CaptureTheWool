@@ -1,10 +1,8 @@
 package io.github.Leonardo0013YT.UltraCTW.menus;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.objects.ShopItem;
-import io.github.Leonardo0013YT.UltraCTW.team.FlagTeam;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.utils.ItemUtils;
 import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
@@ -43,18 +41,6 @@ public class GameMenu {
         p.openInventory(inv);
     }
 
-    public void createTeamsMenu(Player p, GameFlag game) {
-        Inventory inv = Bukkit.createInventory(null, 27, plugin.getLang().get("menus.teams.title"));
-        ItemStack random = new ItemUtils(XMaterial.EXPERIENCE_BOTTLE).setDisplayName(plugin.getLang().get("menus.teams.random.nameItem")).setLore(plugin.getLang().get("menus.teams.random.loreItem")).build();
-        int i = 0;
-        inv.setItem(13, random);
-        for (FlagTeam t : game.getTeams().values()) {
-            inv.setItem(slots.get(i), getTeamItem(t));
-            i++;
-        }
-        p.openInventory(inv);
-    }
-
     public void createShopMenu(Player p) {
         Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.shop.title"));
         int i = 0;
@@ -67,17 +53,6 @@ public class GameMenu {
     }
 
     private ItemStack getTeamItem(Team team) {
-        ItemStack leather = NBTEditor.set(new ItemStack(Material.LEATHER_CHESTPLATE, 1), team.getColor().name(), "SELECTOR", "TEAM", "COLOR");
-        LeatherArmorMeta bm = (LeatherArmorMeta) leather.getItemMeta();
-        bm.setColor(Utils.getColorByChatColor(team.getColor()));
-        bm.setDisplayName(plugin.getLang().get("menus.teams.team.nameItem").replaceAll("<team>", team.getName()));
-        String lore = plugin.getLang().get("menus.teams.team.loreItem").replaceAll("<players>", String.valueOf(team.getTeamSize()));
-        bm.setLore(lore.isEmpty() ? new ArrayList<>() : Arrays.asList(lore.split("\\n")));
-        leather.setItemMeta(bm);
-        return leather;
-    }
-
-    private ItemStack getTeamItem(FlagTeam team) {
         ItemStack leather = NBTEditor.set(new ItemStack(Material.LEATHER_CHESTPLATE, 1), team.getColor().name(), "SELECTOR", "TEAM", "COLOR");
         LeatherArmorMeta bm = (LeatherArmorMeta) leather.getItemMeta();
         bm.setColor(Utils.getColorByChatColor(team.getColor()));

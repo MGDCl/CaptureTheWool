@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
 import org.bukkit.Location;
@@ -24,19 +23,6 @@ public class WinDanceWolfs implements WinDance, Cloneable {
 
     @Override
     public void start(Player p, Game game) {
-        World world = game.getSpectator().getWorld();
-        for (int i = 0; i < 20; i++) {
-            int x = ThreadLocalRandom.current().nextInt(0, 4);
-            int z = ThreadLocalRandom.current().nextInt(0, 4);
-            Location center = p.getLocation().clone().add(x, 1, z);
-            Wolf wolf = world.spawn(center, Wolf.class);
-            wolf.setOwner(p);
-            wolf.setSitting(ThreadLocalRandom.current().nextBoolean());
-        }
-    }
-
-    @Override
-    public void start(Player p, GameFlag game) {
         World world = game.getSpectator().getWorld();
         for (int i = 0; i < 20; i++) {
             int x = ThreadLocalRandom.current().nextInt(0, 4);

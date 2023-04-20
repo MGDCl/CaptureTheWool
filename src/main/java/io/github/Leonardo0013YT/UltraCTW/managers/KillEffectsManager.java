@@ -2,7 +2,6 @@ package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.cosmetics.killeffects.*;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.KillEffect;
@@ -35,17 +34,6 @@ public class KillEffectsManager {
     }
 
     public void execute(Game game, Player p, Player death, Location loc, int id) {
-        UltraKillEffect uwe = killEffect.get(id);
-        if (uwe == null || uwe.getType().equals("none")) {
-            return;
-        }
-        KillEffect we = getKillEffect(uwe);
-        we.loadCustoms(plugin, "killeffects." + uwe.getType().toLowerCase());
-        we.start(p, death, loc);
-        game.addKillEffects(we);
-    }
-
-    public void execute(GameFlag game, Player p, Player death, Location loc, int id) {
         UltraKillEffect uwe = killEffect.get(id);
         if (uwe == null || uwe.getType().equals("none")) {
             return;

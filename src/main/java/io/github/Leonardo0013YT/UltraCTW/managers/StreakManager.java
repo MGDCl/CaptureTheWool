@@ -2,7 +2,6 @@ package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import com.nametagedit.plugin.NametagEdit;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.streak.Streak;
@@ -59,44 +58,6 @@ public class StreakManager {
             ctw.setBounty(streak.getPrice());
             game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
             //game.sendGameTitle("", "§eRacha de §a§l10 §easesinatos de §a§l" + p.getName(), 0, 80, 0);
-            NametagEdit.getApi().setSuffix(p, " §6" + Utils.format(streak.getPrice()) + "⛂⛃");
-            return;
-        }
-        if (amount >= 10) {
-            streak.setPrice(getBounty(amount));
-            CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
-            ctw.setBounty(streak.getPrice());
-            if (amount % 5 == 0) {
-                game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
-            }
-            NametagEdit.getApi().setSuffix(p, " §6" + Utils.format(streak.getPrice()) + "⛂⛃");
-        }
-    }
-
-    public void addKill(Player p, GameFlag game) {
-        Streak streak = get(p);
-        streak.setStreak(streak.getStreak() + 1);
-        if (streak.getLastKill() > System.currentTimeMillis() - (plugin.getCm().getTimeToKill() * 1000L)) {
-            streak.setKills(streak.getKills() + 1);
-            streak.setLastKill(System.currentTimeMillis());
-        } else {
-            streak.setKills(0);
-        }
-        int amount = getStreak(p);
-        if (amount % 5 == 0) {
-            game.sendGameMessage(plugin.getLang().get("messages.streak").replaceAll("<kills>", String.valueOf(amount)).replaceAll("<nameStreak>", p.getName()));
-            for (Entity ent : p.getNearbyEntities(5, 5, 5)) {
-                if (!(ent instanceof Player)) continue;
-                Player ar = (Player) ent;
-                ar.playSound(ar.getLocation(), XSound.ENTITY_ENDER_DRAGON_GROWL.parseSound(), 1.0f, 1.0f);
-            }
-        }
-        if (amount == 10) {
-            streak.setBounty(true);
-            streak.setPrice(getBounty(amount));
-            CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
-            ctw.setBounty(streak.getPrice());
-            game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
             NametagEdit.getApi().setSuffix(p, " §6" + Utils.format(streak.getPrice()) + "⛂⛃");
             return;
         }

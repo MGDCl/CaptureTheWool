@@ -137,16 +137,6 @@ public class SetupMenu {
         p.openInventory(inv);
     }
 
-    public void createSetupColorTeam(Player p, FlagSetup as) {
-        Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.teamColor.title"));
-        int i = 0;
-        for (ChatColor xm : as.getAvailableColors()) {
-            inv.setItem(slots[i], NBTEditor.set(new ItemUtils(Utils.getXMaterialByColor(xm)).setDisplayName(xm + "Team " + plugin.getLang().get("teams." + xm.name().toLowerCase())).build(), xm.name(), "SELECT", "TEAM", "COLORS"));
-            i++;
-        }
-        p.openInventory(inv);
-    }
-
     public void createSetupSpawnerColor(Player p, TeamSetup ts) {
         Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.spawners.title"));
         int i = 0;

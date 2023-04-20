@@ -1,7 +1,5 @@
 package io.github.Leonardo0013YT.UltraCTW;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.Leonardo0013YT.UltraCTW.adapters.ICTWPlayerAdapter;
@@ -10,13 +8,11 @@ import io.github.Leonardo0013YT.UltraCTW.config.Settings;
 import io.github.Leonardo0013YT.UltraCTW.controllers.VersionController;
 import io.github.Leonardo0013YT.UltraCTW.controllers.WorldController;
 import io.github.Leonardo0013YT.UltraCTW.database.MySQLDatabase;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.IDatabase;
 import io.github.Leonardo0013YT.UltraCTW.listeners.*;
 import io.github.Leonardo0013YT.UltraCTW.managers.*;
-import io.github.Leonardo0013YT.UltraCTW.menus.FlagMenu;
 import io.github.Leonardo0013YT.UltraCTW.menus.GameMenu;
 import io.github.Leonardo0013YT.UltraCTW.menus.SetupMenu;
 import io.github.Leonardo0013YT.UltraCTW.menus.UltraInventoryMenu;
@@ -35,7 +31,7 @@ public class UltraCTW extends JavaPlugin {
 
     private static UltraCTW instance;
     private Gson ctw;
-    private Settings upgrades, mines, arenas, lang, menus, kits, sources, windance, wineffect, killsound, taunt, trail, killeffect, shopkeepers, levels, shop, migration;
+    private Settings arenas, lang, menus, kits, sources, windance, wineffect, killsound, taunt, trail, killeffect, shopkeepers, levels, shop;
     private boolean debugMode, stop = false;
     private GameManager gm;
     private ConfigManager cm;
@@ -65,9 +61,6 @@ public class UltraCTW extends JavaPlugin {
     private StreakManager stm;
     private TopManager top;
     private MultiplierManager mm;
-    private FlagManager fm;
-    private UpgradeManager um;
-    private FlagMenu fgm;
 
     public static UltraCTW get() {
         return instance;
@@ -81,7 +74,6 @@ public class UltraCTW extends JavaPlugin {
         setupSounds();
         saveConfig();
         ctw = new GsonBuilder().registerTypeAdapter(CTWPlayer.class, new ICTWPlayerAdapter()).create();
-        mines = new Settings(this, "mines", false, false);
         arenas = new Settings(this, "arenas", false, false);
         lang = new Settings(this, "lang", true, false);
         sources = new Settings(this, "sources", true, false);
@@ -96,7 +88,6 @@ public class UltraCTW extends JavaPlugin {
         shopkeepers = new Settings(this, "shopkeepers", false, false);
         levels = new Settings(this, "levels", false, false);
         shop = new Settings(this, "shop", false, false);
-        upgrades = new Settings(this, "upgrades", false, false);
         debugMode = getConfig().getBoolean("debugMode");
 
         ijm = new InjectionManager(this);
@@ -104,9 +95,6 @@ public class UltraCTW extends JavaPlugin {
         wc = new WorldController(this);
         db = new MySQLDatabase(this);
         cm = new ConfigManager(this);
-        if (getCm().isBungeeModeEnabled()) {
-            getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        }
         adm = new AddonManager(this);
         im = new ItemManager(this);
         sm = new SetupManager(this);
@@ -139,9 +127,6 @@ public class UltraCTW extends JavaPlugin {
         stm = new StreakManager(this);
         top = new TopManager(this);
         mm = new MultiplierManager(this);
-        fm = new FlagManager(this);
-        um = new UpgradeManager(this);
-        fgm = new FlagMenu(this);
         new ProtocolLib(this);
         getCommand("ctws").setExecutor(new SetupCMD(this));
         getCommand("ctw").setExecutor(new CTWCMD(this));
@@ -154,7 +139,6 @@ public class UltraCTW extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new WorldListener(this), this);
-        getServer().getPluginManager().registerEvents(new FlagListener(this), this);
         if (getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new Placeholders(this).register();
         }
@@ -162,7 +146,6 @@ public class UltraCTW extends JavaPlugin {
             @Override
             public void run() {
                 getGm().getGames().values().forEach(Game::update);
-                getGm().getFlagGames().values().forEach(GameFlag::update);
             }
         }.runTaskTimer(this, 20, 20);
         new BukkitRunnable() {
@@ -188,22 +171,13 @@ public class UltraCTW extends JavaPlugin {
         }
     }
 
-    public void sendToServer(Player p, String server) {
-        ByteArrayDataOutput out = ByteStreams.newDataOutput();
-        out.writeUTF("Connect");
-        out.writeUTF(server);
-        p.sendPluginMessage(this, "BungeeCord", out.toByteArray());
-    }
-
     public void reload() {
         reloadConfig();
         lang.reload();
         arenas.reload();
         shop.reload();
-        mines.reload();
         killeffect.reload();
         killsound.reload();
-        upgrades.reload();
         kits.reload();
         levels.reload();
         menus.reload();
@@ -227,26 +201,25 @@ public class UltraCTW extends JavaPlugin {
         wem.loadWinEffects();
         shm.reload();
         ijm.reload();
-        um.reload();
         Utils.updateSB();
     }
 
     private void setupSounds() {
-            getConfig().addDefault("sounds.streak2", "CLICK");
-            getConfig().addDefault("sounds.streak3", "CLICK");
-            getConfig().addDefault("sounds.streak4", "CLICK");
-            getConfig().addDefault("sounds.streak5", "CLICK");
-            getConfig().addDefault("sounds.cancelStart", "NOTE_BASS");
-            getConfig().addDefault("sounds.upgrade", "LEVEL_UP");
-            getConfig().addDefault("sounds.wineffects.vulcanwool", "CHICKEN_EGG_POP");
-            getConfig().addDefault("sounds.wineffects.vulcanfire", "FUSE");
-            getConfig().addDefault("sounds.wineffects.notes", "FIREWORK_LAUNCH");
-            getConfig().addDefault("sounds.wineffects.chicken", "FIREWORK_LAUNCH");
-            getConfig().addDefault("sounds.pickUpTeam", "FIREWORK_LAUNCH");
-            getConfig().addDefault("sounds.pickUpOthers", "WITHER_HURT");
-            getConfig().addDefault("sounds.captured", "LEVEL_UP");
-            getConfig().addDefault("sounds.killeffects.tnt", "EXPLODE");
-            getConfig().addDefault("sounds.killeffects.squid", "ITEM_PICKUP");
+        getConfig().addDefault("sounds.streak2", "CLICK");
+        getConfig().addDefault("sounds.streak3", "CLICK");
+        getConfig().addDefault("sounds.streak4", "CLICK");
+        getConfig().addDefault("sounds.streak5", "CLICK");
+        getConfig().addDefault("sounds.cancelStart", "NOTE_BASS");
+        getConfig().addDefault("sounds.upgrade", "LEVEL_UP");
+        getConfig().addDefault("sounds.wineffects.vulcanwool", "CHICKEN_EGG_POP");
+        getConfig().addDefault("sounds.wineffects.vulcanfire", "FUSE");
+        getConfig().addDefault("sounds.wineffects.notes", "FIREWORK_LAUNCH");
+        getConfig().addDefault("sounds.wineffects.chicken", "FIREWORK_LAUNCH");
+        getConfig().addDefault("sounds.pickUpTeam", "FIREWORK_LAUNCH");
+        getConfig().addDefault("sounds.pickUpOthers", "WITHER_HURT");
+        getConfig().addDefault("sounds.captured", "LEVEL_UP");
+        getConfig().addDefault("sounds.killeffects.tnt", "EXPLODE");
+        getConfig().addDefault("sounds.killeffects.squid", "ITEM_PICKUP");
     }
 
     public void sendDebugMessage(String... s) {

@@ -106,7 +106,7 @@ messages:
   ending: '&eA new game starts in &c<count>&e segundo<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
   newPlayer: "§f¡§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
-  play: "&fUse &e&l/play &f to join a team"
+  play: "&fUse &e&l/join &f to join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   placeTeam:
     - "<center>&7"
@@ -311,10 +311,10 @@ teams:
   aqua: "&bAqua"
   dark_blue: "&1Dark Blue"
   black: "&0Black"
-  blue: "&9Blue"
+  blue: "&9BLUE"
   dark_aqua: "&3Dark Aqua"
   dark_red: "&4Dark Red"
-  red: "&cRed"
+  red: "&cRED"
   dark_gray: "&8Dark Gray"
   gray: "&7Gray"
   dark_green: "&2Dark Green"
@@ -395,7 +395,6 @@ scoreboards:
     lines: |-
       &7
       &fMap: &a<map>
-      &fExp: &a<now>&7/&c<leveUp>
       &7
       &fPlayers: &a<players>/<max>
       &7
@@ -405,7 +404,6 @@ scoreboards:
     lines: |-
       &7
       &fMap: &a<map>
-      &fExp: &a<now>&7/&c<leveUp>
       &7
       &fPlayers: &a<players>/<max>
       &7
@@ -418,10 +416,10 @@ scoreboards:
       &fGame time: &a<time> ⌛
       &fGold: &6<coins> &6⛂⛃
       &7
-      &c➣ <T1> &7<T1p>
+      &c<T1> &7<T1p>
       <T1Wools>
       &7
-      &9➢ <T2> &7<T2p>
+      &9<T2> &7<T2p>
       <T2Wools>
       &7
       &fKills: &a<kills> ⚔

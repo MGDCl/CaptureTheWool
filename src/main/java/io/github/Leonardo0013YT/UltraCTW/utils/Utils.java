@@ -1,9 +1,7 @@
 package io.github.Leonardo0013YT.UltraCTW.utils;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
-import io.github.Leonardo0013YT.UltraCTW.team.FlagTeam;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XMaterial;
 import org.bukkit.*;
@@ -126,10 +124,6 @@ public class Utils {
         plugin.getCm().getMainLobby().getWorld().getPlayers().forEach(p -> plugin.getSb().update(p));
     }
 
-    public static void updateSB(GameFlag game) {
-        game.getCached().forEach(p -> plugin.getSb().update(p));
-    }
-
     public static void updateSB(Game game) {
         game.getCached().forEach(p -> plugin.getSb().update(p));
     }
@@ -179,34 +173,10 @@ public class Utils {
         return t;
     }
 
-    public static FlagTeam getMinorPlayersTeam(GameFlag game) {
-        FlagTeam t = null;
-        int menor = 100000;
-        for (FlagTeam tt : game.getTeams().values()) {
-            if (tt.getTeamSize() <= menor) {
-                t = tt;
-                menor = tt.getTeamSize();
-            }
-        }
-        return t;
-    }
-
     public static Team getMajorPlayersTeam(Game game) {
         Team t = null;
         int mayor = 0;
         for (Team tt : game.getTeams().values()) {
-            if (tt.getTeamSize() >= mayor) {
-                t = tt;
-                mayor = tt.getTeamSize();
-            }
-        }
-        return t;
-    }
-
-    public static FlagTeam getMajorPlayersTeam(GameFlag game) {
-        FlagTeam t = null;
-        int mayor = 0;
-        for (FlagTeam tt : game.getTeams().values()) {
             if (tt.getTeamSize() >= mayor) {
                 t = tt;
                 mayor = tt.getTeamSize();

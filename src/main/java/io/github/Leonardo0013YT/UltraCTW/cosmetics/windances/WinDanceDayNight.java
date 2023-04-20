@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
 import org.bukkit.World;
@@ -26,20 +25,6 @@ public class WinDanceDayNight implements WinDance, Cloneable {
 
     @Override
     public void start(Player p, Game game) {
-        World world = game.getSpectator().getWorld();
-        task = new BukkitRunnable() {
-            public void run() {
-                if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
-                    stop();
-                    return;
-                }
-                p.getWorld().setTime(p.getWorld().getTime() + perTickTime);
-            }
-        }.runTaskTimer(UltraCTW.get(), 0, taskTick);
-    }
-
-    @Override
-    public void start(Player p, GameFlag game) {
         World world = game.getSpectator().getWorld();
         task = new BukkitRunnable() {
             public void run() {

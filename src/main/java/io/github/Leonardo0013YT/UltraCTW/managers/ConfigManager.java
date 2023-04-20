@@ -17,8 +17,8 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, kickOnStarted, statsCMD, autoJoinFinish, mobGriefing, totalBreak, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, instaKillOnVoidFlag, instaKillOnVoidCTW, lobbyScoreboard, hungerFlag, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, placeholdersAPI, redPanelInLocked, holograms, holographicdisplays;
-    private Location mainLobby, topKills, topWins, topCaptured, topBounty;
+    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, kickOnStarted, statsCMD, autoJoinFinish, mobGriefing, totalBreak, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, placeholdersAPI, redPanelInLocked;
+    private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
     private Sound streak2, streak3, streak4, streak5, upgradeSound, cancelStartSound, wineffectschicken, wineffectsvulcanfire, wineffectvulcanwool, wineffectnotes, killEffectTNT, killEffectSquid;

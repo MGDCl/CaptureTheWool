@@ -1,10 +1,8 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
-import io.github.Leonardo0013YT.UltraCTW.team.FlagTeam;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -44,23 +42,6 @@ public class WinDanceDestroyIsland implements WinDance, Cloneable {
             }
         }.runTaskLater(UltraCTW.get(), spawnLaterTick);
     }
-
-    @Override
-    public void start(Player p, GameFlag game) {
-        World world = game.getSpectator().getWorld();
-        task = new BukkitRunnable() {
-            public void run() {
-                if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
-                    stop();
-                    return;
-                }
-                for (FlagTeam team : game.getTeams().values()) {
-                    explode(team.getSpawn().clone());
-                }
-            }
-        }.runTaskLater(UltraCTW.get(), spawnLaterTick);
-    }
-
 
     private void explode(Location loc) {
         loc.setY(loc.getWorld().getHighestBlockYAt(loc.getBlockX(), loc.getBlockZ()));

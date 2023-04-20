@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
 import org.bukkit.Color;
@@ -66,36 +65,6 @@ public class WinDanceFireworks implements WinDance, Cloneable {
             }
         }.runTaskTimer(UltraCTW.get(), 0, taskTick);
     }
-
-    @Override
-    public void start(Player p, GameFlag game) {
-        World world = game.getSpectator().getWorld();
-        Location loc1 = new Location(world, minOfCenter, firstUp, minOfCenter);
-        Location loc2 = new Location(world, -minOfCenter, firstUp, minOfCenter);
-        Location loc3 = new Location(world, minOfCenter, firstUp, -minOfCenter);
-        Location loc4 = new Location(world, -minOfCenter, firstUp, -minOfCenter);
-        Location loc5 = new Location(world, maxOfCenter, firstUp, maxOfCenter);
-        Location loc6 = new Location(world, -maxOfCenter, firstUp, maxOfCenter);
-        Location loc7 = new Location(world, maxOfCenter, firstUp, -maxOfCenter);
-        Location loc8 = new Location(world, -maxOfCenter, firstUp, -maxOfCenter);
-        task = new BukkitRunnable() {
-            public void run() {
-                if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
-                    stop();
-                    return;
-                }
-                firework(loc1);
-                firework(loc2);
-                firework(loc3);
-                firework(loc4);
-                firework(loc5);
-                firework(loc6);
-                firework(loc7);
-                firework(loc8);
-            }
-        }.runTaskTimer(UltraCTW.get(), 0, taskTick);
-    }
-
 
     @Override
     public void stop() {

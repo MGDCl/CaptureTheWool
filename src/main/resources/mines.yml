@@ -1,5 +1,0 @@
-mines:
-  coal:
-    material: COAL_ORE
-    regenerate: 5
-    coins: 4

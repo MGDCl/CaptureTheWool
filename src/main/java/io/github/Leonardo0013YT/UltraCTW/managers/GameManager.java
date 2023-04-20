@@ -2,8 +2,6 @@ package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import com.nametagedit.plugin.NametagEdit;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.enums.State;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.game.GameNoState;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
@@ -21,8 +19,6 @@ public class GameManager {
     private HashMap<Integer, Game> games = new HashMap<>();
     private HashMap<String, Integer> gameNames = new HashMap<>();
     private HashMap<UUID, Integer> playerGame = new HashMap<>();
-    private HashMap<Integer, GameFlag> flagGames = new HashMap<>();
-    private HashMap<String, Integer> flagGameNames = new HashMap<>();
     private HashMap<String, Integer> players = new HashMap<>();
     private long lastUpdatePlayers;
     private Game selectedGame;
@@ -35,9 +31,7 @@ public class GameManager {
 
     public void reload() {
         games.clear();
-        flagGames.clear();
         gameNames.clear();
-        flagGameNames.clear();
         if (!plugin.getArenas().isSet("arenas")) return;
         int id = 0;
         for (String s : plugin.getArenas().getConfig().getConfigurationSection("arenas").getKeys(false)) {
@@ -47,11 +41,6 @@ public class GameManager {
                 games.put(id, game);
                 gameNames.put(game.getName(), id);
                 plugin.sendLogMessage("§aMapa §e" + s + " §acargado correctamente.");
-            } else {
-                GameFlag game = new GameFlag(plugin, "arenas." + s, id);
-                flagGames.put(id, game);
-                flagGameNames.put(game.getName(), id);
-                plugin.sendLogMessage("§aGameFlag §e" + s + "§a loaded correctly.");
             }
             id++;
         }
@@ -91,26 +80,7 @@ public class GameManager {
         } else {
             players.put("wool", 0);
         }
-        int count = 0;
-        for (GameFlag gf : flagGames.values()) {
-            count += gf.getPlayers().size();
-        }
-        players.put("flag", count);
         lastUpdatePlayers = System.currentTimeMillis();
-    }
-
-    public GameFlag getRandomGameFlag() {
-        GameFlag fg = null;
-        int amount = 0;
-        for (GameFlag gf : flagGames.values()) {
-            if (gf.isState(State.GAME) || gf.isState(State.FINISH) || gf.isState(State.RESTARTING)) continue;
-            if (gf.getPlayers().size() >= gf.getMax()) continue;
-            if (amount <= gf.getPlayers().size()) {
-                fg = gf;
-                amount = gf.getPlayers().size();
-            }
-        }
-        return fg;
     }
 
     public Game getSelectedGame() {
@@ -125,16 +95,8 @@ public class GameManager {
         return games.get(gameNames.get(name));
     }
 
-    public GameFlag getGameFlagByName(String name) {
-        return flagGames.get(flagGameNames.get(name));
-    }
-
     public Game getGameByPlayer(Player p) {
         return games.get(playerGame.get(p.getUniqueId()));
-    }
-
-    public GameFlag getGameFlagByPlayer(Player p) {
-        return flagGames.get(playerGame.get(p.getUniqueId()));
     }
 
     public void addPlayerGame(Player p, int id) {
@@ -143,22 +105,12 @@ public class GameManager {
         game.addPlayer(p);
     }
 
-    public void addPlayerGameFlag(Player p, int id) {
-        GameFlag game = flagGames.get(id);
-        playerGame.put(p.getUniqueId(), id);
-        game.addPlayer(p);
-    }
-
     public void removePlayerGame(Player p, boolean toLobby) {
         if (!playerGame.containsKey(p.getUniqueId())) return;
         int id = playerGame.get(p.getUniqueId());
         Game game = games.get(id);
-        GameFlag gf = flagGames.get(id);
         if (game != null) {
             game.removePlayer(p);
-        }
-        if (gf != null) {
-            gf.removePlayer(p);
         }
         NametagEdit.getApi().clearNametag(p);
         playerGame.remove(p.getUniqueId());

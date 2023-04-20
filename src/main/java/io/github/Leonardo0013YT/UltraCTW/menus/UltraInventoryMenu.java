@@ -40,8 +40,6 @@ public class UltraInventoryMenu {
     public void loadMenus() {
         menus.clear();
         menus.put("setup", new SetupArenaMenu(plugin, "setup"));
-        menus.put("flag", new SetupFlagArenaMenu(plugin, "flag"));
-        menus.put("teamflag", new SetupFlagTeamMenu(plugin, "teamflag"));
         menus.put("teamsetup", new SetupTeamMenu(plugin, "teamsetup"));
         menus.put("lobby", new LobbyShopMenu(plugin, "lobby"));
         menus.put("killsounds", new SetupKillSoundMenu(plugin, "killsounds"));
@@ -114,31 +112,6 @@ public class UltraInventoryMenu {
         }
     }
 
-    public void createKitFlagSelectorMenu(Player p) {
-        int page = pages.get(p);
-        Inventory inv = Bukkit.createInventory(null, 54, plugin.getLang().get(p, "menus.kitflagselector.title"));
-        CTWPlayer sw = plugin.getDb().getCTWPlayer(p);
-        ItemStack close = ItemBuilder.item(XMaterial.matchXMaterial(plugin.getCm().getBack()), plugin.getLang().get(p, "menus.kitflagselector.close.nameItem"), plugin.getLang().get(p, "menus.kitflagselector.close.loreItem"));
-        ItemStack next = ItemBuilder.item(XMaterial.ARROW, 1, plugin.getLang().get(p, "menus.next.nameItem"), plugin.getLang().get(p, "menus.next.loreItem"));
-        ItemStack last = ItemBuilder.item(XMaterial.ARROW, 1, plugin.getLang().get(p, "menus.last.nameItem"), plugin.getLang().get(p, "menus.last.loreItem"));
-        for (Kit k : plugin.getKm().getKits().values()) {
-            if (!k.isFlag()) continue;
-            if (sw == null) {
-                continue;
-            }
-            if (k.getPage() != page) continue;
-            inv.setItem(k.getSlot(), k.getLevels().get(1).getIcon(p));
-        }
-        if (page > 1) {
-            inv.setItem(45, last);
-        }
-        if (page < plugin.getKm().getLastPage()) {
-            inv.setItem(53, next);
-        }
-        inv.setItem(49, close);
-        p.openInventory(inv);
-    }
-
     public void createKitSelectorMenu(Player p) {
         int page = pages.get(p);
         Inventory inv = Bukkit.createInventory(null, 54, plugin.getLang().get(p, "menus.kitselector.title"));
@@ -165,11 +138,6 @@ public class UltraInventoryMenu {
 
     public void createKitLevelSelectorMenu(Player p, Kit k) {
         Inventory inv = Bukkit.createInventory(null, 54, plugin.getLang().get(p, "menus.kitlevels.title"));
-        fillKits(p, k, inv);
-    }
-
-    public void createFlagKitLevelSelectorMenu(Player p, Kit k) {
-        Inventory inv = Bukkit.createInventory(null, 54, plugin.getLang().get(p, "menus.kitflaglevels.title"));
         fillKits(p, k, inv);
     }
 

@@ -938,55 +938,6 @@ public class SetupListener implements Listener {
                 }
             }
         }
-        if (plugin.getSm().isSetupFlag(p)) {
-            e.setCancelled(true);
-            FlagSetup as = plugin.getSm().getSetupFlag(p);
-            String type = plugin.getSm().getSetupName(p);
-            if (type.equals("min")) {
-                int min;
-                try {
-                    min = Integer.parseInt(e.getMessage());
-                } catch (NumberFormatException ex) {
-                    p.sendMessage(plugin.getLang().get(p, "setup.noNumber"));
-                    return;
-                }
-                if (min < 2) {
-                    p.sendMessage(plugin.getLang().get(p, "setup.arena.minMin"));
-                    return;
-                }
-                as.setMin(min);
-                plugin.getSm().removeName(p);
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-            }
-            if (type.equals("teamsize")) {
-                int teamsize;
-                try {
-                    teamsize = Integer.parseInt(e.getMessage());
-                } catch (NumberFormatException ex) {
-                    p.sendMessage(plugin.getLang().get(p, "setup.noNumber"));
-                    return;
-                }
-                if (teamsize < 1) {
-                    p.sendMessage(plugin.getLang().get(p, "setup.arena.minTeamSize"));
-                    return;
-                }
-                as.setTeamSize(teamsize);
-                plugin.getSm().removeName(p);
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-            }
-        }
     }
 
     @EventHandler
@@ -1013,15 +964,6 @@ public class SetupListener implements Listener {
                         new String[]{"<woolSize>", "" + as.getWoolSize()},
                         new String[]{"<squareds>", "" + getString(sq)},
                         new String[]{"<teamAmount>", "" + as.getAmountTeams()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-            } else if (plugin.getSm().isSetupFlag(p)) {
-                FlagSetup as = plugin.getSm().getSetupFlag(p);
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
                         new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
                         new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
             }
@@ -1678,14 +1620,6 @@ public class SetupListener implements Listener {
                 }
                 p.sendMessage(plugin.getLang().get("setup.arena.addColor").replaceAll("<color>", plugin.getLang().get("teams." + color.name().toLowerCase())));
                 plugin.getSem().createSetupColorTeam(p, as);
-            } else if (plugin.getSm().isSetupFlag(p)) {
-                FlagSetup as = plugin.getSm().getSetupFlag(p);
-                FlagTeamSetup fts = new FlagTeamSetup(color);
-                as.setActual(fts);
-                plugin.getSm().setTeamFlagSetup(p, fts);
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("teamflag"),
-                        new String[]{"<flag>", Utils.getFormatedLocation(fts.getFlag())},
-                        new String[]{"<spawn>", Utils.getFormatedLocation(fts.getSpawn())});
             }
         }
         if (e.getView().getTitle().equals(plugin.getLang().get("menus.spawners.title"))) {
@@ -1895,126 +1829,6 @@ public class SetupListener implements Listener {
                     new String[]{"<squareds>", getString(sq)},
                     new String[]{"<spawn>", "" + Utils.getFormatedLocation(ts.getSpawn())});
             p.sendMessage(plugin.getLang().get("setup.arena.createDontWools"));
-        }
-        if (e.getView().getTitle().equals(plugin.getLang().get("menus.teamflag.title"))) {
-            e.setCancelled(true);
-            FlagSetup as = plugin.getSm().getSetupFlag(p);
-            FlagTeamSetup fts = plugin.getSm().getTeamFlagSetup(p);
-            ItemMeta im = e.getCurrentItem().getItemMeta();
-            String display = im.getDisplayName();
-            if (display.equals(plugin.getLang().get(p, "menus.teamflag.spawn.nameItem"))) {
-                fts.setSpawn(p.getLocation());
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("teamflag"),
-                        new String[]{"<flag>", Utils.getFormatedLocation(fts.getFlag())},
-                        new String[]{"<spawn>", Utils.getFormatedLocation(fts.getSpawn())});
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.teamflag.flag.nameItem"))) {
-                fts.setFlag(p.getLocation());
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("teamflag"),
-                        new String[]{"<flag>", Utils.getFormatedLocation(fts.getFlag())},
-                        new String[]{"<spawn>", Utils.getFormatedLocation(fts.getSpawn())});
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.teamflag.save.nameItem"))) {
-                as.getTeams().add(fts);
-                as.setActual(null);
-                plugin.getSm().removeTeamFlag(p);
-                p.sendMessage(plugin.getLang().get("setup.arena.teamSaved"));
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-            }
-        }
-        if (e.getView().getTitle().equals(plugin.getLang().get("menus.flag.title"))) {
-            e.setCancelled(true);
-            FlagSetup as = plugin.getSm().getSetupFlag(p);
-            ItemMeta im = e.getCurrentItem().getItemMeta();
-            String display = im.getDisplayName();
-            if (display.equals(plugin.getLang().get(p, "menus.flag.protection.nameItem"))) {
-                Selection s = as.getSelection();
-                if (s.getPos1() == null || s.getPos2() == null) {
-                    p.sendMessage(plugin.getLang().get("setup.arena.needPositions"));
-                    return;
-                }
-                as.setProtection(new Squared(s.getPos2(), s.getPos1(), false, true));
-                p.sendMessage(plugin.getLang().get("setup.arena.setProteccion"));
-                s.setPos1(null);
-                s.setPos2(null);
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.npcKits.nameItem"))) {
-                as.getNpcKits().add(Utils.getLocationString(p.getLocation()));
-                p.sendMessage(plugin.getLang().get("setup.arena.setNPCKits"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.npcShop.nameItem"))) {
-                as.getNpcShop().add(Utils.getLocationString(p.getLocation()));
-                p.sendMessage(plugin.getLang().get("setup.arena.setNPCShop"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.npcUpgrade.nameItem"))) {
-                as.getNpcUpgrades().add(Utils.getLocationString(p.getLocation()));
-                p.sendMessage(plugin.getLang().get("setup.arena.setNPCUpgrade"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.npcBuff.nameItem"))) {
-                as.getNpcBuff().add(Utils.getLocationString(p.getLocation()));
-                p.sendMessage(plugin.getLang().get("setup.arena.setNPCBuff"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.lobby.nameItem"))) {
-                as.setLobby(p.getLocation());
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-                p.sendMessage(plugin.getLang().get(p, "setup.arena.setLobby"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.spect.nameItem"))) {
-                as.setSpectator(p.getLocation());
-                plugin.getUim().openInventory(p, plugin.getUim().getMenus("flag"),
-                        new String[]{"<name>", as.getName()},
-                        new String[]{"<schematic>", as.getSchematic()},
-                        new String[]{"<min>", "" + as.getMin()},
-                        new String[]{"<teamSize>", "" + as.getTeamSize()},
-                        new String[]{"<lobby>", Utils.getFormatedLocation(as.getLobby())},
-                        new String[]{"<spect>", Utils.getFormatedLocation(as.getSpectator())});
-                p.sendMessage(plugin.getLang().get(p, "setup.arena.setSpect"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.min.nameItem"))) {
-                plugin.getSm().setSetupName(p, "min");
-                p.closeInventory();
-                p.sendMessage(plugin.getLang().get(p, "setup.arena.setMin"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.teamSize.nameItem"))) {
-                plugin.getSm().setSetupName(p, "teamsize");
-                p.closeInventory();
-                p.sendMessage(plugin.getLang().get(p, "setup.arena.setTeamSize"));
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.teams.nameItem"))) {
-                if (!plugin.getSm().isTeamFlagSetup(p)) {
-                    plugin.getSem().createSetupColorTeam(p, as);
-                } else {
-                    FlagTeamSetup fts = plugin.getSm().getTeamFlagSetup(p);
-                    plugin.getUim().openInventory(p, plugin.getUim().getMenus("teamflag"),
-                            new String[]{"<flag>", Utils.getFormatedLocation(fts.getFlag())},
-                            new String[]{"<spawn>", Utils.getFormatedLocation(fts.getSpawn())});
-                }
-            }
-            if (display.equals(plugin.getLang().get(p, "menus.flag.save.nameItem"))) {
-                as.save();
-                p.closeInventory();
-                plugin.getSm().removeFlag(p);
-                p.getInventory().clear();
-            }
         }
         if (e.getView().getTitle().equals(plugin.getLang().get("menus.setup.title"))) {
             e.setCancelled(true);

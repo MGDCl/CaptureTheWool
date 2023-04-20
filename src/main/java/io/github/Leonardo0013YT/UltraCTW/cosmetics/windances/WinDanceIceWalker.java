@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
 import org.bukkit.Location;
@@ -32,24 +31,6 @@ public class WinDanceIceWalker implements WinDance, Cloneable {
 
     @Override
     public void start(Player p, Game game) {
-        World world = game.getSpectator().getWorld();
-        task = new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (p == null || !p.isOnline() || !world.getName().equals(p.getWorld().getName())) {
-                    stop();
-                    return;
-                }
-                for (Block block : getNearbyBlocks(p.getLocation(), rangePerRound * round)) {
-                    block.setType(Material.ICE);
-                }
-                round++;
-            }
-        }.runTaskTimer(UltraCTW.get(), 0, taskTick);
-    }
-
-    @Override
-    public void start(Player p, GameFlag game) {
         World world = game.getSpectator().getWorld();
         task = new BukkitRunnable() {
             @Override

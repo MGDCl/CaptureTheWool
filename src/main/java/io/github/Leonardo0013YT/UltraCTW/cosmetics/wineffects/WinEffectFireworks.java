@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.wineffects;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 
@@ -82,22 +81,6 @@ public class WinEffectFireworks implements WinEffect, Cloneable {
 				}
             }
         }.runTaskTimer(UltraCTW.get(), 0L, 10L);
-    }
-
-    @Override
-    public void start(Player p, GameFlag game) {
-        task = new BukkitRunnable() {
-            String name = game.getSpectator().getWorld().getName();
-
-            @Override
-            public void run() {
-                if (p == null || !p.isOnline() || !name.equals(p.getWorld().getName())) {
-                    stop();
-                    return;
-                }
-                firework(p.getLocation());
-            }
-        }.runTaskTimer(UltraCTW.get(), 0, 6);
     }
 
     @Override

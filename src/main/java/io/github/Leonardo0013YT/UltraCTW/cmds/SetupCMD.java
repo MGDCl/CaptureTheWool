@@ -38,10 +38,6 @@ public class SetupCMD implements CommandExecutor {
                         return true;
                     }
                     String delete = args[1];
-                    if (plugin.getGm().getGameByName(delete) == null && plugin.getGm().getGameFlagByName(delete) == null) {
-                        p.sendMessage("§cThis game not exists.");
-                        return true;
-                    }
                     if (plugin.getSm().isDelete(p)) {
                         plugin.getArenas().set("arenas." + delete, null);
                         plugin.getArenas().save();

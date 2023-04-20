@@ -3,7 +3,6 @@ package io.github.Leonardo0013YT.UltraCTW.cosmetics.wineffects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.game.GameFlag;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 
@@ -57,27 +56,6 @@ public class WinEffectStorm implements WinEffect, Cloneable {
 				}
 			}
 		}.runTaskTimer(UltraCTW.get(), 0L, 5L);
-    }
-
-    @Override
-    public void start(Player p, GameFlag game) {
-        World world = game.getSpectator().getWorld();
-        task = new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (!p.getWorld().getName().equals(world.getName())) {
-                    cancel();
-                    return;
-                }
-                if (!p.isOnline()) {
-                    cancel();
-                    return;
-                }
-                for (Block b : getNearbyBlocks(p.getLocation())) {
-                    b.setType(Material.ICE);
-                }
-            }
-        }.runTaskTimer(UltraCTW.get(), 0, 5);
     }
 
     @Override
