@@ -97,7 +97,6 @@ public class GameNoState implements Game {
         Utils.updateSB(p);
         checkStart();
         p.setGameMode(GameMode.SPECTATOR);
-        NametagEdit.getApi().clearNametag(p);
         Game selected3 = plugin.getGm().getSelectedGame();
         plugin.getGem().createTeamsMenu(p, selected3);
         if (isState(State.WAITING) || isState(State.STARTING)) {
@@ -353,21 +352,35 @@ public class GameNoState implements Game {
             }
         }.runTaskTimer(plugin, 20L, 20L);
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this::reset, 20 * 13);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                for (Player on : cached){
+                    NametagEdit.getApi().clearNametag(on);
+                }
+            }
+        }.runTaskLater(plugin, 20 * 9);
 
-        if (plugin.getCm().isAutoJoinFinish()) {
-            new BukkitRunnable() {
-                @Override
-                public void run() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (plugin.getCm().isAutoJoinFinish()){
                     for (Player on : back) {
                         if (on == null || !on.isOnline()) continue;
                         Game g = plugin.getGm().getSelectedGame();
                         plugin.getGm().addPlayerGame(on, g.getId());
                         on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
                     }
+                } else {
+                    for (Player on : back) {
+                        if (on == null || !on.isOnline()) continue;
+                        plugin.getGm().removePlayerGame(on, true);
+                    }
                 }
-            }.runTaskLater(plugin, 20 * 10);
-        }
+            }
+        }.runTaskLater(plugin, 20 * 10);
+
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this::reset, 20 * 13);
     }
 
     @Override

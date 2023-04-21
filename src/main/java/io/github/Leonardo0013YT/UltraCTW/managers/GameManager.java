@@ -40,7 +40,7 @@ public class GameManager {
                 Game game = new GameNoState(plugin, "arenas." + s, id);
                 games.put(id, game);
                 gameNames.put(game.getName(), id);
-                plugin.sendLogMessage("§aMapa §e" + s + " §acargado correctamente.");
+                plugin.sendLogMessage("§aMap §e" + s + " §aloaded correctly.");
             }
             id++;
         }

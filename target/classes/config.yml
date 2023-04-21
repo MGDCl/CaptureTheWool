@@ -19,8 +19,6 @@ whitelistedCMD:
   - /msg
   - /stats
   - /join
-effectsOnKill:
-  - "SPEED:2:2"
 redPanel:
   material: STAINED_GLASS_PANE
   data: 14

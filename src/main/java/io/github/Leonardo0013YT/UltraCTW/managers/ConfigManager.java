@@ -3,7 +3,6 @@ package io.github.Leonardo0013YT.UltraCTW.managers;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.objects.ObjectPotion;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
-import io.github.Leonardo0013YT.UltraCTW.xseries.XPotion;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 import lombok.Getter;
 import org.bukkit.Location;
@@ -17,7 +16,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, kickOnStarted, statsCMD, autoJoinFinish, mobGriefing, totalBreak, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, placeholdersAPI, redPanelInLocked;
+    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, placeholdersAPI, redPanelInLocked;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -25,7 +24,7 @@ public class ConfigManager {
     private XSound pickUpTeam, pickUpOthers, captured;
     private int ironGenerating, updatePlayersPlaceholder, gracePeriod, limitOfYSpawn, itemLobbySlot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
     private double bountyMin, bountyMax, bountyPerKill;
-    private String bungeeModeLobbyServer, itemLobbyCMD;
+    private String itemLobbyCMD;
     private List<String> winCommands, levelCommands, killCommands, deathCommands;
     private List<String> whitelistedCMD, noDrop, breakBypass;
     private final List<ObjectPotion> effectsOnKill = new ArrayList<>();
@@ -47,19 +46,6 @@ public class ConfigManager {
         this.statsCMD = plugin.getConfig().getBoolean("statsCMD");
         this.mobGriefing = plugin.getConfig().getBoolean("mobGriefing");
         this.totalBreak = plugin.getConfig().getBoolean("breakMap.totalBreak");
-        this.sendLobbyOnQuit = plugin.getConfig().getBoolean("bungeeMode.sendLobbyOnQuit");
-        this.kickOnStarted = plugin.getConfig().getBoolean("bungeeMode.kickOnStarted");
-        this.bungeeModeEnabled = plugin.getConfig().getBoolean("bungeeMode.enabled");
-        this.bungeeModeAutoJoin = plugin.getConfig().getBoolean("bungeeMode.autoJoin");
-        this.bungeeModeKickOnFinish = plugin.getConfig().getBoolean("bungeeMode.kickOnFinish");
-        this.bungeeModeLobbyServer = plugin.getConfig().getString("bungeeMode.lobbyServer");
-        for (String s : plugin.getConfig().getStringList("effectsOnKill")) {
-            String[] st = s.split(":");
-            XPotion potion = XPotion.matchXPotion(st[0]).orElse(XPotion.REGENERATION);
-            int level = Integer.parseInt(st[1]);
-            int duration = Integer.parseInt(st[2]);
-            effectsOnKill.add(new ObjectPotion(potion, level, duration));
-        }
         this.ironGenerating = plugin.getConfig().getInt("gameDefaults.ironGenerating");
         this.updatePlayersPlaceholder = plugin.getConfig().getInt("updatePlayersPlaceholder");
         this.lobbyScoreboard = plugin.getConfig().getBoolean("lobbyScoreboard");

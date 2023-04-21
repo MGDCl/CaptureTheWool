@@ -32,7 +32,7 @@ public class InjectionManager {
             plugin.sendLogMessage("§eInjection §bUltraCTW §aWorldEdit §71.13 - 1.16 §eloaded correctly!");
         } else {
             we = new File(injections, "UltraCTW-WEOld.jar");
-            plugin.sendLogMessage("§eInjection §bUltraCTW §aWorldEdit §71.8.8 - 1.12 §eloaded correctly!");
+            plugin.sendLogMessage("§eInjection §bUltraCTW §aWorldEdit §71.8.8 §eloaded correctly!");
         }
         if (!we.exists()) {
             plugin.sendLogMessage("§cYou must put which version of WorldEdit Addon you'll be using,", "§cuse the UltraCTW-WEOld.jar injection for WorldEdit 1.8 through 1.12", "§cand UltraCTW-WENew.jar for WorldEdit 1.13 through 1.15.");

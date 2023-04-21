@@ -11,7 +11,6 @@ import io.github.Leonardo0013YT.UltraCTW.game.GamePlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.NPC;
-import io.github.Leonardo0013YT.UltraCTW.objects.ObjectPotion;
 import io.github.Leonardo0013YT.UltraCTW.objects.Squared;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
@@ -515,9 +514,6 @@ public class PlayerListener implements Listener {
             if (sk != null) {
                 if (plugin.getCm().isKCMDEnabled()) {
                     plugin.getCm().getKillCommands().forEach(c -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), c.replaceAll("<player>", d.getName())));
-                }
-                for (ObjectPotion op : plugin.getCm().getEffectsOnKill()) {
-                    d.addPotionEffect(new PotionEffect(op.getPotion().parsePotionEffectType(), op.getDuration(), op.getLevel()));
                 }
                 if (p.getLastDamageCause() == null || p.getLastDamageCause().getCause() == null) {
                     EntityDamageEvent.DamageCause cause = EntityDamageEvent.DamageCause.CONTACT;

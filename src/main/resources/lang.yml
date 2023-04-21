@@ -99,14 +99,14 @@ messages:
   deselectWinDance: "&aYou've deselected your current windances."
   noOther: "&cYou can't enter another game if one is already selected."
   otherpick: " &c&l! ! <tcolor><player> &epicked up your <color>&lwool <wool> &c&l! !"
-  teampick: " &a➤ &e¡<tcolor><player> &ecollected the <color>wool <wool>&e!"
+  teampick: " &a➤ <tcolor><player> &ecollected the <color>wool <wool>&e!"
   notInGame: '&cYou are not in a game!'
   alreadyTeam: '&cYou have already chosen a team!'
   joinGame: '&7Connecting to &a<game>'
   ending: '&eA new game starts in &c<count>&e segundo<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
-  newPlayer: "§f¡§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
-  play: "&fUse &e&l/join &f to join a team"
+  newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
+  play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   placeTeam:
     - "<center>&7"

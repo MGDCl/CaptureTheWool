@@ -252,8 +252,6 @@ public class SetupCMD implements CommandExecutor {
                     }
                     switch (args[1].toLowerCase()) {
                         case "setup":
-                        case "flag":
-                        case "teamflag":
                         case "lobby":
                         case "taunts":
                         case "tauntstype":
