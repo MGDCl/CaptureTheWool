@@ -207,9 +207,9 @@ public class GameNoState implements Game {
                 sendGameTitle("", "", 0, 1, 0);
             }
             if (starting == 0) {
-                sendGameTitle(plugin.getLang().get(null, "titles.startGame.title"), plugin.getLang().get(null, "titles.startGame.subtitle"), 0, 60, 0);
                 setState(State.GAME);
                 sendGameSound(XSound.ENTITY_PLAYER_LEVELUP.parseSound());
+                sendGameTitle(plugin.getLang().get(null, "titles.startGame.title"), plugin.getLang().get(null, "titles.startGame.subtitle"), 0, 60, 0);
                 checkTeamBalance();
                 for (String s : plugin.getLang().getList("messages.start")) {
                     sendGameMessage(s);
@@ -250,6 +250,7 @@ public class GameNoState implements Game {
         if (isState(State.GAME)) {
             time++;
             teams.values().forEach(Team::updateSpawner);
+
             for(Player on : cached){
                 Team t = getTeamPlayer(on);
                 if (t == null) {
@@ -306,7 +307,7 @@ public class GameNoState implements Game {
         for (Player on : cached) {
             setSpect(on);
             for (String s : plugin.getLang().getList("messages.win")) {
-                on.sendMessage(s.replaceAll("&", "§").replaceAll("<winner>", gw.getWinner()).replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
+                on.sendMessage(s.replaceAll("&", "§").replaceAll("<captured>", Utils.getWoolsString(team)).replaceAll("<winner>", gw.getWinner()).replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
             }
         }
         plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), plugin.getLang().get("titles.lose.subtitle"), 0, 60, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
@@ -328,8 +329,6 @@ public class GameNoState implements Game {
         }
         plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 60, 0, team.getMembers());
         ArrayList<Player> back = new ArrayList<>(cached);
-
-        //Todo enviar mensaje de lanas capturas
 
         new BukkitRunnable() {
             int count = 9;
@@ -355,21 +354,13 @@ public class GameNoState implements Game {
         new BukkitRunnable() {
             @Override
             public void run() {
-                for (Player on : cached){
-                    NametagEdit.getApi().clearNametag(on);
-                }
-            }
-        }.runTaskLater(plugin, 20 * 9);
-
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (plugin.getCm().isAutoJoinFinish()){
+                if (plugin.getCm().isAutoJoinFinish()){ //TODO chequear si hay màs de 2 mapas
                     for (Player on : back) {
                         if (on == null || !on.isOnline()) continue;
                         Game g = plugin.getGm().getSelectedGame();
                         plugin.getGm().addPlayerGame(on, g.getId());
                         on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
+                        NametagEdit.getApi().clearNametag(on);
                     }
                 } else {
                     for (Player on : back) {

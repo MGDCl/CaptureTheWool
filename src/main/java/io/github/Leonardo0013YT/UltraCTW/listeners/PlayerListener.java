@@ -262,7 +262,8 @@ public class PlayerListener implements Listener {
             ChatColor to = team.getWools().get(l);
             if (!to.equals(c)) {
                 e.setCancelled(true);
-                p.sendMessage(plugin.getLang().get("messages.incorrectWool").replaceAll("<wool>", c + "⬛"));
+                p.sendMessage(plugin.getLang().get("messages.incorrectWool").replaceAll("<wool>", c + "" + c.name()));
+                p.sendMessage(Utils.getWoolsString(team));
                 return;
             }
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
@@ -272,15 +273,15 @@ public class PlayerListener implements Listener {
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpCapture());
             ctw.addWoolCaptured();
             for (String s : plugin.getLang().getList("messages.placeTeam")){
-                team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
+                team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
             }
             team.getCaptured().add(c);
-            team.sendTitle(plugin.getLang().get("titles.captured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titles.captured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + "⬛"), 0, 30, 10);
+            team.sendTitle(plugin.getLang().get("titles.captured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titles.captured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
             g.getTeams().values().stream().filter(t -> t.getId() != team.getId()).forEach(t -> {
                 for (String s : plugin.getLang().getList("messages.capturedWool")){
-                    t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
+                    t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
                 }
-                t.sendTitle(plugin.getLang().get("titles.otherCaptured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.otherCaptured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + "⬛"), 0, 30, 10);
+                t.sendTitle(plugin.getLang().get("titles.otherCaptured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.otherCaptured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
             });
             team.playSound(plugin.getCm().getCaptured(), 1.0f, 1.0f);
             if (team.checkWools()) {
@@ -437,13 +438,19 @@ public class PlayerListener implements Listener {
         team.getInProgress().putIfAbsent(c, new ArrayList<>());
         if (!team.getInProgress().get(c).contains(p.getUniqueId())) {
             team.getInProgress().get(c).add(p.getUniqueId());
-            team.sendMessage(plugin.getLang().get("messages.teampick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
-            team.sendTitle(plugin.getLang().get("titles.teampick.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titles.teampick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + "⬛"), 0, 30, 10);
+            team.sendMessage(plugin.getLang().get("messages.teampick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
+            team.sendTitle(plugin.getLang().get("titles.teampick.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titles.teampick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, c + " ░ ");
+            ItemStack item = new ItemStack(322, 4);
+            if (p.getInventory().firstEmpty() == -1) {
+                p.sendMessage("sexo");
+            } else {
+                p.getInventory().addItem(item);
+            }
             ChatColor finalC = c;
-            others.forEach(t -> t.sendMessage(plugin.getLang().get("messages.otherpick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replaceAll("<wool>", finalC + "⬛")));
-            others.forEach(t -> t.sendTitle(plugin.getLang().get("titles.otherpick.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titles.otherpick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", finalC + "⬛"), 0, 30, 10));
+            others.forEach(t -> t.sendMessage(plugin.getLang().get("messages.otherpick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replaceAll("<wool>", finalC + finalC.name())));
+            others.forEach(t -> t.sendTitle(plugin.getLang().get("titles.otherpick.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titles.otherpick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", finalC + finalC.name()), 0, 30, 10));
             others.forEach(t -> t.playSound(plugin.getCm().getPickUpOthers(), 1.0f, 1.0f));
         }
     }

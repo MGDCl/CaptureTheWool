@@ -131,7 +131,7 @@ messages:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
     - "<center>&f&lCAPTURE THE WOOL"
-    - "<center>&7"
+    - "<center>&7Wools: <captured>"
     - "<center>&aWinner &7- <winner>"
     - "<center>&7"
     - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
