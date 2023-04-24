@@ -189,6 +189,7 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\UltraWinEffect.class
 io\github\Leonardo0013YT\UltraCTW\nms\npc\NPC_v1_8_r3.class
 io\github\Leonardo0013YT\UltraCTW\managers\LevelManager.class
 io\github\Leonardo0013YT\UltraCTW\calls\CallBackAPI.class
+io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$2.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectGuardians$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectSquid$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectVulcanWool$1.class

@@ -496,6 +496,8 @@ public class PlayerListener implements Listener {
             return;
         }
         Player victim = (Player) e.getEntity();
+        Game g = plugin.getGm().getGameByPlayer(victim);
+        Team team = g.getTeamPlayer(victim);
         if(attacker == victim) {
             e.setCancelled(true);
             return;
@@ -503,9 +505,15 @@ public class PlayerListener implements Listener {
         if(victim.getHealth() - e.getDamage() < 0) {
             return;
         }
-        //DecimalFormat df = new DecimalFormat("##.##");
-        //attacker.sendMessage("Vida de: " + victim.getName() + " " + df.format(victim.getHealth() - e.getDamage()));
-        attacker.sendMessage(plugin.getLang().get("messages.arrowdamage").replaceAll("<victim>", victim.getDisplayName()).replaceAll("<health>", victim.getHealth() + ""));
+        new BukkitRunnable() {
+            @Override
+            public void run(){
+                double health = Math.round(victim.getHealth() * 10.0) / 10.0;
+                if (health != 20.0) {
+                    attacker.sendMessage(plugin.getLang().get("messages.arrowdamage").replaceAll("<color>", team.getColor() + "").replaceAll("<victim>", victim.getDisplayName()).replaceAll("<health>", String.valueOf(health)));
+                }
+            }
+        }.runTaskLater(plugin, 2L);
     }
 
 

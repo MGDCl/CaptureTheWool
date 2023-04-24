@@ -108,6 +108,7 @@ messages:
   newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
+  arrowdamage: 'Health of &a<victim> &c<health>'
   placeTeam:
     - "<center>&7"
     - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
