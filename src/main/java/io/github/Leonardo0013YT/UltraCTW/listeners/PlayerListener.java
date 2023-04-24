@@ -20,6 +20,7 @@ import io.github.Leonardo0013YT.UltraCTW.xseries.XMaterial;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -37,6 +38,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -160,11 +162,11 @@ public class PlayerListener implements Listener {
     }
 
     private String formatTeam(Player p, Team team, String msg) {
-        return plugin.getLang().get(p, "chat.team").replaceAll("<team>", team.getName()).replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
+        return plugin.getLang().get(p, "chat.team").replaceAll("<team>", team.getName()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
     }
 
     private String formatGame(Player p, Team team, String msg) {
-        return plugin.getLang().get(p, "chat.global").replaceAll("<team>", team.getName()).replaceAll("<player>", p.getName()).replaceAll("<msg>", msg.replaceFirst("!", ""));
+        return plugin.getLang().get(p, "chat.global").replaceAll("<team>", team.getName()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg.replaceFirst("!", ""));
     }
 
     @EventHandler
@@ -181,11 +183,6 @@ public class PlayerListener implements Listener {
         Squared s2 = team.getPlayerSquared(e.getBlock().getLocation());
         Block b = e.getBlock();
         Location l = b.getLocation();
-        if (g.getWools().containsKey(l)) {
-            b.setType(Material.WOOL);
-            NametagEdit.getApi().setSuffix(p, "");
-            return;
-        }
         if (plugin.getCm().getBreakBypass().contains(l.getBlock().getType().name())) {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             ctw.setBroken(ctw.getBroken() + 1);
@@ -263,7 +260,6 @@ public class PlayerListener implements Listener {
             if (!to.equals(c)) {
                 e.setCancelled(true);
                 p.sendMessage(plugin.getLang().get("messages.incorrectWool").replaceAll("<wool>", c + "" + c.name()));
-                p.sendMessage(Utils.getWoolsString(team));
                 return;
             }
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
@@ -284,6 +280,7 @@ public class PlayerListener implements Listener {
                 t.sendTitle(plugin.getLang().get("titles.otherCaptured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.otherCaptured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
             });
             team.playSound(plugin.getCm().getCaptured(), 1.0f, 1.0f);
+            NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
             if (team.checkWools()) {
                 g.win(team);
             }
@@ -441,7 +438,7 @@ public class PlayerListener implements Listener {
             team.sendMessage(plugin.getLang().get("messages.teampick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
             team.sendTitle(plugin.getLang().get("titles.teampick.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titles.teampick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
-            NametagEdit.getApi().setSuffix(p, c + " ░ ");
+            NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
             ItemStack item = new ItemStack(322, 4);
             if (p.getInventory().firstEmpty() == -1) {
                 p.sendMessage("sexo");
@@ -485,6 +482,32 @@ public class PlayerListener implements Listener {
             }
         }
     }
+
+    @EventHandler
+    public void onArrowDamage(EntityDamageByEntityEvent e){
+        if(!(e.getDamager() instanceof Arrow)) {
+            return;
+        }
+        if(!(((Arrow) e.getDamager()).getShooter() instanceof Player)) {
+            return;
+        }
+        Player attacker = (Player) ((Arrow) e.getDamager()).getShooter();
+        if(!(e.getEntity() instanceof Player)) {
+            return;
+        }
+        Player victim = (Player) e.getEntity();
+        if(attacker == victim) {
+            e.setCancelled(true);
+            return;
+        }
+        if(victim.getHealth() - e.getDamage() < 0) {
+            return;
+        }
+        //DecimalFormat df = new DecimalFormat("##.##");
+        //attacker.sendMessage("Vida de: " + victim.getName() + " " + df.format(victim.getHealth() - e.getDamage()));
+        attacker.sendMessage(plugin.getLang().get("messages.arrowdamage").replaceAll("<victim>", victim.getDisplayName()).replaceAll("<health>", victim.getHealth() + ""));
+    }
+
 
     private boolean checkDamage(EntityDamageByEntityEvent e, Player p, Player d) {
         Game g = plugin.getGm().getGameByPlayer(p);

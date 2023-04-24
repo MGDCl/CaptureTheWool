@@ -131,7 +131,7 @@ messages:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
     - "<center>&f&lCAPTURE THE WOOL"
-    - "<center>&7"
+    - "<center>&7Wools: <captured>"
     - "<center>&aWinner &7- <winner>"
     - "<center>&7"
     - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
@@ -284,7 +284,7 @@ titles:
     title: "<color>WIN!"
     subtitle: "<tcolor>The <winner> team has won!"
   lose:
-    title: "tcolor>GAME OVER!"
+    title: "<tcolor>GAME OVER!"
     subtitle: "<tcolor>The <winner> team has won!"
   otherCaptured:
     title: ""

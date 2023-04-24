@@ -95,6 +95,24 @@ public class Utils {
         return wools.toString();
     }
 
+    public static String getWoolsTag(Team team){
+        if (team == null) return "";
+        StringBuilder wools = new StringBuilder();
+        for (ChatColor c : team.getColors()) {
+            boolean inInProgress = team.isInProgress(c);
+            boolean isCaptured = team.isCaptured(c);
+            if (isCaptured) {
+                wools.append(c).append("⬛").append(" ");
+            } else if (inInProgress) {
+                wools.append(c).append("░").append(" ");
+            } else {
+                wools.append(c).append(" ").append(" ");
+            }
+        }
+        return wools.toString();
+
+    }
+
     public static String getFlagIcon(ChatColor color) {
         return color + plugin.getLang().get("scoreboards.wools.captured");
     }

@@ -208,8 +208,8 @@ public class GameNoState implements Game {
             }
             if (starting == 0) {
                 setState(State.GAME);
-                sendGameSound(XSound.ENTITY_PLAYER_LEVELUP.parseSound());
-                sendGameTitle(plugin.getLang().get(null, "titles.startGame.title"), plugin.getLang().get(null, "titles.startGame.subtitle"), 0, 60, 0);
+                sendGameSound(XSound.ENTITY_ENDER_DRAGON_GROWL.parseSound());
+                sendGameTitle(plugin.getLang().get(null, "titles.startGame.title"), plugin.getLang().get(null, "titles.startGame.subtitle"), 20, 40, 20);
                 checkTeamBalance();
                 for (String s : plugin.getLang().getList("messages.start")) {
                     sendGameMessage(s);
@@ -310,7 +310,7 @@ public class GameNoState implements Game {
                 on.sendMessage(s.replaceAll("&", "§").replaceAll("<captured>", Utils.getWoolsString(team)).replaceAll("<winner>", gw.getWinner()).replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
             }
         }
-        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), plugin.getLang().get("titles.lose.subtitle"), 0, 60, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
+        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), plugin.getLang().get("titles.lose.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 80, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
         for (Player w : team.getMembers()) {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(w);
             if (ctw == null) continue;
@@ -327,7 +327,7 @@ public class GameNoState implements Game {
             plugin.getWem().execute(this, w, ctw.getWinEffect());
             plugin.getWdm().execute(this, w, ctw.getWinDance());
         }
-        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 60, 0, team.getMembers());
+        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 80, 0, team.getMembers());
         ArrayList<Player> back = new ArrayList<>(cached);
 
         new BukkitRunnable() {

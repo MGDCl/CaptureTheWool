@@ -57,7 +57,6 @@ public class StreakManager {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             ctw.setBounty(streak.getPrice());
             game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
-            //game.sendGameTitle("", "§eRacha de §a§l10 §easesinatos de §a§l" + p.getName(), 0, 80, 0);
             NametagEdit.getApi().setSuffix(p, " §6" + Utils.format(streak.getPrice()) + "⛂⛃");
             return;
         }

@@ -169,7 +169,6 @@ io\github\Leonardo0013YT\UltraCTW\interfaces\IDatabase.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\NPC.class
 io\github\Leonardo0013YT\UltraCTW\migrators\CTWMigrator.class
 io\github\Leonardo0013YT\UltraCTW\UltraCTW.class
-io\github\Leonardo0013YT\UltraCTW\enums\PhaseType.class
 io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$1.class
 io\github\Leonardo0013YT\UltraCTW\nms\NMS_v1_8_r3.class
 io\github\Leonardo0013YT\UltraCTW\database\MySQLDatabase$1.class
