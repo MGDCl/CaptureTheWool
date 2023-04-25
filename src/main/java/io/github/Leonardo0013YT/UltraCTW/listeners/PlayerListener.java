@@ -29,6 +29,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -162,11 +164,11 @@ public class PlayerListener implements Listener {
     }
 
     private String formatTeam(Player p, Team team, String msg) {
-        return plugin.getLang().get(p, "chat.team").replaceAll("<team>", team.getName()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
+        return plugin.getLang().get(p, "chat.team").replaceAll("<team>", team.getPrefix()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
     }
 
     private String formatGame(Player p, Team team, String msg) {
-        return plugin.getLang().get(p, "chat.global").replaceAll("<team>", team.getName()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg.replaceFirst("!", ""));
+        return plugin.getLang().get(p, "chat.global").replaceAll("<team>", team.getPrefix()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg.replaceFirst("!", ""));
     }
 
     @EventHandler
@@ -295,6 +297,10 @@ public class PlayerListener implements Listener {
                     removeFromProgress(p, item, team, XMaterial.matchXMaterial(i));
                 }
             }
+        }
+        if (item == null || item.getType().equals(Material.WOOL)){
+            p.sendMessage(plugin.getLang().get("messages.incorrectPlace"));
+            e.setCancelled(true);
         }
         Squared s1 = g.getPlayerSquared(l);
         Squared s2 = team.getPlayerSquared(l);
@@ -514,6 +520,17 @@ public class PlayerListener implements Listener {
                 }
             }
         }.runTaskLater(plugin, 2L);
+    }
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if(event.getInventory().getType() == InventoryType.CHEST && event.getCurrentItem().getType().equals(Material.WOOL)) {
+            event.getWhoClicked().sendMessage(plugin.getLang().get("messages.noSave"));
+            event.setCancelled(true);
+        }
+        if(event.getInventory().getType() == InventoryType.ENCHANTING) {
+            event.setCancelled(true);
+        }
     }
 
 

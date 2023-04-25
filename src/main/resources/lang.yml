@@ -81,7 +81,7 @@ messages:
   noBreak: "&cYou can't break here."
   noPlace: "&cYou can't place here."
   lost: "<tcolor><player> dropped the <color>wool <wool>&e!"
-  incorrectPlace: "&cThis is not the right place for <wool>&c wool."
+  incorrectPlace: "You can't put the wool here!"
   alreadyIngame: "&cYou're already in a game."
   leaveGame: "&cYou're out of the game."
   selectShopKeeper: "&aYou've selected the trail: &e<shopkeeper>"
@@ -109,6 +109,7 @@ messages:
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
+  noSave: "&cYou can't keep the wool!"
   placeTeam:
     - "<center>&7"
     - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
