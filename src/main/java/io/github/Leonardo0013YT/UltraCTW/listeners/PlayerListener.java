@@ -523,13 +523,26 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
-        if(event.getInventory().getType() == InventoryType.CHEST && event.getCurrentItem().getType().equals(Material.WOOL)) {
-            event.getWhoClicked().sendMessage(plugin.getLang().get("messages.noSave"));
-            event.setCancelled(true);
-        }
-        if(event.getInventory().getType() == InventoryType.ENCHANTING) {
-            event.setCancelled(true);
+    public void onInventoryClick(InventoryClickEvent e) {//TODO Solucionar posible NPE
+        Player p = (Player) e.getWhoClicked();
+        Game g = plugin.getGm().getGameByPlayer(p);
+        if (g.isState(State.GAME)){
+            if((e.getCurrentItem() != null) && (e.getClickedInventory() != null) && (e.getClickedInventory().getHolder() != null)) {
+                if(!e.getClickedInventory().getHolder().equals(e.getWhoClicked())) {
+                    if(e.getCurrentItem().getType().equals(Material.WOOL)) {
+                        e.getWhoClicked().sendMessage(plugin.getLang().get("messages.noSave"));
+                        e.setCancelled(true);
+                    }
+                }
+                else {
+                    if(e.isShiftClick()) {
+                        if(e.getCurrentItem().getType().equals(Material.WOOL)) {
+                            e.getWhoClicked().sendMessage(plugin.getLang().get("messages.noSave"));
+                            e.setCancelled(true);
+                        }
+                    }
+                }
+            }
         }
     }
 

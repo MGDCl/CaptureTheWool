@@ -2,6 +2,7 @@ package io.github.Leonardo0013YT.UltraCTW.cmds;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
+import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,22 +19,19 @@ public class JoinCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player p = (Player)sender;
-            if (!this.plugin.getGm().isPlayerInGame(p)) {
+            if (!plugin.getGm().isPlayerInGame(p)) {
                 p.sendMessage(plugin.getLang().get("messages.notInGame"));
                 return true;
             }
-            if (p.getGameMode() == GameMode.SPECTATOR) {
-                Game selected3 = this.plugin.getGm().getSelectedGame();
-                if (selected3 == null) {
-                    return true;
-                }
-                if (selected3.getPlayers().size() >= selected3.getMax()) {
-                    p.sendMessage(this.plugin.getLang().get("messages.maxPlayers"));
-                    return true;
-                }
-                this.plugin.getGem().createTeamsMenu(p, selected3);
+            Game selected3 = plugin.getGm().getSelectedGame();
+            Team team = selected3.getTeamPlayer(p);
+            if (selected3.getPlayers().size() >= selected3.getMax()) {
+                p.sendMessage(this.plugin.getLang().get("messages.maxPlayers"));
+                return true;
             }
-            if (p.getGameMode() == GameMode.SURVIVAL) {
+            if (team == null){
+                plugin.getGem().createTeamsMenu(p, selected3);
+            } else {
                 p.sendMessage(plugin.getLang().get("messages.alreadyTeam"));
             }
         }
