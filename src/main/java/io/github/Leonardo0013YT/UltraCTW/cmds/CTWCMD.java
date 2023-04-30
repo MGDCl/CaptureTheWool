@@ -106,14 +106,8 @@ public class CTWCMD implements CommandExecutor {
                         p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
                         return true;
                     }
-                    Game selected2 = plugin.getGm().getSelectedGame();
-                    if (selected2 == null) return true;
-                    if (selected2.getPlayers().size() >= selected2.getMax()) {
-                        p.sendMessage(plugin.getLang().get("messages.maxPlayers"));
-                        return true;
-                    }
-                    p.sendMessage(plugin.getLang().get("messages.joinGame").replaceAll("<game>", selected2.getName()));
-                    plugin.getGm().addPlayerGame(p, selected2.getId());
+                    Game game = plugin.getGm().getSelectedGame();
+                    plugin.getGem().createJoinMenu(p, game);
                     break;
                 case "kitsmenu":
                     plugin.getUim().getPages().put(p, 1);

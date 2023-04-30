@@ -3,7 +3,6 @@ package io.github.Leonardo0013YT.UltraCTW.cmds;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
-import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,14 +22,14 @@ public class JoinCommand implements CommandExecutor {
                 p.sendMessage(plugin.getLang().get("messages.notInGame"));
                 return true;
             }
-            Game selected3 = plugin.getGm().getSelectedGame();
-            Team team = selected3.getTeamPlayer(p);
-            if (selected3.getPlayers().size() >= selected3.getMax()) {
+            Game game = plugin.getGm().getSelectedGame();
+            Team team = game.getTeamPlayer(p);
+            if (game.getPlayers().size() >= game.getMax()) {
                 p.sendMessage(this.plugin.getLang().get("messages.maxPlayers"));
                 return true;
             }
             if (team == null){
-                plugin.getGem().createTeamsMenu(p, selected3);
+                plugin.getGem().createTeamsMenu(p, game);
             } else {
                 p.sendMessage(plugin.getLang().get("messages.alreadyTeam"));
             }

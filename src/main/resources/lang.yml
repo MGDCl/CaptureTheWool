@@ -213,8 +213,6 @@ setup:
     noLast: "&cSquareds are no longer available."
     removed: "&cThe last Squared has been removed."
     addMine: "&aA &e<type> &atype mine was added."
-    setNPCBuff: "&aThe location of the buff NPC has been added."
-    setNPCUpgrade: "&aThe location of the upgrade NPC has been added."
     setNPCShop: "&aThe location of the shop NPC has been added."
     setNPCKits: "&aThe location of the selector NPC has been added."
     alreadySetWool: "&aTeam colors have already been set."
@@ -452,12 +450,6 @@ menus:
     loreItem: |-
       &7Click to back a last
       &7page.
-  upgrades:
-    title: "&eUpgrade NPC"
-  buffDebuff:
-    title: "&eBuff DeBuff NPC"
-  buffItems:
-    title: "&eBuff DeBuff Items"
   shop:
     title: "&eShop Items"
   shopkeeperselector:
@@ -497,46 +489,8 @@ menus:
         &7Close this inventory.
         &7
         &eClick to close!
-  kitflaglevels:
-    title: "&aKit Levels"
-    close:
-      nameItem: "&cClose"
-      loreItem: |-
-        &7Close this inventory.
-        &7
-        &eClick to close!
   kitselector:
     title: "&eKit Selector"
-    noPermission: "&cYou can't buy this kit!"
-    hasBuy: "&aYou already have this kit!"
-    buy: "&eYou can buy this kit!"
-    noMoney: "&cYou don't have money to buy."
-    level: "&aLevel: &6<level>"
-    price: "&aPrice: &6<price>"
-    noBuyable: "&cNot buyable."
-    buyed: "&6Bought"
-    deselect:
-      nameItem: "&eDeselect Kit"
-      loreItem: |-
-        &7By clicking you will
-        &7deselect this kit.
-        &7
-        &eClick to deselect!
-    kit:
-      nameItem: "&eKit Selected"
-      loreItem: |-
-        &7By clicking you can see
-        &7the contents of this kit.
-        &7
-        &eClick to view!
-    close:
-      nameItem: "&cClose"
-      loreItem: |-
-        &7Close this inventory.
-        &7
-        &eClick to close!
-  kitflagselector:
-    title: "&aKit Selector"
     noPermission: "&cYou can't buy this kit!"
     hasBuy: "&aYou already have this kit!"
     buy: "&eYou can buy this kit!"
@@ -1209,6 +1163,10 @@ menus:
         &fPlayers: &a<players>
         &7
         &eClick to join!
+  join:
+    title: '&dConnect to a game!'
+    wool:
+      nameItem: '&ePlay'
   kititems:
     title: "&aSetup Level Items"
     analize:
@@ -1325,14 +1283,6 @@ menus:
         &ePage: &b<page>
         &7
         &eClick to change!
-    flag:
-      nameItem: "&eKit Flag"
-      loreItem: |-
-        &7This is the kit type:
-        &7
-        &eFlag: &b<state>
-        &7
-        &eClick to change!
     save:
       nameItem: "&aSave Kit"
       loreItem: |-
@@ -1396,30 +1346,6 @@ menus:
         &7Set the team spawn:
         &7
         &eLocation: &b<spawn>
-        &7
-        &eClick to set!
-    save:
-      nameItem: "&eSave Team"
-      loreItem: |-
-        &7Save the team in arena
-        &7
-        &eClick to save!
-  teamflag:
-    title: "&aFlag Team"
-    spawn:
-      nameItem: "&eTeam Spawn"
-      loreItem: |-
-        &7Set the team spawn:
-        &7
-        &eLocation: &b<spawn>
-        &7
-        &eClick to set!
-    flag:
-      nameItem: "&eTeam Flag"
-      loreItem: |-
-        &7Set the team flag:
-        &7
-        &eLocation: &b<flag>
         &7
         &eClick to set!
     save:
