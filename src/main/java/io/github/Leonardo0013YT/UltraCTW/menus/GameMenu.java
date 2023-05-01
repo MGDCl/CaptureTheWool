@@ -2,6 +2,7 @@ package io.github.Leonardo0013YT.UltraCTW.menus;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.enums.State;
+import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.objects.ShopItem;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
@@ -43,9 +44,26 @@ public class GameMenu {
         p.openInventory(inv);
     }
 
-    public void createJoinMenu(Player p, Game game){//TODO agregar màs items y opciones
+    public void createJoinMenu(Player p, Game game){
         Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.join.title"));
         inv.setItem(22, getGameItem(game));
+
+        ItemStack stats = new ItemStack(330, 1);
+        ItemMeta meta = stats.getItemMeta();
+        meta.setDisplayName(plugin.getLang().get("menus.join.stats.nameItem"));
+        CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
+        String lore = plugin.getLang().get("menus.join.stats.loreItem").replaceAll("<kills>", String.valueOf(ctw.getKills())).replaceAll("<deaths>", String.valueOf(ctw.getDeaths())).replaceAll("<coins>", String.valueOf(ctw.getCoins())).replaceAll("<captured>", String.valueOf(ctw.getWoolCaptured())).replaceAll("<level>", String.valueOf(ctw.getLevel())).replaceAll("<wins>", String.valueOf(ctw.getWins())).replaceAll("<xp>", String.valueOf(ctw.getXp())).replaceAll("<played>", String.valueOf(ctw.getPlayed())).replaceAll("<bow>", String.valueOf(ctw.getsShots()));
+        meta.setLore(lore.isEmpty() ? new ArrayList<>() : Arrays.asList(lore.split("\\n")));
+        stats.setItemMeta(meta);
+        inv.setItem(36, stats);
+
+        ItemStack close = new ItemStack(166, 1);
+        ItemMeta meta2 = close.getItemMeta();
+        meta2.setDisplayName(plugin.getLang().get("menus.join.close.nameItem"));
+        String lore2 = plugin.getLang().get("menus.join.close.loreItem");
+        meta2.setLore(lore2.isEmpty() ? new ArrayList<>() : Arrays.asList(lore2.split("\\n")));
+        close.setItemMeta(meta2);
+        inv.setItem(44, close);
         p.openInventory(inv);
     }
 
@@ -71,42 +89,48 @@ public class GameMenu {
         return leather;
     }
 
-    private ItemStack getGameItem(Game game){//TODO agregar el Lore a lang.yml
+    private ItemStack getGameItem(Game game){
         ItemStack wool = new ItemStack(35, 1);
         ItemMeta meta = wool.getItemMeta();
         meta.setDisplayName(plugin.getLang().get("menus.join.wool.nameItem"));
         List<String> lore = new ArrayList<>();
         lore.add("");
-        lore.add("§a" + game.getPlayers().size() + "§7/" + "§c" + game.getMax());
+        lore.add(plugin.getLang().get("menus.join.wool.map").replace("<map>", game.getName()));
+        lore.add("");
         if (game.isState(State.WAITING)){
             if (wool.getDurability() != (short) 0){
                 wool.setDurability((short) 0);
             }
-            lore.add("§a§lWAITING");
+            lore.add(plugin.getLang().get("menus.join.wool.waiting"));
         }
         else if (game.isState(State.RESTARTING)) {
             if (wool.getDurability() != (short) 7){
                 wool.setDurability((short) 7);
             }
-            lore.add("§7§lRESTARTING");
+            lore.add(plugin.getLang().get("menus.join.wool.restarting"));
         }
         else if (game.isState(State.FINISH)) {
             if (wool.getDurability() != (short) 14){
                 wool.setDurability((short) 14);
             }
-            lore.add("§c§lFINISH");
+            lore.add(plugin.getLang().get("menus.join.wool.finish"));
         }
         else if (game.isState(State.STARTING)) {
             if (wool.getDurability() != (short) 4){
                 wool.setDurability((short) 4);
             }
-            lore.add("§e§lSTARTING");
+            lore.add(plugin.getLang().get("menus.join.wool.starting"));
         }
-        else {
-            if (game.getPlayers().size() >= 0){
-                lore.add("§a§lJOIN");
+        else if (game.isState(State.GAME)) {
+            if (wool.getDurability() != (short) 5){
+                wool.setDurability((short) 5);
             }
+            lore.add(plugin.getLang().get("menus.join.wool.ingame"));
         }
+        lore.add("");
+        lore.add(plugin.getLang().get("menus.join.wool.players").replaceAll("<size>", game.getPlayers().size() + "").replaceAll("<max>", game.getMax() + ""));
+        lore.add("");
+        lore.add(plugin.getLang().get("menus.join.wool.lore"));
         meta.setLore(lore);
         wool.setItemMeta(meta);
         return wool;

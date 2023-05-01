@@ -98,11 +98,11 @@ public class GameNoState implements Game {
         checkStart();
         p.setGameMode(GameMode.SPECTATOR);
         Game game = plugin.getGm().getSelectedGame();
-        plugin.getGem().createTeamsMenu(p, game);
         if (isState(State.WAITING) || isState(State.STARTING)) {
             sendGameMessage(plugin.getLang().get("messages.newPlayer").replaceAll("<player>", p.getDisplayName()).replaceAll("<size>", game.getPlayers().size() + "").replaceAll("<max>", game.getMax() + ""));
         }
         p.sendMessage(plugin.getLang().get("messages.play"));
+        plugin.getGem().createTeamsMenu(p, game);
     }
 
     @Override

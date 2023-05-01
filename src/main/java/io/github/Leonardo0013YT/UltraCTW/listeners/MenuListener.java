@@ -146,6 +146,10 @@ public class MenuListener implements Listener {
                 return;
             }
             String d = item.getItemMeta().getDisplayName();
+            if (d.equals(plugin.getLang().get("menus.join.close.nameItem"))) {
+                p.closeInventory();
+                return;
+            }
             if (d.equals(plugin.getLang().get("menus.join.wool.nameItem"))) {
                 if (plugin.getGm().isPlayerInGame(p)) {
                     p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
@@ -159,7 +163,6 @@ public class MenuListener implements Listener {
                 }
                 p.sendMessage(plugin.getLang().get("messages.joinGame").replaceAll("<game>", game.getName()));
                 plugin.getGm().addPlayerGame(p, game.getId());
-                p.closeInventory();
                 return;
             }
         }

@@ -1164,9 +1164,37 @@ menus:
         &7
         &eClick to join!
   join:
-    title: '&dConnect to a game!'
+    title: '&rEnter a game!'
     wool:
-      nameItem: '&ePlay'
+      nameItem: '&fCapture the wool'
+      lore: '&aClick here to enter!'
+      map: '&fMap: &e&l<map>'
+      players: '&fPlayers: &a<size>&7/&c<max>'
+      waiting: '&fState: &a&lWaiting'
+      starting: '&fState: &e&lStarting'
+      ingame: '&fState: &a&lIn Game'
+      restarting: '&fState: &7&lRestarting'
+      finish: '&fState: &c&lFinish'
+    stats:
+      nameItem: '&aPlayer Stats'
+      loreItem: |-
+        &7
+        &fKills: &a<kills>
+        &fDeaths: &a<deaths>
+        &fLevel: &a<level>
+        &7
+        &fWins: &a<wins>
+        &fCaptured: &a<captured>
+        &fCoins: &a<coins>
+        &7
+        &fBow kills: &a<bow>
+        &fExp: &a<xp>
+        &fGames played: &a<played>
+    close:
+      nameItem: '&cClose'
+      loreItem: |-
+        &7
+        &7Close this inventory!
   kititems:
     title: "&aSetup Level Items"
     analize:
