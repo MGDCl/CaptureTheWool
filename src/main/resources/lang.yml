@@ -13,6 +13,75 @@ stats: |-
   &ePlaced: &b%ctw_placed%
   &eBroken: &b%ctw_break%
   &7
+scoreboards:
+  team: "&7» <TColor>Team <TName>"
+  teams: "&7» <TColor><TName> <TWools>"
+  wools:
+    captured: "⬛ Captured"
+    inProcess: "░ Stolen"
+    noCaptured: "⬜ Defended"
+  main:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      &fCaptured: &a<captured>
+      &7
+      &fKills: &a<kills>
+      &fDeaths: &a<deaths>
+      &fWins: &a<wins>
+      &f
+      &emc.spigot.net
+  waiting:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fMap: &a<map>
+      &7
+      &fPlayers: &a<players>/<max>
+      &7
+      &emc.spigot.net
+  starting:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fMap: &a<map>
+      &7
+      &fPlayers: &a<players>/<max>
+      &7
+      &fStarting: &a<time>
+      &7
+      &emc.spigot.net
+  simple-game:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &fGame time: &a<time> ⌛
+      &fGold: &6<coins> &6⛂⛃
+      &7
+      &c<T1> &7<T1p>
+      <T1Wools>
+      &7
+      &9<T2> &7<T2p>
+      <T2Wools>
+      &7
+      &fKills: &a<kills> ⚔
+      &fDeaths: &c<deaths> ☠
+      &7
+      &emc.spigot.net
+  big-game:
+    title: "&e&lCAPTURE THE WOOL"
+    lines: |-
+      &7
+      &fTeam: <team>
+      &fExp: &a<now>&7/&c<leveUp>
+      &7
+      <teams>
+      &7
+      &fKills: &a<kills>
+      &fDeaths: &a<deaths>
+      &7
+      &emc.spigot.net
 progressBar:
   symbol: "|"
   in: "&3"
@@ -98,26 +167,16 @@ messages:
   deselectKillEffect: "&aYou've deselected your current killeffect."
   deselectWinDance: "&aYou've deselected your current windances."
   noOther: "&cYou can't enter another game if one is already selected."
-  otherpick: " &c&l! ! <tcolor><player> &epicked up your <color>&lwool <wool> &c&l! !"
-  teampick: " &a➤ <tcolor><player> &ecollected the <color>wool <wool>&e!"
   notInGame: '&cYou are not in a game!'
   alreadyTeam: '&cYou have already chosen a team!'
   joinGame: '&7Connecting to &a<game>'
-  ending: '&eA new game starts in &c<count>&e segundo<s>.'
+  ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
   newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
   noSave: "&cYou can't keep the wool!"
-  placeTeam:
-    - "<center>&7"
-    - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
-    - "<center>&7"
-  capturedWool:
-    - "<center>&7"
-    - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
-    - "<center>&7"
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
@@ -166,7 +225,93 @@ messages:
     - "§a/stats §7- §eShow your stats"
     - "&e"
     - "§co§m----------------------------------------------o"
-topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
+teampickup:
+  red: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Red&e!'
+  lightgray: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Light Gray&e!'
+  black: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Black&e!'
+  green: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Green&e!'
+  cyan: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Cyan&e!'
+  purple: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Purple&e!'
+  orange: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Orange&e!'
+  gray: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Gray&e!'
+  blue: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Blue&e!'
+  lime: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Lime&e!'
+  lightblue: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Light Blue&e!'
+  pink: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Pink&e!'
+  yellow: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Yellow&e!'
+  white: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool White&e!'
+otherpickup:
+  red: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Red &c&l! !'
+  lightgray: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Light Gray &c&l! !'
+  black: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Black &c&l! !'
+  green: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Green &c&l! !'
+  cyan: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Cyan &c&l! !'
+  purple: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Purple &c&l! !'
+  orange: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Orange &c&l! !'
+  gray: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Gray &c&l! !'
+  blue: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Blue &c&l! !'
+  lime: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Lime &c&l! !'
+  lightblue: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Light Blue &c&l! !'
+  pink: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Pink &c&l! !'
+  yellow: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Yellow &c&l! !'
+  white: '&c&l! ! <tcolor><player> &epicked up your <color>Wool White &c&l! !'
+woolplaced:
+  red:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Red&c&l!
+  - <center>&7
+  lightgray:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Light Gray&c&l!
+  - <center>&7
+  black:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Black&c&l!
+  - <center>&7
+  green:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Green&c&l!
+  - <center>&7
+  cyan:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Cyan&c&l!
+  - <center>&7
+  purple:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Purple&c&l!
+  - <center>&7
+  orange:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Orange&c&l!
+  - <center>&7
+  gray:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Gray&c&l!
+  - <center>&7
+  blue:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Blue&c&l!
+  - <center>&7
+  lime:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Lime&c&l!
+  - <center>&7
+  lightblue:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Light Blue&c&l!
+  - <center>&7
+  pink:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Pink&c&l!
+  - <center>&7
+  yellow:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Yellow&c&l!
+  - <center>&7
+  white:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool White&c&l!
+  - <center>&7
 holograms:
   kits:
     - "&e&lCAPTURE THE WOOL"
@@ -176,6 +321,210 @@ holograms:
     - "&e&lCAPTURE THE WOOL"
     - "&7Item Shop"
     - "&b(Right-Click to open)"
+topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
+titles:
+  dropped:
+    title: ""
+    subtitle: "&c&l<tcolor><player> &edropped <wool>"
+  cancel:
+    title: "&cCANCELLED"
+    subtitle: "&7"
+  starting:
+    title: "&c<time>"
+    subtitle: "&7"
+  captured:
+    title: ""
+    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
+  win:
+    title: "<color>WIN!"
+    subtitle: "<tcolor>The <winner> team has won!"
+  lose:
+    title: "<tcolor>GAME OVER!"
+    subtitle: "<tcolor>The <winner> team has won!"
+  otherCaptured:
+    title: ""
+    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
+  ending:
+    title: '&fNext map: &a&l<map>'
+    subtitle: '&fNew game in:&c&l <time>'
+  startGame:
+    title: '&e&lCAPTURE THE WOOL'
+    subtitle: '&e&lHAVE FUN!'
+  levelup:
+    title: '&e&lNEW LEVEL'
+    subtitle: '&7You have leveled up <level>'
+titlesplaced:
+  red:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Red&c&l!'
+  lightgray:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Light Gray&c&l!'
+  black:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Black&c&l!'
+  green:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Green&c&l!'
+  cyan:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Cyan&c&l!'
+  purple:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Purple&c&l!'
+  orange:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Orange&c&l!'
+  gray:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Gray&c&l!'
+  blue:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Blue&c&l!'
+  lime:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Lime&c&l!'
+  lightblue:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Light Blue&c&l!'
+  pink:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Pink&c&l!'
+  yellow:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Yellow&c&l!'
+  white:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool White&c&l!'
+titlespickup:
+  red:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Red&e!'
+  lightgray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Light Gray&e!'
+  black:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Black&e!'
+  green:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Green&e!'
+  cyan:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Cyan&e!'
+  purple:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Purple&e!'
+  orange:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Orange&e!'
+  gray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Gray&e!'
+  blue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Blue&e!'
+  lime:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Lime&e!'
+  lightblue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Light Blue&e!'
+  pink:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Pink&e!'
+  yellow:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Yellow&e!'
+  white:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool White&e!'
+titlesotherpickup:
+  red:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Red&e!'
+  lightgray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Light Gray&e!'
+  black:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Black&e!'
+  green:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Green&e!'
+  cyan:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Cyan&e!'
+  purple:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Purple&e!'
+  orange:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Orange&e!'
+  gray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Gray&e!'
+  blue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Blue&e!'
+  lime:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Lime&e!'
+  lightblue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Light Blue&e!'
+  pink:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Pink&e!'
+  yellow:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Yellow&e!'
+  white:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool White&e!'
+actionbar:
+  noTeam: "&fUse &e§l/join §fto join a team!"
+  myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
+  randomTeam: "&eYou were sent to the team <team>"
+  levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
+  double: '&c&lDOUBLEKILL'
+  three: '&a&lTRIPEKILL'
+  quarter: '&1&lULTRAKILL'
+  penta: '&4&lRAMPAGE!'
+teams:
+  aqua: "&bAqua"
+  dark_blue: "&1Dark Blue"
+  black: "&0Black"
+  blue: "&9BLUE"
+  dark_aqua: "&3Dark Aqua"
+  dark_red: "&4Dark Red"
+  red: "&cRED"
+  dark_gray: "&8Dark Gray"
+  gray: "&7Gray"
+  dark_green: "&2Dark Green"
+  green: "&aGreen"
+  light_purple: "&dLight Purple"
+  dark_purple: "&5Dark Purple"
+  white: "&fWhite"
+  yellow: "&eYellow"
+  gold: "&6Gold"
+prefix:
+  aqua: "&b[A]"
+  dark_blue: "&1[B]"
+  black: "&0[B]"
+  blue: "&9[B]"
+  dark_aqua: "&3[A]"
+  dark_red: "&4[R]"
+  red: "&c[R]"
+  dark_gray: "&8[G]"
+  gray: "&7[G]"
+  dark_green: "&2[G]"
+  green: "&a[G]"
+  light_purple: "&d[P]"
+  dark_purple: "&5[P]"
+  white: "&f[W]"
+  yellow: "&e[Y]"
+  gold: "&6[G]"
 setup:
   itemInHand: "&cYou must have the item in your hand."
   setTopKills: "&aYou've set up the top kills."
@@ -261,86 +610,6 @@ setup:
       noSpawner: "&cYou have not set the spawners of these colors."
   menus:
     finishEdit: "&aYou have edited the menu correctly."
-titles:
-  dropped:
-    title: ""
-    subtitle: "&c&l<tcolor><player> &edropped <wool>"
-  teampick:
-    title: ""
-    subtitle: "&e<tcolor><player> &epicked up the Wool <wool>&e!"
-  otherpick:
-    title: ""
-    subtitle: "<tcolor><player> &epicked up your wool <wool>&e¡"
-  cancel:
-    title: "&cCANCELLED"
-    subtitle: "&7"
-  starting:
-    title: "&c<time>"
-    subtitle: "&7"
-  captured:
-    title: ""
-    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
-  win:
-    title: "<color>WIN!"
-    subtitle: "<tcolor>The <winner> team has won!"
-  lose:
-    title: "<tcolor>GAME OVER!"
-    subtitle: "<tcolor>The <winner> team has won!"
-  otherCaptured:
-    title: ""
-    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
-  ending:
-    title: '&fNext map: &a&l<map>'
-    subtitle: '&fNew game in:&c&l <time>'
-  startGame:
-    title: '&e&lCAPTURE THE WOOL'
-    subtitle: '&e&lHAVE FUN!'
-  levelup:
-    title: '&e&lNEW LEVEL'
-    subtitle: '&7You have leveled up <level>'
-actionbar:
-  noTeam: "&fUse &e§l/join §fto join a team!"
-  myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
-  randomTeam: "&eYou were sent to the team <team>"
-  levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
-  double: '&c&lDOUBLEKILL'
-  three: '&a&lTRIPEKILL'
-  quarter: '&1&lULTRAKILL'
-  penta: '&4&lRAMPAGE!'
-teams:
-  aqua: "&bAqua"
-  dark_blue: "&1Dark Blue"
-  black: "&0Black"
-  blue: "&9BLUE"
-  dark_aqua: "&3Dark Aqua"
-  dark_red: "&4Dark Red"
-  red: "&cRED"
-  dark_gray: "&8Dark Gray"
-  gray: "&7Gray"
-  dark_green: "&2Dark Green"
-  green: "&aGreen"
-  light_purple: "&dLight Purple"
-  dark_purple: "&5Dark Purple"
-  white: "&fWhite"
-  yellow: "&eYellow"
-  gold: "&6Gold"
-prefix:
-  aqua: "&b[A]"
-  dark_blue: "&1[B]"
-  black: "&0[B]"
-  blue: "&9[B]"
-  dark_aqua: "&3[A]"
-  dark_red: "&4[R]"
-  red: "&c[R]"
-  dark_gray: "&8[G]"
-  gray: "&7[G]"
-  dark_green: "&2[G]"
-  green: "&a[G]"
-  light_purple: "&d[P]"
-  dark_purple: "&5[P]"
-  white: "&f[W]"
-  yellow: "&e[Y]"
-  gold: "&6[G]"
 items:
   leave:
     nameItem: "&cLeave"
@@ -370,75 +639,6 @@ items:
     loreItem: |-
       &7Al abrir este menu podras
       &7elegir el equipo.
-scoreboards:
-  team: "&7» <TColor>Team <TName>"
-  teams: "&7» <TColor><TName> <TWools>"
-  wools:
-    captured: "⬛"
-    inProcess: "⚠"
-    noCaptured: "⬜"
-  main:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &7
-      &fExp: &a<now>&7/&c<leveUp>
-      &7
-      &fCaptured: &a<captured>
-      &7
-      &fKills: &a<kills>
-      &fDeaths: &a<deaths>
-      &fWins: &a<wins>
-      &f
-      &emc.spigot.net
-  waiting:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &7
-      &fMap: &a<map>
-      &7
-      &fPlayers: &a<players>/<max>
-      &7
-      &emc.spigot.net
-  starting:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &7
-      &fMap: &a<map>
-      &7
-      &fPlayers: &a<players>/<max>
-      &7
-      &fStarting: &a<time>
-      &7
-      &emc.spigot.net
-  simple-game:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &fGame time: &a<time> ⌛
-      &fGold: &6<coins> &6⛂⛃
-      &7
-      &c<T1> &7<T1p>
-      <T1Wools>
-      &7
-      &9<T2> &7<T2p>
-      <T2Wools>
-      &7
-      &fKills: &a<kills> ⚔
-      &fDeaths: &c<deaths> ☠
-      &7
-      &emc.spigot.net
-  big-game:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &7
-      &fTeam: <team>
-      &fExp: &a<now>&7/&c<leveUp>
-      &7
-      <teams>
-      &7
-      &fKills: &a<kills>
-      &fDeaths: &a<deaths>
-      &7
-      &emc.spigot.net
 menus:
   last:
     nameItem: '&aLast Page'

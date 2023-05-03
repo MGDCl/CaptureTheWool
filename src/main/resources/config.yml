@@ -1,10 +1,9 @@
 # Removed some things that are not used, in the config and in the plugin code.
 # If you need help you can consult the discord server: https://discord.com/invite/3RRWVTGveD
-# Thanks for using this plugin!
+# Do not activate autoJoinFinish if there are less than 2 maps!
 debugMode: false
 addons:
   placeholdersAPI: true
-# Set the main lobby with /ctws setmainlobby
 mainLobby: null
 mobGriefing: false
 redPanelInLocked: true
@@ -19,9 +18,7 @@ whitelistedCMD:
   - /msg
   - /stats
   - /join
-redPanel:
-  material: STAINED_GLASS_PANE
-  data: 14
+  - /tell
 breakMap:
   enabled: true
   totalBreak: true
@@ -29,8 +26,9 @@ breakMap:
     - WEB
     - GOLD_BLOCK
     - IRON_BLOCK
+# autoJoinFinish may cause an error if there are less than 2 maps
 gameDefaults:
-  autoJoinFinish: true
+  autoJoinFinish: false
   hunger: false
   instaKillOnVoid: true
   maxMultiplier: 5
@@ -53,15 +51,13 @@ gameDefaults:
     win: 10
     assists: 2
     capture: 10
-# Does not remove the wool to avoid collection spam
-  noDrop:
+  noDrop: # Does not remove the wool to avoid collection spam
     - WOOL
 bounty:
   min: 90
   max: 110
   perKill: 0.10
-# Replace the commands you will use
-items:
+items: # Replace the commands you will use
   lobby:
     enabled: false
     slot: 4

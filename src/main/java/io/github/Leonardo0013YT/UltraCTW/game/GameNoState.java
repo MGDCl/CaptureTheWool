@@ -354,7 +354,7 @@ public class GameNoState implements Game {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (plugin.getCm().isAutoJoinFinish()){ //TODO chequear si hay màs de 2 mapas
+                if (plugin.getCm().isAutoJoinFinish()){
                     for (Player on : back) {
                         if (on == null || !on.isOnline()) continue;
                         Game g = plugin.getGm().getSelectedGame();

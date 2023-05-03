@@ -270,16 +270,156 @@ public class PlayerListener implements Listener {
             ctw.addCoins(plugin.getCm().getGCoinsCapture());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpCapture());
             ctw.addWoolCaptured();
-            for (String s : plugin.getLang().getList("messages.placeTeam")){
-                team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
+
+            if (item.getType().equals(Material.WOOL)){//TODO Buscar una mejor forma de detectar esto
+                if (item.getDurability() == (short) 14){
+                    for (String s : plugin.getLang().getList("woolplaced.red")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.red.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.red.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 8) {
+                    for (String s : plugin.getLang().getList("woolplaced.lightgray")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.lightgray.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.lightgray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 15) {
+                    for (String s : plugin.getLang().getList("woolplaced.black")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.black.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.black.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 13) {
+                    for (String s : plugin.getLang().getList("woolplaced.green")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.green.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.green.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 9) {
+                    for (String s : plugin.getLang().getList("woolplaced.cyan")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.cyan.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.cyan.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 10) {
+                    for (String s : plugin.getLang().getList("woolplaced.purple")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.purple.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.purple.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 1) {
+                    for (String s : plugin.getLang().getList("woolplaced.orange")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.orange.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.orange.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 7) {
+                    for (String s : plugin.getLang().getList("woolplaced.gray")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.gray.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.gray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 11) {
+                    for (String s : plugin.getLang().getList("woolplaced.blue")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.blue.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.blue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 5) {
+                    for (String s : plugin.getLang().getList("woolplaced.lime")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.lime.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.lime.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 3) {
+                    for (String s : plugin.getLang().getList("woolplaced.lightblue")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.lightblue.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.lightblue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 6) {
+                    for (String s : plugin.getLang().getList("woolplaced.pink")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.pink.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.pink.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (item.getDurability() == (short) 4) {
+                    for (String s : plugin.getLang().getList("woolplaced.yellow")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.yellow.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.yellow.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else {
+                    for (String s : plugin.getLang().getList("woolplaced.white")){
+                        team.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    team.sendTitle(plugin.getLang().get("titlesplaced.white.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titlesplaced.white.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                }
             }
             team.getCaptured().add(c);
-            team.sendTitle(plugin.getLang().get("titles.captured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()), plugin.getLang().get("titles.captured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
+
             g.getTeams().values().stream().filter(t -> t.getId() != team.getId()).forEach(t -> {
-                for (String s : plugin.getLang().getList("messages.capturedWool")){
-                    t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
+                if (item.getType().equals(Material.WOOL)){
+                    if (item.getDurability() == (short) 14){
+                        for (String s : plugin.getLang().getList("woolplaced.red")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.red.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.red.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 8) {
+                        for (String s : plugin.getLang().getList("woolplaced.lightgray")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.lightgray.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.lightgray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 15) {
+                        for (String s : plugin.getLang().getList("woolplaced.black")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.black.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.black.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 13) {
+                        for (String s : plugin.getLang().getList("woolplaced.green")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.green.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.green.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 9) {
+                        for (String s : plugin.getLang().getList("woolplaced.cyan")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.cyan.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.cyan.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 10) {
+                        for (String s : plugin.getLang().getList("woolplaced.purple")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.purple.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.purple.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 1) {
+                        for (String s : plugin.getLang().getList("woolplaced.orange")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.orange.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.orange.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 7) {
+                        for (String s : plugin.getLang().getList("woolplaced.gray")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.gray.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.gray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 11) {
+                        for (String s : plugin.getLang().getList("woolplaced.blue")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.blue.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.blue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 5) {
+                        for (String s : plugin.getLang().getList("woolplaced.lime")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.lime.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.lime.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 3) {
+                        for (String s : plugin.getLang().getList("woolplaced.lightblue")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.lightblue.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.lightblue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 6) {
+                        for (String s : plugin.getLang().getList("woolplaced.pink")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.pink.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.pink.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (item.getDurability() == (short) 4) {
+                        for (String s : plugin.getLang().getList("woolplaced.yellow")){
+                            t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                        }
+                        t.sendTitle(plugin.getLang().get("titlesplaced.yellow.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.yellow.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    }
+                } else {
+                    for (String s : plugin.getLang().getList("woolplaced.white")){
+                        t.sendMessage(s.replaceAll("&", "§").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + ""));
+                    }
+                    t.sendTitle(plugin.getLang().get("titlesplaced.white.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titlesplaced.white.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
                 }
-                t.sendTitle(plugin.getLang().get("titles.otherCaptured.title").replaceAll("<color>", c + "").replace("<player>", p.getName()).replaceAll("<name>", team.getName()).replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.otherCaptured.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
             });
             team.playSound(plugin.getCm().getCaptured(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
@@ -439,10 +579,54 @@ public class PlayerListener implements Listener {
         ArrayList<Team> others = g.getTeams().values().stream().filter(t -> t.getId() != team.getId()).collect(Collectors.toCollection(ArrayList::new));
         team.getDropped().remove(c);
         team.getInProgress().putIfAbsent(c, new ArrayList<>());
+
         if (!team.getInProgress().get(c).contains(p.getUniqueId())) {
             team.getInProgress().get(c).add(p.getUniqueId());
-            team.sendMessage(plugin.getLang().get("messages.teampick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replaceAll("<wool>", c + c.name()));
-            team.sendTitle(plugin.getLang().get("titles.teampick.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titles.teampick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", c + c.name()), 0, 30, 10);
+            if (e.getItem().getItemStack().getType() == Material.WOOL){
+                if (i.getItemStack().getDurability()  == (short) 14){
+                    team.sendMessage(plugin.getLang().get("teampickup.red").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.red.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.red.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 8) {
+                    team.sendMessage(plugin.getLang().get("teampickup.lightgray").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.lightgray.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.lightgray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 15) {
+                    team.sendMessage(plugin.getLang().get("teampickup.black").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.black.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.black.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 13) {
+                    team.sendMessage(plugin.getLang().get("teampickup.green").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.green.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.green.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 9) {
+                    team.sendMessage(plugin.getLang().get("teampickup.cyan").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.cyan.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.cyan.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 10) {
+                    team.sendMessage(plugin.getLang().get("teampickup.purple").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.purple.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.purple.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 1) {
+                    team.sendMessage(plugin.getLang().get("teampickup.orange").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.orange.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.orange.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 7) {
+                    team.sendMessage(plugin.getLang().get("teampickup.gray").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.gray.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.gray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 11) {
+                    team.sendMessage(plugin.getLang().get("teampickup.blue").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.blue.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.blue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 5) {
+                    team.sendMessage(plugin.getLang().get("teampickup.lime").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.lime.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.lime.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 3) {
+                    team.sendMessage(plugin.getLang().get("teampickup.lightblue").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.lightblue.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.lightblue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 6) {
+                    team.sendMessage(plugin.getLang().get("teampickup.pink").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.pink.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.pink.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else if (i.getItemStack().getDurability()  == (short) 4) {
+                    team.sendMessage(plugin.getLang().get("teampickup.yellow").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.yellow.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.yellow.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                } else {
+                    team.sendMessage(plugin.getLang().get("teampickup.white").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + ""));
+                    team.sendTitle(plugin.getLang().get("titlespickup.white.title").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()),plugin.getLang().get("titlespickup.white.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", c + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                }
+            }
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
             ItemStack item = new ItemStack(322, 4);
@@ -452,8 +636,54 @@ public class PlayerListener implements Listener {
                 p.getInventory().addItem(item);
             }
             ChatColor finalC = c;
-            others.forEach(t -> t.sendMessage(plugin.getLang().get("messages.otherpick").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replaceAll("<wool>", finalC + finalC.name())));
-            others.forEach(t -> t.sendTitle(plugin.getLang().get("titles.otherpick.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titles.otherpick.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()).replaceAll("<wool>", finalC + finalC.name()), 0, 30, 10));
+
+            g.getTeams().values().stream().filter(t -> t.getId() != team.getId()).forEach(t -> {
+                if (e.getItem().getItemStack().getType() == Material.WOOL){
+                    if (i.getItemStack().getDurability()  == (short) 14){
+                        t.sendMessage(plugin.getLang().get("otherpickup.red").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.red.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.red.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 8) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.lightgray").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.lightgray.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.lightgray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 15) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.black").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.black.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.black.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 13) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.green").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.green.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.green.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 9) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.cyan").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.cyan.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.cyan.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 10) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.purple").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.purple.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.purple.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 1) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.orange").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.orange.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.orange.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 7) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.gray").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.gray.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.gray.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 11) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.blue").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.blue.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.blue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 5) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.lime").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.lime.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.lime.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 3) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.lightblue").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.lightblue.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.lightblue.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 6) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.pink").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.pink.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.pink.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else if (i.getItemStack().getDurability()  == (short) 4) {
+                        t.sendMessage(plugin.getLang().get("otherpickup.yellow").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.yellow.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.yellow.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    } else {
+                        t.sendMessage(plugin.getLang().get("otherpickup.white").replaceAll("<player>", p.getDisplayName()).replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + ""));
+                        t.sendTitle(plugin.getLang().get("titlesotherpickup.white.title").replaceAll("<color>", finalC + "").replace("<player>", p.getName()),plugin.getLang().get("titlesotherpickup.white.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<color>", finalC + "").replace("<player>", p.getDisplayName()), 0, 30, 10);
+                    }
+                }
+            });
             others.forEach(t -> t.playSound(plugin.getCm().getPickUpOthers(), 1.0f, 1.0f));
         }
     }
