@@ -30,7 +30,7 @@ public class KillSound implements Purchasable {
         this.page = plugin.getKillsound().getInt(s + ".page");
         this.price = plugin.getKillsound().getInt(s + ".price");
         this.needPermToBuy = plugin.getKillsound().getBooleanOrDefault(s + ".needPermToBuy", false);
-        this.autoGivePermission = plugin.getKillsound().getOrDefault(s + ".autoGivePermission", "ultraskywars.killsound.autogive." + name);
+        this.autoGivePermission = plugin.getKillsound().getOrDefault(s + ".autoGivePermission", "ultractw.killsound.autogive." + name);
         this.isBuy = plugin.getKillsound().getBoolean(s + ".isBuy");
         this.icon = plugin.getKillsound().getConfig().getItemStack(s + ".icon");
         this.vol1 = (float) plugin.getKillsound().getConfig().getDouble(s + ".vol1");

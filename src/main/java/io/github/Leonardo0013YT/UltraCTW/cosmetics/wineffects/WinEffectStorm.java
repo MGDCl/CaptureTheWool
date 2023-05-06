@@ -9,7 +9,6 @@ import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.block.Block;

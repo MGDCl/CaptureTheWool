@@ -26,7 +26,7 @@ breakMap:
     - WEB
     - GOLD_BLOCK
     - IRON_BLOCK
-# autoJoinFinish may cause an error if there are less than 2 maps
+# AutoJoinFinish may cause an error if there are less than 2 maps
 gameDefaults:
   autoJoinFinish: false
   hunger: false
@@ -51,13 +51,19 @@ gameDefaults:
     win: 10
     assists: 2
     capture: 10
-  noDrop: # Does not remove the wool to avoid collection spam
+  noDrop:
     - WOOL
+    - DIAMOND_CHESTPLATE
+    - LEATHER_HELMET
+    - LEATHER_CHESTPLATE
+    - LEATHER_LEGGINGS
+    - LEATHER_BOOTS
+    - GOLDEN_APPLE
 bounty:
   min: 90
   max: 110
   perKill: 0.10
-items: # Replace the commands you will use
+items:
   lobby:
     enabled: false
     slot: 4

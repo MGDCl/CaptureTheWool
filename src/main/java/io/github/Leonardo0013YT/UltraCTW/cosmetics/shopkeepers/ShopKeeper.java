@@ -31,7 +31,7 @@ public class ShopKeeper implements Purchasable {
         this.isBuy = plugin.getShopkeepers().getBoolean(s + ".isBuy");
         this.needPermToBuy = plugin.getShopkeepers().getBooleanOrDefault(s + ".needPermToBuy", false);
         this.icon = plugin.getShopkeepers().getConfig().getItemStack(s + ".icon");
-        this.autoGivePermission = plugin.getShopkeepers().getOrDefault(s + ".autoGivePermission", "ultraskywars.shopkeepers.autogive." + name);
+        this.autoGivePermission = plugin.getShopkeepers().getOrDefault(s + ".autoGivePermission", "ultractw.shopkeepers.autogive." + name);
         plugin.getSkm().setLastPage(page);
     }
 

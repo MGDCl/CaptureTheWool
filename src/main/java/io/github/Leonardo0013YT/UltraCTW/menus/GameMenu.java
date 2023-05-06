@@ -48,11 +48,11 @@ public class GameMenu {
         Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.join.title"));
         inv.setItem(22, getGameItem(game));
 
-        ItemStack stats = new ItemStack(330, 1);
+        ItemStack stats = new ItemStack(339, 1);
         ItemMeta meta = stats.getItemMeta();
         meta.setDisplayName(plugin.getLang().get("menus.join.stats.nameItem"));
         CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
-        String lore = plugin.getLang().get("menus.join.stats.loreItem").replaceAll("<kills>", String.valueOf(ctw.getKills())).replaceAll("<deaths>", String.valueOf(ctw.getDeaths())).replaceAll("<coins>", String.valueOf(ctw.getCoins())).replaceAll("<captured>", String.valueOf(ctw.getWoolCaptured())).replaceAll("<level>", String.valueOf(ctw.getLevel())).replaceAll("<wins>", String.valueOf(ctw.getWins())).replaceAll("<xp>", String.valueOf(ctw.getXp())).replaceAll("<played>", String.valueOf(ctw.getPlayed())).replaceAll("<bow>", String.valueOf(ctw.getsShots()));
+        String lore = plugin.getLang().get("menus.join.stats.loreItem").replaceAll("<kills>", String.valueOf(ctw.getKills())).replaceAll("<deaths>", String.valueOf(ctw.getDeaths())).replaceAll("<coins>", String.valueOf(ctw.getCoins())).replaceAll("<captured>", String.valueOf(ctw.getWoolCaptured())).replaceAll("<level>", String.valueOf(ctw.getLevel())).replaceAll("<wins>", String.valueOf(ctw.getWins())).replaceAll("<xp>", String.valueOf(ctw.getXp())).replaceAll("<played>", String.valueOf(ctw.getPlayed())).replaceAll("<bowkills>", String.valueOf(ctw.getBowKills())).replaceAll("<bowdistance>", String.valueOf(ctw.getBowKillDistance())).replaceAll("<bowmaxdistance>", String.valueOf(ctw.getMaxBowDistance()));
         meta.setLore(lore.isEmpty() ? new ArrayList<>() : Arrays.asList(lore.split("\\n")));
         stats.setItemMeta(meta);
         inv.setItem(36, stats);

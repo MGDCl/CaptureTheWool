@@ -142,7 +142,13 @@ public class MenuListener implements Listener {
         }
         if (e.getView().getTitle().equals(plugin.getLang().get("menus.join.title"))) {
             e.setCancelled(true);
-            if (!item.hasItemMeta() || !item.getItemMeta().hasDisplayName()) {
+            if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals(Material.AIR)) {
+                return;
+            }
+            if (!item.hasItemMeta()) {
+                return;
+            }
+            if (!item.getItemMeta().hasDisplayName()) {
                 return;
             }
             String d = item.getItemMeta().getDisplayName();

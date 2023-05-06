@@ -332,18 +332,12 @@ titles:
   starting:
     title: "&c<time>"
     subtitle: "&7"
-  captured:
-    title: ""
-    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
   win:
     title: "<color>WIN!"
     subtitle: "<tcolor>The <winner> team has won!"
   lose:
     title: "<tcolor>GAME OVER!"
     subtitle: "<tcolor>The <winner> team has won!"
-  otherCaptured:
-    title: ""
-    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
   ending:
     title: '&fNext map: &a&l<map>'
     subtitle: '&fNew game in:&c&l <time>'
@@ -1382,14 +1376,16 @@ menus:
         &fKills: &a<kills>
         &fDeaths: &a<deaths>
         &fLevel: &a<level>
+        &fGames played: &a<played>
         &7
         &fWins: &a<wins>
         &fCaptured: &a<captured>
         &fCoins: &a<coins>
-        &7
-        &fBow kills: &a<bow>
         &fExp: &a<xp>
-        &fGames played: &a<played>
+        &7
+        &fBow kills: &a<bowkills>
+        &7Bow Distance: &a<bowdistance>
+        &7Bow Max Distance: &a<bowmaxdistance>
     close:
       nameItem: '&cClose'
       loreItem: |-

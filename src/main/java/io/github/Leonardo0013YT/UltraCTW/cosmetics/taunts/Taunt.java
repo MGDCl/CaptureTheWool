@@ -41,7 +41,7 @@ public class Taunt implements Purchasable {
         this.isBuy = plugin.getTaunt().getBoolean(s + ".isBuy");
         this.icon = plugin.getTaunt().getConfig().getItemStack(s + ".icon");
         this.needPermToBuy = plugin.getTaunt().getBooleanOrDefault(s + ".needPermToBuy", false);
-        this.autoGivePermission = plugin.getTaunt().getOrDefault(s + ".autoGivePermission", "ultraskywars.taunts.autogive." + name);
+        this.autoGivePermission = plugin.getTaunt().getOrDefault(s + ".autoGivePermission", "ultractw.taunts.autogive." + name);
         ConfigurationSection conf = plugin.getTaunt().getConfig().getConfigurationSection(s + ".taunts");
         for (String d : conf.getKeys(false)) {
             taunts.put(d, new TauntType(d, plugin.getTaunt().getList(s + ".taunts." + d + ".msg")));
@@ -86,7 +86,7 @@ public class Taunt implements Purchasable {
         new BukkitRunnable() {
             @Override
             public void run() {
-                UltraCTW.get().getVc().getReflection().sendTitle(title, subtitle, 0, 40, 0, d);
+                UltraCTW.get().getVc().getReflection().sendTitle(title, subtitle, 0, 30, 0, d);
             }
         }.runTaskLater(UltraCTW.get(), 5L);
         if (k == null) {

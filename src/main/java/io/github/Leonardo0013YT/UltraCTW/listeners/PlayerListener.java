@@ -523,6 +523,10 @@ public class PlayerListener implements Listener {
             e.setCancelled(true);
             return;
         }
+        if (item.getType().equals(Material.WOOL)){
+            e.setCancelled(true);
+            return;
+        }
         if (item.equals(plugin.getIm().getPoints()) || item.equals(plugin.getIm().getLobby()) || item.equals(plugin.getIm().getTeams()) || item.equals(plugin.getIm().getLeave()) || item.equals(plugin.getIm().getSetup())) {
             e.setCancelled(true);
             return;
@@ -754,11 +758,14 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
+        if (e.getCurrentItem() == null || e.getCurrentItem().getType().equals(Material.AIR)) {
+            return;
+        }
         Player p = (Player) e.getWhoClicked();
         Game g = plugin.getGm().getGameByPlayer(p);
-        if (g != null){
-            if (g.isState(State.GAME)){
-                if(e.getInventory().getType() == InventoryType.CHEST && e.getCurrentItem().getType().equals(Material.WOOL)) {
+        if (g != null && g.isState(State.GAME)){
+            if(e.getInventory().getType() == InventoryType.CHEST) {
+                if (e.getCurrentItem().getType().equals(Material.WOOL)){
                     e.getWhoClicked().sendMessage(plugin.getLang().get("messages.noSave"));
                     e.setCancelled(true);
                 }
@@ -818,7 +825,9 @@ public class PlayerListener implements Listener {
         } else {
             executeTauntDefault(p, g);
         }
+
         plugin.getTgm().executeRewards(p, p.getMaxHealth());
+
         new BukkitRunnable() {
             @Override
             public void run() {

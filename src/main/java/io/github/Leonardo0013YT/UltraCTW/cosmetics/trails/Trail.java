@@ -30,7 +30,7 @@ public class Trail implements Purchasable {
         this.price = plugin.getTrail().getInt(path + ".price");
         this.isBuy = plugin.getTrail().getBoolean(path + ".isBuy");
         this.needPermToBuy = plugin.getTrail().getBooleanOrDefault(path + ".needPermToBuy", false);
-        this.autoGivePermission = plugin.getTrail().getOrDefault(path + ".autoGivePermission", "ultraskywars.trails.autogive." + name);
+        this.autoGivePermission = plugin.getTrail().getOrDefault(path + ".autoGivePermission", "ultractw.trails.autogive." + name);
         this.permission = plugin.getTrail().get(null, path + ".permission");
         this.icon = plugin.getTrail().getConfig().getItemStack(path + ".icon");
         this.range = plugin.getTrail().getConfig().getDouble(path + ".range");
