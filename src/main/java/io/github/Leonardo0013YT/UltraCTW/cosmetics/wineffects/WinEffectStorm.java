@@ -9,6 +9,7 @@ import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.block.Block;
@@ -28,12 +29,13 @@ public class WinEffectStorm implements WinEffect, Cloneable {
 
     @Override
     public void start(Player p, Game game) {
-		p.getWorld().setStorm(true);
-		p.getWorld().setThundering(true);
-		new BukkitRunnable() {
+		task = new BukkitRunnable() {
 			int count = 0;
 			@Override
 			public void run() {
+                p.getWorld().setStorm(true);
+                p.getWorld().setThundering(true);
+                p.getWorld().setTime(p.getWorld().getTime() + 700);
 				if(p.getWorld().equals(Bukkit.getWorlds().get(0))) {
 					cancel();
 					return;

@@ -30,7 +30,7 @@ public class UltraWinEffect implements Purchasable {
         this.isBuy = plugin.getWineffect().getBoolean(s + ".isBuy");
         this.icon = plugin.getWineffect().getConfig().getItemStack(s + ".icon");
         this.needPermToBuy = plugin.getWineffect().getBooleanOrDefault(s + ".needPermToBuy", false);
-        this.autoGivePermission = plugin.getWineffect().getOrDefault(s + ".autoGivePermission", "ultraskywars.wineffects.autogive." + name);
+        this.autoGivePermission = plugin.getWineffect().getOrDefault(s + ".autoGivePermission", "ultractw.wineffects.autogive." + name);
         plugin.getWem().setLastPage(page);
     }
 

@@ -6,6 +6,7 @@ import io.github.Leonardo0013YT.UltraCTW.game.GameNoState;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import lombok.Getter;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

@@ -38,12 +38,12 @@ kits:
             type: LEATHER_BOOTS
         inv:
           - ==: org.bukkit.inventory.ItemStack
-            type: WOOD_SWORD
+            type: IRON_SWORD
           - ==: org.bukkit.inventory.ItemStack
             type: BOW
           - ==: org.bukkit.inventory.ItemStack
             type: ARROW
-            amount: 64
+            amount: 16
           - null
           - null
           - null

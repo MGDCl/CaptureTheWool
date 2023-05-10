@@ -89,15 +89,12 @@ public class Tagged {
                 double percent = (last.getHealth() * 100) / last.getMaxHealth();
                 if (percent <= 50 && percent > 25) {
                     up.addKill50(1);
-                    up.addAssists(1);
                 }
                 if (percent <= 25 && percent > 5) {
                     up.addKill25(1);
-                    up.addAssists(1);
                 }
                 if (percent <= 5 && percent > 1) {
                     up.addKill5(1);
-                    up.addAssists(1);
                 }
             }
         }

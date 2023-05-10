@@ -71,7 +71,17 @@ public class Taunt implements Purchasable {
                 k.sendMessage(UltraCTW.get().getLang().get("messages.kill").replaceAll("<xp>", String.valueOf(UltraCTW.get().getCm().getXpKill())).replaceAll("<coins>", String.valueOf(UltraCTW.get().getCm().getCoinsKill())).replaceAll("<streak>", UltraCTW.get().getStm().getPrefix(k)));
                 Streak st = UltraCTW.get().getStm().get(d);
                 if (st.isBounty()) {
-                    game.sendGameMessage(UltraCTW.get().getLang().get("messages.bountyClaimed").replaceAll("<coins>", Utils.format(st.getPrice())).replaceAll("<death>", d.getName()).replaceAll("<killer>", k.getName()));
+                    Team tk = game.getTeamPlayer(k);
+                    Team td = game.getTeamPlayer(d);
+                    String ck = "";
+                    String cd = "";
+                    if (tk != null) {
+                        ck = tk.getColor() + "";
+                    }
+                    if (td != null) {
+                        cd = td.getColor() + "";
+                    }
+                    game.sendGameMessage(UltraCTW.get().getLang().get("messages.bountyClaimed").replaceAll("<coins>", Utils.format(st.getPrice())).replaceAll("<death>", cd + d.getName()).replaceAll("<killer>", ck + k.getName()));
                     UltraCTW.get().getDb().getCTWPlayer(k).addCoins(st.getPrice());
                     st.setBounty(false);
                     st.setPrice(0);

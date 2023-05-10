@@ -1,5 +1,5 @@
 options:
-  lobbyWorld: exampleLobby
+  lobbyWorld: lobbyWorld
   noBreak: true
   noPlace: true
   noDamage: true

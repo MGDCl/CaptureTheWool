@@ -20,7 +20,7 @@ public class KillEffectHeartExplosion implements KillEffect, Cloneable {
             return;
         }
         for (int i = 0; i < 10; i++) {
-            plugin.getVc().getNMS().broadcastParticle(death.getLocation(), 1, 0, 1, 2, "HEART", 5, 5);
+            plugin.getVc().getNMS().broadcastParticle(death.getLocation(), 1, 0, 1, 2, "HEART", 2, 2);
         }
     }
 

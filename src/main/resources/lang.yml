@@ -69,19 +69,6 @@ scoreboards:
       &fDeaths: &c<deaths> ☠
       &7
       &emc.spigot.net
-  big-game:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
-      &7
-      &fTeam: <team>
-      &fExp: &a<now>&7/&c<leveUp>
-      &7
-      <teams>
-      &7
-      &fKills: &a<kills>
-      &fDeaths: &a<deaths>
-      &7
-      &emc.spigot.net
 progressBar:
   symbol: "|"
   in: "&3"
@@ -132,7 +119,7 @@ messages:
   kill: "<streak>KILL! &8+&6<coins> Coins &7and &8+&b<xp> XP"
   streak: "&c&lSTREAK! &7of &c<kills> &7kills by <nameStreak>"
   bounty: "&6&lBOUNTY! &7of &6&l<coins> &7for <name> for high streak."
-  bountyClaimed: "&6&lBOUNTY CLAIMED! &e<killer> &7killed &e<death> &7for &6&l<coins>"
+  bountyClaimed: "&6&lBOUNTY CLAIMED! <killer> &7killed <death> &7for &6&l<coins>"
   teamMajorPlayers: "&cThere are many players on this team try to get into another."
   noSelect: "&cYou don't have a selected."
   noSelected: "&cNot selected"
@@ -221,6 +208,7 @@ messages:
     - "&co&m----------------------------------------------o"
     - "&e"
     - "§a/ctw join §7- §eEnter a game"
+    - "§a/join §7- §eChoose a team"
     - "§a/leave §7- §eLeave the game"
     - "§a/stats §7- §eShow your stats"
     - "&e"

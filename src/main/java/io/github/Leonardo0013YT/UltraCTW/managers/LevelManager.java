@@ -55,7 +55,7 @@ public class LevelManager {
             for (String s : plugin.getLang().getList("messages.newLevel")){
                 p.sendMessage(s.replaceAll("&", "§").replaceAll("<level>", lvl.getLevel() + ""));
             }
-            UltraCTW.get().getVc().getReflection().sendTitle(plugin.getLang().get("titles.levelup.title"),plugin.getLang().get("titles.levelup.subtitle").replaceAll("<level>", lvl.getLevel() + ""),0, 40, 0 , p);
+            UltraCTW.get().getVc().getReflection().sendTitle(plugin.getLang().get("titles.levelup.title"),plugin.getLang().get("titles.levelup.subtitle").replaceAll("<level>", lvl.getLevel() + ""),0, 30, 0 , p);
             UltraCTW.get().getVc().getNMS().sendActionBar(p, plugin.getLang().get("actionbar.levelup").replaceAll("<level>", lvl.getLevel() + ""));
             Utils.updateSB(p);
             for (Player on : Bukkit.getOnlinePlayers()) {

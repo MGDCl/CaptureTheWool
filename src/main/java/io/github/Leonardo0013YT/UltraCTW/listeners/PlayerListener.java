@@ -40,7 +40,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -718,7 +717,7 @@ public class PlayerListener implements Listener {
             }
             if (e.getDamager() instanceof Projectile && ((Projectile) e.getDamager()).getShooter() instanceof Player) {
                 Player d = (Player) ((Projectile) e.getDamager()).getShooter();
-                if (checkDamage(e, p, d)) return;
+                if (checkDamage(e, p, d));
             }
         }
     }
@@ -764,8 +763,8 @@ public class PlayerListener implements Listener {
         Player p = (Player) e.getWhoClicked();
         Game g = plugin.getGm().getGameByPlayer(p);
         if (g != null && g.isState(State.GAME)){
-            if(e.getInventory().getType() == InventoryType.CHEST) {
-                if (e.getCurrentItem().getType().equals(Material.WOOL)){
+            if(e.getInventory().getType() == InventoryType.CHEST || e.getInventory().getType() == InventoryType.FURNACE) {
+                if (e.getCurrentItem().getType().equals(Material.WOOL) && p.getGameMode().equals(GameMode.SURVIVAL)){
                     e.getWhoClicked().sendMessage(plugin.getLang().get("messages.noSave"));
                     e.setCancelled(true);
                 }

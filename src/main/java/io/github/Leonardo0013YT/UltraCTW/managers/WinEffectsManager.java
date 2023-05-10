@@ -43,16 +43,16 @@ public class WinEffectsManager {
                 we = new WinEffectFireworks();
                 we.start(p, game);
                 break;
-            case "vulcanfire":
-                we = new WinEffectVulcanFire();
+            case "ghosts":
+                we = new WinEffectGhosts();
                 we.start(p, game);
                 break;
-            case "icewalker":
+            case "storm":
                 we = new WinEffectStorm();
                 we.start(p, game);
                 break;
-            case "notes":
-                we = new WinEffectNotes();
+            case "crazyblocks":
+                we = new WinEffectCrazyBlocks();
                 we.start(p, game);
                 break;
             case "chickens":

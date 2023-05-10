@@ -1,7 +1,7 @@
 trails:
   Test:
     id: 0
-    name: Test
+    name: Lava
     icon:
       ==: org.bukkit.inventory.ItemStack
       type: BOW

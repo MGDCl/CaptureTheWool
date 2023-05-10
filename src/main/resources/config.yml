@@ -39,17 +39,14 @@ gameDefaults:
   gcoins:
     kill: 3
     win: 10
-    assists: 1
     capture: 10
   coins:
     kill: 5
     win: 20
-    assists: 2
     capture: 10
   xp:
     kill: 5
     win: 10
-    assists: 2
     capture: 10
   noDrop:
     - WOOL

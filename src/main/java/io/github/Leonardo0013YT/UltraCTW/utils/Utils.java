@@ -8,6 +8,14 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -111,10 +119,6 @@ public class Utils {
         }
         return wools.toString();
 
-    }
-
-    public static String getFlagIcon(ChatColor color) {
-        return color + plugin.getLang().get("scoreboards.wools.captured");
     }
 
     public static void setCleanPlayer(Player p) {
@@ -383,6 +387,22 @@ public class Utils {
             return ChatColor.YELLOW;
         }
         return ChatColor.WHITE;
+    }
+
+    public static List<Block> getBlocksInRadius(Location location, int radius, boolean hollow) {
+        List<Block> blocks = new ArrayList<>();
+        int bX = location.getBlockX(), bY = location.getBlockY(), bZ = location.getBlockZ();
+        for (int x = bX - radius; x <= bX + radius; x++)
+            for (int y = bY - radius; y <= bY + radius; y++)
+                for (int z = bZ - radius; z <= bZ + radius; z++) {
+                    double distance = ((bX - x) * (bX - x) + (bY - y) * (bY - y) + (bZ - z) * (bZ - z));
+                    if (distance < radius * radius && !(hollow && distance < ((radius - 1) * (radius - 1)))) {
+                        Location l = new Location(location.getWorld(), x, y, z);
+                        if (l.getBlock().getType() != Material.BARRIER)
+                            blocks.add(l.getBlock());
+                    }
+                }
+        return blocks;
     }
 
     public static ItemStack[] getGifs() {

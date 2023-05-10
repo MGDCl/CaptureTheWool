@@ -20,7 +20,7 @@ import java.util.*;
 @Getter
 public class Team {
 
-    private Collection<Player> members = new ArrayList<>();
+    private Collection<Player> members = new ArrayList<>();//colecction
     private ArrayList<ChatColor> colors = new ArrayList<>();
     private Map<Location, ChatColor> wools = new HashMap<>();
     private Map<Location, ChatColor> spawners = new HashMap<>();

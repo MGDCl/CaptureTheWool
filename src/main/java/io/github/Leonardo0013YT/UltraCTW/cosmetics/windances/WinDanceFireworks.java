@@ -29,8 +29,8 @@ public class WinDanceFireworks implements WinDance, Cloneable {
     @Override
     public void loadCustoms(UltraCTW plugin, String path) {
         if (!loaded) {
-            minOfCenter = plugin.getWindance().getIntOrDefault(path + ".minOfCenter", 10);
-            maxOfCenter = plugin.getWindance().getIntOrDefault(path + ".maxOfCenter", 10);
+            minOfCenter = plugin.getWindance().getIntOrDefault(path + ".minOfCenter", 20);
+            maxOfCenter = plugin.getWindance().getIntOrDefault(path + ".maxOfCenter", 20);
             firstUp = plugin.getWindance().getIntOrDefault(path + ".firstUp", 75);
             taskTick = plugin.getWindance().getIntOrDefault(path + ".taskTick", 20);
             loaded = true;
