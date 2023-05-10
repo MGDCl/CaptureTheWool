@@ -5,6 +5,7 @@ import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.streak.Streak;
+import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 import org.bukkit.entity.Entity;
@@ -43,8 +44,10 @@ public class StreakManager {
             streak.setKills(0);
         }
         int amount = getStreak(p);
+        Team t = game.getTeamPlayer(p);
+        String c = t.getColor() + "";
         if (amount % 5 == 0) {
-            game.sendGameMessage(plugin.getLang().get("messages.streak").replaceAll("<kills>", String.valueOf(amount)).replaceAll("<nameStreak>", p.getName()));
+            game.sendGameMessage(plugin.getLang().get("messages.streak").replaceAll("<kills>", String.valueOf(amount)).replaceAll("<nameStreak>", c + p.getName()));
             for (Entity ent : p.getNearbyEntities(5, 5, 5)) {
                 if (!(ent instanceof Player)) continue;
                 Player ar = (Player) ent;
@@ -56,7 +59,7 @@ public class StreakManager {
             streak.setPrice(getBounty(amount));
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             ctw.setBounty(streak.getPrice());
-            game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
+            game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", c + p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
             NametagEdit.getApi().setSuffix(p, " §6" + Utils.format(streak.getPrice()) + "⛂⛃");
             return;
         }
@@ -65,7 +68,7 @@ public class StreakManager {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             ctw.setBounty(streak.getPrice());
             if (amount % 5 == 0) {
-                game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
+                game.sendGameMessage(plugin.getLang().get("messages.bounty").replaceAll("<name>", c + p.getName()).replaceAll("<coins>", Utils.format(streak.getPrice())));
             }
             NametagEdit.getApi().setSuffix(p, " §6" + Utils.format(streak.getPrice()) + "⛂⛃");
         }
