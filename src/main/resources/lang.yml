@@ -164,6 +164,7 @@ messages:
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
   noSave: "&cYou can't keep the wool!"
+  equipement: "&aYou have received some objects to be able to carry the wool!"
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"

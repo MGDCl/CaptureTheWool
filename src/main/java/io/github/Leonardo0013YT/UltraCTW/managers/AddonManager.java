@@ -1,7 +1,9 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
+import io.github.Leonardo0013YT.UltraCTW.addons.NametagEditAddon;
 import io.github.Leonardo0013YT.UltraCTW.addons.PlaceholderAPIAddon;
+import io.github.Leonardo0013YT.UltraCTW.interfaces.NametagAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -11,9 +13,26 @@ public class AddonManager {
     private UltraCTW plugin;
     private PlaceholderAPIAddon placeholder;
 
+    private NametagAddon tag;
+
     public AddonManager(UltraCTW plugin) {
         this.plugin = plugin;
         reload();
+    }
+
+    public boolean check(String pluginName) {
+        UltraCTW plugin = UltraCTW.get();
+        if (plugin.getConfig().isSet("addons." + pluginName) && plugin.getConfig().getBoolean("addons." + pluginName)) {
+            if (Bukkit.getPluginManager().isPluginEnabled(pluginName)) {
+                plugin.sendLogMessage("Hooked into §a" + pluginName + "§e!");
+                return true;
+            } else {
+                plugin.getConfig().set("addons." + pluginName, false);
+                plugin.saveConfig();
+                return false;
+            }
+        }
+        return false;
     }
 
     public void reload() {
@@ -26,6 +45,9 @@ public class AddonManager {
                 plugin.saveConfig();
                 plugin.getCm().reload();
             }
+        }
+        if (check("NametagEdit")) {
+            tag = new NametagEditAddon();
         }
     }
 
@@ -42,6 +64,21 @@ public class AddonManager {
 
     public void removeCoins(Player p, double price) {
         plugin.getDb().getCTWPlayer(p).removeCoins(price);
+    }
+
+
+    public String getPlayerPrefix(Player p) {
+        if (tag != null) {
+            return tag.getPrefix(p);
+        }
+        return "";
+    }
+
+    public String getPlayerSuffix(Player p) {
+        if (tag != null) {
+            return tag.getSuffix(p);
+        }
+        return "";
     }
 
 }

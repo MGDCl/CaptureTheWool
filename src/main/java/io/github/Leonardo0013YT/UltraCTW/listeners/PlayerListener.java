@@ -632,12 +632,18 @@ public class PlayerListener implements Listener {
             }
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
-            ItemStack item = new ItemStack(322, 4);
-            if (p.getInventory().firstEmpty() == -1) {
-                p.sendMessage("sexo");
+
+            ItemStack item = new ItemStack(322, 16);
+            ItemStack chestplate = new ItemStack(311, 1);
+
+            if (p.getInventory().contains(chestplate) || p.getInventory().getChestplate().equals(chestplate)){
+                return;
             } else {
+                p.getInventory().setChestplate(chestplate);
                 p.getInventory().addItem(item);
+                p.sendMessage(plugin.getLang().get("messages.equipement"));
             }
+
             ChatColor finalC = c;
 
             g.getTeams().values().stream().filter(t -> t.getId() != team.getId()).forEach(t -> {

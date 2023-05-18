@@ -40,6 +40,7 @@ public class WorldController {
         ArrayList<String> ignore = new ArrayList<>(Arrays.asList("uid.dat", "session.lock", "Village.dat", "villages.dat"));
         if (!source.exists()) return;
         for (File f : source.listFiles()) {
+            if (f == null) continue;
             if (!ignore.contains(f.getName())) {
                 if (f.isDirectory()) {
                     deleteDirectory(f);
@@ -53,6 +54,7 @@ public class WorldController {
     public World createEmptyWorld(String name) {
         WorldCreator wc = new WorldCreator(name);
         wc.environment(World.Environment.NORMAL);
+        wc.type(WorldType.FLAT);
         wc.generateStructures(false);
         wc.generator(getChunkGenerator());
         World w = wc.createWorld();
@@ -91,8 +93,22 @@ public class WorldController {
                 return true;
             }
 
+            @Override
             public byte[] generate(World world, Random random, int x, int z) {
                 return new byte[32768];
+            }
+
+            @Override
+            public ChunkData generateChunkData(World world, Random random, int x, int z, BiomeGrid biome) {
+                ChunkData chunk = createChunkData(world);
+                for (int X = 0; X < 16; X++) {
+                    for (int Z = 0; Z < 16; Z++) {
+                        for (int Y = 0; Y < 16; Y++) {
+                            chunk.setBlock(X, Y, Z, Material.AIR);
+                        }
+                    }
+                }
+                return chunk;
             }
 
             @Override

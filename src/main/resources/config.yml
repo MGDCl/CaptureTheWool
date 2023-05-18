@@ -4,6 +4,7 @@
 debugMode: false
 addons:
   placeholdersAPI: true
+  NametagEdit: true
 mainLobby: null
 mobGriefing: false
 redPanelInLocked: true

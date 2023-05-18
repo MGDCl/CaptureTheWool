@@ -41,6 +41,7 @@ public class GameNoState implements Game {
     private Squared lobbyProtection;
     private int teamSize, woolSize, min, starting, defKit, time = 0, max, worldTime;
     private State state;
+    private UUID player;
 
     public GameNoState(UltraCTW plugin, String path, int id) {
         this.name = plugin.getArenas().get(path + ".name");
@@ -208,7 +209,6 @@ public class GameNoState implements Game {
             }
             if (starting == 0) {
                 setState(State.GAME);
-                sendGameSound(XSound.ENTITY_ENDER_DRAGON_GROWL.parseSound());
                 sendGameTitle(plugin.getLang().get(null, "titles.startGame.title"), plugin.getLang().get(null, "titles.startGame.subtitle"), 20, 40, 20);
                 checkTeamBalance();
                 for (String s : plugin.getLang().getList("messages.start")) {
@@ -244,6 +244,7 @@ public class GameNoState implements Game {
                         }
                     }
                 }
+                sendGameSound(XSound.ENTITY_ENDER_DRAGON_GROWL.parseSound());
             }
             starting--;
         }
@@ -258,6 +259,9 @@ public class GameNoState implements Game {
                 } else {
                     sendGameActionBar(on, plugin.getLang().get("actionbar.myTeam").replaceAll("<tcolor>", t.getColor() + "").replaceAll("<team>", t.getName()));
                 }
+            }
+            if (time == 120){
+                sendGameMessage("EL TIEMPO SE ACABA!");
             }
         }
     }
@@ -307,7 +311,7 @@ public class GameNoState implements Game {
         for (Player on : cached) {
             setSpect(on);
             for (String s : plugin.getLang().getList("messages.win")) {
-                on.sendMessage(s.replaceAll("&", "§").replaceAll("<captured>", Utils.getWoolsString(team)).replaceAll("<winner>", gw.getWinner()).replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
+                on.sendMessage(s.replaceAll("&", "§").replaceAll("<captured>", Utils.getWoolsString(team)).replaceAll("<winner>", gw.getWinner()).replaceAll("<wcolor>", gw.getTeamWin().getColor() + "").replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
             }
         }
         plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), plugin.getLang().get("titles.lose.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 80, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
