@@ -159,6 +159,7 @@ messages:
   joinGame: '&7Connecting to &a<game>'
   ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
+  sendLobby: '&eThe game is over, you were sent to the lobby!'
   newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'

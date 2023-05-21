@@ -10,10 +10,11 @@ import org.bukkit.inventory.ItemStack;
 @Getter
 public class ItemManager {
 
-    private ItemStack setup, points, teams, lobby, leave, pickaxe;
+    private final ItemStack setup, points, teams, lobby, lobby2, leave, pickaxe;
 
     public ItemManager(UltraCTW plugin) {
-        this.lobby = new ItemUtils(XMaterial.DIAMOND).setDisplayName(plugin.getLang().get("items.lobby.nameItem")).setLore(plugin.getLang().get("items.lobby.loreItem")).build();
+        this.lobby2 = new ItemUtils(XMaterial.PAPER).setDisplayName(plugin.getLang().get("items.lobby2.nameItem")).setLore(plugin.getLang().get("items.lobby2.loreItem")).build();
+        this.lobby = new ItemUtils(XMaterial.EMERALD).setDisplayName(plugin.getLang().get("items.lobby.nameItem")).setLore(plugin.getLang().get("items.lobby.loreItem")).build();
         this.setup = new ItemUtils(XMaterial.DIAMOND).setDisplayName(plugin.getLang().get("items.setup.nameItem")).setLore(plugin.getLang().get("items.setup.loreItem")).build();
         this.points = new ItemUtils(XMaterial.STICK).setDisplayName(plugin.getLang().get("items.points.nameItem")).setLore(plugin.getLang().get("items.points.loreItem")).build();
         this.teams = new ItemUtils(XMaterial.WHITE_WOOL).setDisplayName(plugin.getLang().get("items.teams.nameItem")).setLore(plugin.getLang().get("items.teams.loreItem")).build();

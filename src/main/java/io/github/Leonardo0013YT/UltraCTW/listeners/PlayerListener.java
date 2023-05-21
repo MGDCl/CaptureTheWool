@@ -526,7 +526,7 @@ public class PlayerListener implements Listener {
             e.setCancelled(true);
             return;
         }
-        if (item.equals(plugin.getIm().getPoints()) || item.equals(plugin.getIm().getLobby()) || item.equals(plugin.getIm().getTeams()) || item.equals(plugin.getIm().getLeave()) || item.equals(plugin.getIm().getSetup())) {
+        if (item.equals(plugin.getIm().getPoints()) || item.equals(plugin.getIm().getLobby()) || item.equals(plugin.getIm().getLobby2()) || item.equals(plugin.getIm().getTeams()) || item.equals(plugin.getIm().getLeave()) || item.equals(plugin.getIm().getSetup())) {
             e.setCancelled(true);
             return;
         }
@@ -633,7 +633,7 @@ public class PlayerListener implements Listener {
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
 
-            ItemStack item = new ItemStack(322, 16);
+            ItemStack item = new ItemStack(322, 18);
             ItemStack chestplate = new ItemStack(311, 1);
 
             if (p.getInventory().contains(chestplate) || p.getInventory().getChestplate().equals(chestplate)){
@@ -918,6 +918,9 @@ public class PlayerListener implements Listener {
         if (item.equals(plugin.getIm().getLobby())) {
             p.chat(plugin.getCm().getItemLobbyCMD());
         }
+		if (item.equals(plugin.getIm().getLobby2())) {
+            p.chat(plugin.getCm().getItemLobby2CMD());
+        }
         if (item.equals(plugin.getIm().getLeave())) {
             plugin.getGm().removePlayerGame(p, true);
         }
@@ -994,6 +997,9 @@ public class PlayerListener implements Listener {
     private void givePlayerItems(Player p) {
         if (plugin.getCm().isItemLobbyEnabled()) {
             p.getInventory().setItem(plugin.getCm().getItemLobbySlot(), plugin.getIm().getLobby());
+        }
+        if (plugin.getCm().isItemLobby2Enabled()) {
+            p.getInventory().setItem(plugin.getCm().getItemLobby2Slot(), plugin.getIm().getLobby2());
         }
     }
 }

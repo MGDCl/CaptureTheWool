@@ -96,6 +96,7 @@ public class GameNoState implements Game {
         cached.add(p);
         players.add(p);
         Utils.updateSB(p);
+        UltraCTW.get().getStm().resetStreak(p);
         checkStart();
         p.setGameMode(GameMode.SPECTATOR);
         Game game = plugin.getGm().getSelectedGame();
@@ -260,9 +261,6 @@ public class GameNoState implements Game {
                     sendGameActionBar(on, plugin.getLang().get("actionbar.myTeam").replaceAll("<tcolor>", t.getColor() + "").replaceAll("<team>", t.getName()));
                 }
             }
-            if (time == 120){
-                sendGameMessage("EL TIEMPO SE ACABA!");
-            }
         }
     }
 
@@ -358,18 +356,21 @@ public class GameNoState implements Game {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (plugin.getCm().isAutoJoinFinish()){
+                int games = plugin.getGm().getGames().size();
+                if (plugin.getCm().isAutoJoinFinish() && games > 1){
                     for (Player on : back) {
                         if (on == null || !on.isOnline()) continue;
                         Game g = plugin.getGm().getSelectedGame();
                         plugin.getGm().addPlayerGame(on, g.getId());
-                        on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
                         NametagEdit.getApi().clearNametag(on);
+                        NametagEdit.getApi().reloadNametag(on);
+                        on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
                     }
                 } else {
                     for (Player on : back) {
                         if (on == null || !on.isOnline()) continue;
                         plugin.getGm().removePlayerGame(on, true);
+                        on.sendMessage(plugin.getLang().get("messages.sendLobby"));
                     }
                 }
             }

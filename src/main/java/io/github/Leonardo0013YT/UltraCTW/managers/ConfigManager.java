@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.objects.ObjectPotion;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 import lombok.Getter;
@@ -9,25 +8,23 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, placeholdersAPI, redPanelInLocked;
+    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
     private Sound streak2, streak3, streak4, streak5, upgradeSound, cancelStartSound, wineffectschicken, wineffectsvulcanfire, wineffectvulcanwool, wineffectnotes, killEffectTNT, killEffectSquid;
     private XSound pickUpTeam, pickUpOthers, captured;
-    private int ironGenerating, updatePlayersPlaceholder, gracePeriod, limitOfYSpawn, itemLobbySlot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
+    private int ironGenerating, updatePlayersPlaceholder, limitOfYSpawn, itemLobbySlot, itemLobby2Slot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
     private double bountyMin, bountyMax, bountyPerKill;
-    private String itemLobbyCMD;
+    private String itemLobbyCMD, itemLobby2CMD;
     private List<String> winCommands, levelCommands, killCommands, deathCommands;
     private List<String> whitelistedCMD, noDrop, breakBypass;
-    private final List<ObjectPotion> effectsOnKill = new ArrayList<>();
 
     public ConfigManager(UltraCTW plugin) {
         this.plugin = plugin;
@@ -54,12 +51,14 @@ public class ConfigManager {
         this.breakMap = plugin.getConfig().getBoolean("breakMap.enabled");
         this.breakBypass = plugin.getConfig().getStringList("breakMap.bypass");
         this.kitLevelsOrder = plugin.getConfig().getBoolean("kitLevelsOrder");
-        this.gracePeriod = plugin.getConfig().getInt("flagDefaults.gracePeriod");
         this.excluideDefKits = plugin.getConfig().getBoolean("excluideDefKits");
         this.itemLobbyEnabled = plugin.getConfig().getBoolean("items.lobby.enabled");
         this.itemLobbySlot = plugin.getConfig().getInt("items.lobby.slot");
+        this.itemLobby2Enabled = plugin.getConfig().getBoolean("items.lobby2.enabled");
+        this.itemLobby2Slot = plugin.getConfig().getInt("items.lobby2.slot");
         this.whitelistedCMD = plugin.getConfig().getStringList("whitelistedCMD");
         this.itemLobbyCMD = plugin.getConfig().getString("items.lobby.cmd");
+        this.itemLobby2CMD = plugin.getConfig().getString("items.lobby2.cmd");
         this.maxMultiplier = plugin.getConfig().getInt("gameDefaults.maxMultiplier");
         this.streak2 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak2")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
         this.streak3 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak3")).orElse(XSound.UI_BUTTON_CLICK).parseSound();

@@ -29,13 +29,11 @@ public class WinEffectStorm implements WinEffect, Cloneable {
 
     @Override
     public void start(Player p, Game game) {
+        p.getWorld().setTime(p.getWorld().getTime() + 14000);
 		task = new BukkitRunnable() {
 			int count = 0;
 			@Override
 			public void run() {
-                p.getWorld().setStorm(true);
-                p.getWorld().setThundering(true);
-                p.getWorld().setTime(p.getWorld().getTime() + 700);
 				if(p.getWorld().equals(Bukkit.getWorlds().get(0))) {
 					cancel();
 					return;

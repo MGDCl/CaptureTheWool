@@ -1,25 +1,17 @@
 # Removed some things that are not used, in the config and in the plugin code.
 # If you need help you can consult the discord server: https://discord.com/invite/3RRWVTGveD
-# Do not activate autoJoinFinish if there are less than 2 maps!
 debugMode: false
 addons:
   placeholdersAPI: true
   NametagEdit: true
 mainLobby: null
 mobGriefing: false
-redPanelInLocked: true
 progressBarAmount: 10
 excluideDefKits: true
 kitLevelsOrder: true
 lobbyScoreboard: true
 statsCMD: true
 updatePlayersPlaceholder: 5
-whitelistedCMD:
-  - /leave
-  - /msg
-  - /stats
-  - /join
-  - /tell
 breakMap:
   enabled: true
   totalBreak: true
@@ -27,7 +19,10 @@ breakMap:
     - WEB
     - GOLD_BLOCK
     - IRON_BLOCK
-# AutoJoinFinish may cause an error if there are less than 2 maps
+redPanelInLocked: true
+redPanel:
+  material: STAINED_GLASS_PANE
+  data: 14
 gameDefaults:
   autoJoinFinish: false
   hunger: false
@@ -63,9 +58,13 @@ bounty:
   perKill: 0.10
 items:
   lobby:
-    enabled: false
+    enabled: true
     slot: 4
     cmd: /perfil
+  lobby2:
+    enabled: true
+    slot: 0
+    cmd: /ctw join
 materials:
   lobby: DIAMOND
   closeitem: BOOK
@@ -85,3 +84,9 @@ kill-commands:
   enabled: false
   cmds:
     - "say <player> is a killer!"
+whitelistedCMD:
+  - /leave
+  - /msg
+  - /stats
+  - /join
+  - /tell

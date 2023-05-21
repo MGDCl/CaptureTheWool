@@ -107,7 +107,20 @@ public class CTWCMD implements CommandExecutor {
                         return true;
                     }
                     Game game = plugin.getGm().getSelectedGame();
-                    plugin.getGem().createJoinMenu(p, game);
+                    if (game == null) return true;
+                    if (game.getPlayers().size() >= game.getMax()) {
+                        p.sendMessage(plugin.getLang().get("messages.maxPlayers"));
+                        return true;
+                    }
+                    plugin.getGm().addPlayerGame(p, game.getId());
+                    break;
+                case "menu":
+                    if (plugin.getGm().isPlayerInGame(p)) {
+                        p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
+                        return true;
+                    }
+                    Game g = plugin.getGm().getSelectedGame();
+                    plugin.getGem().createJoinMenu(p, g);
                     break;
                 case "kitsmenu":
                     plugin.getUim().getPages().put(p, 1);
