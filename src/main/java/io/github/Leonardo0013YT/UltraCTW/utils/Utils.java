@@ -19,12 +19,13 @@ import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Utils {
 
     private static DecimalFormat df = new DecimalFormat("##.#");
-
+    private final static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     private final static Random random = new Random();
     private static UltraCTW plugin = UltraCTW.get();
     private static ItemStack[] gifs = {NBTEditor.getHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlZjlhYTE0ZTg4NDc3M2VhYzEzNGE0ZWU4OTcyMDYzZjQ2NmRlNjc4MzYzY2Y3YjFhMjFhODViNyJ9fX0="),
@@ -424,4 +425,7 @@ public class Utils {
         fa.setFireworkMeta(fam);
     }
 
+    public static String getDate() {
+        return sdf.format(new Date());
+    }
 }

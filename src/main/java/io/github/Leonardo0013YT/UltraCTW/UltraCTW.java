@@ -131,7 +131,7 @@ public class UltraCTW extends JavaPlugin {
         ijm.loadInjections();
         stm = new StreakManager(this);
         top = new TopManager(this);
-        mm = new MultiplierManager(this);
+        mm = new MultiplierManager();
         new ProtocolLib(this);
         getCommand("ctws").setExecutor(new SetupCMD(this));
         getCommand("ctw").setExecutor(new CTWCMD(this));

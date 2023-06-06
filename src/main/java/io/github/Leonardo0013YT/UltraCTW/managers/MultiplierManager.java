@@ -11,12 +11,7 @@ import java.util.Map;
 
 public class MultiplierManager {
 
-    UltraCTW plugin;
     private Map<String, ArrayList<Multiplier>> multipliers = new HashMap<>();
-
-    public MultiplierManager(UltraCTW plugin) {
-        this.plugin = plugin;
-    }
 
     public void addMultiplier(int id, String type, String name, double amount, long remaining) {
         if (!multipliers.containsKey(type)) {
@@ -29,6 +24,7 @@ public class MultiplierManager {
         if (multipliers.containsKey(type)) {
             Multiplier m = multipliers.get(type).get(0);
             if (m.getRemaining() < System.currentTimeMillis()) {
+                UltraCTW plugin = UltraCTW.get();
                 boolean removed = plugin.getDb().removeMultiplier(m.getId());
                 if (removed) {
                     Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(plugin.getLang().get(p, "messages.multiplierFinish").replace("<name>", m.getName()).replace("<type>", m.getType())));
@@ -41,6 +37,7 @@ public class MultiplierManager {
     }
 
     public double getPlayerMultiplier(Player p, String type) {
+        UltraCTW plugin = UltraCTW.get();
         if (p.isOp() || p.hasPermission("ultractw.multiplier." + type.toLowerCase() + ".*")) {
             return plugin.getCm().getMaxMultiplier();
         }
@@ -57,6 +54,7 @@ public class MultiplierManager {
     }
 
     public double getPlayerMultiplier(Player p, String type, double amount) {
+        UltraCTW plugin = UltraCTW.get();
         if (p.isOp() || p.hasPermission("ultractw.multiplier." + type.toLowerCase() + ".*")) {
             return (plugin.getCm().getMaxMultiplier() * amount) - amount;
         }

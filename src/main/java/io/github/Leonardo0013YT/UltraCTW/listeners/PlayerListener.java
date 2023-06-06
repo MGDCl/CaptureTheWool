@@ -11,8 +11,10 @@ import io.github.Leonardo0013YT.UltraCTW.game.GamePlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.NPC;
+import io.github.Leonardo0013YT.UltraCTW.managers.ConfigManager;
 import io.github.Leonardo0013YT.UltraCTW.objects.Squared;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
+import io.github.Leonardo0013YT.UltraCTW.utils.CenterMessage;
 import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
 import io.github.Leonardo0013YT.UltraCTW.utils.Tagged;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
@@ -51,14 +53,15 @@ public class PlayerListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         plugin.getDb().loadPlayer(p);
         Bukkit.getOnlinePlayers().stream()
                 .filter(pl -> check(p, pl))
                 .forEach(pl -> pl.hidePlayer(p));
-        //TODO Enviar mensaje de bienvenido, toggleable por la config
+        givePlayerItems(p);
+        sendJoinMessage(p);
     }
 
     @EventHandler
@@ -66,7 +69,6 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         plugin.getLvl().checkUpgrade(p);
         Utils.updateSB(p);
-        givePlayerItems(p);
     }
 
     @EventHandler
@@ -1028,6 +1030,13 @@ public class PlayerListener implements Listener {
         }
         if (plugin.getCm().isItemLobby2Enabled()) {
             p.getInventory().setItem(plugin.getCm().getItemLobby2Slot(), plugin.getIm().getLobby2());
+        }
+    }
+
+    private void sendJoinMessage(Player p){
+        if (!plugin.getCm().isJoinMessage()) return;
+        for (String s : plugin.getLang().get(p, "messages.joinMessage").split("\\n")){
+            p.sendMessage(CenterMessage.getCenteredMessage(s.replaceAll("<center>", "").replaceAll("<player>", p.getDisplayName())));
         }
     }
 }

@@ -20,11 +20,13 @@ C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectFlowerPower.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\game\GameNoState.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\managers\TopManager.java
+C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\cosmetics\trails\HelixTrail.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\setup\KillSoundSetup.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\tops\TopPlayer.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\listeners\MenuListener.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\listeners\SetupListener.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\objects\ObjectPotion.java
+C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\enums\TrailType.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\interfaces\WinEffect.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\setup\TeamSetup.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectHeartExplosion.java
@@ -36,6 +38,7 @@ C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectFireworks.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\interfaces\WinDance.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\database\PlayerCTW.java
+C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\fanciful\FancyMessage.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\api\events\CTWNPCInteractEvent.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\managers\ConfigManager.java
 C:\Users\pc\OneDrive\Escritorio\CaptureTheWool\src\main\java\io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectDiamondExplode.java

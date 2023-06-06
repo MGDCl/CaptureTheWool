@@ -24,7 +24,7 @@ redPanel:
   material: STAINED_GLASS_PANE
   data: 14
 gameDefaults:
-  autoJoinFinish: false
+  autoJoinFinish: true
   hunger: false
   instaKillOnVoid: true
   maxMultiplier: 5
@@ -57,7 +57,7 @@ bounty:
   max: 110
   perKill: 0.10
 chat:
-  broadcastLevelUp: true
+  joinMessage: true
   broadcastGame: true
 items:
   lobby:

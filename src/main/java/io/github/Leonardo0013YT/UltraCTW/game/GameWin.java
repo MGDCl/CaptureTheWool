@@ -25,7 +25,7 @@ public class GameWin {
         sorted_map.putAll(map);
     }
 
-    /*public String getWinner() {//TODO verificar esto
+    public String getWinner() {
         if (!winner.equals("")) {
             return winner;
         }
@@ -33,8 +33,8 @@ public class GameWin {
             return winner = "No present";
         }
         return winner = teamWin.getName();
-    }*/
-    public String getWinner() {
+    }
+    public String Members() {
         if (!winner.equals("")) {
             return winner;
         }

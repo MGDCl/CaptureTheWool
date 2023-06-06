@@ -66,8 +66,9 @@ public class ScoreboardManager {
         CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
         if (ctw == null) return s;
         Level level = plugin.getLvl().getLevel(p);
-        return s.replace("<leveUp>", String.valueOf(level.getLevelUp()))
+        return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
                 .replace("<gcoins>", Utils.format(ctw.getCoins()))
+                .replace("<date>", Utils.getDate())
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<wins>", String.valueOf(ctw.getWins()))
                 .replace("<deaths>", String.valueOf(ctw.getDeaths()))
@@ -79,7 +80,8 @@ public class ScoreboardManager {
         CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
         if (ctw == null) return s;
         Level level = plugin.getLvl().getLevel(p);
-        return s.replace("<leveUp>", String.valueOf(level.getLevelUp()))
+        return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
+                .replace("<date>", Utils.getDate())
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<max>", String.valueOf(game.getMax()))
                 .replace("<players>", String.valueOf(game.getPlayers().size()))
@@ -90,7 +92,8 @@ public class ScoreboardManager {
         CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
         if (ctw == null) return s;
         Level level = plugin.getLvl().getLevel(p);
-        return s.replace("<leveUp>", String.valueOf(level.getLevelUp()))
+        return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
+                .replace("<date>", Utils.getDate())
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<time>", Utils.convertTime(game.getStarting()))
                 .replace("<max>", String.valueOf(game.getMax()))
@@ -102,7 +105,8 @@ public class ScoreboardManager {
         CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
         if (ctw == null) return s;
         Level level = plugin.getLvl().getLevel(p);
-        return s.replace("<leveUp>", String.valueOf(level.getLevelUp()))
+        return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
+                .replace("<date>", Utils.getDate())
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<gcoins>", Utils.format(ctw.getCoins()))
                 .replace("<coins>", Utils.format(gp.getCoins()))

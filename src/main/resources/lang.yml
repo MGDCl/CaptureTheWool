@@ -23,8 +23,8 @@ scoreboards:
   main:
     title: "&e&lCAPTURE THE WOOL"
     lines: |-
-      &7
-      &fExp: &a<now>&7/&c<leveUp>
+      &7<date>
+      &fExp: &a<now>&7/&c<levelUp>
       &7
       &fCaptured: &a<captured>
       &7
@@ -36,7 +36,7 @@ scoreboards:
   waiting:
     title: "&e&lCAPTURE THE WOOL"
     lines: |-
-      &7
+      &7<date>
       &fMap: &a<map>
       &7
       &fPlayers: &a<players>/<max>
@@ -45,7 +45,7 @@ scoreboards:
   starting:
     title: "&e&lCAPTURE THE WOOL"
     lines: |-
-      &7
+      &7<date>
       &fMap: &a<map>
       &7
       &fPlayers: &a<players>/<max>
@@ -56,6 +56,7 @@ scoreboards:
   simple-game:
     title: "&e&lCAPTURE THE WOOL"
     lines: |-
+      &7<date>
       &fGame time: &a<time> ⌛
       &fGold: &6<coins> &6⛂⛃
       &7
@@ -164,12 +165,19 @@ messages:
   ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
   sendLobby: '&eThe game is over, you were sent to the lobby!'
-  newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
   noSave: "&cYou can't keep the wool!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
+  newPlayer: |-
+    §a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
+  joinMessage: |-
+    <center>&a&m&l---------------------------------------------
+    <center>&7
+    <center>&f&l<player> welcome to Capture the wool!
+    <center>&7
+    <center>&a&m&l---------------------------------------------
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
@@ -181,18 +189,18 @@ messages:
     - "<center>&e&lfor killing someone with a streak, have fun."
     - "<center>&7"
     - "<center>&a&m&l---------------------------------------------"
-  win:
-    - "<center>&a&m&l---------------------------------------------"
-    - "<center>&7"
-    - "<center>&f&lCAPTURE THE WOOL"
-    - "<center>&7Wools: <captured>"
-    - "<center>&aWinner &7- <winner>"
-    - "<center>&7"
-    - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
-    - "<center>&6&l2nd Killer &7- <color2><top2> &7- <number2>"
-    - "<center>&c&l3rt Killer &7- <color3><top3> &7- <number3>"
-    - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
+  win: |-
+    <center>&a&m&l---------------------------------------------
+    <center>&7
+    <center>&f&lCAPTURE THE WOOL
+    &7Wools:            <captured>
+    <center>&aWinner &7- <winner>
+    <center>&7
+    <center>&a&l1st Killer &7- <color1><top1> &7- <number1>
+    <center>&6&l2nd Killer &7- <color2><top2> &7- <number2>
+    <center>&c&l3rt Killer &7- <color3><top3> &7- <number3>
+    <center>&7"
+    <center>&a&m&l---------------------------------------------
   newLevel:
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "<center>&e&lCONGRATULATIONS!"
@@ -200,16 +208,27 @@ messages:
     - "<center>&7You have reached <level>"
     - "<center>&7"
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
-  rewards:
-    - "<center>&a&m&l---------------------------------------------"
-    - "<center>&7"
-    - "<center>&a&lRewards Summary"
-    - "<center>&7"
-    - '&7You have obtained:'
-    - '§7• §6Coins: <coins>'
-    - '§7• §bXp: <xp>'
-    - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
+  summonary: |-
+    <center>&a&m&l---------------------------------------------
+    <center>&7
+    <center>&f&lRewards
+    <center>&7
+    &7Total XP: &3<xp>
+    <xpGame>
+    <multiplierXP>
+    <multiplierXPYou>
+    &7Total Coins: &6<coins>
+    <coinsGame>
+    <multiplierCoins>
+    <multiplierCoinsYou>
+    <center>&7
+    <center>&a&m&l---------------------------------------------
+  xpGame: '&f    &3+<amount> &fwon in game.'
+  coinsGame: '&f    &6+<amount> &fwon in game.'
+  xp: '&f    &3+<amount> &fmultiplier &a<player> &cx<value>'
+  coins: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
+  xpYou: '&f    &3+<amount> &fby your multiplier &cx<value>'
+  coinsYou: '&f    &6+<amount> &fby your multiplier &cx<value>'
   help:
     - "&co&m----------------------------------------------o"
     - "&e"

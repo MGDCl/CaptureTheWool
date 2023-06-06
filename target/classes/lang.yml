@@ -164,12 +164,18 @@ messages:
   ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
   sendLobby: '&eThe game is over, you were sent to the lobby!'
-  newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
   noSave: "&cYou can't keep the wool!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
+  newPlayer: |-
+    §a%vault_prefix% %player_name% &ese ha unido &7(&b<size>&7/&b<max>&7)
+  joinMessage: |-
+    <center>&a&m&l---------------------------------------------
+    <center>&7
+    <center>&f&l%vault_prefix% %player_name% welcome to CTW!
+    <center>&7
   start:
     - "<center>&a&m&l---------------------------------------------"
     - "<center>&7"
@@ -181,18 +187,18 @@ messages:
     - "<center>&e&lfor killing someone with a streak, have fun."
     - "<center>&7"
     - "<center>&a&m&l---------------------------------------------"
-  win:
-    - "<center>&a&m&l---------------------------------------------"
-    - "<center>&7"
-    - "<center>&f&lCAPTURE THE WOOL"
-    - "<center>&7Wools: <captured>"
-    - "<center>&aWinner &7- <winner>"
-    - "<center>&7"
-    - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
-    - "<center>&6&l2nd Killer &7- <color2><top2> &7- <number2>"
-    - "<center>&c&l3rt Killer &7- <color3><top3> &7- <number3>"
-    - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
+  win: |-
+    <center>&a&m&l---------------------------------------------
+    <center>&7
+    <center>&f&lCAPTURE THE WOOL
+    <center>&7Wools: <captured>
+    <center>&aWinner &7- <winner>
+    <center>&7
+    <center>&a&l1st Killer &7- <color1>%vault_prefix%<top1> &7- <number1>
+    <center>&6&l2nd Killer &7- <color2>%vault_prefix%<top2> &7- <number2>
+    <center>&c&l3rt Killer &7- <color3>%vault_prefix%<top3> &7- <number3>
+    <center>&7"
+    <center>&a&m&l---------------------------------------------
   newLevel:
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "<center>&e&lCONGRATULATIONS!"
@@ -210,6 +216,34 @@ messages:
     - '§7• §bXp: <xp>'
     - "<center>&7"
     - "<center>&a&m&l---------------------------------------------"
+  summonary: |-
+    <center>&a&m&l---------------------------------------------
+    <center>&7
+    <center>&f&lRewards %vault_prefix%%player_name%
+    <center>&7
+    &7Total XP: &3<xp>
+    <xpGame>
+    <multiplierXP>
+    <multiplierXPYou>
+    &7Total Almas: &b<souls>
+    <soulsGame>
+    <multiplierSouls>
+    <multiplierSoulsYou>
+    &7Total Coins: &6<coins>
+    <coinsGame>
+    <multiplierCoins>
+    <multiplierCoinsYou>
+    <center>&7
+    <center>&a&m&l---------------------------------------------
+  xpGame: '&f    &3+<amount> &fwon in game.'
+  coinsGame: '&f    &6+<amount> &fwon in game.'
+  soulsGame: '&f    &b+<amount> &fwon in game.'
+  xp: '&f    &3+<amount> &fmultiplier &a<player> &cx<value>'
+  coins: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
+  souls: '&f    &b+<amount> &fmultiplier &a<player> &cx<value>'
+  xpYou: '&f    &3+<amount> &fby your multiplier &cx<value>'
+  coinsYou: '&f    &6+<amount> &fby your multiplier &cx<value>'
+  soulsYou: '&f    &b+<amount> &fby your multiplier &cx<value>'
   help:
     - "&co&m----------------------------------------------o"
     - "&e"
