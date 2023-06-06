@@ -80,6 +80,10 @@ chat:
   lobby: "&e[CTW] &f<player> &7» &f<msg>"
   team: "<team> <player> &7» &f<msg>"
   global: "&6[GLOBAL] <team> <player> &7» &f<msg>"
+fancy:
+  message: '&aThe game &e<game> &ais starting!'
+  click: '&6&l Click here to join!'
+  hover: '&fClick to join!'
 coins:
   add:
     you: "&aYou've added &e<coins> &acoins to player &e<player>&a."

@@ -7,6 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -45,42 +46,11 @@ public class WinDancePigLand implements WinDance, Cloneable {
                     stop();
                     return;
                 }
-                Location loc1 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc2 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc3 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc4 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc5 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc6 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc7 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc8 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc9 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc10 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc11 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc12 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Pig p1 = world.spawn(loc1, Pig.class);
-                Pig p2 = world.spawn(loc2, Pig.class);
-                Pig p3 = world.spawn(loc3, Pig.class);
-                Pig p4 = world.spawn(loc4, Pig.class);
-                Pig p5 = world.spawn(loc5, Pig.class);
-                Pig p6 = world.spawn(loc6, Pig.class);
-                Pig p7 = world.spawn(loc7, Pig.class);
-                Pig p8 = world.spawn(loc8, Pig.class);
-                Pig p9 = world.spawn(loc9, Pig.class);
-                Pig p10 = world.spawn(loc10, Pig.class);
-                Pig p11 = world.spawn(loc11, Pig.class);
-                Pig p12 = world.spawn(loc12, Pig.class);
-                p1.setNoDamageTicks(Integer.MAX_VALUE);
-                p2.setNoDamageTicks(Integer.MAX_VALUE);
-                p3.setNoDamageTicks(Integer.MAX_VALUE);
-                p4.setNoDamageTicks(Integer.MAX_VALUE);
-                p5.setNoDamageTicks(Integer.MAX_VALUE);
-                p6.setNoDamageTicks(Integer.MAX_VALUE);
-                p7.setNoDamageTicks(Integer.MAX_VALUE);
-                p8.setNoDamageTicks(Integer.MAX_VALUE);
-                p9.setNoDamageTicks(Integer.MAX_VALUE);
-                p10.setNoDamageTicks(Integer.MAX_VALUE);
-                p11.setNoDamageTicks(Integer.MAX_VALUE);
-                p12.setNoDamageTicks(Integer.MAX_VALUE);
+                for (int i = 0; i < 12; i++) {
+                    Pig p1 = world.spawn(new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter)), Pig.class);
+                    p1.setMetadata("NO_TARGET", new FixedMetadataValue(UltraCTW.get(), ""));
+                    p1.setNoDamageTicks(Integer.MAX_VALUE);
+                }
             }
         }.runTaskTimer(UltraCTW.get(), taskTick, taskTick);
     }

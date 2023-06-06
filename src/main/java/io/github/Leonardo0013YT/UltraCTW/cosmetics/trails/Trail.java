@@ -1,6 +1,7 @@
 package io.github.Leonardo0013YT.UltraCTW.cosmetics.trails;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
+import io.github.Leonardo0013YT.UltraCTW.enums.TrailType;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Purchasable;
 import io.github.Leonardo0013YT.UltraCTW.utils.ItemBuilder;
@@ -14,6 +15,7 @@ import java.util.List;
 public class Trail implements Purchasable {
 
     private ItemStack icon;
+    private TrailType type;
     private String name, permission, particle, autoGivePermission;
     private float offsetX, offsetY, offsetZ;
     private int id, amount, slot, page, price;
@@ -22,6 +24,7 @@ public class Trail implements Purchasable {
 
     public Trail(UltraCTW plugin, String path) {
         this.id = plugin.getTrail().getInt(path + ".id");
+        this.type = TrailType.valueOf(plugin.getTrail().getOrDefault(path + ".type", "NORMAL"));
         this.name = plugin.getTrail().get(null, path + ".name");
         this.particle = plugin.getTrail().get(null, path + ".particle");
         this.slot = plugin.getTrail().getInt(path + ".slot");
@@ -175,5 +178,9 @@ public class Trail implements Purchasable {
     @Override
     public boolean needPermToBuy() {
         return needPermToBuy;
+    }
+
+    public TrailType getType() {
+        return type;
     }
 }

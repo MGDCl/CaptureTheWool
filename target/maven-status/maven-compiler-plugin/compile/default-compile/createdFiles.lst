@@ -3,6 +3,7 @@ io\github\Leonardo0013YT\UltraCTW\utils\NBTEditor.class
 io\github\Leonardo0013YT\UltraCTW\managers\MultiplierManager.class
 io\github\Leonardo0013YT\UltraCTW\managers\TauntsManager.class
 io\github\Leonardo0013YT\UltraCTW\menus\UltraInventoryMenu.class
+io\github\Leonardo0013YT\UltraCTW\enums\TrailType.class
 io\github\Leonardo0013YT\UltraCTW\utils\Utils.class
 io\github\Leonardo0013YT\UltraCTW\managers\ScoreboardManager.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceAnvilLand.class
@@ -10,8 +11,8 @@ io\github\Leonardo0013YT\UltraCTW\tops\Top.class
 io\github\Leonardo0013YT\UltraCTW\cmds\LeaveCommand.class
 io\github\Leonardo0013YT\UltraCTW\utils\CenterMessage$DefaultFontInfo.class
 io\github\Leonardo0013YT\UltraCTW\cmds\SetupCMD.class
-io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectNotes.class
 io\github\Leonardo0013YT\UltraCTW\managers\WinDancesManager.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectDareDevil.class
 io\github\Leonardo0013YT\UltraCTW\database\MySQLDatabase$2.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectCookieFountain$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectFireworks$1.class
@@ -38,8 +39,8 @@ io\github\Leonardo0013YT\UltraCTW\inventories\LobbyShopMenu.class
 io\github\Leonardo0013YT\UltraCTW\objects\ObjectPotion.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceIceWalker.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceThunder$1.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectWitherRider.class
 io\github\Leonardo0013YT\UltraCTW\managers\TopManager.class
-io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectVulcanFire$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectDiamondExplode.class
 io\github\Leonardo0013YT\UltraCTW\utils\ItemBuilder.class
 io\github\Leonardo0013YT\UltraCTW\listeners\SetupListener$2.class
@@ -58,6 +59,7 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectHead.class
 io\github\Leonardo0013YT\UltraCTW\utils\Tagged.class
 io\github\Leonardo0013YT\UltraCTW\controllers\WorldController.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectCookieFountain.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\trails\HelixTrail.class
 io\github\Leonardo0013YT\UltraCTW\setup\TauntSetup.class
 io\github\Leonardo0013YT\UltraCTW\xseries\XSound.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDancePigLand.class
@@ -80,7 +82,6 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectSnowExplosion.
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectStorm$1.class
 io\github\Leonardo0013YT\UltraCTW\xseries\XMaterial.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectFireworks.class
-io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectVulcanFire.class
 io\github\Leonardo0013YT\UltraCTW\listeners\SetupListener$5.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectStorm.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectFirework.class
@@ -167,7 +168,6 @@ io\github\Leonardo0013YT\UltraCTW\managers\NPCManager.class
 io\github\Leonardo0013YT\UltraCTW\setup\TauntTypeSetup.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\IDatabase.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\NPC.class
-io\github\Leonardo0013YT\UltraCTW\migrators\CTWMigrator.class
 io\github\Leonardo0013YT\UltraCTW\UltraCTW.class
 io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$1.class
 io\github\Leonardo0013YT\UltraCTW\nms\NMS_v1_8_r3.class
@@ -178,10 +178,10 @@ io\github\Leonardo0013YT\UltraCTW\inventories\setup\SetupKillSoundMenu.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\KillEffect.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\taunts\TauntType.class
 io\github\Leonardo0013YT\UltraCTW\controllers\WorldController$1.class
-io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectNotes$1.class
 io\github\Leonardo0013YT\UltraCTW\inventories\setup\SetupArenaMenu.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDancePigLand$1.class
 io\github\Leonardo0013YT\UltraCTW\listeners\SetupListener.class
+io\github\Leonardo0013YT\UltraCTW\interfaces\NametagAddon.class
 io\github\Leonardo0013YT\UltraCTW\managers\AddonManager.class
 io\github\Leonardo0013YT\UltraCTW\objects\ProtocolLib$1.class
 io\github\Leonardo0013YT\UltraCTW\objects\Multiplier.class
@@ -191,6 +191,7 @@ io\github\Leonardo0013YT\UltraCTW\managers\LevelManager.class
 io\github\Leonardo0013YT\UltraCTW\calls\CallBackAPI.class
 io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$2.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectGuardians$1.class
+io\github\Leonardo0013YT\UltraCTW\addons\NametagEditAddon.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectSquid$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectVulcanWool$1.class
 io\github\Leonardo0013YT\UltraCTW\managers\WinEffectsManager.class
@@ -205,5 +206,6 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectGiftExplosion.
 io\github\Leonardo0013YT\UltraCTW\scoreboard\bukkit\BPlayerBoard.class
 io\github\Leonardo0013YT\UltraCTW\utils\MetricsLite$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectDragonRider.class
+io\github\Leonardo0013YT\UltraCTW\fanciful\FancyMessage.class
 io\github\Leonardo0013YT\UltraCTW\managers\ItemManager.class
 io\github\Leonardo0013YT\UltraCTW\managers\TaggedManager.class

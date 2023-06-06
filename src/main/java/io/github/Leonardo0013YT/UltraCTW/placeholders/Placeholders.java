@@ -24,7 +24,7 @@ public class Placeholders extends PlaceholderExpansion {
     }
 
     public String getVersion() {
-        return "2.3.6";
+        return "2.4.0";
     }
 
     @Override
@@ -37,6 +37,9 @@ public class Placeholders extends PlaceholderExpansion {
         CTWPlayer sw = plugin.getDb().getCTWPlayer(p);
         if (id.equals("players_wool")) {
             return "" + plugin.getGm().getGameSize("wool");
+        }
+        if (id.equals("version")){
+            return "" + getVersion();
         }
         if (id.equals("game_name")){
             return "" + plugin.getGm().getSelectedGame().getName();
@@ -163,6 +166,10 @@ public class Placeholders extends PlaceholderExpansion {
         }
         if (id.equals("xp")) {
             return "" + sw.getXp();
+        }
+        if (id.equals("exp_remaining")){
+            Level l = plugin.getLvl().getLevel(p);
+            return String.valueOf(l.getLevelUp() - sw.getXp());
         }
         if (id.equals("kills")) {
             return "" + sw.getKills();

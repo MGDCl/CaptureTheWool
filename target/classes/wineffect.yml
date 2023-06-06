@@ -46,76 +46,77 @@ wineffects:
     slot: 11
     page: 1
     permission: ultractw.wineffects.vulcanwool
-  vulcanfire:
+  ghosts:
     id: 2
     icon:
       ==: org.bukkit.inventory.ItemStack
-      type: FIREWORK_CHARGE
+      type: GHAST_TEAR
       meta:
         ==: ItemMeta
         meta-type: UNSPECIFIC
-        display-name: §aFire Volcano
+        display-name: §aGhosts
         lore:
           - '§eDescription:'
-          - §7Fire volcano, give it color
-          - §7to your hot life :>
+          - §7A ghostly invasion will 
+          - §7surround the world
           - §7
           - <price>
           - §7
           - <status>
-    type: vulcanfire
-    name: "Vulcan Fire"
+    type: ghosts
+    name: "Ghosts"
     price: 2500
     isBuy: true
     slot: 12
     page: 1
-    permission: ultractw.wineffects.vulcanfire
-  icewalker:
+    permission: ultractw.wineffects.ghosts
+  storm:
     id: 3
     icon:
       ==: org.bukkit.inventory.ItemStack
-      type: ICE
+      type: IRON_AXE
       meta:
         ==: ItemMeta
         meta-type: UNSPECIFIC
-        display-name: §aIce Walker
+        display-name: §aStorm
         lore:
           - '§eDescription:'
-          - §7Ice appears as he walks.
+          - §7You will unleash the wrath
+          - §7of Tor on your enemies
           - §7
           - <price>
           - §7
           - <status>
-    type: icewalker
-    name: "Ice Walker"
+    type: storm
+    name: "Storm"
     price: 2500
     isBuy: true
     slot: 13
     page: 1
-    permission: ultractw.wineffects.icewalker
-  notes:
+    permission: ultractw.wineffects.storm
+  crazyblocks:
     id: 4
     icon:
       ==: org.bukkit.inventory.ItemStack
-      type: GREEN_RECORD
+      type: CLAY
       meta:
         ==: ItemMeta
         meta-type: UNSPECIFIC
-        display-name: §aNotes
+        display-name: §5Crazy §1B§2l§4c§4k§8s
         lore:
           - '§eDescription:'
-          - §7Notes appaer about you.
+          - §7The blocks came to life
           - §7
           - <price>
           - §7
           - <status>
-    type: notes
-    name: "Notes"
+    type: crazyblocks
+    name: "Crazy Blocks"
     price: 2500
     isBuy: true
     slot: 14
     page: 1
-    permission: ultractw.wineffects.notes
+    permission: ultractw.wineffects.crazyblocks
   chickens:
     id: 5
     icon:
@@ -185,3 +186,49 @@ wineffects:
     slot: 19
     page: 1
     permission: ultractw.wineffects.dragon
+  wither:
+    id: 8
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: SKULL_ITEM
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aWither Rider
+        lore:
+          - '§eDescription:'
+          - §7Wither spawn and you ride.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: wither
+    name: "wither"
+    price: 2500
+    isBuy: true
+    slot: 20
+    page: 1
+    permission: ultractw.wineffects.wither
+  daredevil:
+    id: 9
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: SKULL_ITEM
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §adaredevil
+        lore:
+          - '§eDescription:'
+          - §7Horse spawn and you ride.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: daredevil
+    name: "daredevil"
+    price: 2500
+    isBuy: true
+    slot: 21
+    page: 1
+    permission: ultractw.wineffects.daredevil

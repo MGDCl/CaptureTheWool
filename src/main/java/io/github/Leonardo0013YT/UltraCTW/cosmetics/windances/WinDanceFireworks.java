@@ -3,6 +3,7 @@ package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
+import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
@@ -54,14 +55,14 @@ public class WinDanceFireworks implements WinDance, Cloneable {
                     stop();
                     return;
                 }
-                firework(loc1);
-                firework(loc2);
-                firework(loc3);
-                firework(loc4);
-                firework(loc5);
-                firework(loc6);
-                firework(loc7);
-                firework(loc8);
+                Utils.firework(loc1);
+                Utils.firework(loc2);
+                Utils.firework(loc3);
+                Utils.firework(loc4);
+                Utils.firework(loc5);
+                Utils.firework(loc6);
+                Utils.firework(loc7);
+                Utils.firework(loc8);
             }
         }.runTaskTimer(UltraCTW.get(), 0, taskTick);
     }

@@ -1,7 +1,7 @@
 taunts:
-  prueba:
+  default:
     id: 0
-    name: prueba
+    name: default
     icon:
       ==: org.bukkit.inventory.ItemStack
       type: ARROW

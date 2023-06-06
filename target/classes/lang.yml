@@ -13,372 +13,13 @@ stats: |-
   &ePlaced: &b%ctw_placed%
   &eBroken: &b%ctw_break%
   &7
-progressBar:
-  symbol: "|"
-  in: "&3"
-  out: "&7"
-  finish: "&8[<progress>&8] &e<percent>%"
-  max: "&cMax"
-chat:
-  mainLobby: "&f<player> &7» &f<msg>"
-  lobby: "&e[CTW] &f<player> &7» &f<msg>"
-  team: "<team> <player> &7» &f<msg>"
-  global: "&6[GLOBAL] <team> <player> &7» &f<msg>"
-coins:
-  add:
-    you: "&aYou've added &e<coins> &acoins to player &e<player>&a."
-    receiver: |-
-      &8&l+ &e<coins> &6Coins
-      &aDelivered by &b<sender>&a.
-  remove:
-    you: "&aYou've removed &e<coins> &acoins to player &e<player>&a."
-    receiver: |-
-      &8&l- &e<coins> &6Coins
-      &aRemoved by &b<sender>&a.
-  set:
-    you: "&aYou've set &e<coins> &acoins to player &e<player>&a."
-    receiver: |-
-      &8&l= &e<coins> &6Coins
-      &aEstablished by &b<sender>&a.
-streaks:
-  double: "&a&lDOUBLE "
-  three: "&e&lTRIPLE "
-  quarter: "&b&lQUADRUPLE "
-  penta: "&6&lPENTA "
-messages:
-  kickCTW: "&cYou can't log in when the game is started."
-  noIngame: '&cYou can''t execute that command in a game.'
-  noPlaceHopper: "&cYou can't put hoppers in this place."
-  noYourWool: "&cThis is not a wool of your team, contact admins about this is not configured."
-  maxPlayers: "&aThe maximum number of people has been reached."
-  winCoins: "&8+&b<coins> &6Coins"
-  onlyBreakPlaced: "&cYou can only break blocks put in the game."
-  alreadyStart: "&cThe game has already started."
-  needItemHand: "&cYou must have the item in your hand."
-  limit: "&cYou can't build higher than the limit."
-  incorrectWool: "&cThis is not the right place for wool <wool>!"
-  balancedTeam: "&aThe teams were unbalanced, now you're part of the <team> Team&a."
-  multiplier: "&aThe &b<type> &amultiplier has been activated by &6<name> &aof &x<amount> &afor &e<time>&a."
-  multiplierFinish: "&aThe &b<type> &amultiplier of &6<name> &ahas been end."
-  kill: "<streak>KILL! &8+&6<coins> Coins &7and &8+&b<xp> XP"
-  streak: "&c&lSTREAK! &7of &c<kills> &7kills by <nameStreak>"
-  bounty: "&6&lBOUNTY! &7of &6&l<coins> &7for <name> for high streak."
-  bountyClaimed: "&6&lBOUNTY CLAIMED! &e<killer> &7killed &e<death> &7for &6&l<coins>"
-  teamMajorPlayers: "&cThere are many players on this team try to get into another."
-  noSelect: "&cYou don't have a selected."
-  noSelected: "&cNot selected"
-  noSelector: "&cYou don't have permission for that, use automatic mode."
-  noBuy: "&cThis cannot be purchased by users."
-  noCoins: "&cYou don't have enough coins."
-  bought: "&aYou bought &6<name>&a correctly."
-  cancelStart: "&cThe game start has been canceled."
-  gameNotExists: "&cThis game not exists."
-  randomTeam: "&aYou've joined a random team, you've had the team <team>"
-  joinTeam: "&aYou've joined the team: <team>"
-  starting: "&eThe game will start in &c<starting>&e second<s>."
-  needStart: "&cThe game is required to have started to choose team."
-  noEntry: "&cYou can't join in here."
-  noBreak: "&cYou can't break here."
-  noPlace: "&cYou can't place here."
-  lost: "<tcolor><player> dropped the <color>wool <wool>&e!"
-  incorrectPlace: "You can't put the wool here!"
-  alreadyIngame: "&cYou're already in a game."
-  leaveGame: "&cYou're out of the game."
-  selectShopKeeper: "&aYou've selected the trail: &e<shopkeeper>"
-  selectTrail: "&aYou've selected the trail: &e<trail>"
-  selectTaunt: "&aYou've selected the taunt: &e<taunt>"
-  selectKillSound: "&aYou've selected the killsound: &e<killsound>"
-  selectKillEffect: "&aYou've selected the killeffect: &e<killeffect>"
-  selectWinEffect: "&aYou've selected the wineffect: &e<wineffect>"
-  selectWinDance: "&aYou've selected the windance: &e<windance>"
-  deselectShopKeeper: "&aYou've deselected your current shopkeeper."
-  deselectTrail: "&aYou've deselected your current trail."
-  deselectTaunt: "&aYou've deselected your current taunt."
-  deselectWinEffect: "&aYou've deselected your current wineffect."
-  deselectKillEffect: "&aYou've deselected your current killeffect."
-  deselectWinDance: "&aYou've deselected your current windances."
-  noOther: "&cYou can't enter another game if one is already selected."
-  otherpick: " &c&l! ! <tcolor><player> &epicked up your <color>&lwool <wool> &c&l! !"
-  teampick: " &a➤ <tcolor><player> &ecollected the <color>wool <wool>&e!"
-  notInGame: '&cYou are not in a game!'
-  alreadyTeam: '&cYou have already chosen a team!'
-  joinGame: '&7Connecting to &a<game>'
-  ending: '&eA new game starts in &c<count>&e segundo<s>.'
-  newGame: 'You were sent to the game &a<map>&e!'
-  newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
-  play: "&fUse &e&l/join &fto join a team"
-  levelup: 'The player &a&l<player> &7leveled up to level <level>'
-  arrowdamage: '<color><victim> &7has &c<health> &7HP!'
-  noSave: "&cYou can't keep the wool!"
-  placeTeam:
-    - "<center>&7"
-    - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
-    - "<center>&7"
-  capturedWool:
-    - "<center>&7"
-    - "<center><tcolor><player> caught the <color>wool <wool>&c&l!"
-    - "<center>&7"
-  start:
-    - "<center>&a&m&l---------------------------------------------"
-    - "<center>&7"
-    - "<center>&f&lCAPTURE THE WOOL"
-    - "<center>&7"
-    - "<center>&e&lCapture the wools on the enemy team,"
-    - "<center>&e&lfight so they don't capture your wools,"
-    - "<center>&e&lget a streak of eliminations, bounty"
-    - "<center>&e&lfor killing someone with a streak, have fun."
-    - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
-  win:
-    - "<center>&a&m&l---------------------------------------------"
-    - "<center>&7"
-    - "<center>&f&lCAPTURE THE WOOL"
-    - "<center>&7Wools: <captured>"
-    - "<center>&aWinner &7- <winner>"
-    - "<center>&7"
-    - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
-    - "<center>&6&l2nd Killer &7- <color2><top2> &7- <number2>"
-    - "<center>&c&l3rt Killer &7- <color3><top3> &7- <number3>"
-    - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
-  newLevel:
-    - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
-    - "<center>&e&lCONGRATULATIONS!"
-    - "<center>&7"
-    - "<center>&7You have reached <level>"
-    - "<center>&7"
-    - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
-  rewards:
-    - "<center>&a&m&l---------------------------------------------"
-    - "<center>&7"
-    - "<center>&a&lRewards Summary"
-    - "<center>&7"
-    - '&7You have obtained:'
-    - '§7• §6Coins: <coins>'
-    - '§7• §bXp: <xp>'
-    - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
-  help:
-    - "&co&m----------------------------------------------o"
-    - "&e"
-    - "§a/ctw join §7- §eEnter a game"
-    - "§a/leave §7- §eLeave the game"
-    - "§a/stats §7- §eShow your stats"
-    - "&e"
-    - "§co§m----------------------------------------------o"
-topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
-holograms:
-  kits:
-    - "&e&lCAPTURE THE WOOL"
-    - "&7Kits Shop"
-    - "&b(Right-Click to open)"
-  shop:
-    - "&e&lCAPTURE THE WOOL"
-    - "&7Item Shop"
-    - "&b(Right-Click to open)"
-setup:
-  itemInHand: "&cYou must have the item in your hand."
-  setTopKills: "&aYou've set up the top kills."
-  setTopWins: "&aYou've set up the top wins."
-  setTopCaptured: "&aYou've set up the top captured."
-  setTopBounty: "&aYou've set up the top bounty."
-  reload: "&aThe plugin has been reloaded correctly."
-  setMainLobby: "&aThe main lobby has been established."
-  needCreating: "&cYou need to be creating an arena."
-  alreadyCreating: "&cYou are already creating an arena."
-  noOnline: "&cThat player is not online."
-  noSchema: "&cThere is no schematic by that name."
-  noHand: "&cYou must have the icon on the hand."
-  noNumber: "&cPlease write a number."
-  setPermission: "&aWrite the permission to use this in the chat."
-  setSlot: "&aWrite the slot to this in the chat."
-  setPage: "&aWrite the page to this in the chat."
-  setPrice: "&aWrite the price to this in the chat."
-  setBuy: "&eThe state of this is now: <state>"
-  setPosition: "&ePosition &a<pos> &ehas been established"
-  addItem: "&aThe item has been added successfully."
-  team:
-    giveAvailableWools: "&aYou have been given the available wools to set up."
-    removed: "&cThe last Spawner has been removed."
-    noSpawners: "&cSpawners are no longer available."
-    noWools: "&cWools are no longer available."
-  kits:
-    created: "&aYou have created a new kit."
-    setIcon: "&aThe icon has been set."
-    newLevel: "&aA new level has been created."
-    save: "&aThe kit items have been saved."
-    saveLevel: "&aThe kit level has been saved."
-    saveKit: "&aThe kit has been saved."
-  arena:
-    noLast: "&cSquareds are no longer available."
-    removed: "&cThe last Squared has been removed."
-    addMine: "&aA &e<type> &atype mine was added."
-    setNPCBuff: "&aThe location of the buff NPC has been added."
-    setNPCUpgrade: "&aThe location of the upgrade NPC has been added."
-    setNPCShop: "&aThe location of the shop NPC has been added."
-    setNPCKits: "&aThe location of the selector NPC has been added."
-    alreadySetWool: "&aTeam colors have already been set."
-    setSpawn: "&aThe team's spawn has been established in &e<location>&a."
-    addSpawner: "&aA spawner has been added in &e<location>&a."
-    spawnerRemoved: "&aThe last spawner has been removed."
-    noSpawner: "&cThere is no Spawner established."
-    createDontWools: "&cWhen you create the first team, you can no longer change the number of wools."
-    minMin: "&cThe minimum player to start must be 2."
-    minTeamSize: "&cThe minimum team size is 1."
-    minWoolSize: "&cThe minimum wool size is 1."
-    minAmountTeams: "&cThe minimum teams amounts is 2."
-    alreadyTeam: "&cYou can no longer change the amount of wools as you already have a team in place."
-    addColor: "&aThe color of <color>&a wool was added to the team."
-    setColors: "&aAdded colors used by this team."
-    addWool: "&aA wool has been established in &e<loc>&a."
-    setProteccion: "&aA new protection square has been created."
-    needPositions: "&cYou need to have the two positions selected first."
-    firstWool: "&cFirst you must set the colors of wool."
-    teamSaved: "&aThe team has been saved."
-    saveGame: "&aThe sand has been kept."
-    setLobby: |-
-      &6&lARENA SETUP:
-      &aThe lobby location has been established.
-    setSpect: |-
-      &6&lARENA SETUP:
-      &aThe spect location has been established.
-    setMin: |-
-      &6&lARENA SETUP:
-      &aWrite the amount of min in the chat.
-    setTeamSize: |-
-      &6&lARENA SETUP:
-      &aWrite the amount of team size in the chat.
-    setWoolSize: |-
-      &6&lARENA SETUP:
-      &aWrite the amount of wool size in the chat.
-    setAmountTeams: |-
-      &6&lARENA SETUP:
-      &aWrite the amount of teams in the chat.
-    noSet:
-      lobby: "&cThe lobby location has not been established."
-      spectator: "&cThe spectator location has not been established."
-      needTwoTeams: "&cYou need at least two teams."
-      spawn: "&cThe spawn location has not been established."
-      noColors: "&cYou haven't set the colors of the wools."
-      noSpawner: "&cYou have not set the spawners of these colors."
-  menus:
-    finishEdit: "&aYou have edited the menu correctly."
-titles:
-  dropped:
-    title: ""
-    subtitle: "&c&l<tcolor><player> &edropped <wool>"
-  teampick:
-    title: ""
-    subtitle: "&e<tcolor><player> &epicked up the Wool <wool>&e!"
-  otherpick:
-    title: ""
-    subtitle: "<tcolor><player> &epicked up your wool <wool>&e¡"
-  cancel:
-    title: "&cCANCELLED"
-    subtitle: "&7"
-  starting:
-    title: "&c<time>"
-    subtitle: "&7"
-  captured:
-    title: ""
-    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
-  win:
-    title: "<color>WIN!"
-    subtitle: "<tcolor>The <winner> team has won!"
-  lose:
-    title: "<tcolor>GAME OVER!"
-    subtitle: "<tcolor>The <winner> team has won!"
-  otherCaptured:
-    title: ""
-    subtitle: "<tcolor><player> caught the <color>Wool <wool>&c&l!"
-  ending:
-    title: '&fNext map: &a&l<map>'
-    subtitle: '&fNew game in:&c&l <time>'
-  startGame:
-    title: '&e&lCAPTURE THE WOOL'
-    subtitle: '&e&lHAVE FUN!'
-  levelup:
-    title: '&e&lNEW LEVEL'
-    subtitle: '&7You have leveled up <level>'
-actionbar:
-  noTeam: "&fUse &e§l/join §fto join a team!"
-  myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
-  randomTeam: "&eYou were sent to the team <team>"
-  levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
-  double: '&c&lDOUBLEKILL'
-  three: '&a&lTRIPEKILL'
-  quarter: '&1&lULTRAKILL'
-  penta: '&4&lRAMPAGE!'
-teams:
-  aqua: "&bAqua"
-  dark_blue: "&1Dark Blue"
-  black: "&0Black"
-  blue: "&9BLUE"
-  dark_aqua: "&3Dark Aqua"
-  dark_red: "&4Dark Red"
-  red: "&cRED"
-  dark_gray: "&8Dark Gray"
-  gray: "&7Gray"
-  dark_green: "&2Dark Green"
-  green: "&aGreen"
-  light_purple: "&dLight Purple"
-  dark_purple: "&5Dark Purple"
-  white: "&fWhite"
-  yellow: "&eYellow"
-  gold: "&6Gold"
-prefix:
-  aqua: "&b[A]"
-  dark_blue: "&1[B]"
-  black: "&0[B]"
-  blue: "&9[B]"
-  dark_aqua: "&3[A]"
-  dark_red: "&4[R]"
-  red: "&c[R]"
-  dark_gray: "&8[G]"
-  gray: "&7[G]"
-  dark_green: "&2[G]"
-  green: "&a[G]"
-  light_purple: "&d[P]"
-  dark_purple: "&5[P]"
-  white: "&f[W]"
-  yellow: "&e[Y]"
-  gold: "&6[G]"
-items:
-  leave:
-    nameItem: "&cLeave"
-    loreItem: |-
-      &7Click to leave the
-      &7game.
-  lobby:
-    nameItem: "&eCapture The Wool"
-    loreItem: |-
-      &7When you click, you'll open
-      &7the Capture The Wool lobby menu
-      &7
-      &eRight click to open.
-  setup:
-    nameItem: "&eSetup Arena"
-    loreItem: |-
-      &7Item to setup arena.
-      &7
-      &eRight click to open.
-  points:
-    nameItem: "&eSelect Points"
-    loreItem: |-
-      &7Click for position 1.
-      &7Right-click for position 2.
-  teams:
-    nameItem: "&bTeam Selector"
-    loreItem: |-
-      &7Al abrir este menu podras
-      &7elegir el equipo.
 scoreboards:
   team: "&7» <TColor>Team <TName>"
   teams: "&7» <TColor><TName> <TWools>"
   wools:
-    captured: "⬛"
-    inProcess: "⚠"
-    noCaptured: "⬜"
+    captured: "⬛ Captured"
+    inProcess: "░ Stolen"
+    noCaptured: "⬜ Defended"
   main:
     title: "&e&lCAPTURE THE WOOL"
     lines: |-
@@ -428,19 +69,564 @@ scoreboards:
       &fDeaths: &c<deaths> ☠
       &7
       &emc.spigot.net
-  big-game:
-    title: "&e&lCAPTURE THE WOOL"
-    lines: |-
+progressBar:
+  symbol: "|"
+  in: "&3"
+  out: "&7"
+  finish: "&8[<progress>&8] &e<percent>%"
+  max: "&cMax"
+chat:
+  mainLobby: "&f<player> &7» &f<msg>"
+  lobby: "&e[CTW] &f<player> &7» &f<msg>"
+  team: "<team> <player> &7» &f<msg>"
+  global: "&6[GLOBAL] <team> <player> &7» &f<msg>"
+fancy:
+  message: '&aThe game &e<game> &ais starting!'
+  click: '&6&l Click here to join!'
+  hover: '&fClick to join!'
+coins:
+  add:
+    you: "&aYou've added &e<coins> &acoins to player &e<player>&a."
+    receiver: |-
+      &8&l+ &e<coins> &6Coins
+      &aDelivered by &b<sender>&a.
+  remove:
+    you: "&aYou've removed &e<coins> &acoins to player &e<player>&a."
+    receiver: |-
+      &8&l- &e<coins> &6Coins
+      &aRemoved by &b<sender>&a.
+  set:
+    you: "&aYou've set &e<coins> &acoins to player &e<player>&a."
+    receiver: |-
+      &8&l= &e<coins> &6Coins
+      &aEstablished by &b<sender>&a.
+streaks:
+  double: "&a&lDOUBLE "
+  three: "&e&lTRIPLE "
+  quarter: "&b&lQUADRUPLE "
+  penta: "&6&lPENTA "
+messages:
+  kickCTW: "&cYou can't log in when the game is started."
+  noIngame: '&cYou can''t execute that command in a game.'
+  noPlaceHopper: "&cYou can't put hoppers in this place."
+  noYourWool: "&cThis is not a wool of your team, contact admins about this is not configured."
+  maxPlayers: "&aThe maximum number of people has been reached."
+  winCoins: "&8+&b<coins> &6Coins"
+  onlyBreakPlaced: "&cYou can only break blocks put in the game."
+  alreadyStart: "&cThe game has already started."
+  needItemHand: "&cYou must have the item in your hand."
+  limit: "&cYou can't build higher than the limit."
+  incorrectWool: "&cThis is not the right place for wool <wool>!"
+  balancedTeam: "&aThe teams were unbalanced, now you're part of the <team> Team&a."
+  multiplier: "&aThe &b<type> &amultiplier has been activated by &6<name> &aof &x<amount> &afor &e<time>&a."
+  multiplierFinish: "&aThe &b<type> &amultiplier of &6<name> &ahas been end."
+  kill: "<streak>KILL! &8+&6<coins> Coins &7and &8+&b<xp> XP"
+  streak: "&c&lSTREAK! &7of &c<kills> &7kills by <nameStreak>"
+  bounty: "&6&lBOUNTY! &7of &6&l<coins> &7for <name> for high streak."
+  bountyClaimed: "&6&lBOUNTY CLAIMED! <killer> &7killed <death> &7for &6&l<coins>"
+  teamMajorPlayers: "&cThere are many players on this team try to get into another."
+  noSelect: "&cYou don't have a selected."
+  noSelected: "&cNot selected"
+  noSelector: "&cYou don't have permission for that, use automatic mode."
+  noBuy: "&cThis cannot be purchased by users."
+  noCoins: "&cYou don't have enough coins."
+  bought: "&aYou bought &6<name>&a correctly."
+  cancelStart: "&cThe game start has been canceled."
+  gameNotExists: "&cThis game not exists."
+  randomTeam: "&aYou've joined a random team, you've had the team <team>"
+  joinTeam: "&aYou've joined the team: <team>"
+  starting: "&eThe game will start in &c<starting>&e second<s>."
+  needStart: "&cThe game is required to have started to choose team."
+  noEntry: "&cYou can't join in here."
+  noBreak: "&cYou can't break here."
+  noPlace: "&cYou can't place here."
+  lost: "<tcolor><player> dropped the <color>wool <wool>&e!"
+  incorrectPlace: "You can't put the wool here!"
+  alreadyIngame: "&cYou're already in a game."
+  leaveGame: "&cYou're out of the game."
+  selectShopKeeper: "&aYou've selected the trail: &e<shopkeeper>"
+  selectTrail: "&aYou've selected the trail: &e<trail>"
+  selectTaunt: "&aYou've selected the taunt: &e<taunt>"
+  selectKillSound: "&aYou've selected the killsound: &e<killsound>"
+  selectKillEffect: "&aYou've selected the killeffect: &e<killeffect>"
+  selectWinEffect: "&aYou've selected the wineffect: &e<wineffect>"
+  selectWinDance: "&aYou've selected the windance: &e<windance>"
+  deselectShopKeeper: "&aYou've deselected your current shopkeeper."
+  deselectTrail: "&aYou've deselected your current trail."
+  deselectTaunt: "&aYou've deselected your current taunt."
+  deselectWinEffect: "&aYou've deselected your current wineffect."
+  deselectKillEffect: "&aYou've deselected your current killeffect."
+  deselectWinDance: "&aYou've deselected your current windances."
+  noOther: "&cYou can't enter another game if one is already selected."
+  notInGame: '&cYou are not in a game!'
+  alreadyTeam: '&cYou have already chosen a team!'
+  joinGame: '&7Connecting to &a<game>'
+  ending: '&eA new game starts in &c<count>&e second<s>.'
+  newGame: 'You were sent to the game &a<map>&e!'
+  sendLobby: '&eThe game is over, you were sent to the lobby!'
+  newPlayer: "§a<player> &ehas joined &7(&b<size>&7/&b<max>&7)"
+  play: "&fUse &e&l/join &fto join a team"
+  levelup: 'The player &a&l<player> &7leveled up to level <level>'
+  arrowdamage: '<color><victim> &7has &c<health> &7HP!'
+  noSave: "&cYou can't keep the wool!"
+  equipement: "&aYou have received some objects to be able to carry the wool!"
+  start:
+    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&7"
+    - "<center>&f&lCAPTURE THE WOOL"
+    - "<center>&7"
+    - "<center>&e&lCapture the wools on the enemy team,"
+    - "<center>&e&lfight so they don't capture your wools,"
+    - "<center>&e&lget a streak of eliminations, bounty"
+    - "<center>&e&lfor killing someone with a streak, have fun."
+    - "<center>&7"
+    - "<center>&a&m&l---------------------------------------------"
+  win:
+    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&7"
+    - "<center>&f&lCAPTURE THE WOOL"
+    - "<center>&7Wools: <captured>"
+    - "<center>&aWinner &7- <winner>"
+    - "<center>&7"
+    - "<center>&a&l1st Killer &7- <color1><top1> &7- <number1>"
+    - "<center>&6&l2nd Killer &7- <color2><top2> &7- <number2>"
+    - "<center>&c&l3rt Killer &7- <color3><top3> &7- <number3>"
+    - "<center>&7"
+    - "<center>&a&m&l---------------------------------------------"
+  newLevel:
+    - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+    - "<center>&e&lCONGRATULATIONS!"
+    - "<center>&7"
+    - "<center>&7You have reached <level>"
+    - "<center>&7"
+    - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
+  rewards:
+    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&7"
+    - "<center>&a&lRewards Summary"
+    - "<center>&7"
+    - '&7You have obtained:'
+    - '§7• §6Coins: <coins>'
+    - '§7• §bXp: <xp>'
+    - "<center>&7"
+    - "<center>&a&m&l---------------------------------------------"
+  help:
+    - "&co&m----------------------------------------------o"
+    - "&e"
+    - "§a/ctw join §7- §eEnter a game"
+    - "§a/join §7- §eChoose a team"
+    - "§a/leave §7- §eLeave the game"
+    - "§a/stats §7- §eShow your stats"
+    - "&e"
+    - "§co§m----------------------------------------------o"
+teampickup:
+  red: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Red&e!'
+  lightgray: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Light Gray&e!'
+  black: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Black&e!'
+  green: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Green&e!'
+  cyan: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Cyan&e!'
+  purple: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Purple&e!'
+  orange: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Orange&e!'
+  gray: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Gray&e!'
+  blue: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Blue&e!'
+  lime: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Lime&e!'
+  lightblue: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Light Blue&e!'
+  pink: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Pink&e!'
+  yellow: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Yellow&e!'
+  white: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool White&e!'
+otherpickup:
+  red: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Red &c&l! !'
+  lightgray: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Light Gray &c&l! !'
+  black: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Black &c&l! !'
+  green: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Green &c&l! !'
+  cyan: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Cyan &c&l! !'
+  purple: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Purple &c&l! !'
+  orange: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Orange &c&l! !'
+  gray: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Gray &c&l! !'
+  blue: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Blue &c&l! !'
+  lime: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Lime &c&l! !'
+  lightblue: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Light Blue &c&l! !'
+  pink: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Pink &c&l! !'
+  yellow: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Yellow &c&l! !'
+  white: '&c&l! ! <tcolor><player> &epicked up your <color>Wool White &c&l! !'
+woolplaced:
+  red:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Red&c&l!
+  - <center>&7
+  lightgray:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Light Gray&c&l!
+  - <center>&7
+  black:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Black&c&l!
+  - <center>&7
+  green:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Green&c&l!
+  - <center>&7
+  cyan:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Cyan&c&l!
+  - <center>&7
+  purple:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Purple&c&l!
+  - <center>&7
+  orange:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Orange&c&l!
+  - <center>&7
+  gray:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Gray&c&l!
+  - <center>&7
+  blue:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Blue&c&l!
+  - <center>&7
+  lime:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Lime&c&l!
+  - <center>&7
+  lightblue:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Light Blue&c&l!
+  - <center>&7
+  pink:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Pink&c&l!
+  - <center>&7
+  yellow:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool Yellow&c&l!
+  - <center>&7
+  white:
+  - <center>&7
+  - <center>&c&l¡<tcolor><player> captured the <color>Wool White&c&l!
+  - <center>&7
+holograms:
+  kits:
+    - "&e&lCAPTURE THE WOOL"
+    - "&7Kits Shop"
+    - "&b(Right-Click to open)"
+  shop:
+    - "&e&lCAPTURE THE WOOL"
+    - "&7Item Shop"
+    - "&b(Right-Click to open)"
+topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
+titles:
+  dropped:
+    title: ""
+    subtitle: "&c&l<tcolor><player> &edropped <wool>"
+  cancel:
+    title: "&cCANCELLED"
+    subtitle: "&7"
+  starting:
+    title: "&c<time>"
+    subtitle: "&7"
+  win:
+    title: "<color>WIN!"
+    subtitle: "<tcolor>The <winner> team has won!"
+  lose:
+    title: "<tcolor>GAME OVER!"
+    subtitle: "<tcolor>The <winner> team has won!"
+  ending:
+    title: '&fNext map: &a&l<map>'
+    subtitle: '&fNew game in:&c&l <time>'
+  startGame:
+    title: '&e&lCAPTURE THE WOOL'
+    subtitle: '&e&lHAVE FUN!'
+  levelup:
+    title: '&e&lNEW LEVEL'
+    subtitle: '&7You have leveled up <level>'
+titlesplaced:
+  red:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Red&c&l!'
+  lightgray:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Light Gray&c&l!'
+  black:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Black&c&l!'
+  green:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Green&c&l!'
+  cyan:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Cyan&c&l!'
+  purple:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Purple&c&l!'
+  orange:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Orange&c&l!'
+  gray:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Gray&c&l!'
+  blue:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Blue&c&l!'
+  lime:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Lime&c&l!'
+  lightblue:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Light Blue&c&l!'
+  pink:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Pink&c&l!'
+  yellow:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Yellow&c&l!'
+  white:
+    title: ''
+    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool White&c&l!'
+titlespickup:
+  red:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Red&e!'
+  lightgray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Light Gray&e!'
+  black:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Black&e!'
+  green:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Green&e!'
+  cyan:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Cyan&e!'
+  purple:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Purple&e!'
+  orange:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Orange&e!'
+  gray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Gray&e!'
+  blue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Blue&e!'
+  lime:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Lime&e!'
+  lightblue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Light Blue&e!'
+  pink:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Pink&e!'
+  yellow:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Yellow&e!'
+  white:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool White&e!'
+titlesotherpickup:
+  red:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Red&e!'
+  lightgray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Light Gray&e!'
+  black:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Black&e!'
+  green:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Green&e!'
+  cyan:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Cyan&e!'
+  purple:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Purple&e!'
+  orange:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Orange&e!'
+  gray:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Gray&e!'
+  blue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Blue&e!'
+  lime:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Lime&e!'
+  lightblue:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Light Blue&e!'
+  pink:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Pink&e!'
+  yellow:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Yellow&e!'
+  white:
+    title: ''
+    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool White&e!'
+actionbar:
+  noTeam: "&fUse &e§l/join §fto join a team!"
+  myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
+  randomTeam: "&eYou were sent to the team <team>"
+  levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
+  double: '&c&lDOUBLEKILL'
+  three: '&a&lTRIPEKILL'
+  quarter: '&1&lULTRAKILL'
+  penta: '&4&lRAMPAGE!'
+teams:
+  aqua: "&bAqua"
+  dark_blue: "&1Dark Blue"
+  black: "&0Black"
+  blue: "&9BLUE"
+  dark_aqua: "&3Dark Aqua"
+  dark_red: "&4Dark Red"
+  red: "&cRED"
+  dark_gray: "&8Dark Gray"
+  gray: "&7Gray"
+  dark_green: "&2Dark Green"
+  green: "&aGreen"
+  light_purple: "&dLight Purple"
+  dark_purple: "&5Dark Purple"
+  white: "&fWhite"
+  yellow: "&eYellow"
+  gold: "&6Gold"
+prefix:
+  aqua: "&b[A]"
+  dark_blue: "&1[B]"
+  black: "&0[B]"
+  blue: "&9[B]"
+  dark_aqua: "&3[A]"
+  dark_red: "&4[R]"
+  red: "&c[R]"
+  dark_gray: "&8[G]"
+  gray: "&7[G]"
+  dark_green: "&2[G]"
+  green: "&a[G]"
+  light_purple: "&d[P]"
+  dark_purple: "&5[P]"
+  white: "&f[W]"
+  yellow: "&e[Y]"
+  gold: "&6[G]"
+setup:
+  itemInHand: "&cYou must have the item in your hand."
+  setTopKills: "&aYou've set up the top kills."
+  setTopWins: "&aYou've set up the top wins."
+  setTopCaptured: "&aYou've set up the top captured."
+  setTopBounty: "&aYou've set up the top bounty."
+  reload: "&aThe plugin has been reloaded correctly."
+  setMainLobby: "&aThe main lobby has been established."
+  needCreating: "&cYou need to be creating an arena."
+  alreadyCreating: "&cYou are already creating an arena."
+  noOnline: "&cThat player is not online."
+  noSchema: "&cThere is no schematic by that name."
+  noHand: "&cYou must have the icon on the hand."
+  noNumber: "&cPlease write a number."
+  setPermission: "&aWrite the permission to use this in the chat."
+  setSlot: "&aWrite the slot to this in the chat."
+  setPage: "&aWrite the page to this in the chat."
+  setPrice: "&aWrite the price to this in the chat."
+  setBuy: "&eThe state of this is now: <state>"
+  setPosition: "&ePosition &a<pos> &ehas been established"
+  addItem: "&aThe item has been added successfully."
+  team:
+    giveAvailableWools: "&aYou have been given the available wools to set up."
+    removed: "&cThe last Spawner has been removed."
+    noSpawners: "&cSpawners are no longer available."
+    noWools: "&cWools are no longer available."
+  kits:
+    created: "&aYou have created a new kit."
+    setIcon: "&aThe icon has been set."
+    newLevel: "&aA new level has been created."
+    save: "&aThe kit items have been saved."
+    saveLevel: "&aThe kit level has been saved."
+    saveKit: "&aThe kit has been saved."
+  arena:
+    noLast: "&cSquareds are no longer available."
+    removed: "&cThe last Squared has been removed."
+    addMine: "&aA &e<type> &atype mine was added."
+    setNPCShop: "&aThe location of the shop NPC has been added."
+    setNPCKits: "&aThe location of the selector NPC has been added."
+    alreadySetWool: "&aTeam colors have already been set."
+    setSpawn: "&aThe team's spawn has been established in &e<location>&a."
+    addSpawner: "&aA spawner has been added in &e<location>&a."
+    spawnerRemoved: "&aThe last spawner has been removed."
+    noSpawner: "&cThere is no Spawner established."
+    createDontWools: "&cWhen you create the first team, you can no longer change the number of wools."
+    minMin: "&cThe minimum player to start must be 2."
+    minTeamSize: "&cThe minimum team size is 1."
+    minWoolSize: "&cThe minimum wool size is 1."
+    minAmountTeams: "&cThe minimum teams amounts is 2."
+    alreadyTeam: "&cYou can no longer change the amount of wools as you already have a team in place."
+    addColor: "&aThe color of <color>&a wool was added to the team."
+    setColors: "&aAdded colors used by this team."
+    addWool: "&aA wool has been established in &e<loc>&a."
+    setProteccion: "&aA new protection square has been created."
+    needPositions: "&cYou need to have the two positions selected first."
+    firstWool: "&cFirst you must set the colors of wool."
+    teamSaved: "&aThe team has been saved."
+    saveGame: "&aThe sand has been kept."
+    setLobby: |-
+      &6&lARENA SETUP:
+      &aThe lobby location has been established.
+    setSpect: |-
+      &6&lARENA SETUP:
+      &aThe spect location has been established.
+    setMin: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of min in the chat.
+    setTeamSize: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of team size in the chat.
+    setWoolSize: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of wool size in the chat.
+    setAmountTeams: |-
+      &6&lARENA SETUP:
+      &aWrite the amount of teams in the chat.
+    noSet:
+      lobby: "&cThe lobby location has not been established."
+      spectator: "&cThe spectator location has not been established."
+      needTwoTeams: "&cYou need at least two teams."
+      spawn: "&cThe spawn location has not been established."
+      noColors: "&cYou haven't set the colors of the wools."
+      noSpawner: "&cYou have not set the spawners of these colors."
+  menus:
+    finishEdit: "&aYou have edited the menu correctly."
+items:
+  leave:
+    nameItem: "&cLeave"
+    loreItem: |-
+      &7Click to leave the
+      &7game.
+  lobby:
+    nameItem: "&eCapture The Wool"
+    loreItem: |-
+      &7When you click, you'll open
+      &7the Capture The Wool lobby menu
       &7
-      &fTeam: <team>
-      &fExp: &a<now>&7/&c<leveUp>
+      &eRight click to open.
+  setup:
+    nameItem: "&eSetup Arena"
+    loreItem: |-
+      &7Item to setup arena.
       &7
-      <teams>
-      &7
-      &fKills: &a<kills>
-      &fDeaths: &a<deaths>
-      &7
-      &emc.spigot.net
+      &eRight click to open.
+  points:
+    nameItem: "&eSelect Points"
+    loreItem: |-
+      &7Click for position 1.
+      &7Right-click for position 2.
+  teams:
+    nameItem: "&bTeam Selector"
+    loreItem: |-
+      &7Al abrir este menu podras
+      &7elegir el equipo.
 menus:
   last:
     nameItem: '&aLast Page'
@@ -452,12 +638,6 @@ menus:
     loreItem: |-
       &7Click to back a last
       &7page.
-  upgrades:
-    title: "&eUpgrade NPC"
-  buffDebuff:
-    title: "&eBuff DeBuff NPC"
-  buffItems:
-    title: "&eBuff DeBuff Items"
   shop:
     title: "&eShop Items"
   shopkeeperselector:
@@ -497,46 +677,8 @@ menus:
         &7Close this inventory.
         &7
         &eClick to close!
-  kitflaglevels:
-    title: "&aKit Levels"
-    close:
-      nameItem: "&cClose"
-      loreItem: |-
-        &7Close this inventory.
-        &7
-        &eClick to close!
   kitselector:
     title: "&eKit Selector"
-    noPermission: "&cYou can't buy this kit!"
-    hasBuy: "&aYou already have this kit!"
-    buy: "&eYou can buy this kit!"
-    noMoney: "&cYou don't have money to buy."
-    level: "&aLevel: &6<level>"
-    price: "&aPrice: &6<price>"
-    noBuyable: "&cNot buyable."
-    buyed: "&6Bought"
-    deselect:
-      nameItem: "&eDeselect Kit"
-      loreItem: |-
-        &7By clicking you will
-        &7deselect this kit.
-        &7
-        &eClick to deselect!
-    kit:
-      nameItem: "&eKit Selected"
-      loreItem: |-
-        &7By clicking you can see
-        &7the contents of this kit.
-        &7
-        &eClick to view!
-    close:
-      nameItem: "&cClose"
-      loreItem: |-
-        &7Close this inventory.
-        &7
-        &eClick to close!
-  kitflagselector:
-    title: "&aKit Selector"
     noPermission: "&cYou can't buy this kit!"
     hasBuy: "&aYou already have this kit!"
     buy: "&eYou can buy this kit!"
@@ -1209,6 +1351,40 @@ menus:
         &fPlayers: &a<players>
         &7
         &eClick to join!
+  join:
+    title: '&rEnter a game!'
+    wool:
+      nameItem: '&fCapture the wool'
+      lore: '&aClick here to enter!'
+      map: '&fMap: &e&l<map>'
+      players: '&fPlayers: &a<size>&7/&c<max>'
+      waiting: '&fState: &a&lWaiting'
+      starting: '&fState: &e&lStarting'
+      ingame: '&fState: &a&lIn Game'
+      restarting: '&fState: &7&lRestarting'
+      finish: '&fState: &c&lFinish'
+    stats:
+      nameItem: '&aPlayer Stats'
+      loreItem: |-
+        &7
+        &fKills: &a<kills>
+        &fDeaths: &a<deaths>
+        &fLevel: &a<level>
+        &fGames played: &a<played>
+        &7
+        &fWins: &a<wins>
+        &fCaptured: &a<captured>
+        &fCoins: &a<coins>
+        &fExp: &a<xp>
+        &7
+        &fBow kills: &a<bowkills>
+        &7Bow Distance: &a<bowdistance>
+        &7Bow Max Distance: &a<bowmaxdistance>
+    close:
+      nameItem: '&cClose'
+      loreItem: |-
+        &7
+        &7Close this inventory!
   kititems:
     title: "&aSetup Level Items"
     analize:
@@ -1325,14 +1501,6 @@ menus:
         &ePage: &b<page>
         &7
         &eClick to change!
-    flag:
-      nameItem: "&eKit Flag"
-      loreItem: |-
-        &7This is the kit type:
-        &7
-        &eFlag: &b<state>
-        &7
-        &eClick to change!
     save:
       nameItem: "&aSave Kit"
       loreItem: |-
@@ -1396,30 +1564,6 @@ menus:
         &7Set the team spawn:
         &7
         &eLocation: &b<spawn>
-        &7
-        &eClick to set!
-    save:
-      nameItem: "&eSave Team"
-      loreItem: |-
-        &7Save the team in arena
-        &7
-        &eClick to save!
-  teamflag:
-    title: "&aFlag Team"
-    spawn:
-      nameItem: "&eTeam Spawn"
-      loreItem: |-
-        &7Set the team spawn:
-        &7
-        &eLocation: &b<spawn>
-        &7
-        &eClick to set!
-    flag:
-      nameItem: "&eTeam Flag"
-      loreItem: |-
-        &7Set the team flag:
-        &7
-        &eLocation: &b<flag>
         &7
         &eClick to set!
     save:

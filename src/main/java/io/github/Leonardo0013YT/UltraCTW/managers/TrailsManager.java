@@ -1,7 +1,9 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
+import io.github.Leonardo0013YT.UltraCTW.cosmetics.trails.HelixTrail;
 import io.github.Leonardo0013YT.UltraCTW.cosmetics.trails.Trail;
+import io.github.Leonardo0013YT.UltraCTW.enums.TrailType;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -59,11 +61,24 @@ public class TrailsManager {
         if (trail.getParticle().equals("NONE")) {
             return;
         }
+        TrailType t = trail.getType();
+        HelixTrail helix = new HelixTrail(trail.getParticle(), t.getCount(), proj.getVelocity(), t.getRadius(), t.getSpeed());
         new BukkitRunnable() {
+            int executes = 0;
+
             @Override
             public void run() {
+                if (executes >= 40) {
+                    cancel();
+                    return;
+                }
                 if (!proj.isOnGround() && !proj.isDead()) {
-                    plugin.getVc().getNMS().broadcastParticle(proj.getLocation(), trail.getOffsetX(), trail.getOffsetY(), trail.getOffsetZ(), (int) trail.getSpeed(), trail.getParticle(), trail.getAmount(), trail.getRange());
+                    if (!t.equals(TrailType.NORMAL)) {
+                        helix.spawn(proj.getLocation());
+                    } else {
+                        plugin.getVc().getNMS().broadcastParticle(proj.getLocation(), trail.getOffsetX(), trail.getOffsetY(), trail.getOffsetZ(), (int) trail.getSpeed(), trail.getParticle(), trail.getAmount(), trail.getRange());
+                    }
+                    executes++;
                 } else {
                     cancel();
                 }

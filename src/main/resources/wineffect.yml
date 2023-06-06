@@ -186,3 +186,49 @@ wineffects:
     slot: 19
     page: 1
     permission: ultractw.wineffects.dragon
+  wither:
+    id: 8
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: SKULL_ITEM
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aWither Rider
+        lore:
+          - '§eDescription:'
+          - §7Wither spawn and you ride.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: wither
+    name: "wither"
+    price: 2500
+    isBuy: true
+    slot: 20
+    page: 1
+    permission: ultractw.wineffects.wither
+  daredevil:
+    id: 9
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: SKULL_ITEM
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §adaredevil
+        lore:
+          - '§eDescription:'
+          - §7Horse spawn and you ride.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: daredevil
+    name: "daredevil"
+    price: 2500
+    isBuy: true
+    slot: 21
+    page: 1
+    permission: ultractw.wineffects.daredevil

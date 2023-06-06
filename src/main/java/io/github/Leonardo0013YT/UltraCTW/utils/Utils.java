@@ -4,7 +4,6 @@ import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XMaterial;
-import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -14,15 +13,19 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.bukkit.*;
+import org.bukkit.entity.*;
+import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import java.util.*;
 
 public class Utils {
 
     private static DecimalFormat df = new DecimalFormat("##.#");
+
+    private final static Random random = new Random();
     private static UltraCTW plugin = UltraCTW.get();
     private static ItemStack[] gifs = {NBTEditor.getHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlZjlhYTE0ZTg4NDc3M2VhYzEzNGE0ZWU4OTcyMDYzZjQ2NmRlNjc4MzYzY2Y3YjFhMjFhODViNyJ9fX0="),
             NBTEditor.getHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWI2NzMwZGU3ZTViOTQxZWZjNmU4Y2JhZjU3NTVmOTQyMWEyMGRlODcxNzU5NjgyY2Q4ODhjYzRhODEyODIifX19"),
@@ -408,4 +411,17 @@ public class Utils {
     public static ItemStack[] getGifs() {
         return gifs;
     }
+
+    public static void firework(Location loc) {
+        Firework fa = loc.getWorld().spawn(loc, Firework.class);
+        FireworkMeta fam = fa.getFireworkMeta();
+        FireworkEffect.Type tipo = FireworkEffect.Type.values()[random.nextInt(4)];
+        Color c1 = Color.fromBGR(random.nextInt(255), random.nextInt(255), random.nextInt(255));
+        Color c2 = Color.fromBGR(random.nextInt(255), random.nextInt(255), random.nextInt(255));
+        FireworkEffect ef = FireworkEffect.builder().withColor(c1).withFade(c2).with(tipo).build();
+        fam.addEffect(ef);
+        fam.setPower(0);
+        fa.setFireworkMeta(fam);
+    }
+
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked;
+    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -60,6 +60,7 @@ public class ConfigManager {
         this.itemLobbyCMD = plugin.getConfig().getString("items.lobby.cmd");
         this.itemLobby2CMD = plugin.getConfig().getString("items.lobby2.cmd");
         this.maxMultiplier = plugin.getConfig().getInt("gameDefaults.maxMultiplier");
+        this.broadcastGame = plugin.getConfig().getBoolean("chat.broadcastGame");
         this.streak2 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak2")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
         this.streak3 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak3")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
         this.streak4 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak4")).orElse(XSound.UI_BUTTON_CLICK).parseSound();

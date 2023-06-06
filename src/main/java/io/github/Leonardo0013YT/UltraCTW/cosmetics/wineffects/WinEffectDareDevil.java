@@ -4,32 +4,32 @@ import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
-import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Vehicle;
 import org.bukkit.metadata.FixedMetadataValue;
 
-public class WinEffectDragonRider implements WinEffect {
+public class WinEffectDareDevil implements WinEffect {
 
-    private EnderDragon dragon;
+    private Vehicle horse;
 
     @Override
     public void start(Player p, Game game) {
-        dragon = p.getWorld().spawn(p.getLocation(), EnderDragon.class);
-        dragon.setPassenger(p);
-        dragon.setMetadata("NO_TARGET", new FixedMetadataValue(UltraCTW.get(), ""));
+        horse = UltraCTW.get().getVc().getNMS().spawnHorse(p.getLocation(), p);
+        horse.setPassenger(p);
+        horse.setMetadata("NO_TARGET", new FixedMetadataValue(UltraCTW.get(), ""));
         p.getWorld().playSound(p.getLocation(), XSound.ENTITY_ENDER_DRAGON_GROWL.parseSound(), 1.0f, 1.0f);
     }
 
     @Override
     public void stop() {
-        if (dragon != null) {
-            dragon.remove();
+        if (horse != null) {
+            horse.remove();
         }
     }
 
     @Override
     public WinEffect clone() {
-        return new WinEffectDragonRider();
+        return new WinEffectDareDevil();
     }
 
 }

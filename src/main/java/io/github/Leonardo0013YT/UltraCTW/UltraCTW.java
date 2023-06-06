@@ -8,6 +8,7 @@ import io.github.Leonardo0013YT.UltraCTW.config.Settings;
 import io.github.Leonardo0013YT.UltraCTW.controllers.VersionController;
 import io.github.Leonardo0013YT.UltraCTW.controllers.WorldController;
 import io.github.Leonardo0013YT.UltraCTW.database.MySQLDatabase;
+import io.github.Leonardo0013YT.UltraCTW.fanciful.FancyMessage;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.IDatabase;
@@ -20,6 +21,8 @@ import io.github.Leonardo0013YT.UltraCTW.objects.ProtocolLib;
 import io.github.Leonardo0013YT.UltraCTW.placeholders.Placeholders;
 import io.github.Leonardo0013YT.UltraCTW.utils.MetricsLite;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -65,6 +68,8 @@ public class UltraCTW extends JavaPlugin {
     public static UltraCTW get() {
         return instance;
     }
+
+
 
     @Override
     public void onEnable() {
@@ -168,6 +173,20 @@ public class UltraCTW extends JavaPlugin {
                 db.savePlayer(on.getUniqueId(), true);
             }
             db.close();
+        }
+    }
+
+    public void broadcastGame(Game game) {
+        if (!getCm().isBroadcastGame()) return;
+        FancyMessage fm = new FancyMessage(getLang().get(null, "fancy.message").replaceAll("<game>", game.getName()))
+                .addMsg(getLang().get(null, "fancy.click"))
+                .setClick(ClickEvent.Action.RUN_COMMAND, "/ctw join " + game.getName())
+                .setHover(HoverEvent.Action.SHOW_TEXT, getLang().get(null, "fancy.hover")).build();
+        for (Player on : Bukkit.getOnlinePlayers()) {
+            if (getGm().isPlayerInGame(on)) {
+                continue;
+            }
+            fm.send(on);
         }
     }
 

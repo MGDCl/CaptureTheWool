@@ -37,11 +37,11 @@ public class GameNoState implements Game {
     private final ArrayList<Location> npcShop = new ArrayList<>(), npcKits = new ArrayList<>();
     private final ArrayList<Location> placed = new ArrayList<>();
     private final Location lobby, spectator;
-    private HashMap<UUID, ChatColor> playerTeam = new HashMap<>();
     private Squared lobbyProtection;
     private int teamSize, woolSize, min, starting, defKit, time = 0, max, worldTime;
     private State state;
     private UUID player;
+    private HashMap<ChatColor, Player> captured;
 
     public GameNoState(UltraCTW plugin, String path, int id) {
         this.name = plugin.getArenas().get(path + ".name");
@@ -97,7 +97,6 @@ public class GameNoState implements Game {
         players.add(p);
         Utils.updateSB(p);
         UltraCTW.get().getStm().resetStreak(p);
-        checkStart();
         p.setGameMode(GameMode.SPECTATOR);
         Game game = plugin.getGm().getSelectedGame();
         if (isState(State.WAITING) || isState(State.STARTING)) {
@@ -105,6 +104,7 @@ public class GameNoState implements Game {
         }
         p.sendMessage(plugin.getLang().get("messages.play"));
         plugin.getGem().createTeamsMenu(p, game);
+        checkStart();
     }
 
     @Override
@@ -125,6 +125,7 @@ public class GameNoState implements Game {
         plugin.getTgm().removeTag(p);
         checkCancel();
         checkWin();
+        p.setGameMode(GameMode.ADVENTURE);
     }
 
     @Override
@@ -132,6 +133,7 @@ public class GameNoState implements Game {
         if (isState(State.WAITING)) {
             if (cached.size() >= min) {
                 setState(State.STARTING);
+                plugin.broadcastGame(this);
             }
         }
     }
@@ -261,6 +263,7 @@ public class GameNoState implements Game {
                     sendGameActionBar(on, plugin.getLang().get("actionbar.myTeam").replaceAll("<tcolor>", t.getColor() + "").replaceAll("<team>", t.getName()));
                 }
             }
+            //TODO agregar mensajes de TIPS, toggleables por la config
         }
     }
 
@@ -296,7 +299,7 @@ public class GameNoState implements Game {
     }
 
     @Override
-    public void win(Team team) {
+    public void win(Team team) {//TODO cambiar algunos mensajes
         if (plugin.isStop()) return;
         plugin.getGm().reset(this);
         setState(State.FINISH);
@@ -329,6 +332,7 @@ public class GameNoState implements Game {
             plugin.getWem().execute(this, w, ctw.getWinEffect());
             plugin.getWdm().execute(this, w, ctw.getWinDance());
         }
+
         plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.win.title").replaceAll("<color>", team.getColor() + ""), plugin.getLang().get("titles.win.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 80, 0, team.getMembers());
         ArrayList<Player> back = new ArrayList<>(cached);
 
@@ -768,6 +772,11 @@ public class GameNoState implements Game {
     @Override
     public Squared getLobbyProtection() {
         return lobbyProtection;
+    }
+
+    @Override
+    public void setStarting(int starting) {
+        this.starting = starting;
     }
 
 }

@@ -25,7 +25,7 @@ public class GameWin {
         sorted_map.putAll(map);
     }
 
-    public String getWinner() {
+    /*public String getWinner() {//TODO verificar esto
         if (!winner.equals("")) {
             return winner;
         }
@@ -33,6 +33,32 @@ public class GameWin {
             return winner = "No present";
         }
         return winner = teamWin.getName();
+    }*/
+    public String getWinner() {
+        if (!winner.equals("")) {
+            return winner;
+        }
+        if (teamWin == null) {
+            winner = "No present";
+            return winner;
+        }
+        winner = getWinnerString(teamWin.getMembers());
+        return winner;
+    }
+
+    public String getWinnerString(Collection<Player> players) {
+        StringBuilder winner = new StringBuilder();
+        int act = 0;
+        int size = players.size();
+        for (Player p : players) {
+            if (act == size - 1) {
+                winner.append(p.getName());
+            } else {
+                winner.append(p.getName()).append(", ");
+            }
+            act++;
+        }
+        return winner.toString();
     }
 
     public Team getTeamWin() {

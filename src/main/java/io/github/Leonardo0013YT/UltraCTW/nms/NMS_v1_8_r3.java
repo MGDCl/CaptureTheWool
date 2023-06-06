@@ -3,16 +3,27 @@ package io.github.Leonardo0013YT.UltraCTW.nms;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.NMS;
 import net.minecraft.server.v1_8_R3.*;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;
 
 public class NMS_v1_8_r3 implements NMS {
+
+    @Override
+    public Horse spawnHorse(Location loc, Player p) {
+        Horse horse = loc.getWorld().spawn(loc, Horse.class);
+        horse.setVariant(Horse.Variant.SKELETON_HORSE);
+        horse.setOwner(p);
+        horse.getInventory().setSaddle(new ItemStack(Material.SADDLE));
+        horse.setDomestication(horse.getMaxDomestication());
+        horse.setAdult();
+        return horse;
+    }
 
     @Override
     public void sendActionBar(Player p, String msg) {
@@ -44,7 +55,13 @@ public class NMS_v1_8_r3 implements NMS {
     public void broadcastParticle(Location location, float offsetX, float offsetY, float offsetZ, int speed, String enumParticle, int amount, double range) {
         PacketPlayOutWorldParticles packet = new PacketPlayOutWorldParticles(EnumParticle.valueOf(enumParticle), false, (float) location.getX(), (float) location.getY(), (float) location.getZ(), offsetX, offsetY, offsetZ, speed, amount);
         if (location.getWorld() == null) return;
-        Collection<Entity> ents = location.getWorld().getNearbyEntities(location, range, range, range);
+        Collection<Entity> ents;
+        try {
+            ents = location.getWorld().getNearbyEntities(location, range, range, range);
+        } catch (Exception ignored) {
+            return;
+        }
+        if (ents.isEmpty()) return;
         ents.removeIf(e -> !e.getType().equals(EntityType.PLAYER));
         for (Entity p : ents) {
             ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);

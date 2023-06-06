@@ -8,13 +8,15 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.bukkit.entity.Entity;
+
 public class NMSReflection {
 
     private static String version;
+    private Method a, position;
     private static Class<?> packet;
     private Object enumTimes, enumTitle, enumSubtitle;
     private Constructor<?> packetPlayOutTitle, packetPlayOutTimes;
-    private Method a;
 
     public NMSReflection() {
         try {
@@ -25,6 +27,7 @@ public class NMSReflection {
             packetPlayOutTimes = getNMSClass("PacketPlayOutTitle").getConstructor(getNMSClass("PacketPlayOutTitle").getDeclaredClasses()[0], getNMSClass("IChatBaseComponent"), int.class, int.class, int.class);
             packetPlayOutTitle = getNMSClass("PacketPlayOutTitle").getConstructor(getNMSClass("PacketPlayOutTitle").getDeclaredClasses()[0], getNMSClass("IChatBaseComponent"));
             packet = getNMSClass("Packet");
+            position = getNMSClass("Entity").getMethod("setPositionRotation", double.class, double.class, double.class, float.class, float.class);
             a = getNMSClass("IChatBaseComponent").getDeclaredClasses()[0].getMethod("a", String.class);
         } catch (Exception ignored) {
         }
@@ -73,6 +76,16 @@ public class NMSReflection {
                 sendPacket(p, titlePacket);
                 sendPacket(p, subtitlePacket);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void moveDragon(Entity ent, double x, double y, double z, float yaw, float pitch) {
+        if (ent == null) return;
+        try {
+            Object handle = ent.getClass().getMethod("getHandle").invoke(ent);
+            position.invoke(handle, x, y, z, yaw, pitch);
         } catch (Exception e) {
             e.printStackTrace();
         }

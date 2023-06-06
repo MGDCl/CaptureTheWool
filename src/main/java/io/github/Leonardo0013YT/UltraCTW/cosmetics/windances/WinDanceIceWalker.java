@@ -3,6 +3,7 @@ package io.github.Leonardo0013YT.UltraCTW.cosmetics.windances;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.WinDance;
+import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -43,6 +44,7 @@ public class WinDanceIceWalker implements WinDance, Cloneable {
                     block.setType(Material.ICE);
                 }
                 round++;
+                p.playSound(p.getLocation(), XSound.ENTITY_PLAYER_ATTACK_STRONG.parseSound(), 0.01f, 0.01f);
             }
         }.runTaskTimer(UltraCTW.get(), 0, taskTick);
     }

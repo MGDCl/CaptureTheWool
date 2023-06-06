@@ -45,12 +45,13 @@ public class LevelManager {
             return;
         }
         if (levels.get(lvl.getId()).getLevel() > levels.get(act.getId()).getLevel()) {
-            
+
             if (plugin.getCm().isLCMDEnabled()) {
                 plugin.getCm().getLevelCommands().forEach(c -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), c.replaceAll("<player>", p.getDisplayName())));
             }
 
             sw.setLevel(lvl.getLevel());
+            sw.addCoins(50);
             p.playSound(p.getLocation(), plugin.getCm().getUpgradeSound(), 1.0f, 1.0f);
             for (String s : plugin.getLang().getList("messages.newLevel")){
                 p.sendMessage(s.replaceAll("&", "§").replaceAll("<level>", lvl.getLevel() + ""));

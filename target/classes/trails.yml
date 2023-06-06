@@ -1,7 +1,7 @@
 trails:
   Test:
     id: 0
-    name: Test
+    name: Lava
     icon:
       ==: org.bukkit.inventory.ItemStack
       type: BOW
@@ -24,6 +24,122 @@ trails:
     range: 15.0
     amount: 1
     slot: 10
+    page: 1
+    price: 500
+    isBuy: true
+  Normal:
+    id: 1
+    name: Normal
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: BOW
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aNormal
+        lore:
+          - §7This is a Normal trail
+          - §7
+          - <price>
+          - §7
+          - <status>
+    permission: ultraskywars.trails.Normal
+    particle: FLAME
+    type: NORMAL
+    offsetX: 0.0
+    offsetY: 0.0
+    offsetZ: 0.0
+    speed: 10.0
+    range: 15.0
+    amount: 1
+    slot: 11
+    page: 1
+    price: 500
+    isBuy: true
+  Spiral:
+    id: 2
+    name: Spiral
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: BOW
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aSpiral
+        lore:
+          - §7This is a Spiral trail
+          - §7
+          - <price>
+          - §7
+          - <status>
+    permission: ultraskywars.trails.Spiral
+    particle: FLAME
+    type: SPIRAL
+    offsetX: 0.0
+    offsetY: 0.0
+    offsetZ: 0.0
+    speed: 10.0
+    range: 15.0
+    amount: 1
+    slot: 12
+    page: 1
+    price: 500
+    isBuy: true
+  Pyramid:
+    id: 3
+    name: Pyramid
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: BOW
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aPyramid
+        lore:
+          - §7This is a Pyramid trail
+          - §7
+          - <price>
+          - §7
+          - <status>
+    permission: ultraskywars.trails.Pyramid
+    particle: FLAME
+    type: PYRAMID
+    offsetX: 0.0
+    offsetY: 0.0
+    offsetZ: 0.0
+    speed: 10.0
+    range: 15.0
+    amount: 1
+    slot: 13
+    page: 1
+    price: 500
+    isBuy: true
+  Helix:
+    id: 4
+    name: Helix
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: BOW
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aHelix
+        lore:
+          - §7This is a Helix trail
+          - §7
+          - <price>
+          - §7
+          - <status>
+    permission: ultraskywars.trails.Helix
+    particle: FLAME
+    type: HELIX
+    offsetX: 0.0
+    offsetY: 0.0
+    offsetZ: 0.0
+    speed: 10.0
+    range: 15.0
+    amount: 1
+    slot: 14
     page: 1
     price: 500
     isBuy: true

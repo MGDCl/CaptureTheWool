@@ -67,6 +67,14 @@ public class WinEffectsManager {
                 we = new WinEffectDragonRider();
                 we.start(p, game);
                 break;
+            case "wither":
+                we = new WinEffectWitherRider();
+                we.start(p, game);
+                break;
+            case "daredevil":
+                we = new WinEffectDareDevil();
+                we.start(p, game);
+                break;
             default:
                 we = new WinEffectVulcanWool();
                 we.start(p, game);

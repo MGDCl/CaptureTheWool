@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class WinEffectGuardians implements WinEffect, Cloneable {
 
     private BukkitTask task;
-    private ArrayList<ArmorStand> armors = new ArrayList<>();
-    private ArrayList<Guardian> guardians = new ArrayList<>();
+    private final ArrayList<ArmorStand> armors = new ArrayList<>();
+    private final ArrayList<Guardian> guardians = new ArrayList<>();
 
     @Override
     public void start(Player p, Game game) {

@@ -333,6 +333,7 @@ levels:
     xp: 33000
     levelUp: 33500
     prefix: '&6[Level 66]'
+  level67:
     level: 67
     xp: 33500
     levelUp: 34000

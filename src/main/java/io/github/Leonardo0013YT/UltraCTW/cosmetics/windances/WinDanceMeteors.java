@@ -44,7 +44,7 @@ public class WinDanceMeteors implements WinDance, Cloneable {
                     return;
                 }
                 Fireball fb = world.spawn(center, Fireball.class);
-                fb.setVelocity(new Vector(ThreadLocalRandom.current().nextInt(0, maxOfCenter), -1, ThreadLocalRandom.current().nextInt(0, maxOfCenter)));
+                fb.setVelocity(new Vector(ThreadLocalRandom.current().nextDouble(-maxOfCenter, maxOfCenter), -1.5, ThreadLocalRandom.current().nextDouble(-maxOfCenter, maxOfCenter)));
             }
         }.runTaskTimer(UltraCTW.get(), taskTick, taskTick);
     }

@@ -1,11 +1,13 @@
 package io.github.Leonardo0013YT.UltraCTW.cmds;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
+import io.github.Leonardo0013YT.UltraCTW.enums.State;
 import io.github.Leonardo0013YT.UltraCTW.game.GamePlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -101,6 +103,77 @@ public class CTWCMD implements CommandExecutor {
                             break;
                     }
                     break;
+                case "exp":
+                    if (args.length < 4) {
+                        this.sendHelp(sender);
+                        return true;
+                    }
+
+                    switch (args[1].toLowerCase()) {
+                        case "add":
+                            Player on = Bukkit.getPlayer(args[2]);
+                            if (on == null) {
+                                sender.sendMessage(this.plugin.getLang().get("setup.noOnline"));
+                                return true;
+                            }
+                            int amount;
+                            try {
+                                amount = Integer.parseInt(args[3]);
+                            } catch (NumberFormatException var49) {
+                                sender.sendMessage(this.plugin.getLang().get("setup.noNumber"));
+                                return true;
+                            }
+                            CTWPlayer sw;
+                            sw = this.plugin.getDb().getCTWPlayer(on);
+                            sw.setXp(sw.getXp() + amount);
+                            sender.sendMessage(this.plugin.getLang().get("exp.add.you").replaceAll("<exp>", String.valueOf(amount)).replaceAll("<player>", on.getName()));
+                            on.sendMessage(this.plugin.getLang().get("exp.add.receiver").replaceAll("<exp>", String.valueOf(amount)).replaceAll("<sender>", sender.getName()));
+                            Utils.updateSB(on);
+                            return false;
+                        case "remove":
+                            Player on1 = Bukkit.getPlayer(args[2]);
+                            if (on1 == null) {
+                                sender.sendMessage(this.plugin.getLang().get("setup.noOnline"));
+                                return true;
+                            }
+                            int amount1;
+                            try {
+                                amount1 = Integer.parseInt(args[3]);
+                            } catch (NumberFormatException var48) {
+                                sender.sendMessage(this.plugin.getLang().get("setup.noNumber"));
+                                return true;
+                            }
+                            CTWPlayer sw1;
+                            sw1 = this.plugin.getDb().getCTWPlayer(on1);
+                            sw1.setXp(sw1.getXp() - amount1);
+                            sender.sendMessage(this.plugin.getLang().get("exp.remove.you").replaceAll("<exp>", String.valueOf(amount1)).replaceAll("<player>", on1.getName()));
+                            on1.sendMessage(this.plugin.getLang().get("exp.remove.receiver").replaceAll("<exp>", String.valueOf(amount1)).replaceAll("<sender>", sender.getName()));
+                            Utils.updateSB(on1);
+                            return false;
+                        case "set":
+                            Player on2 = Bukkit.getPlayer(args[2]);
+                            if (on2 == null) {
+                                sender.sendMessage(this.plugin.getLang().get("setup.noOnline"));
+                                return true;
+                            }
+                            int amount2;
+                            try {
+                                amount2 = Integer.parseInt(args[3]);
+                            } catch (NumberFormatException var47) {
+                                sender.sendMessage(this.plugin.getLang().get("setup.noNumber"));
+                                return true;
+                            }
+                            CTWPlayer sw2;
+                            sw2 = this.plugin.getDb().getCTWPlayer(on2);
+                            sw2.setXp(amount2);
+                            sender.sendMessage(this.plugin.getLang().get("exp.set.you").replaceAll("<exp>", String.valueOf(amount2)).replaceAll("<player>", on2.getName()));
+                            on2.sendMessage(this.plugin.getLang().get("exp.set.receiver").replaceAll("<exp>", String.valueOf(amount2)).replaceAll("<sender>", sender.getName()));
+                            Utils.updateSB(on2);
+                            return false;
+                        default:
+                            this.sendHelp(sender);
+                            return false;
+                    }
                 case "join":
                     if (plugin.getGm().isPlayerInGame(p)) {
                         p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
@@ -114,13 +187,38 @@ public class CTWCMD implements CommandExecutor {
                     }
                     plugin.getGm().addPlayerGame(p, game.getId());
                     break;
+                case "forcestart":
+                    if (!p.hasPermission("ctw.forcestart")) {
+                        p.sendMessage(this.plugin.getLang().get(p, "messages.noPermission"));
+                        return true;
+                    }
+
+                    Game g = plugin.getGm().getSelectedGame();
+                    if (g == null) {
+                        p.sendMessage(ChatColor.RED + "You are not in game.");
+                        return true;
+                    }
+
+                    if (g.isState(State.GAME) || g.isState(State.FINISH) || g.isState(State.RESTARTING)) {
+                        p.sendMessage(this.plugin.getLang().get(p, "messages.noIngame"));
+                        return true;
+                    }
+
+                    if (g.getCached().size() < 2) {
+                        p.sendMessage(ChatColor.RED + "Se necesitan más jugadores para iniciar el juego.");
+                        return true;
+                    }
+
+                    g.setStarting(6);
+                    g.sendGameMessage(ChatColor.RED + "The game has been forced to start!");
+                    break;
                 case "menu":
                     if (plugin.getGm().isPlayerInGame(p)) {
                         p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
                         return true;
                     }
-                    Game g = plugin.getGm().getSelectedGame();
-                    plugin.getGem().createJoinMenu(p, g);
+                    Game gs = plugin.getGm().getSelectedGame();
+                    plugin.getGem().createJoinMenu(p, gs);
                     break;
                 case "kitsmenu":
                     plugin.getUim().getPages().put(p, 1);

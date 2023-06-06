@@ -56,6 +56,9 @@ bounty:
   min: 90
   max: 110
   perKill: 0.10
+chat:
+  broadcastLevelUp: true
+  broadcastGame: true
 items:
   lobby:
     enabled: true

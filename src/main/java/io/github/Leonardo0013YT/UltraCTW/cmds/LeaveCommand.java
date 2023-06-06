@@ -19,10 +19,12 @@ public class LeaveCommand implements CommandExecutor{
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
-                if (plugin.getGm().isPlayerInGame(p)) {
-                    plugin.getGm().removePlayerGame(p, true);
-                    p.sendMessage(plugin.getLang().get("messages.leaveGame"));
-                } 
+                if (!plugin.getGm().isPlayerInGame(p)) {
+                    p.sendMessage(plugin.getLang().get(p, "messages.noGame"));
+                    return true;
+                }
+                plugin.getGm().removePlayerGame(p, true);
+                p.sendMessage(plugin.getLang().get(p, "messages.leaveGame"));
             }
         return false;
     }

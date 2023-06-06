@@ -4,8 +4,11 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Vehicle;
 
 public interface NMS {
+
+    Vehicle spawnHorse(Location loc, Player p);
 
     void sendActionBar(Player p, String msg);
 

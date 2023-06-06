@@ -20,12 +20,11 @@ import io.github.Leonardo0013YT.UltraCTW.xseries.XMaterial;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Arrow;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
@@ -38,6 +37,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.util.Vector;
 
 
 import java.util.ArrayList;
@@ -51,14 +51,14 @@ public class PlayerListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         plugin.getDb().loadPlayer(p);
         Bukkit.getOnlinePlayers().stream()
                 .filter(pl -> check(p, pl))
                 .forEach(pl -> pl.hidePlayer(p));
-        givePlayerItems(p);
+        //TODO Enviar mensaje de bienvenido, toggleable por la config
     }
 
     @EventHandler
@@ -66,6 +66,7 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
         plugin.getLvl().checkUpgrade(p);
         Utils.updateSB(p);
+        givePlayerItems(p);
     }
 
     @EventHandler
@@ -430,17 +431,12 @@ public class PlayerListener implements Listener {
             if (item != null) {
                 String co = NBTEditor.getString(item, "TEAM", "WOOL", "CAPTURE");
                 if (co != null) {
-                    ItemStack i = item.clone();
-                    i.setAmount(1);
-                    g.getWools().put(e.getBlockPlaced().getLocation(), i);
-                    removeFromProgress(p, item, team, XMaterial.matchXMaterial(i));
+                    e.getBlockPlaced().setType(Material.WOOL);
+                    removeFromProgress(p, item, team, XMaterial.matchXMaterial(item));
                 }
             }
         }
-        if (item == null || item.getType().equals(Material.WOOL)){
-            p.sendMessage(plugin.getLang().get("messages.incorrectPlace"));
-            e.setCancelled(true);
-        }
+
         Squared s1 = g.getPlayerSquared(l);
         Squared s2 = team.getPlayerSquared(l);
         if (s1 != null) {
@@ -472,10 +468,14 @@ public class PlayerListener implements Listener {
         Game g = plugin.getGm().getGameByPlayer(p);
         if (g == null) return;
         Team team = g.getTeamPlayer(p);
+        Location t = e.getTo();
         if (team == null || g.isState(State.WAITING) || g.isState(State.STARTING)) {
             if (g.getLobbyProtection() != null) {
                 Squared s = g.getLobbyProtection();
                 if (!s.isInCuboid(p)) {
+                    p.teleport(g.getLobby());
+                }
+                if (t.getY() <= 10) {
                     p.teleport(g.getLobby());
                 }
             }
@@ -498,6 +498,17 @@ public class PlayerListener implements Listener {
         if (to.getBlockY() < -15) {
             if (plugin.getCm().isInstaKillOnVoidCTW()) {
                 p.damage(1000);
+            }
+        }
+        if (g.isState(State.FINISH)) {
+            if (p.getVehicle() != null) {
+                Entity ent = p.getVehicle();
+                if (ent == null) return;
+                if (ent.getType().equals(EntityType.ENDER_DRAGON) || ent.getType().equals(EntityType.WITHER) || ent.getType().equals(EntityType.HORSE)) {
+                    Vector vec = p.getLocation().getDirection();
+                    ent.setVelocity(vec.multiply(0.5));
+                    plugin.getVc().getReflection().moveDragon(ent, ent.getLocation().getX(), ent.getLocation().getY(), ent.getLocation().getZ(), p.getLocation().getYaw() - 180, p.getLocation().getPitch());
+                }
             }
         }
     }
@@ -633,11 +644,11 @@ public class PlayerListener implements Listener {
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
 
-            ItemStack item = new ItemStack(322, 18);
+            ItemStack item = new ItemStack(322, 16);
             ItemStack chestplate = new ItemStack(311, 1);
 
             if (p.getInventory().contains(chestplate) || p.getInventory().getChestplate().equals(chestplate)){
-                return;
+                p.getInventory().addItem(item);
             } else {
                 p.getInventory().setChestplate(chestplate);
                 p.getInventory().addItem(item);
@@ -892,15 +903,33 @@ public class PlayerListener implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.MONITOR)
     public void onInteract(PlayerInteractEvent e) {
         Player p = e.getPlayer();
+        if (e.getAction().equals(Action.PHYSICAL)) {
+            return;
+        }
+        Game game = plugin.getGm().getGameByPlayer(p);
+        if (game != null && game.isState(State.FINISH)) {
+            if (p.getVehicle() != null) {
+                Entity ent = p.getVehicle();
+                if (ent == null) return;
+                if (ent.getType().equals(EntityType.ENDER_DRAGON)) {
+                    p.launchProjectile(Fireball.class, p.getEyeLocation().getDirection());
+                }
+                if (ent.getType().equals(EntityType.WITHER)) {
+                    p.launchProjectile(WitherSkull.class, p.getEyeLocation().getDirection());
+                }
+                if (ent.getType().equals(EntityType.HORSE)) {
+                    p.launchProjectile(Snowball.class, p.getEyeLocation().getDirection());
+                }
+            }
+        }
         if (p.getItemInHand() == null || p.getItemInHand().getType().equals(Material.AIR)) {
             return;
         }
         ItemStack item = p.getItemInHand();
         if ((item.getType().equals(Material.LAVA_BUCKET) || item.getType().equals(Material.WATER_BUCKET))) {
-            Game game = plugin.getGm().getGameByPlayer(p);
             if (game != null) {
                 Squared s = game.getPlayerSquared(p);
                 if (s != null && s.isNoBreak()) {
@@ -910,7 +939,6 @@ public class PlayerListener implements Listener {
             }
         }
         if (item.equals(plugin.getIm().getTeams())) {
-            Game game = plugin.getGm().getGameByPlayer(p);
             if (game != null) {
                 plugin.getGem().createTeamsMenu(p, game);
             }

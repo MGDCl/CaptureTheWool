@@ -46,29 +46,9 @@ public class WinDanceAnvilLand implements WinDance, Cloneable {
                     return;
                 }
                 byte blockData = 0x0;
-                Location loc1 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc2 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc3 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc4 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc5 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc6 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc7 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc8 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc9 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc10 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter));
-                Location loc11 = new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                Location loc12 = new Location(world, -random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), -random.nextInt(maxOfCenter));
-                world.spawnFallingBlock(loc1, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc3, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc4, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc5, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc6, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc7, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc8, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc9, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc10, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc11, Material.ANVIL, blockData);
-                world.spawnFallingBlock(loc12, Material.ANVIL, blockData);
+                for (int i = 0; i < 12; i++) {
+                    world.spawnFallingBlock(new Location(world, random.nextInt(maxOfCenter), firstUp + random.nextInt(maxRandomUp), random.nextInt(maxOfCenter)), Material.ANVIL, blockData);
+                }
             }
         }.runTaskTimer(UltraCTW.get(), taskTick, taskTick);
     }

@@ -148,4 +148,5 @@ public interface Game {
 
     Squared getLobbyProtection();
 
+    void setStarting(int i);
 }
