@@ -189,28 +189,24 @@ public class CTWCMD implements CommandExecutor {
                     break;
                 case "forcestart":
                     if (!p.hasPermission("ctw.forcestart")) {
-                        p.sendMessage(this.plugin.getLang().get(p, "messages.noPermission"));
+                        p.sendMessage(plugin.getLang().get(p, "messages.noPermission"));
                         return true;
                     }
-
                     Game g = plugin.getGm().getSelectedGame();
                     if (g == null) {
-                        p.sendMessage(ChatColor.RED + "You are not in game.");
+                        p.sendMessage(plugin.getLang().get("messages.noGame"));
                         return true;
                     }
-
                     if (g.isState(State.GAME) || g.isState(State.FINISH) || g.isState(State.RESTARTING)) {
                         p.sendMessage(this.plugin.getLang().get(p, "messages.noIngame"));
                         return true;
                     }
-
                     if (g.getCached().size() < 2) {
-                        p.sendMessage(ChatColor.RED + "Se necesitan más jugadores para iniciar el juego.");
+                        p.sendMessage(plugin.getLang().get("messages.insufficientP"));
                         return true;
                     }
-
                     g.setStarting(6);
-                    g.sendGameMessage(ChatColor.RED + "The game has been forced to start!");
+                    g.sendGameMessage(plugin.getLang().get("messages.forceStart"));
                     break;
                 case "menu":
                     if (plugin.getGm().isPlayerInGame(p)) {

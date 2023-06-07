@@ -109,6 +109,7 @@ public class GameNoState implements Game {
         p.sendMessage(plugin.getLang().get("messages.play"));
         plugin.getGem().createTeamsMenu(p, game);
         checkStart();
+        morePlayers();
     }
 
     @Override
@@ -138,6 +139,18 @@ public class GameNoState implements Game {
             if (cached.size() >= min) {
                 setState(State.STARTING);
                 plugin.broadcastGame(this);
+            }
+        }
+    }
+
+    public void morePlayers(){
+        if (isState(State.STARTING)){
+            Game g = plugin.getGm().getSelectedGame();
+            if (cached.size() >= 10){
+                if (starting > 12){
+                    g.setStarting(11);
+                    sendGameMessage(plugin.getLang().get("messages.morePlayers"));
+                }
             }
         }
     }
@@ -427,7 +440,7 @@ public class GameNoState implements Game {
     }
 
     @Override
-    public void addKill(Player p, boolean bowKill) {
+    public void addKill(Player p, boolean bowKill) {//TODO agregar multiplicadores
         if (gamePlayer.containsKey(p)) {
             GamePlayer gp = gamePlayer.get(p);
             gp.setKills(gp.getKills() + 1);

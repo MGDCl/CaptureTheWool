@@ -169,9 +169,13 @@ messages:
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
   noSave: "&cYou can't keep the wool!"
+  noDrop: "&cYou can't throw this item!"
+  insufficientP: "&cMore players are needed!"
+  forceStart: "&cGame start has been forced!"
+  morePlayers: "&aMore players have joined, bringing forward the start of the game!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
   newPlayer: |-
-    §a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
+    &a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
   joinMessage: |-
     <center>&a&m&l---------------------------------------------
     <center>&7
@@ -211,7 +215,7 @@ messages:
   summonary: |-
     <center>&a&m&l---------------------------------------------
     <center>&7
-    <center>&f&lRewards
+    <center>&f&lRewards Summary
     <center>&7
     &7Total XP: &3<xp>
     <xpGame>
@@ -239,91 +243,91 @@ messages:
     - "&e"
     - "§co§m----------------------------------------------o"
 teampickup:
-  red: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Red&e!'
-  lightgray: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Light Gray&e!'
-  black: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Black&e!'
-  green: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Green&e!'
-  cyan: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Cyan&e!'
-  purple: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Purple&e!'
-  orange: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Orange&e!'
-  gray: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Gray&e!'
-  blue: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Blue&e!'
-  lime: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Lime&e!'
-  lightblue: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Light Blue&e!'
-  pink: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Pink&e!'
-  yellow: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool Yellow&e!'
-  white: ' &a➤ &e¡<tcolor><player> &epicked up the <color>Wool White&e!'
+  red: ' &a➤ <tcolor><player> &epicked up the <color>Red Wool&e!'
+  lightgray: ' &a➤ <tcolor><player> &epicked up the <color>Light Gray Wool&e!'
+  black: ' &a➤ <tcolor><player> &epicked up the <color>Black Wool&e!'
+  green: ' &a➤ <tcolor><player> &epicked up the <color>Green Wool&e!'
+  cyan: ' &a➤ <tcolor><player> &epicked up the <color>Cyan Wool&e!'
+  purple: ' &a➤ <tcolor><player> &epicked up the <color>Purple Wool&e!'
+  orange: ' &a➤ <tcolor><player> &epicked up the <color>Orange Wool&e!'
+  gray: ' &a➤ <tcolor><player> &epicked up the <color> Gray Wool&e!'
+  blue: ' &a➤ <tcolor><player> &epicked up the <color>Blue Wool&e!'
+  lime: ' &a➤ <tcolor><player> &epicked up the <color>Lime Wool&e!'
+  lightblue: ' &a➤ <tcolor><player> &epicked up the <color>Light Blue Wool&e!'
+  pink: ' &a➤ <tcolor><player> &epicked up the <color>Pink Wool&e!'
+  yellow: ' &a➤ <tcolor><player> &epicked up the <color>Yellow Wool&e!'
+  white: ' &a➤ <tcolor><player> &epicked up the <color>White Wool&e!'
 otherpickup:
-  red: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Red &c&l! !'
-  lightgray: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Light Gray &c&l! !'
-  black: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Black &c&l! !'
-  green: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Green &c&l! !'
-  cyan: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Cyan &c&l! !'
-  purple: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Purple &c&l! !'
-  orange: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Orange &c&l! !'
-  gray: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Gray &c&l! !'
-  blue: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Blue &c&l! !'
-  lime: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Lime &c&l! !'
-  lightblue: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Light Blue &c&l! !'
-  pink: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Pink &c&l! !'
-  yellow: '&c&l! ! <tcolor><player> &epicked up your <color>Wool Yellow &c&l! !'
-  white: '&c&l! ! <tcolor><player> &epicked up your <color>Wool White &c&l! !'
+  red: '&c&l! ! <tcolor><player> &epicked up your <color>Red Wool &c&l! !'
+  lightgray: '&c&l! ! <tcolor><player> &epicked up your <color>Light Gray Wool &c&l! !'
+  black: '&c&l! ! <tcolor><player> &epicked up your <color>Black Wool &c&l! !'
+  green: '&c&l! ! <tcolor><player> &epicked up your <color>Green Wool &c&l! !'
+  cyan: '&c&l! ! <tcolor><player> &epicked up your <color>Cyan Wool &c&l! !'
+  purple: '&c&l! ! <tcolor><player> &epicked up your <color>Purple Wool &c&l! !'
+  orange: '&c&l! ! <tcolor><player> &epicked up your <color>Orange Wool &c&l! !'
+  gray: '&c&l! ! <tcolor><player> &epicked up your <color>Gray Wool &c&l! !'
+  blue: '&c&l! ! <tcolor><player> &epicked up your <color>Blue Wool &c&l! !'
+  lime: '&c&l! ! <tcolor><player> &epicked up your <color>Lime Wool &c&l! !'
+  lightblue: '&c&l! ! <tcolor><player> &epicked up your <color>Light Blue Wool &c&l! !'
+  pink: '&c&l! ! <tcolor><player> &epicked up your <color>Pink Wool &c&l! !'
+  yellow: '&c&l! ! <tcolor><player> &epicked up your <color>Yellow Wool &c&l! !'
+  white: '&c&l! ! <tcolor><player> &epicked up your <color>White Wool &c&l! !'
 woolplaced:
   red:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Red&c&l!
+  - <center><tcolor><player> captured the <color>Red Wool&c&l!
   - <center>&7
   lightgray:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Light Gray&c&l!
+  - <center><tcolor><player> captured the <color>Light Gray Wool&c&l!
   - <center>&7
   black:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Black&c&l!
+  - <center><tcolor><player> captured the <color>Black Wool&c&l!
   - <center>&7
   green:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Green&c&l!
+  - <center><tcolor><player> captured the <color>Green Wool&c&l!
   - <center>&7
   cyan:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Cyan&c&l!
+  - <center><tcolor><player> captured the <color>Cyan Wool&c&l!
   - <center>&7
   purple:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Purple&c&l!
+  - <center><tcolor><player> captured the <color>Purple Wool&c&l!
   - <center>&7
   orange:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Orange&c&l!
+  - <center><tcolor><player> captured the <color>Orange Wool&c&l!
   - <center>&7
   gray:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Gray&c&l!
+  - <center><tcolor><player> captured the <color>Gray Wool&c&l!
   - <center>&7
   blue:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Blue&c&l!
+  - <center><tcolor><player> captured the <color>Blue Wool&c&l!
   - <center>&7
   lime:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Lime&c&l!
+  - <center><tcolor><player> captured the <color>Lime Wool&c&l!
   - <center>&7
   lightblue:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Light Blue&c&l!
+  - <center><tcolor><player> captured the <color>Light Blue Wool&c&l!
   - <center>&7
   pink:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Pink&c&l!
+  - <center><tcolor><player> captured the <color>Pink Wool&c&l!
   - <center>&7
   yellow:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool Yellow&c&l!
+  - <center><tcolor><player> captured the <color>Yellow Wool&c&l!
   - <center>&7
   white:
   - <center>&7
-  - <center>&c&l¡<tcolor><player> captured the <color>Wool White&c&l!
+  - <center><tcolor><player> captured the <color>White Wool&c&l!
   - <center>&7
 holograms:
   kits:
@@ -363,135 +367,135 @@ titles:
 titlesplaced:
   red:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Red&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Red Wool&c&l!'
   lightgray:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Light Gray&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Light Gray Wool&c&l!'
   black:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Black&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Black Wool&c&l!'
   green:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Green&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Green Wool&c&l!'
   cyan:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Cyan&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Cyan Wool&c&l!'
   purple:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Purple&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Purple Wool&c&l!'
   orange:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Orange&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Orange Wool&c&l!'
   gray:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Gray&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Gray Wool&c&l!'
   blue:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Blue&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Blue Wool&c&l!'
   lime:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Lime&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Lime Wool&c&l!'
   lightblue:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Light Blue&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Light Blue Wool&c&l!'
   pink:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Pink&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Pink Wool&c&l!'
   yellow:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool Yellow&c&l!'
+    subtitle: '<tcolor><player> captured the <color>Yellow Wool&c&l!'
   white:
     title: ''
-    subtitle: '&c&l¡<tcolor><player> captured the <color>Wool White&c&l!'
+    subtitle: '<tcolor><player> captured the <color>White Woo&c&l!'
 titlespickup:
   red:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Red&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Red Wool&e!'
   lightgray:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Light Gray&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Light Gray Wool&e!'
   black:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Black&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Black Wool&e!'
   green:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Green&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Green Wool&e!'
   cyan:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Cyan&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Cyan Wool&e!'
   purple:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Purple&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Purple Wool&e!'
   orange:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Orange&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Orange Wool&e!'
   gray:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Gray&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Gray Wool&e!'
   blue:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Blue&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Blue Wool&e!'
   lime:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Lime&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Lime Wool&e!'
   lightblue:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Light Blue&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Light Blue Wool&e!'
   pink:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Pink&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Pink Wool&e!'
   yellow:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool Yellow&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>Yellow Wool&e!'
   white:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up the <color>Wool White&e!'
+    subtitle: '<tcolor><player> &epicked up the <color>White Wool&e!'
 titlesotherpickup:
   red:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Red&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Red Wool&e!'
   lightgray:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Light Gray&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Light Gray Wool&e!'
   black:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Black&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Black Wool&e!'
   green:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Green&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Green Wool&e!'
   cyan:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Cyan&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Cyan Wool&e!'
   purple:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Purple&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Purple Wool&e!'
   orange:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Orange&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Orange Wool&e!'
   gray:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Gray&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Gray Wool&e!'
   blue:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Blue&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Blue Wool&e!'
   lime:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Lime&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Lime Wool&e!'
   lightblue:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Light Blue&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Light Blue Wool&e!'
   pink:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Pink&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Pink Wool&e!'
   yellow:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool Yellow&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>Yellow Wool&e!'
   white:
     title: ''
-    subtitle: '&e¡<tcolor><player> &epicked up your <color>Wool White&e!'
+    subtitle: '<tcolor><player> &epicked up your <color>White Wool&e!'
 actionbar:
-  noTeam: "&fUse &e§l/join §fto join a team!"
-  myTeam: "<tcolor>§lYOU ARE ON THE TEAM §l<team>"
+  noTeam: "&fUse &e&l/join &fto join a team!"
+  myTeam: "<tcolor>&lYOU ARE ON THE TEAM &l<team>"
   randomTeam: "&eYou were sent to the team <team>"
   levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
   double: '&c&lDOUBLEKILL'
@@ -502,10 +506,10 @@ teams:
   aqua: "&bAqua"
   dark_blue: "&1Dark Blue"
   black: "&0Black"
-  blue: "&9BLUE"
+  blue: "&9&lBLUE"
   dark_aqua: "&3Dark Aqua"
   dark_red: "&4Dark Red"
-  red: "&cRED"
+  red: "&c&lRED"
   dark_gray: "&8Dark Gray"
   gray: "&7Gray"
   dark_green: "&2Dark Green"

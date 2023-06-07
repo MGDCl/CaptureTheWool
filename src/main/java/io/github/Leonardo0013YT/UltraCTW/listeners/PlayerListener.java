@@ -533,6 +533,7 @@ public class PlayerListener implements Listener {
         }
         if (plugin.getCm().getNoDrop().contains(item.getType().name())) {
             e.setCancelled(true);
+            p.sendMessage(plugin.getLang().get("messages.noDrop"));
             return;
         }
         if (item.getType().equals(Material.WOOL)){
