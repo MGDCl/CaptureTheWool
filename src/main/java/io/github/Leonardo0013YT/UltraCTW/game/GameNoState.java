@@ -40,7 +40,14 @@ public class GameNoState implements Game {
     private final ArrayList<Location> placed = new ArrayList<>();
     private final Location lobby, spectator;
     private Squared lobbyProtection;
-    private int teamSize, woolSize, min, starting, defKit, time = 0, max, worldTime;
+    private final int teamSize;
+    private final int woolSize;
+    private final int min;
+    private int starting;
+    private final int defKit;
+    private int time = 0;
+    private final int max;
+    private final int worldTime;
     private State state;
     private UUID player;
     private HashMap<ChatColor, Player> captured;
@@ -98,12 +105,13 @@ public class GameNoState implements Game {
         cached.add(p);
         players.add(p);
         Utils.updateSB(p);
-        UltraCTW.get().getStm().resetStreak(p);
+        plugin.getStm().resetStreak(p);
+        plugin.getTgm().removeTag(p);
         p.setGameMode(GameMode.SPECTATOR);
         Game game = plugin.getGm().getSelectedGame();
         if (isState(State.WAITING) || isState(State.STARTING)) {
-                for (String s : plugin.getLang().get(p, "messages.newPlayer").split("\\n")){
-                    sendGameMessage(s.replaceAll("<player>", p.getDisplayName()).replaceAll("<size>", game.getPlayers().size() + "").replaceAll("<max>", game.getMax() + ""));
+            for (String s : plugin.getLang().get(p, "messages.newPlayer").split("\\n")){
+                sendGameMessage(s.replaceAll("<player>", p.getDisplayName()).replaceAll("<size>", game.getPlayers().size() + "").replaceAll("<max>", game.getMax() + ""));
             }
         }
         p.sendMessage(plugin.getLang().get("messages.play"));

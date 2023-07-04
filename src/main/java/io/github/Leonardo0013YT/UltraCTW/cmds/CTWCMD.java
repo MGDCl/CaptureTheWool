@@ -7,7 +7,6 @@ import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +15,7 @@ import org.bukkit.entity.Player;
 
 public class CTWCMD implements CommandExecutor {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public CTWCMD(UltraCTW plugin) {
         this.plugin = plugin;
@@ -181,6 +180,10 @@ public class CTWCMD implements CommandExecutor {
                     }
                     Game game = plugin.getGm().getSelectedGame();
                     if (game == null) return true;
+                    if (game.isState(State.RESTARTING) || game.isState(State.FINISH)){
+                        p.sendMessage("§c¡El juego se está reiniciando, espera unos segundos!");
+                        return true;
+                    }
                     if (game.getPlayers().size() >= game.getMax()) {
                         p.sendMessage(plugin.getLang().get("messages.maxPlayers"));
                         return true;
@@ -198,11 +201,15 @@ public class CTWCMD implements CommandExecutor {
                         return true;
                     }
                     if (g.isState(State.GAME) || g.isState(State.FINISH) || g.isState(State.RESTARTING)) {
-                        p.sendMessage(this.plugin.getLang().get(p, "messages.noIngame"));
+                        p.sendMessage(plugin.getLang().get(p, "messages.noIngame"));
                         return true;
                     }
                     if (g.getCached().size() < 2) {
                         p.sendMessage(plugin.getLang().get("messages.insufficientP"));
+                        return true;
+                    }
+                    if (g.getStarting() < 6){
+                        p.sendMessage("§c¡El juego ya está empezando!");
                         return true;
                     }
                     g.setStarting(6);
@@ -215,6 +222,15 @@ public class CTWCMD implements CommandExecutor {
                     }
                     Game gs = plugin.getGm().getSelectedGame();
                     plugin.getGem().createJoinMenu(p, gs);
+                    break;
+                case "version":
+                    if (plugin.getGm().isPlayerInGame(p)) {
+                        p.sendMessage(plugin.getLang().get("§cSolo puedes usar ese comando en el Lobby"));
+                        return true;
+                    }
+                    p.sendMessage("§eThe server running UltraCaptureTheWool versión §a" + plugin.getDescription().getVersion() + " §eby §lMGDCl!");
+                    p.sendMessage("§fhttps://github.com/MGDCl/CaptureTheWool");
+                    plugin.getVc().getReflection().sendTitle("§e§lUltraCTW by MGDCl","§f§lversión: §a" + plugin.getDescription().getVersion(),20,40,20, p);
                     break;
                 case "kitsmenu":
                     plugin.getUim().getPages().put(p, 1);

@@ -1037,7 +1037,7 @@ public class PlayerListener implements Listener {
     private void sendJoinMessage(Player p){
         if (!plugin.getCm().isJoinMessage()) return;
         for (String s : plugin.getLang().get(p, "messages.joinMessage").split("\\n")){
-            p.sendMessage(CenterMessage.getCenteredMessage(s.replaceAll("<center>", "").replaceAll("<player>", p.getDisplayName())));
+            p.sendMessage(CenterMessage.getCenteredMessage(s.replaceAll("<center>", "").replaceAll("<player>", p.getDisplayName()).replaceAll("<version>", plugin.getDescription().getVersion())));
         }
     }
 }

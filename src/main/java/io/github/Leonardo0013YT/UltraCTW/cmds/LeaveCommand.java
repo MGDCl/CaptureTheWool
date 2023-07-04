@@ -9,7 +9,7 @@ import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 
 public class LeaveCommand implements CommandExecutor{
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public LeaveCommand(UltraCTW plugin) {
         this.plugin = plugin;
@@ -17,15 +17,25 @@ public class LeaveCommand implements CommandExecutor{
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-            if (sender instanceof Player) {
-                Player p = (Player) sender;
-                if (!plugin.getGm().isPlayerInGame(p)) {
-                    p.sendMessage(plugin.getLang().get(p, "messages.noGame"));
-                    return true;
-                }
-                plugin.getGm().removePlayerGame(p, true);
-                p.sendMessage(plugin.getLang().get(p, "messages.leaveGame"));
+        if (sender instanceof Player) {
+            Player p = (Player) sender;
+            if (!plugin.getGm().isPlayerInGame(p)) {
+                p.sendMessage(plugin.getLang().get(p, "messages.noGame"));
+                return true;
             }
+            plugin.getGm().removePlayerGame(p, true);
+            givePlayerItems(p);
+            p.sendMessage(plugin.getLang().get(p, "messages.leaveGame"));
+        }
         return false;
+    }
+
+    private void givePlayerItems(Player p) {
+        if (plugin.getCm().isItemLobbyEnabled()) {
+            p.getInventory().setItem(plugin.getCm().getItemLobbySlot(), plugin.getIm().getLobby());
+        }
+        if (plugin.getCm().isItemLobby2Enabled()) {
+            p.getInventory().setItem(plugin.getCm().getItemLobby2Slot(), plugin.getIm().getLobby2());
+        }
     }
 }

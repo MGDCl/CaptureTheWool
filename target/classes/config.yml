@@ -30,7 +30,7 @@ gameDefaults:
   maxMultiplier: 5
   starting: 30
   timeToKill: 30
-  limitOfYSpawn: 50
+  limitOfYSpawn: 40
   ironGenerating: 10
   gcoins:
     kill: 3
@@ -46,12 +46,27 @@ gameDefaults:
     capture: 10
   noDrop:
     - WOOL
-    - DIAMOND_CHESTPLATE
     - LEATHER_HELMET
     - LEATHER_CHESTPLATE
     - LEATHER_LEGGINGS
     - LEATHER_BOOTS
-    - GOLDEN_APPLE
+    - DIAMOND_HELMET
+    - DIAMOND_CHESTPLATE
+    - DIAMOND_LEGGINGS
+    - DIAMOND_BOOTS
+    - IRON_HELMET
+    - IRON_CHESTPLATE
+    - IRON_LEGGINGS
+    - IRON_BOOTS
+    - IRON_PICKAXE
+    - IRON_AXE
+    - ARROW
+    - WOOD
+    - BOW
+    - IRON_SWORD
+    - STONE_SWORD
+    - DIAMOND_SWORD
+    - PLANKS
 bounty:
   min: 90
   max: 110

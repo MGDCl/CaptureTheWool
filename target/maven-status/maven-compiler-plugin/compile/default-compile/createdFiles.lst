@@ -34,6 +34,7 @@ io\github\Leonardo0013YT\UltraCTW\inventories\setup\SetupTrailMenu.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\shopkeepers\ShopKeeper.class
 io\github\Leonardo0013YT\UltraCTW\listeners\SetupListener$8.class
 io\github\Leonardo0013YT\UltraCTW\inventories\setup\SetupPartingMenu.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectCrazyBlocks.class
 io\github\Leonardo0013YT\UltraCTW\objects\Level.class
 io\github\Leonardo0013YT\UltraCTW\inventories\LobbyShopMenu.class
 io\github\Leonardo0013YT\UltraCTW\objects\ObjectPotion.class
@@ -130,6 +131,7 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectHead$1.class
 io\github\Leonardo0013YT\UltraCTW\enums\TopType.class
 io\github\Leonardo0013YT\UltraCTW\objects\Selection.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectVulcanWool.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectGhosts.class
 io\github\Leonardo0013YT\UltraCTW\utils\ItemUtils.class
 io\github\Leonardo0013YT\UltraCTW\listeners\MenuListener.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\Injection.class
@@ -140,6 +142,7 @@ io\github\Leonardo0013YT\UltraCTW\game\GameWin$ValueComparator.class
 io\github\Leonardo0013YT\UltraCTW\scoreboard\api\PlayerBoard.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectBlood.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectHeartExplosion.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectGhosts$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectGuardians.class
 io\github\Leonardo0013YT\UltraCTW\database\MySQLDatabase.class
 io\github\Leonardo0013YT\UltraCTW\controllers\VersionController.class
@@ -168,6 +171,7 @@ io\github\Leonardo0013YT\UltraCTW\managers\NPCManager.class
 io\github\Leonardo0013YT\UltraCTW\setup\TauntTypeSetup.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\IDatabase.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\NPC.class
+io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectCrazyBlocks$1.class
 io\github\Leonardo0013YT\UltraCTW\UltraCTW.class
 io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$1.class
 io\github\Leonardo0013YT\UltraCTW\nms\NMS_v1_8_r3.class

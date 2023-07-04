@@ -179,7 +179,7 @@ messages:
   joinMessage: |-
     <center>&a&m&l---------------------------------------------
     <center>&7
-    <center>&f&l<player> welcome to Capture the wool!
+    <center>&f&l<player> welcome to Capture the wool v<version>!
     <center>&7
     <center>&a&m&l---------------------------------------------
   start:
@@ -632,6 +632,12 @@ items:
     loreItem: |-
       &7When you click, you'll open
       &7the Capture The Wool lobby menu
+      &7
+      &eRight click to open.
+  lobby2:
+    nameItem: "&ePlay"
+    loreItem: |-
+      &7Click to join a Game!
       &7
       &eRight click to open.
   setup:
