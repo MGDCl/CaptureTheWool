@@ -14,7 +14,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage;
+    private boolean kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -22,7 +22,7 @@ public class ConfigManager {
     private XSound pickUpTeam, pickUpOthers, captured;
     private int ironGenerating, updatePlayersPlaceholder, limitOfYSpawn, itemLobbySlot, itemLobby2Slot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
     private double bountyMin, bountyMax, bountyPerKill;
-    private String itemLobbyCMD, itemLobby2CMD;
+    private String bungeeModeLobbyServer, itemLobbyCMD, itemLobby2CMD;
     private List<String> winCommands, levelCommands, killCommands, deathCommands;
     private List<String> whitelistedCMD, noDrop, breakBypass;
 
@@ -40,6 +40,12 @@ public class ConfigManager {
         this.levelCommands = plugin.getConfig().getStringList("level-commands.cmds");
         this.killCommands = plugin.getConfig().getStringList("kill-commands.cmds");
         this.deathCommands = plugin.getConfig().getStringList("death-commands.cmds");
+        this.sendLobbyOnQuit = plugin.getConfig().getBoolean("bungeeMode.sendLobbyOnQuit");
+        this.kickOnStarted = plugin.getConfig().getBoolean("bungeeMode.kickOnStarted");
+        this.bungeeModeEnabled = plugin.getConfig().getBoolean("bungeeMode.enabled");
+        this.bungeeModeAutoJoin = plugin.getConfig().getBoolean("bungeeMode.autoJoin");
+        this.bungeeModeKickOnFinish = plugin.getConfig().getBoolean("bungeeMode.kickOnFinish");
+        this.bungeeModeLobbyServer = plugin.getConfig().getString("bungeeMode.lobbyServer");
         this.statsCMD = plugin.getConfig().getBoolean("statsCMD");
         this.mobGriefing = plugin.getConfig().getBoolean("mobGriefing");
         this.totalBreak = plugin.getConfig().getBoolean("breakMap.totalBreak");

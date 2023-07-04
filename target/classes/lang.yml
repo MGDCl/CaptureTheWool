@@ -165,6 +165,7 @@ messages:
   ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
   sendLobby: '&eThe game is over, you were sent to the lobby!'
+  restarting: '&cThe game is restarting, wait a few seconds!'
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'

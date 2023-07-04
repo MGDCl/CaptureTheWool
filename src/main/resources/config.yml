@@ -1,6 +1,14 @@
 # Removed some things that are not used, in the config and in the plugin code.
 # If you need help you can consult the discord server: https://discord.com/invite/3RRWVTGveD
+# Bungee mode Requires 2 servers obviously, more options will be added for this.
 debugMode: false
+bungeeMode:
+  enabled: false
+  autoJoin: false
+  kickOnStarted: false
+  sendLobbyOnQuit: false
+  kickOnFinish: false
+  lobbyServer: lobby
 addons:
   placeholdersAPI: true
   NametagEdit: true

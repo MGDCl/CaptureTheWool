@@ -435,10 +435,18 @@ public class GameNoState implements Game {
                         on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
                     }
                 } else {
-                    for (Player on : back) {
-                        if (on == null || !on.isOnline()) continue;
-                        plugin.getGm().removePlayerGame(on, true);
-                        on.sendMessage(plugin.getLang().get("messages.sendLobby"));
+                    if (plugin.getCm().isBungeeModeEnabled()){
+                        for (Player on : back) {
+                            if (on == null || !on.isOnline()) continue;
+                            plugin.sendToServer(on, plugin.getCm().getBungeeModeLobbyServer());
+                            on.sendMessage(plugin.getLang().get("messages.bLobby"));
+                        }
+                    } else {
+                        for (Player on : back) {
+                            if (on == null || !on.isOnline()) continue;
+                            plugin.getGm().removePlayerGame(on, true);
+                            on.sendMessage(plugin.getLang().get("messages.sendLobby"));
+                        }
                     }
                 }
             }

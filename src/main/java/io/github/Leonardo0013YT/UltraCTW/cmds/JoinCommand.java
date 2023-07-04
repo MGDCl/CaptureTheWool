@@ -9,14 +9,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class JoinCommand implements CommandExecutor {
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
     public JoinCommand(UltraCTW plugin) {
         this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender instanceof Player) {
+        if (sender instanceof Player) {//TODO agregar BungeeMode
             Player p = (Player)sender;
             if (!plugin.getGm().isPlayerInGame(p)) {
                 p.sendMessage(plugin.getLang().get("messages.notInGame"));

@@ -11,7 +11,6 @@ import io.github.Leonardo0013YT.UltraCTW.game.GamePlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.CTWPlayer;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.NPC;
-import io.github.Leonardo0013YT.UltraCTW.managers.ConfigManager;
 import io.github.Leonardo0013YT.UltraCTW.objects.Squared;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.utils.CenterMessage;
@@ -47,7 +46,7 @@ import java.util.stream.Collectors;
 
 public class PlayerListener implements Listener {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public PlayerListener(UltraCTW plugin) {
         this.plugin = plugin;
@@ -57,11 +56,41 @@ public class PlayerListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         plugin.getDb().loadPlayer(p);
-        Bukkit.getOnlinePlayers().stream()
-                .filter(pl -> check(p, pl))
-                .forEach(pl -> pl.hidePlayer(p));
-        givePlayerItems(p);
-        sendJoinMessage(p);
+        if (plugin.getCm().isBungeeModeEnabled() && plugin.getGm().getSelectedGame() != null){
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                        Game game = plugin.getGm().getSelectedGame();
+                        p.setGameMode(GameMode.SPECTATOR);
+                        if (game.isState(State.RESTARTING) || game.isState(State.FINISH)){
+                            p.sendMessage(plugin.getLang().get("messages.restarting"));
+                            return;
+                        }
+                        if (game.getPlayers().size() >= game.getMax()) {
+                            p.sendMessage(plugin.getLang().get("messages.maxPlayers"));
+                            return;
+                        }
+                        plugin.getGm().addPlayerGame(p, game.getId());
+                }
+            }.runTaskLater(plugin, 1L);
+        } else {
+            givePlayerItems(p);
+            sendJoinMessage(p);
+            Bukkit.getOnlinePlayers().stream()
+                    .filter(pl -> check(p, pl))
+                    .forEach(pl -> pl.hidePlayer(p));
+        }
+    }
+
+    @EventHandler
+    public void onLogin(PlayerLoginEvent e){
+        if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isKickOnStarted() && plugin.getGm().getSelectedGame() != null) {
+            Game game = plugin.getGm().getSelectedGame();
+            if (game.isState(State.GAME) || game.isState(State.FINISH) || game.isState(State.RESTARTING)){
+                e.setResult(PlayerLoginEvent.Result.KICK_FULL);
+                e.setKickMessage(plugin.getLang().get("messages.kickCTW"));
+            }
+        }
     }
 
     @EventHandler

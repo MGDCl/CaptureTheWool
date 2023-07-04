@@ -181,7 +181,7 @@ public class CTWCMD implements CommandExecutor {
                     Game game = plugin.getGm().getSelectedGame();
                     if (game == null) return true;
                     if (game.isState(State.RESTARTING) || game.isState(State.FINISH)){
-                        p.sendMessage("§c¡El juego se está reiniciando, espera unos segundos!");
+                        p.sendMessage(plugin.getLang().get("messages.restarting"));
                         return true;
                     }
                     if (game.getPlayers().size() >= game.getMax()) {

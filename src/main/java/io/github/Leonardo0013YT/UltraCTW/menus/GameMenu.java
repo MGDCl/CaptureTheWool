@@ -44,7 +44,7 @@ public class GameMenu {
         p.openInventory(inv);
     }
 
-    public void createJoinMenu(Player p, Game game){
+    public void createJoinMenu(Player p, Game game){//TODO add BungeeMode
         Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.join.title"));
         inv.setItem(22, getGameItem(game));
 
@@ -89,7 +89,7 @@ public class GameMenu {
         return leather;
     }
 
-    private ItemStack getGameItem(Game game){
+    private ItemStack getGameItem(Game game){//TODO SAME
         ItemStack wool = new ItemStack(35, 1);
         ItemMeta meta = wool.getItemMeta();
         meta.setDisplayName(plugin.getLang().get("menus.join.wool.nameItem"));

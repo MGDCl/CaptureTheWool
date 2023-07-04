@@ -203,6 +203,7 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceAnvilLand$1.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceThunder.class
 io\github\Leonardo0013YT\UltraCTW\objects\ShopItem.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killsounds\KillSound.class
+io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$3.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\NMS.class
 io\github\Leonardo0013YT\UltraCTW\inventories\setup\SetupTauntMenu.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\Game.class

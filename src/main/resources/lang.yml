@@ -164,7 +164,10 @@ messages:
   joinGame: '&7Connecting to &a<game>'
   ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
+  noGame: '&cyou are not in a game!'
+  bLobby: '&cThe game is over, you were sent to the lobby of CTW!'
   sendLobby: '&eThe game is over, you were sent to the lobby!'
+  restarting: '&cThe game is restarting, wait a few seconds!'
   play: "&fUse &e&l/join &fto join a team"
   levelup: 'The player &a&l<player> &7leveled up to level <level>'
   arrowdamage: '<color><victim> &7has &c<health> &7HP!'
