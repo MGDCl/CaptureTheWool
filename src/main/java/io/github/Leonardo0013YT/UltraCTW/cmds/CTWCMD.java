@@ -209,7 +209,7 @@ public class CTWCMD implements CommandExecutor {
                         return true;
                     }
                     if (g.getStarting() < 6){
-                        p.sendMessage("§c¡El juego ya está empezando!");
+                        p.sendMessage(plugin.getLang().get("messages.alrStarting"));
                         return true;
                     }
                     g.setStarting(6);
@@ -223,9 +223,12 @@ public class CTWCMD implements CommandExecutor {
                     Game gs = plugin.getGm().getSelectedGame();
                     plugin.getGem().createJoinMenu(p, gs);
                     break;
+                case "lobby":
+                    plugin.getUim().openContentInventory(p, plugin.getUim().getMenus("lobby"));
+                    break;
                 case "version":
                     if (plugin.getGm().isPlayerInGame(p)) {
-                        p.sendMessage(plugin.getLang().get("§cSolo puedes usar ese comando en el Lobby"));
+                        p.sendMessage(plugin.getLang().get(plugin.getLang().get("messages.noGame")));
                         return true;
                     }
                     p.sendMessage("§eThe server running UltraCaptureTheWool versión §a" + plugin.getDescription().getVersion() + " §eby §lMGDCl!");

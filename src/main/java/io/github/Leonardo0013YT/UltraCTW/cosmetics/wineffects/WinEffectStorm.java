@@ -8,20 +8,14 @@ import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Horse;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.entity.Horse.Variant;
 import org.bukkit.scheduler.BukkitTask;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WinEffectStorm implements WinEffect, Cloneable {
 
@@ -62,22 +56,6 @@ public class WinEffectStorm implements WinEffect, Cloneable {
         if (task != null) {
             task.cancel();
         }
-    }
-
-    private List<Block> getNearbyBlocks(Location location) {
-        List<Block> blocks = new ArrayList<>();
-        for (int x = location.getBlockX() - 2; x <= location.getBlockX() + 2; x++) {
-            for (int y = location.getBlockY() - 2; y <= location.getBlockY() + 2; y++) {
-                for (int z = location.getBlockZ() - 2; z <= location.getBlockZ() + 2; z++) {
-                    Block block = location.getWorld().getBlockAt(x, y, z);
-                    if (block.getType() == Material.AIR || block.getType() == Material.ICE || block.getType() == Material.PACKED_ICE) {
-                        continue;
-                    }
-                    blocks.add(block);
-                }
-            }
-        }
-        return blocks;
     }
 
     @Override

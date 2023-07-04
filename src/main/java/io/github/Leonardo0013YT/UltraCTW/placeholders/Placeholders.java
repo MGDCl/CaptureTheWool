@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class Placeholders extends PlaceholderExpansion {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public Placeholders(UltraCTW plugin) {
         this.plugin = plugin;
@@ -24,7 +24,7 @@ public class Placeholders extends PlaceholderExpansion {
     }
 
     public String getVersion() {
-        return "2.4.1";
+        return "2.4.2";
     }
 
     @Override

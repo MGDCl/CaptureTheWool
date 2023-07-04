@@ -14,10 +14,17 @@ import java.util.List;
 
 public class UltraWinEffect implements Purchasable {
 
-    private String name, permission, type, autoGivePermission;
-    private boolean isBuy, needPermToBuy;
-    private int id, slot, page, price;
-    private ItemStack icon;
+    private final String name;
+    private final String permission;
+    private final String type;
+    private final String autoGivePermission;
+    private final boolean isBuy;
+    private final boolean needPermToBuy;
+    private final int id;
+    private final int slot;
+    private final int page;
+    private final int price;
+    private final ItemStack icon;
 
     public UltraWinEffect(UltraCTW plugin, String s) {
         this.id = plugin.getWineffect().getInt(s + ".id");

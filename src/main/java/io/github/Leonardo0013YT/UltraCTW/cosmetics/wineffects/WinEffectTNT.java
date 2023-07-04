@@ -6,41 +6,36 @@ import io.github.Leonardo0013YT.UltraCTW.interfaces.WinEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class WinEffectGhosts implements WinEffect, Cloneable {
+public class WinEffectTNT implements WinEffect, Cloneable {
 
-    private final Collection<FallingBlock> fires = new ArrayList<>();
     private BukkitTask task;
 
     @Override
     public void start(Player p, Game game) {
-        Location loc = p.getLocation();
         task = new BukkitRunnable() {
-            int count = 15;
+            int count = 0;
             @Override
             public void run() {
                 if(p.getWorld().equals(Bukkit.getWorlds().get(0))) {
                     cancel();
                     return;
                 }
-                count--;
                 int xrand = ThreadLocalRandom.current().nextInt(-16,16);
                 int zrand = ThreadLocalRandom.current().nextInt(-16,16);
-                Location ranloc = loc.clone().add(xrand, 10, zrand);
-                ranloc.getWorld().spawnEntity(ranloc, EntityType.GHAST);
-                if(count==0) {
+                Location ranloc = p.getLocation().clone().add(xrand, 10, zrand);
+                p.getWorld().spawnEntity(ranloc, EntityType.PRIMED_TNT);
+                count++;
+                if(count > 36) {
                     cancel();
                 }
             }
-        }.runTaskTimer(UltraCTW.get(), 0L, 3L);
+        }.runTaskTimer(UltraCTW.get(), 0L, 5L);
     }
 
     @Override
@@ -52,11 +47,6 @@ public class WinEffectGhosts implements WinEffect, Cloneable {
 
     @Override
     public WinEffect clone() {
-        return new WinEffectGhosts();
+        return new WinEffectTNT();
     }
-
-    protected double random(double d, double d2) {
-        return d + ThreadLocalRandom.current().nextDouble() * (d2 - d);
-    }
-
 }

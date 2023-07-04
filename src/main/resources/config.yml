@@ -86,7 +86,7 @@ items:
   lobby:
     enabled: true
     slot: 4
-    cmd: /perfil
+    cmd: /ctw lobby
   lobby2:
     enabled: true
     slot: 0

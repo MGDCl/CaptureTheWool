@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class WinEffectFireworks implements WinEffect, Cloneable {
 
     private BukkitTask task;
-    private Random random;
+    private final Random random;
 
     public WinEffectFireworks() {
         this.task = null;

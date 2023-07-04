@@ -57,7 +57,7 @@ wineffects:
         display-name: §aGhosts
         lore:
           - '§eDescription:'
-          - §7A ghostly invasion will 
+          - §7A ghostly invasion will
           - §7surround the world
           - §7
           - <price>
@@ -232,3 +232,121 @@ wineffects:
     slot: 21
     page: 1
     permission: ultractw.wineffects.daredevil
+  icewalker:
+    id: 10
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: ICE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aIce Walker
+        lore:
+          - '§eDescription:'
+          - §7Ice appears as he walks.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: icewalker
+    name: "Ice Walker"
+    price: 2500
+    isBuy: true
+    slot: 22
+    page: 1
+    permission: ultractw.wineffects.icewalker
+  notes:
+    id: 11
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: GREEN_RECORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aNotes
+        lore:
+          - '§eDescription:'
+          - §7Notes appaer about you.
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: notes
+    name: "Notes"
+    price: 2500
+    isBuy: true
+    slot: 23
+    page: 1
+    permission: ultractw.wineffects.notes
+  vulcanfire:
+    id: 12
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: FIREWORK_CHARGE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aFire Volcano
+        lore:
+          - '§eDescription:'
+          - §7Fire volcano, give it color
+          - §7to your hot life :>
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: vulcanfire
+    name: "Vulcan Fire"
+    price: 2500
+    isBuy: true
+    slot: 24
+    page: 1
+    permission: ultractw.wineffects.vulcanfire
+  catrain:
+    id: 13
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: FIREWORK_CHARGE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aCat Rain
+        lore:
+          - '§eDescription:'
+          - §7Fire volcano, give it color
+          - §7to your hot life :>
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: catrain
+    name: "Cat Rain"
+    price: 2500
+    isBuy: true
+    slot: 25
+    page: 1
+    permission: ultractw.wineffects.catrain
+  tnt:
+    id: 14
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: TNT
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aTNT
+        lore:
+          - '§eDescription:'
+          - §7Fire volcano, give it color
+          - §7to your hot life :>
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: catrain
+    name: "TNT"
+    price: 2500
+    isBuy: true
+    slot: 26
+    page: 1
+    permission: ultractw.wineffects.tnt

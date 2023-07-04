@@ -127,6 +127,7 @@ messages:
   bountyClaimed: "&6&lBOUNTY CLAIMED! <killer> &7killed <death> &7for &6&l<coins>"
   teamMajorPlayers: "&cThere are many players on this team try to get into another."
   noSelect: "&cYou don't have a selected."
+  alrStarting: "&cThe game is already starting!"
   noSelected: "&cNot selected"
   noSelector: "&cYou don't have permission for that, use automatic mode."
   noBuy: "&cThis cannot be purchased by users."
@@ -164,6 +165,8 @@ messages:
   joinGame: '&7Connecting to &a<game>'
   ending: '&eA new game starts in &c<count>&e second<s>.'
   newGame: 'You were sent to the game &a<map>&e!'
+  noGame: '&cyou are not in a game!'
+  bLobby: '&cThe game is over, you were sent to the lobby of CTW!'
   sendLobby: '&eThe game is over, you were sent to the lobby!'
   restarting: '&cThe game is restarting, wait a few seconds!'
   play: "&fUse &e&l/join &fto join a team"

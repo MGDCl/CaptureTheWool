@@ -75,6 +75,26 @@ public class WinEffectsManager {
                 we = new WinEffectDareDevil();
                 we.start(p, game);
                 break;
+            case "notes":
+                we = new WinEffectNotes();
+                we.start(p, game);
+                break;
+            case "icewalker":
+                we = new WinEffectIceWalker();
+                we.start(p, game);
+                break;
+            case "vulcanfire":
+                we = new WinEffectVulcanFire();
+                we.start(p, game);
+                break;
+            case "catrain":
+                we = new WinEffectCatRain();
+                we.start(p, game);
+                break;
+            case "tnt":
+                we = new WinEffectTNT();
+                we.start(p, game);
+                break;
             default:
                 we = new WinEffectVulcanWool();
                 we.start(p, game);

@@ -19,7 +19,7 @@ public class LeaveCommand implements CommandExecutor{
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (plugin.getCm().isBungeeModeEnabled() && plugin.getCm().isSendLobbyOnQuit()) {
+            if (plugin.getCm().isBungeeModeEnabled()) {
                 plugin.sendToServer(p, plugin.getCm().getBungeeModeLobbyServer());
                 p.sendMessage(plugin.getLang().get(p, "messages.leaveGame"));
                 return true;

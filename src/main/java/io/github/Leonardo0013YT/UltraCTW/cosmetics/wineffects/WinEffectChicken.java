@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class WinEffectChicken implements WinEffect {
 
-    private ArrayList<Chicken> chickens = new ArrayList<>();
+    private final ArrayList<Chicken> chickens = new ArrayList<>();
     private BukkitTask task;
 
     @Override
