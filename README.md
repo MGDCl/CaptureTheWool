@@ -11,16 +11,18 @@ Changelog:
 - Added Commands /leave, /join
 - Add titles
 - Add Actionbar Messages
-- Change Hypixel-like messages
+- Messages like in Hypixel
 - The level system and its rewards work well
 - Now when starting the game check that the teams are balanced
 - Game change messages
-- Events that prevent yarns from being misplaced or stored
-- Removed catch the flag code
+- Prevent throwing or saving the wool
+- The capture the flag code was eliminated
 - Added a menu showing the game status and your stats
-- Now the autojoinfinish sends you directly to another game, only activated if you have more than 2 maps!
+- Now the autojoinfinish sends you directly to another game
 - Other minor changes
 
 If you have any errors or any suggestions, you can ask me.
-My discord: DCl#9359
+My discord: itzdcl
+
+Discord support: https://discord.com/invite/3RRWVTGveD
 
