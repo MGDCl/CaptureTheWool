@@ -179,7 +179,10 @@ public class CTWCMD implements CommandExecutor {
                         return true;
                     }
                     Game game = plugin.getGm().getSelectedGame();
-                    if (game == null) return true;
+                    if (game == null){
+                        p.sendMessage("messages.noArenas");
+                        return true;
+                    }
                     if (game.isState(State.RESTARTING) || game.isState(State.FINISH)){
                         p.sendMessage(plugin.getLang().get("messages.restarting"));
                         return true;
@@ -216,6 +219,11 @@ public class CTWCMD implements CommandExecutor {
                     g.sendGameMessage(plugin.getLang().get("messages.forceStart"));
                     break;
                 case "menu":
+                    Game game3 = plugin.getGm().getSelectedGame();
+                    if (game3 == null){
+                        p.sendMessage("messages.noArenas");
+                        return true;
+                    }
                     if (plugin.getGm().isPlayerInGame(p)) {
                         p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
                         return true;

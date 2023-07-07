@@ -24,9 +24,9 @@ import java.util.List;
 
 public class GameMenu {
 
-    private List<Integer> slots = Arrays.asList(10, 16, 19, 20, 21, 22, 23, 24, 25, 28);;
-    private List<Integer> shop = Arrays.asList(10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34);
-    private UltraCTW plugin;
+    private final List<Integer> slots = Arrays.asList(10, 16, 19, 20, 21, 22, 23, 24, 25, 28);;
+    private final List<Integer> shop = Arrays.asList(10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34);
+    private final UltraCTW plugin;
 
     public GameMenu(UltraCTW plugin) {
         this.plugin = plugin;
