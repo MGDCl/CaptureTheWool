@@ -6,7 +6,6 @@ import io.github.Leonardo0013YT.UltraCTW.game.GameNoState;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import lombok.Getter;
-import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -17,13 +16,14 @@ import java.util.concurrent.ThreadLocalRandom;
 @Getter
 public class GameManager {
 
-    private HashMap<Integer, Game> games = new HashMap<>();
-    private HashMap<String, Integer> gameNames = new HashMap<>();
-    private HashMap<UUID, Integer> playerGame = new HashMap<>();
-    private HashMap<String, Integer> players = new HashMap<>();
+    private final HashMap<Integer, Game> games = new HashMap<>();
+    private final HashMap<String, Integer> gameNames = new HashMap<>();
+    private final HashMap<UUID, Integer> playerGame = new HashMap<>();
+    private final HashMap<String, Integer> players = new HashMap<>();
     private long lastUpdatePlayers;
     private Game selectedGame;
-    private UltraCTW plugin;
+    private Game bungee;
+    private final UltraCTW plugin;
 
     public GameManager(UltraCTW plugin) {
         this.plugin = plugin;
@@ -116,6 +116,10 @@ public class GameManager {
         NametagEdit.getApi().clearNametag(p);
         playerGame.remove(p.getUniqueId());
         Utils.updateSB(p);
+        if (plugin.getCm().isBungeeModeEnabled()) {
+            p.sendMessage("Seras enviado al lobby del server...");
+            plugin.sendToServer(p, plugin.getCm().getBungeeModeLobbyServer());
+        }
         if (toLobby) {
             if (plugin.getCm().getMainLobby() != null) {
                 if (plugin.getCm().getMainLobby().getWorld() != null) {
@@ -127,6 +131,15 @@ public class GameManager {
 
     public boolean isPlayerInGame(Player p) {
         return playerGame.containsKey(p.getUniqueId());
+    }
+
+    public Game getBungee() {
+        if (bungee == null) {
+            if (games.size() > 0) {
+                bungee = this.games.get(0);
+            }
+        }
+        return bungee;
     }
 
 }

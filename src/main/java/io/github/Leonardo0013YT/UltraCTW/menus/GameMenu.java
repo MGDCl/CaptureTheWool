@@ -44,10 +44,11 @@ public class GameMenu {
         p.openInventory(inv);
     }
 
-    public void createJoinMenu(Player p, Game game){//TODO add BungeeMode
+    public void createJoinMenu(Player p, Game game){
         Inventory inv = Bukkit.createInventory(null, 45, plugin.getLang().get("menus.join.title"));
-        inv.setItem(22, getGameItem(game));
-
+        if (game != null){
+            inv.setItem(22, getGameItem(game));
+        }
         ItemStack stats = new ItemStack(339, 1);
         ItemMeta meta = stats.getItemMeta();
         meta.setDisplayName(plugin.getLang().get("menus.join.stats.nameItem"));

@@ -150,6 +150,10 @@ public class UltraCTW extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(new WorldListener(this), this);
+        if (getCm().isBungeeModeEnabled()){
+            sendLogMessage("§eLoading Listeners for BungeeMode...");
+            getServer().getPluginManager().registerEvents(new MotdListener(this), this);
+        }
         if (getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new Placeholders(this).register();
         }

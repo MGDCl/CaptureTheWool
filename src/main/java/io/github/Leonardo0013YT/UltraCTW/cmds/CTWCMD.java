@@ -174,6 +174,9 @@ public class CTWCMD implements CommandExecutor {
                             return false;
                     }
                 case "join":
+                    if (plugin.getCm().isBungeeModeEnabled()){
+                        return true;
+                    }
                     if (plugin.getGm().isPlayerInGame(p)) {
                         p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
                         return true;
@@ -219,6 +222,9 @@ public class CTWCMD implements CommandExecutor {
                     g.sendGameMessage(plugin.getLang().get("messages.forceStart"));
                     break;
                 case "menu":
+                    if (plugin.getCm().isBungeeModeEnabled()){
+                        return true;
+                    }
                     Game game3 = plugin.getGm().getSelectedGame();
                     if (game3 == null){
                         p.sendMessage("messages.noArenas");

@@ -541,6 +541,13 @@ prefix:
   white: "&f[W]"
   yellow: "&e[Y]"
   gold: "&6[G]"
+motds:
+  WAITING: '&aWaiting... &9Info: &e<map> &b<players>&7/&b<max>'
+  STARTING: '&eStarting... &9Info: &e<map> &b<players>&7/&b<max>'
+  PREGAME: '&aPre Game... &9Info: &e<map> &b<players>&7/&b<max>'
+  GAME: '&4In Game... &9Info: &e<map> &b<players>&7/&b<max>'
+  FINISH: '&9Finish... &9Info: &e<map> &b<players>&7/&b<max>'
+  RESTARTING: '&5Restarting... &9Info: &e<map> &b<players>&7/&b<max>'
 setup:
   itemInHand: "&cYou must have the item in your hand."
   setTopKills: "&aYou've set up the top kills."
