@@ -90,14 +90,17 @@ public class Team {
         for (Location l : spawners.keySet()) {
             ChatColor c = spawners.get(l);
             if (!dropped.containsKey(c)) {
-                Item i = l.getWorld().dropItem(l.clone(), (ItemStack)NBTEditor.set(Utils.getXMaterialByColor(c).parseItem(), c.name(), new Object[]{"TEAM", "WOOL", "CAPTURE"}));
-                for(double a = 0.0; a < 360.0; a += 20.0) {//This requires item-merge 0.0
-                    double x = Math.cos(a);
-                    double z = Math.sin(a);
+                Item i = l.getWorld().dropItem(l.clone().add(0, 1, 0), NBTEditor.set(Utils.getXMaterialByColor(c).parseItem(), c.name(), "TEAM", "WOOL", "CAPTURE"));
+                for(double angle = 0.0; angle < 360.0; angle += 20.0) {
+                    double x = Math.cos(angle);
+                    double z = Math.sin(angle);
                     Vector d = (new Vector(x, 1.0, z)).multiply(0.15);
-                    Item item1 = l.getWorld().dropItem(l.clone(), (ItemStack)NBTEditor.set(Utils.getXMaterialByColor(c).parseItem(), c.name(), new Object[]{"TEAM", "WOOL", "CAPTURE"}));
-                    item1.setVelocity(d);
+                    Item i1 = l.getWorld().dropItem(l.clone(), NBTEditor.set(Utils.getXMaterialByColor(c).parseItem(), c.name(), "TEAM", "WOOL", "CAPTURE"));
+                    i1.setVelocity(d);
                 }
+                i.setVelocity(new Vector(0, 0, 0.1));
+                i.setMetadata("DROPPED", new FixedMetadataValue(UltraCTW.get(), c.name()));
+                plugin.getVc().getNMS().broadcastParticle(l, 0, 1, 0, 2, "HEART", 3, 1);
                 this.dropped.put(c, i);
             }
         }
