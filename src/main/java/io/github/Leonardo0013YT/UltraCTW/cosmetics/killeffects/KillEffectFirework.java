@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class KillEffectFirework implements KillEffect, Cloneable {
 
-    private Random random;
+    private final Random random;
 
     public KillEffectFirework() {
         this.random = new Random();

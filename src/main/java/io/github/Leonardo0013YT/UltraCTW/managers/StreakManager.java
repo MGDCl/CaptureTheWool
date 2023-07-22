@@ -17,8 +17,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class StreakManager {
 
-    private UltraCTW plugin;
-    private HashMap<UUID, Streak> streaks = new HashMap<>();
+    private final UltraCTW plugin;
+    private final HashMap<UUID, Streak> streaks = new HashMap<>();
 
     public StreakManager(UltraCTW plugin) {
         this.plugin = plugin;

@@ -23,7 +23,7 @@ public class WinEffectChicken implements WinEffect {
     @Override
     public void start(Player p, Game game) {
 		task = new BukkitRunnable() {
-            String name = game.getSpectator().getWorld().getName();
+            final String name = game.getSpectator().getWorld().getName();
 
             @Override
             public void run() {

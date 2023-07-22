@@ -28,7 +28,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class MenuListener implements Listener {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public MenuListener(UltraCTW plugin) {
         this.plugin = plugin;

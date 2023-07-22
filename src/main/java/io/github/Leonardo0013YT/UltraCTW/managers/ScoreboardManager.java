@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 public class ScoreboardManager {
 
     UltraCTW plugin;
-    private CustomScoreboard scoreboard = CustomScoreboard.instance();
+    private final CustomScoreboard scoreboard = CustomScoreboard.instance();
 
     public ScoreboardManager(UltraCTW plugin) {
         this.plugin = plugin;

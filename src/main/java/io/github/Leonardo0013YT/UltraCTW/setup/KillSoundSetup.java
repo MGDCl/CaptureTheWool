@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class KillSoundSetup {
 
-    private Player p;
+    private final Player p;
     private ItemStack icon;
     private String name, permission;
     private int slot, page, price;

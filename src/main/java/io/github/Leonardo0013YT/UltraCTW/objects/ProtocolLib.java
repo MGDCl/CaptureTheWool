@@ -19,8 +19,8 @@ import java.util.UUID;
 public class ProtocolLib {
 
     private static ProtocolManager protocolManager;
-    private HashMap<UUID, Long> lastClick = new HashMap<>();
-    private UltraCTW main;
+    private final HashMap<UUID, Long> lastClick = new HashMap<>();
+    private final UltraCTW main;
 
     public ProtocolLib(UltraCTW main) {
         this.main = main;

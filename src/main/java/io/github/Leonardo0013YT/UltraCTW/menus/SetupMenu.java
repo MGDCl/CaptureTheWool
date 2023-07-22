@@ -17,10 +17,10 @@ import java.util.Arrays;
 
 public class SetupMenu {
 
-    private int[] slots = {10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 31};
-    private ArrayList<Integer> whites = new ArrayList<>(Arrays.asList(4, 5, 6, 36, 37, 38, 39, 40, 41, 42, 43, 44));
-    private ChatColor[] colors = {ChatColor.RED, ChatColor.BLUE, ChatColor.YELLOW, ChatColor.GOLD, ChatColor.GREEN, ChatColor.GRAY, ChatColor.DARK_GRAY, ChatColor.AQUA, ChatColor.DARK_AQUA, ChatColor.LIGHT_PURPLE, ChatColor.DARK_PURPLE, ChatColor.DARK_AQUA};
-    private UltraCTW plugin;
+    private final int[] slots = {10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 31};
+    private final ArrayList<Integer> whites = new ArrayList<>(Arrays.asList(4, 5, 6, 36, 37, 38, 39, 40, 41, 42, 43, 44));
+    private final ChatColor[] colors = {ChatColor.RED, ChatColor.BLUE, ChatColor.YELLOW, ChatColor.GOLD, ChatColor.GREEN, ChatColor.GRAY, ChatColor.DARK_GRAY, ChatColor.AQUA, ChatColor.DARK_AQUA, ChatColor.LIGHT_PURPLE, ChatColor.DARK_PURPLE, ChatColor.DARK_AQUA};
+    private final UltraCTW plugin;
 
     public SetupMenu(UltraCTW plugin) {
         this.plugin = plugin;

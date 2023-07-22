@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class TrailSetup {
 
-    private Player p;
+    private final Player p;
     private ItemStack icon;
     private String name, permission, particle;
     private float offsetX, offsetY, offsetZ;

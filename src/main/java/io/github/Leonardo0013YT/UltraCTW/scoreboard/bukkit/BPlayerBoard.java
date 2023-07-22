@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class BPlayerBoard implements PlayerBoard<String, Integer, String> {
 
-    private Player player;
+    private final Player player;
     private Scoreboard scoreboard;
 
     private String name;

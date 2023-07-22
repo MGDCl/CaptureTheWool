@@ -7,9 +7,16 @@ import org.bukkit.entity.Entity;
 @Getter
 public class Squared {
 
-    private boolean noBreak, noEntry;
-    private Location min, max;
-    private int xMin, xMax, yMin, yMax, zMin, zMax;
+    private final boolean noBreak;
+    private final boolean noEntry;
+    private final Location min;
+    private final Location max;
+    private final int xMin;
+    private final int xMax;
+    private final int yMin;
+    private final int yMax;
+    private final int zMin;
+    private final int zMax;
 
     public Squared(Location max, Location min, boolean noBreak, boolean noEntry) {
         this.min = min;

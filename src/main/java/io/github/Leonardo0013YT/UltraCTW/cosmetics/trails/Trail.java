@@ -14,13 +14,24 @@ import java.util.List;
 
 public class Trail implements Purchasable {
 
-    private ItemStack icon;
-    private TrailType type;
-    private String name, permission, particle, autoGivePermission;
-    private float offsetX, offsetY, offsetZ;
-    private int id, amount, slot, page, price;
-    private double range, speed;
-    private boolean isBuy, needPermToBuy;
+    private final ItemStack icon;
+    private final TrailType type;
+    private final String name;
+    private final String permission;
+    private final String particle;
+    private final String autoGivePermission;
+    private final float offsetX;
+    private final float offsetY;
+    private final float offsetZ;
+    private final int id;
+    private final int amount;
+    private final int slot;
+    private final int page;
+    private final int price;
+    private final double range;
+    private final double speed;
+    private final boolean isBuy;
+    private final boolean needPermToBuy;
 
     public Trail(UltraCTW plugin, String path) {
         this.id = plugin.getTrail().getInt(path + ".id");

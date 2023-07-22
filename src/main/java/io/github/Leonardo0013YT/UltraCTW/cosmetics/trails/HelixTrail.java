@@ -6,13 +6,13 @@ import org.bukkit.util.Vector;
 
 public class HelixTrail {
 
-    private String particle;
-    private double radius;
-    private int degressPerIncrement;
+    private final String particle;
+    private final double radius;
+    private final int degressPerIncrement;
     private int theta = 0;
 
-    private int helixCount;
-    private int helixDegreeSeperation;
+    private final int helixCount;
+    private final int helixDegreeSeperation;
 
     private double cosX, sinX, cosZ, sinZ;
 

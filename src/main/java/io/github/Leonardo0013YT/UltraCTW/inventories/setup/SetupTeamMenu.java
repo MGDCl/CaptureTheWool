@@ -16,7 +16,7 @@ public class SetupTeamMenu implements UltraInventory {
     private Map<Integer, ItemStack> contents = new HashMap<>();
     private int rows = 6;
     private String name;
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public SetupTeamMenu(UltraCTW plugin, String name) {
         this.plugin = plugin;

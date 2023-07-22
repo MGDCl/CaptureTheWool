@@ -21,11 +21,21 @@ import java.util.List;
 
 public class Taunt implements Purchasable {
 
-    private HashMap<String, TauntType> taunts = new HashMap<>();
-    private String name, permission, title, subtitle, player, none, autoGivePermission;
-    private boolean isBuy, needPermToBuy;
-    private int id, slot, page, price;
-    private ItemStack icon;
+    private final HashMap<String, TauntType> taunts = new HashMap<>();
+    private final String name;
+    private final String permission;
+    private final String title;
+    private final String subtitle;
+    private final String player;
+    private final String none;
+    private final String autoGivePermission;
+    private final boolean isBuy;
+    private final boolean needPermToBuy;
+    private final int id;
+    private final int slot;
+    private final int page;
+    private final int price;
+    private final ItemStack icon;
 
     public Taunt(UltraCTW plugin, String s) {
         this.id = plugin.getTaunt().getInt(s + ".id");

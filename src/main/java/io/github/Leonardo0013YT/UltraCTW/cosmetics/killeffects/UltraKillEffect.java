@@ -15,9 +15,16 @@ import java.util.List;
 
 public class UltraKillEffect implements Purchasable {
 
-    private String name, permission, type, autoGivePermission;
-    private boolean isBuy, needPermToBuy;
-    private int id, slot, page, price;
+    private final String name;
+    private final String permission;
+    private final String type;
+    private final String autoGivePermission;
+    private final boolean isBuy;
+    private final boolean needPermToBuy;
+    private final int id;
+    private final int slot;
+    private final int page;
+    private final int price;
     private ItemStack icon;
 
     public UltraKillEffect(UltraCTW plugin, String s) {

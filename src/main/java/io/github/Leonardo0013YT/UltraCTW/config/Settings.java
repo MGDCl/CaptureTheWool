@@ -13,10 +13,10 @@ import java.util.List;
 
 public class Settings {
 
-    private YamlConfiguration config;
-    private File file;
-    private UltraCTW u;
-    private boolean comments;
+    private final YamlConfiguration config;
+    private final File file;
+    private final UltraCTW u;
+    private final boolean comments;
 
     public Settings(UltraCTW u, String s, boolean defaults, boolean comments) {
         this.u = u;

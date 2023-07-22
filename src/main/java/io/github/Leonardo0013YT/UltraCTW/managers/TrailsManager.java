@@ -15,8 +15,8 @@ import java.util.HashMap;
 
 public class TrailsManager {
 
-    private HashMap<Integer, Trail> trails = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, Trail> trails = new HashMap<>();
+    private final UltraCTW plugin;
     private int lastPage;
 
     public TrailsManager(UltraCTW plugin) {

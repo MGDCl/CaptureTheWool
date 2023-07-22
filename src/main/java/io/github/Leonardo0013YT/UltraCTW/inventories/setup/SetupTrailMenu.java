@@ -16,7 +16,7 @@ public class SetupTrailMenu implements UltraInventory {
     private Map<Integer, ItemStack> contents = new HashMap<>();
     private int rows = 5;
     private String name;
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public SetupTrailMenu(UltraCTW plugin, String name) {
         this.plugin = plugin;

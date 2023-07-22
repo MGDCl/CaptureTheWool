@@ -25,8 +25,8 @@ import java.util.HashMap;
 
 public class ShopManager {
 
-    private HashMap<Integer, ShopItem> items = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, ShopItem> items = new HashMap<>();
+    private final UltraCTW plugin;
 
     public ShopManager(UltraCTW plugin) {
         this.plugin = plugin;

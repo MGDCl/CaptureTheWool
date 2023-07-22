@@ -14,8 +14,8 @@ import java.util.HashMap;
 
 public class KillEffectsManager {
 
-    private HashMap<Integer, UltraKillEffect> killEffect = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, UltraKillEffect> killEffect = new HashMap<>();
+    private final UltraCTW plugin;
     private int lastPage;
 
     public KillEffectsManager(UltraCTW plugin) {

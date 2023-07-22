@@ -13,9 +13,9 @@ import java.util.*;
 
 public class WorldController {
 
-    private String clear;
-    private UltraCTW plugin;
-    private WorldEdit edit;
+    private final String clear;
+    private final UltraCTW plugin;
+    private final WorldEdit edit;
 
     public WorldController(UltraCTW plugin) {
         clear = plugin.getConfig().getString("schemaToClearLobby");

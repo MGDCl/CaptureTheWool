@@ -6,8 +6,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class TauntType {
 
-    private String damage;
-    private Collection<String> messages;
+    private final String damage;
+    private final Collection<String> messages;
 
     public TauntType(String damage, Collection<String> messages) {
         this.damage = damage;

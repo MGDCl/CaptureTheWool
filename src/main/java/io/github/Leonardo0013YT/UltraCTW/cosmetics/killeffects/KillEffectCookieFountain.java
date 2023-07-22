@@ -18,7 +18,7 @@ public class KillEffectCookieFountain implements KillEffect, Cloneable {
 
     private double xRandom, yRandom, zRandom, flowersAmount;
     private int delayDelete;
-    private ArrayList<Item> it = new ArrayList<>();
+    private final ArrayList<Item> it = new ArrayList<>();
     private boolean loaded = false;
     private BukkitTask task;
 

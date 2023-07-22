@@ -8,8 +8,8 @@ import java.util.List;
 
 public class TopManager {
 
-    private HashMap<TopType, Top> tops = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<TopType, Top> tops = new HashMap<>();
+    private final UltraCTW plugin;
 
     public TopManager(UltraCTW plugin) {
         this.plugin = plugin;

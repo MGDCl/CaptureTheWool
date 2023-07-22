@@ -15,10 +15,17 @@ import java.util.List;
 @Getter
 public class ShopKeeper implements Purchasable {
 
-    private String name, permission, autoGivePermission, entityType;
-    private boolean isBuy, needPermToBuy;
-    private int id, slot, page, price;
-    private ItemStack icon;
+    private final String name;
+    private final String permission;
+    private final String autoGivePermission;
+    private final String entityType;
+    private final boolean isBuy;
+    private final boolean needPermToBuy;
+    private final int id;
+    private final int slot;
+    private final int page;
+    private final int price;
+    private final ItemStack icon;
 
     public ShopKeeper(UltraCTW plugin, String s) {
         this.id = plugin.getShopkeepers().getInt(s + ".id");

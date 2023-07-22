@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 
 public class SetupCMD implements CommandExecutor {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public SetupCMD(UltraCTW plugin) {
         this.plugin = plugin;

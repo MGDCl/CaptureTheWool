@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class KillEffectFlowerPower implements KillEffect, Cloneable {
 
-    private ItemStack[] items = {new ItemStack(Material.RED_ROSE, 1, (short) 0), new ItemStack(Material.RED_ROSE, 1, (short) 1), new ItemStack(Material.RED_ROSE, 1, (short) 2), new ItemStack(Material.RED_ROSE, 1, (short) 3), new ItemStack(Material.RED_ROSE, 1, (short) 4), new ItemStack(Material.RED_ROSE, 1, (short) 5), new ItemStack(Material.RED_ROSE, 1, (short) 6), new ItemStack(Material.RED_ROSE, 1, (short) 7), new ItemStack(Material.RED_ROSE, 1, (short) 8), new ItemStack(Material.YELLOW_FLOWER, 1, (short) 0)};
+    private final ItemStack[] items = {new ItemStack(Material.RED_ROSE, 1, (short) 0), new ItemStack(Material.RED_ROSE, 1, (short) 1), new ItemStack(Material.RED_ROSE, 1, (short) 2), new ItemStack(Material.RED_ROSE, 1, (short) 3), new ItemStack(Material.RED_ROSE, 1, (short) 4), new ItemStack(Material.RED_ROSE, 1, (short) 5), new ItemStack(Material.RED_ROSE, 1, (short) 6), new ItemStack(Material.RED_ROSE, 1, (short) 7), new ItemStack(Material.RED_ROSE, 1, (short) 8), new ItemStack(Material.YELLOW_FLOWER, 1, (short) 0)};
     private double xRandom, yRandom, zRandom, flowersAmount;
     private int delayDelete;
     private boolean loaded = false;

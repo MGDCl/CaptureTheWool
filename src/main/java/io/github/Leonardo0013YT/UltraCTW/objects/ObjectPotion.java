@@ -6,9 +6,9 @@ import lombok.Getter;
 @Getter
 public class ObjectPotion {
 
-    private XPotion potion;
-    private int level;
-    private int duration;
+    private final XPotion potion;
+    private final int level;
+    private final int duration;
 
     public ObjectPotion(XPotion potion, int level, int duration) {
         this.potion = potion;

@@ -8,8 +8,8 @@ import org.bukkit.inventory.ItemStack;
 @Getter
 public class ShopItem implements Purchasable {
 
-    private ItemStack item;
-    private double price;
+    private final ItemStack item;
+    private final double price;
 
     public ShopItem(UltraCTW plugin, String path) {
         this.item = plugin.getShop().getConfig().getItemStack(path + ".item");

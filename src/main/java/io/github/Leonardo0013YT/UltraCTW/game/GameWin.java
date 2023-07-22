@@ -12,7 +12,7 @@ public class GameWin {
     private String winner = "";
     private Team teamWin;
     private TreeMap<String, Integer> sorted_map;
-    private Game game;
+    private final Game game;
 
     public GameWin(Game game) {
         this.game = game;

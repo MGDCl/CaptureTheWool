@@ -11,11 +11,11 @@ import java.util.List;
 
 public class Tagged {
 
-    private HashMap<Player, Double> damagers = new HashMap<>();
-    private HashMap<Player, Long> timer = new HashMap<>();
+    private final HashMap<Player, Double> damagers = new HashMap<>();
+    private final HashMap<Player, Long> timer = new HashMap<>();
     private Player last;
-    private Player damaged;
-    private DecimalFormat f = new DecimalFormat("##.#");
+    private final Player damaged;
+    private final DecimalFormat f = new DecimalFormat("##.#");
 
     public Tagged(Player damaged) {
         this.damaged = damaged;

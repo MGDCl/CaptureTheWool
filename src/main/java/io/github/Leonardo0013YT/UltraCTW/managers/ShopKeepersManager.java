@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class ShopKeepersManager {
 
-    private HashMap<Integer, ShopKeeper> shopkeepers = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, ShopKeeper> shopkeepers = new HashMap<>();
+    private final UltraCTW plugin;
     private int lastPage;
 
     public ShopKeepersManager(UltraCTW plugin) {

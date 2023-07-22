@@ -11,8 +11,8 @@ import java.util.HashMap;
 
 public class KillSoundManager {
 
-    private HashMap<Integer, KillSound> killSounds = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, KillSound> killSounds = new HashMap<>();
+    private final UltraCTW plugin;
     private int lastPage;
 
     public KillSoundManager(UltraCTW plugin) {

@@ -10,10 +10,16 @@ import java.util.List;
 public class Level {
 
     @Getter
-    private int id, xp, level, levelUp;
+    private final int id;
     @Getter
-    private String prefix;
-    private List<String> rewards;
+    private final int xp;
+    @Getter
+    private final int level;
+    @Getter
+    private final int levelUp;
+    @Getter
+    private final String prefix;
+    private final List<String> rewards;
 
     public Level(UltraCTW plugin, String path, int id) {
         this.id = id;

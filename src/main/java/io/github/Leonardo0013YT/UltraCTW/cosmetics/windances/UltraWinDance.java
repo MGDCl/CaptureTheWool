@@ -14,10 +14,17 @@ import java.util.List;
 
 public class UltraWinDance implements Purchasable {
 
-    private String name, permission, type, autoGivePermission;
-    private boolean isBuy, needPermToBuy;
-    private int id, slot, page, price;
-    private ItemStack icon;
+    private final String name;
+    private final String permission;
+    private final String type;
+    private final String autoGivePermission;
+    private final boolean isBuy;
+    private final boolean needPermToBuy;
+    private final int id;
+    private final int slot;
+    private final int page;
+    private final int price;
+    private final ItemStack icon;
 
     public UltraWinDance(UltraCTW plugin, String s) {
         this.id = plugin.getWindance().getInt(s + ".id");
@@ -30,7 +37,7 @@ public class UltraWinDance implements Purchasable {
         this.isBuy = plugin.getWindance().getBoolean(s + ".isBuy");
         this.icon = plugin.getWindance().getConfig().getItemStack(s + ".icon");
         this.needPermToBuy = plugin.getWindance().getBooleanOrDefault(s + ".needPermToBuy", false);
-        this.autoGivePermission = plugin.getWindance().getOrDefault(s + ".autoGivePermission", "ultraskywars.windances.autogive." + name);
+        this.autoGivePermission = plugin.getWindance().getOrDefault(s + ".autoGivePermission", "ultractw.windances.autogive." + name);
         plugin.getWdm().setLastPage(page);
     }
 

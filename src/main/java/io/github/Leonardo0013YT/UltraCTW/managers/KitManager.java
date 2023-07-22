@@ -15,10 +15,10 @@ import java.util.HashMap;
 @Getter
 public class KitManager {
 
-    private HashMap<Integer, Kit> kits = new HashMap<>();
-    private ArrayList<Integer> defaultKits = new ArrayList<>();
+    private final HashMap<Integer, Kit> kits = new HashMap<>();
+    private final ArrayList<Integer> defaultKits = new ArrayList<>();
     private int lastPage;
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public KitManager(UltraCTW plugin) {
         this.plugin = plugin;

@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class AddonManager {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
     private PlaceholderAPIAddon placeholder;
 
     private NametagAddon tag;

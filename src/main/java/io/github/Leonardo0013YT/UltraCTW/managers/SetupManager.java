@@ -10,16 +10,16 @@ import java.util.UUID;
 
 public class SetupManager {
 
-    private UltraCTW plugin;
-    private HashMap<Player, UltraInventory> setupInventory = new HashMap<>();
-    private HashMap<Player, String> editName = new HashMap<>();
-    private HashMap<Player, ArenaSetup> setup = new HashMap<>();
-    private HashMap<Player, TeamSetup> setupTeam = new HashMap<>();
-    private HashMap<Player, KitSetup> setupKit = new HashMap<>();
-    private HashMap<Player, KillSoundSetup> setupKillSound = new HashMap<>();
-    private HashMap<Player, TauntSetup> setupTaunt = new HashMap<>();
-    private HashMap<Player, TrailSetup> setupTrail = new HashMap<>();
-    private HashMap<UUID, String> delete = new HashMap<>();
+    private final UltraCTW plugin;
+    private final HashMap<Player, UltraInventory> setupInventory = new HashMap<>();
+    private final HashMap<Player, String> editName = new HashMap<>();
+    private final HashMap<Player, ArenaSetup> setup = new HashMap<>();
+    private final HashMap<Player, TeamSetup> setupTeam = new HashMap<>();
+    private final HashMap<Player, KitSetup> setupKit = new HashMap<>();
+    private final HashMap<Player, KillSoundSetup> setupKillSound = new HashMap<>();
+    private final HashMap<Player, TauntSetup> setupTaunt = new HashMap<>();
+    private final HashMap<Player, TrailSetup> setupTrail = new HashMap<>();
+    private final HashMap<UUID, String> delete = new HashMap<>();
 
     public SetupManager(UltraCTW plugin) {
         this.plugin = plugin;

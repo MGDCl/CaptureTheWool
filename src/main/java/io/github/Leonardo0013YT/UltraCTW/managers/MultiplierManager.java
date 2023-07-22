@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class MultiplierManager {
 
-    private Map<String, ArrayList<Multiplier>> multipliers = new HashMap<>();
+    private final Map<String, ArrayList<Multiplier>> multipliers = new HashMap<>();
 
     public void addMultiplier(int id, String type, String name, double amount, long remaining) {
         if (!multipliers.containsKey(type)) {

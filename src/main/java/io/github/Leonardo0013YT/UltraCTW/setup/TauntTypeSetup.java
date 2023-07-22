@@ -7,9 +7,9 @@ import java.util.List;
 
 public class TauntTypeSetup {
 
-    private Player p;
-    private String damage;
-    private ArrayList<String> msg;
+    private final Player p;
+    private final String damage;
+    private final ArrayList<String> msg;
 
     public TauntTypeSetup(Player p, String damage, List<String> msg) {
         this.p = p;

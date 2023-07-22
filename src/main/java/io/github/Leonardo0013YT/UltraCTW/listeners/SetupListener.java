@@ -35,7 +35,7 @@ import java.util.TreeMap;
 
 public class SetupListener implements Listener {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public SetupListener(UltraCTW plugin) {
         this.plugin = plugin;

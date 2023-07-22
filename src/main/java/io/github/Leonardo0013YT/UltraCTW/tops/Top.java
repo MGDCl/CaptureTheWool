@@ -10,8 +10,8 @@ import java.util.Map;
 @Getter
 public class Top {
 
-    private Map<Integer, TopPlayer> tops = new HashMap<>();
-    private TopType type;
+    private final Map<Integer, TopPlayer> tops = new HashMap<>();
+    private final TopType type;
 
     public Top(TopType type, List<String> tops) {
         this.type = type;

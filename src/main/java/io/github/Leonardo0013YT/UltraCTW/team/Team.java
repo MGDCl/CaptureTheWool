@@ -12,7 +12,6 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
 
@@ -21,22 +20,22 @@ import java.util.*;
 @Getter
 public class Team {
 
-    private Collection<Player> members = new ArrayList<>();//colecction
-    private ArrayList<ChatColor> colors = new ArrayList<>();
-    private Map<Location, ChatColor> wools = new HashMap<>();
-    private Map<Location, ChatColor> spawners = new HashMap<>();
-    private Map<ChatColor, Item> dropped = new HashMap<>();
-    private Map<ChatColor, ArrayList<UUID>> inProgress = new HashMap<>();
-    private ArrayList<ChatColor> captured = new ArrayList<>();
-    private ArrayList<Squared> squareds = new ArrayList<>();
-    private UltraCTW plugin;
-    private Game game;
-    private ChatColor color;
-    private int id;
+    private final Collection<Player> members = new ArrayList<>();
+    private final ArrayList<ChatColor> colors = new ArrayList<>();
+    private final Map<Location, ChatColor> wools = new HashMap<>();
+    private final Map<Location, ChatColor> spawners = new HashMap<>();
+    private final Map<ChatColor, Item> dropped = new HashMap<>();
+    private final Map<ChatColor, ArrayList<UUID>> inProgress = new HashMap<>();
+    private final ArrayList<ChatColor> captured = new ArrayList<>();
+    private final ArrayList<Squared> squareds = new ArrayList<>();
+    private final UltraCTW plugin;
+    private final Game game;
+    private final ChatColor color;
+    private final int id;
     private int kills;
-    private Location spawn;
-    private String name;
-    private String prefix;
+    private final Location spawn;
+    private final String name;
+    private final String prefix;
 
     public Team(UltraCTW plugin, Game game, String path, int id) {
         this.plugin = plugin;
@@ -91,7 +90,7 @@ public class Team {
             ChatColor c = spawners.get(l);
             if (!dropped.containsKey(c)) {
                 Item i = l.getWorld().dropItem(l.clone().add(0, 1, 0), NBTEditor.set(Utils.getXMaterialByColor(c).parseItem(), c.name(), "TEAM", "WOOL", "CAPTURE"));
-                for(double angle = 0.0; angle < 360.0; angle += 20.0) {
+                for(double angle = 0.0; angle < 360.0; angle += 40.0) {
                     double x = Math.cos(angle);
                     double z = Math.sin(angle);
                     Vector d = (new Vector(x, 1.0, z)).multiply(0.15);

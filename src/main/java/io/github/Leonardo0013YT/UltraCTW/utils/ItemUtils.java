@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ItemUtils {
 
-    private ItemStack item;
+    private final ItemStack item;
 
     public ItemUtils(XMaterial material) {
         this.item = new ItemStack(material.parseMaterial(), 1, material.getData());

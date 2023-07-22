@@ -21,18 +21,18 @@ import java.util.UUID;
 
 public class MySQLDatabase implements IDatabase {
 
-    private UltraCTW plugin;
-    private boolean enabled;
+    private final UltraCTW plugin;
+    private final boolean enabled;
     private HikariDataSource hikari;
     private Connection connection;
-    private String CREATE_PD_DB = "CREATE TABLE IF NOT EXISTS UltraCTW_PD(UUID varchar(36) primary key, Name varchar(36), Data TEXT, Kills INT, Wins INT, Captured INT, Bounty DOUBLE);";
-    private String CREATE_MULTIPLIER = "CREATE TABLE IF NOT EXISTS Multipliers(ID INT AUTO_INCREMENT, Type varchar(10), Name varchar(20), Amount DOUBLE, Ending DATETIME, PRIMARY KEY(ID));";
-    private String INSERT_PD = "INSERT INTO UltraCTW_PD VALUES(?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE Name=?;";
-    private String INSERT_PD2 = "INSERT INTO UltraCTW_PD (UUID, Name, Data, Kills, Wins, Captured, Bounty) VALUES (?, ?, ?, ?, ?, ?, ?);";
-    private String SELECT_PD = "SELECT * FROM UltraCTW_PD WHERE UUID=?;";
-    private String SAVE_PD = "UPDATE UltraCTW_PD SET Data=?, Kills=?, Wins=?, Captured=?, Bounty=? WHERE UUID=?;";
-    private String RESET = "UPDATE UltraCTW_PD SET Bounty=0;";
-    private HashMap<UUID, CTWPlayer> players = new HashMap<>();
+    private final String CREATE_PD_DB = "CREATE TABLE IF NOT EXISTS UltraCTW_PD(UUID varchar(36) primary key, Name varchar(36), Data TEXT, Kills INT, Wins INT, Captured INT, Bounty DOUBLE);";
+    private final String CREATE_MULTIPLIER = "CREATE TABLE IF NOT EXISTS Multipliers(ID INT AUTO_INCREMENT, Type varchar(10), Name varchar(20), Amount DOUBLE, Ending DATETIME, PRIMARY KEY(ID));";
+    private final String INSERT_PD = "INSERT INTO UltraCTW_PD VALUES(?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE Name=?;";
+    private final String INSERT_PD2 = "INSERT INTO UltraCTW_PD (UUID, Name, Data, Kills, Wins, Captured, Bounty) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    private final String SELECT_PD = "SELECT * FROM UltraCTW_PD WHERE UUID=?;";
+    private final String SAVE_PD = "UPDATE UltraCTW_PD SET Data=?, Kills=?, Wins=?, Captured=?, Bounty=? WHERE UUID=?;";
+    private final String RESET = "UPDATE UltraCTW_PD SET Bounty=0;";
+    private final HashMap<UUID, CTWPlayer> players = new HashMap<>();
 
     public MySQLDatabase(UltraCTW plugin) {
         this.plugin = plugin;

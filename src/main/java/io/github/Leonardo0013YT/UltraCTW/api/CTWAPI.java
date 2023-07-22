@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 public class CTWAPI {
 
-    private static UltraCTW plugin = UltraCTW.get();
+    private static final UltraCTW plugin = UltraCTW.get();
 
     public static boolean isInLobby(Player p) {
         return !plugin.getGm().isPlayerInGame(p);

@@ -18,7 +18,7 @@ public class WinDancePigLand implements WinDance, Cloneable {
 
     private boolean loaded = false;
     private BukkitTask task;
-    private Random random;
+    private final Random random;
     private int maxOfCenter, firstUp, maxRandomUp, taskTick;
 
     public WinDancePigLand() {

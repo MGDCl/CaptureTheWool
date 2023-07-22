@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class TaggedManager {
 
-    private UltraCTW plugin;
-    private HashMap<Player, Tagged> tagged = new HashMap<>();
+    private final UltraCTW plugin;
+    private final HashMap<Player, Tagged> tagged = new HashMap<>();
 
     public TaggedManager(UltraCTW plugin) {
         this.plugin = plugin;

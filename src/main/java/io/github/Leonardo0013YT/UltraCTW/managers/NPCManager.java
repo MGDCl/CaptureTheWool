@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class NPCManager {
 
-    private HashMap<Player, ArrayList<NPC>> npcs = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Player, ArrayList<NPC>> npcs = new HashMap<>();
+    private final UltraCTW plugin;
 
     public NPCManager(UltraCTW plugin) {
         this.plugin = plugin;

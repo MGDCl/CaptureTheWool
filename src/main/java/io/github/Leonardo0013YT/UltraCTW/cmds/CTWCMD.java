@@ -177,13 +177,13 @@ public class CTWCMD implements CommandExecutor {
                     if (plugin.getCm().isBungeeModeEnabled()){
                         return true;
                     }
-                    if (plugin.getGm().isPlayerInGame(p)) {
-                        p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
-                        return true;
-                    }
                     Game game = plugin.getGm().getSelectedGame();
                     if (game == null){
                         p.sendMessage("messages.noArenas");
+                        return true;
+                    }
+                    if (plugin.getGm().isPlayerInGame(p)) {
+                        p.sendMessage(plugin.getLang().get("messages.alreadyIngame"));
                         return true;
                     }
                     if (game.isState(State.RESTARTING) || game.isState(State.FINISH)){

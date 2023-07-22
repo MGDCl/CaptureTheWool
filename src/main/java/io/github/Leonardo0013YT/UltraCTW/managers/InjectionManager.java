@@ -13,8 +13,8 @@ import java.net.URL;
 
 public class InjectionManager {
 
-    private UltraCTW plugin;
-    private File injections;
+    private final UltraCTW plugin;
+    private final File injections;
     private Injection lobbyProtect;
 
     public InjectionManager(UltraCTW plugin) {

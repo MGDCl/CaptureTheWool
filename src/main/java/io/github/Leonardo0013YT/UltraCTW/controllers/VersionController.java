@@ -9,13 +9,13 @@ import org.bukkit.Bukkit;
 
 public class VersionController {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
     private String version;
     private NMS nms;
-    private boolean is1_13to15 = false;
-    private boolean is1_9to15 = false;
-    private boolean is1_12 = false;
-    private NMSReflection reflection;
+    private final boolean is1_13to15 = false;
+    private final boolean is1_9to15 = false;
+    private final boolean is1_12 = false;
+    private final NMSReflection reflection;
 
     public VersionController(UltraCTW plugin) {
         this.plugin = plugin;

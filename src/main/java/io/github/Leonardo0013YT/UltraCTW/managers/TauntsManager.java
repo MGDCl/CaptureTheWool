@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class TauntsManager {
 
-    private HashMap<Integer, Taunt> taunts = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, Taunt> taunts = new HashMap<>();
+    private final UltraCTW plugin;
     private int lastPage;
 
     public TauntsManager(UltraCTW plugin) {

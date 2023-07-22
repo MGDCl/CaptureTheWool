@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class WinDancesManager {
 
-    private HashMap<Integer, UltraWinDance> winDance = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, UltraWinDance> winDance = new HashMap<>();
+    private final UltraCTW plugin;
     private int lastPage;
 
     public WinDancesManager(UltraCTW plugin) {

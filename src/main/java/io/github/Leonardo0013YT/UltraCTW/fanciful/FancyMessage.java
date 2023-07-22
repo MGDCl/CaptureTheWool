@@ -13,7 +13,7 @@ import java.util.Collection;
 
 public class FancyMessage {
 
-    private Collection<TextComponent> text;
+    private final Collection<TextComponent> text;
     private TextComponent now;
 
     public FancyMessage(String msg) {

@@ -13,9 +13,9 @@ import java.util.UUID;
 
 public class LevelManager {
 
-    private HashMap<Integer, Level> levels = new HashMap<>();
-    private HashMap<UUID, Level> playerLevel = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<Integer, Level> levels = new HashMap<>();
+    private final HashMap<UUID, Level> playerLevel = new HashMap<>();
+    private final UltraCTW plugin;
 
     public LevelManager(UltraCTW plugin) {
         this.plugin = plugin;

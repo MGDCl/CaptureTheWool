@@ -16,7 +16,7 @@ public class SetupTauntTypeMenu implements UltraInventory {
     private Map<Integer, ItemStack> contents = new HashMap<>();
     private int rows = 3;
     private String name;
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public SetupTauntTypeMenu(UltraCTW plugin, String name) {
         this.plugin = plugin;

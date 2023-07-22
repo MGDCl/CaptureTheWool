@@ -10,8 +10,9 @@ import org.bukkit.scoreboard.Team;
 
 public class ScoreboardUtil {
 
-    private Scoreboard scoreboard;
-    private Objective objective, health;
+    private final Scoreboard scoreboard;
+    private final Objective objective;
+    private final Objective health;
 
     public ScoreboardUtil(String s, String s2) {
         this.scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();

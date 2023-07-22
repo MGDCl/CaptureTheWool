@@ -5,10 +5,11 @@ import lombok.Getter;
 @Getter
 public class Multiplier {
 
-    private String type, name;
-    private int id;
-    private long remaining;
-    private double amount;
+    private final String type;
+    private final String name;
+    private final int id;
+    private final long remaining;
+    private final double amount;
 
     public Multiplier(int id, String type, String name, long remaining, double amount) {
         this.id = id;

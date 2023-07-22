@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class StatsCMD implements CommandExecutor {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public StatsCMD(UltraCTW plugin) {
         this.plugin = plugin;

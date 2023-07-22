@@ -9,8 +9,8 @@ import java.util.UUID;
 
 public class NametagEditAddon implements NametagAddon {
 
-    private HashMap<UUID, String> prefix = new HashMap<>();
-    private HashMap<UUID, String> suffix = new HashMap<>();
+    private final HashMap<UUID, String> prefix = new HashMap<>();
+    private final HashMap<UUID, String> suffix = new HashMap<>();
 
     @Override
     public void addPlayerNameTag(Player p) {

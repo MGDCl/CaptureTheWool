@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PlayerCTW implements CTWPlayer {
 
-    private HashMap<Integer, List<Integer>> kits = new HashMap<>();
+    private final HashMap<Integer, List<Integer>> kits = new HashMap<>();
     private ArrayList<Integer> shopkeepers = new ArrayList<>(), partings = new ArrayList<>(), killeffects = new ArrayList<>(), wineffects = new ArrayList<>(), windances = new ArrayList<>(), killsounds = new ArrayList<>(), taunts = new ArrayList<>(), trails = new ArrayList<>();
     private double coins = 0.0, bounty = 0.0;
     private int woolCaptured = 0, kills = 0, bowKills = 0, bowKillDistance = 0, deaths = 0, wins = 0, shots = 0, sShots = 0, walked = 0, played = 0, broken = 0, placed = 0, maxBowDistance = 0;

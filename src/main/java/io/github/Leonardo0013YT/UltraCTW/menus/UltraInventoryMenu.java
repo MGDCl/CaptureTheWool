@@ -28,9 +28,9 @@ import java.util.Map;
 
 public class UltraInventoryMenu {
 
-    private HashMap<String, UltraInventory> menus = new HashMap<>();
-    private HashMap<Player, Integer> pages = new HashMap<>();
-    private UltraCTW plugin;
+    private final HashMap<String, UltraInventory> menus = new HashMap<>();
+    private final HashMap<Player, Integer> pages = new HashMap<>();
+    private final UltraCTW plugin;
 
     public UltraInventoryMenu(UltraCTW plugin) {
         this.plugin = plugin;

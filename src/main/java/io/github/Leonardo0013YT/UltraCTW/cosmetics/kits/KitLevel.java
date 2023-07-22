@@ -16,12 +16,15 @@ import java.util.List;
 @Getter
 public class KitLevel implements Purchasable {
 
-    private ItemStack[] inv, armors;
-    private ItemStack icon;
-    private String permission;
-    private int price, slot, level;
-    private Kit kit;
-    private int kitID;
+    private final ItemStack[] inv;
+    private ItemStack[] armors;
+    private final ItemStack icon;
+    private final String permission;
+    private final int price;
+    private final int slot;
+    private final int level;
+    private final Kit kit;
+    private final int kitID;
 
     public KitLevel(UltraCTW plugin, Kit kit, String path, int kitID) {
         this.kit = kit;

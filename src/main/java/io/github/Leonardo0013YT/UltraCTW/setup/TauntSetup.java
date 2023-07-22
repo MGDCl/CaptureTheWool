@@ -12,8 +12,8 @@ import java.util.HashMap;
 
 public class TauntSetup {
 
-    private UltraCTW plugin;
-    private HashMap<String, TauntTypeSetup> taunts = new HashMap<>();
+    private final UltraCTW plugin;
+    private final HashMap<String, TauntTypeSetup> taunts = new HashMap<>();
     private TauntTypeSetup actual;
     private String name, permission, player = "§e by §7<killer>§e.", none = "§e.", title = "§c§lYOU ARE DEATH", subtitle = "§7Now you spectate game!";
     private boolean isBuy = true;

@@ -15,12 +15,12 @@ import java.util.Collections;
 
 public class NPC_v1_8_r3 implements NPC {
 
-    private ArrayList<EntityLiving> armors = new ArrayList<>();
+    private final ArrayList<EntityLiving> armors = new ArrayList<>();
     private EntityLiving entity;
     private Player p;
     private Location loc;
     private EntityType type;
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
     private WorldServer nmsWorld;
     private NPCType npcType;
     private double up = 0.8;
