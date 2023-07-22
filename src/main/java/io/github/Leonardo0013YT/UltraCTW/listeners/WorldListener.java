@@ -10,7 +10,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class WorldListener implements Listener {
 
-    private UltraCTW plugin;
+    private final UltraCTW plugin;
 
     public WorldListener(UltraCTW plugin) {
         this.plugin = plugin;

@@ -125,6 +125,10 @@ public class Utils {
 
     }
 
+    public static String formatDouble(double d) {
+        return df.format(d);
+    }
+
     public static void setCleanPlayer(Player p) {
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);

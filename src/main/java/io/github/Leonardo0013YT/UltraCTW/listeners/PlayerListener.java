@@ -549,6 +549,18 @@ public class PlayerListener implements Listener {
         Item i = e.getEntity();
         if (i.hasMetadata("DROPPED")) {
             e.setCancelled(true);
+        } else if (NBTEditor.contains(i.getItemStack(), "TEAM", "WOOL", "CAPTURE")) {
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void ItemMerge(ItemMergeEvent e) {
+        Item i = e.getEntity();
+        if (i.hasMetadata("DROPPED")) {
+            e.setCancelled(true);
+        } else if (NBTEditor.contains(i.getItemStack(), "TEAM", "WOOL", "CAPTURE")) {
+            e.setCancelled(true);
         }
     }
 
@@ -678,12 +690,14 @@ public class PlayerListener implements Listener {
 
             ItemStack item = new ItemStack(322, 16);
             ItemStack chestplate = new ItemStack(311, 1);
-
-            if (p.getInventory().contains(chestplate) || p.getInventory().getChestplate().equals(chestplate)){
+            if (!p.getInventory().contains(chestplate)){
                 p.getInventory().addItem(item);
-            } else {
                 p.getInventory().setChestplate(chestplate);
-                p.getInventory().addItem(item);
+                p.sendMessage(plugin.getLang().get("messages.equipement"));
+                if (!p.getInventory().getChestplate().equals(chestplate)){
+                    p.getInventory().addItem(item);
+                }
+            } else {
                 p.sendMessage(plugin.getLang().get("messages.equipement"));
             }
 
@@ -779,29 +793,40 @@ public class PlayerListener implements Listener {
         if(!(((Arrow) e.getDamager()).getShooter() instanceof Player)) {
             return;
         }
-        Player attacker = (Player) ((Arrow) e.getDamager()).getShooter();
         if(!(e.getEntity() instanceof Player)) {
             return;
         }
-        Player victim = (Player) e.getEntity();
-        Game g = plugin.getGm().getGameByPlayer(victim);
-        Team team = g.getTeamPlayer(victim);
-        if(attacker == victim) {
-            e.setCancelled(true);
-            return;
-        }
-        if(victim.getHealth() - e.getDamage() < 0) {
-            return;
-        }
-        new BukkitRunnable() {
-            @Override
-            public void run(){
-                double health = Math.round(victim.getHealth() * 10.0) / 10.0;
-                if (health != 20.0) {
-                    attacker.sendMessage(plugin.getLang().get("messages.arrowdamage").replaceAll("<color>", team.getColor() + "").replaceAll("<victim>", victim.getDisplayName()).replaceAll("<health>", String.valueOf(health)));
+        if (e.getDamager() instanceof Projectile) {
+            Player p = (Player) e.getEntity();
+            Projectile proj = (Projectile) e.getDamager();
+            if (proj.getShooter() instanceof Player) {
+                Player d = (Player) proj.getShooter();
+                UltraCTW plugin = UltraCTW.get();
+                Game g = plugin.getGm().getGameByPlayer(p);
+                if (g == null) {
+                    return;
                 }
+                Team tp = g.getTeamPlayer(p);
+                Team td = g.getTeamPlayer(d);
+                if (tp == null || td == null) {
+                    return;
+                }
+                if (tp.getMembers().contains(d) || td.getMembers().contains(p)) {
+                    e.setCancelled(true);
+                    return;
+                }
+                CTWPlayer ctw = plugin.getDb().getCTWPlayer(d);
+                ctw.setsShots(ctw.getsShots() + 1);
+                double damage = e.getFinalDamage();
+                if (proj instanceof Arrow) {
+                    double h = p.getHealth() - damage;
+                    if (h >= 0) {
+                        d.sendMessage(plugin.getLang().get("messages.arrowdamage").replaceAll("<color>", tp.getColor() + "").replace("<victim>", p.getName()).replace("<health>", Utils.formatDouble(h)));
+                    }
+                }
+                plugin.getTgm().setTag(d, p, damage);
             }
-        }.runTaskLater(plugin, 2L);
+        }
     }
 
     @EventHandler
