@@ -324,7 +324,7 @@ public class GameNoState implements Game {
     }
 
     @Override
-    public void win(Team team) {//TODO cambiar algunos mensajes
+    public void win(Team team) {
         if (plugin.isStop()) return;
         plugin.getGm().reset(this);
         setState(State.FINISH);
@@ -347,9 +347,9 @@ public class GameNoState implements Game {
             if (plugin.getCm().isWCMDEnabled()) {
                 plugin.getCm().getWinCommands().forEach(c -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), c.replaceAll("<player>", w.getName())));
             }
-            //TODO agregar esto a un método
+
             int gxp = plugin.getCm().getXpWin();
-            int gcoins = plugin.getCm().getGCoinsWins();
+            int gcoins = plugin.getCm().getCoinsWin();
             ctw.setXp(ctw.getXp() + (int) plugin.getMm().getPlayerMultiplier(w, "XP", gxp));
             ctw.addCoins((int) plugin.getMm().getPlayerMultiplier(w, "COINS", gcoins));
             Multiplier mx = plugin.getMm().getServerMultiplier("XP");

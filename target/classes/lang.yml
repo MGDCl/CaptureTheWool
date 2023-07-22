@@ -1417,10 +1417,12 @@ menus:
         &fCaptured: &a<captured>
         &fCoins: &a<coins>
         &fExp: &a<xp>
+        &fShots: &a<shots>
         &7
+        &fSuccessful shots: &a<sShots>
         &fBow kills: &a<bowkills>
-        &7Bow Distance: &a<bowdistance>
-        &7Bow Max Distance: &a<bowmaxdistance>
+        &fBow Distance: &a<bowdistance>
+        &fBow Max Distance: &a<bowmaxdistance>
     close:
       nameItem: '&cClose'
       loreItem: |-

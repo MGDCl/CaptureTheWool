@@ -297,8 +297,8 @@ public class PlayerListener implements Listener {
             }
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             GamePlayer gp = g.getGamePlayer(p);
-            gp.addCoins(plugin.getCm().getCoinsCapture());
-            ctw.addCoins(plugin.getCm().getGCoinsCapture());
+            gp.addCoins(plugin.getCm().getGCoinsCapture());
+            ctw.addCoins(plugin.getCm().getCoinsCapture());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpCapture());
             ctw.addWoolCaptured();
 
@@ -686,6 +686,11 @@ public class PlayerListener implements Listener {
                 }
             }
             team.playSound(plugin.getCm().getPickUpTeam(), 1.0f, 1.0f);
+            GamePlayer gp = g.getGamePlayer(p);
+            CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
+            gp.addCoins(plugin.getCm().getGCoinsPickup());
+            ctw.addCoins(plugin.getCm().getCoinsPickup());
+            ctw.setXp(ctw.getXp() + plugin.getCm().getXpPickup());
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
 
             ItemStack item = new ItemStack(322, 16);
