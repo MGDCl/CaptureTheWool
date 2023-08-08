@@ -173,7 +173,7 @@ public class PlayerListener implements Listener {
                 msg = formatLobby(p, e.getMessage());
                 e.getRecipients().addAll(g.getCached());
             } else {
-                if (ChatColor.stripColor(e.getMessage()).startsWith("!")) {
+                if (ChatColor.stripColor(e.getMessage()).startsWith("!") || ChatColor.stripColor(e.getMessage()).startsWith("@") || g.isState(State.FINISH)) {
                     msg = formatGame(p, t, e.getMessage());
                     e.getRecipients().addAll(g.getCached());
                 } else {
@@ -229,6 +229,13 @@ public class PlayerListener implements Listener {
         if (s2 != null) {
             e.setCancelled(s2.isNoBreak());
             p.sendMessage(plugin.getLang().get("messages.noBreak"));
+            return;
+        }
+        if (b.getType().equals(Material.WOOL)) {
+            e.setCancelled(true);
+            b.setType(Material.AIR);
+            ItemStack i = new ItemStack(Material.WOOL);
+            l.getWorld().dropItemNaturally(e.getBlock().getLocation().add(0.5, 0.5, 0.5), i);
             return;
         }
         if (!g.getPlaced().contains(l)) {
@@ -540,6 +547,9 @@ public class PlayerListener implements Listener {
                     ent.setVelocity(vec.multiply(0.5));
                     plugin.getVc().getReflection().moveDragon(ent, ent.getLocation().getX(), ent.getLocation().getY(), ent.getLocation().getZ(), p.getLocation().getYaw() - 180, p.getLocation().getPitch());
                 }
+            }
+            if (to.getBlockY() < 5){
+                p.teleport(g.getLobby());
             }
         }
     }
