@@ -240,9 +240,9 @@ public class CTWCMD implements CommandExecutor {
                         p.sendMessage(plugin.getLang().get(plugin.getLang().get("messages.noGame")));
                         return true;
                     }
-                    p.sendMessage("§eThe server running UltraCaptureTheWool versión §a" + plugin.getDescription().getVersion() + " §eby §lMGDCl!");
+                    p.sendMessage("§eThe server running UltraCaptureTheWool version §a" + plugin.getDescription().getVersion() + " §eby §lMGDCl!");
                     p.sendMessage("§fhttps://github.com/MGDCl/CaptureTheWool");
-                    plugin.getVc().getReflection().sendTitle("§e§lUltraCTW by MGDCl","§f§lversión: §a" + plugin.getDescription().getVersion(),20,40,20, p);
+                    plugin.getVc().getReflection().sendTitle("§e§lUltraCTW by MGDCl","§f§lversion: §a" + plugin.getDescription().getVersion(),20,40,20, p);
                     break;
                 case "kitsmenu":
                     plugin.getUim().getPages().put(p, 1);

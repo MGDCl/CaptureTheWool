@@ -703,17 +703,19 @@ public class PlayerListener implements Listener {
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpPickup());
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
 
-            ItemStack item = new ItemStack(322, 16);
-            ItemStack chestplate = new ItemStack(311, 1);
-            if (!p.getInventory().contains(chestplate)){
-                p.getInventory().addItem(item);
-                p.getInventory().setChestplate(chestplate);
-                p.sendMessage(plugin.getLang().get("messages.equipement"));
-                if (!p.getInventory().getChestplate().equals(chestplate)){
+            if (plugin.getCm().isSupportItems()){
+                ItemStack item = new ItemStack(322, 8);
+                ItemStack chestplate = new ItemStack(311, 1);
+                if (!p.getInventory().contains(chestplate)){
                     p.getInventory().addItem(item);
+                    p.getInventory().setChestplate(chestplate);
+                    p.sendMessage(plugin.getLang().get("messages.equipement"));
+                    if (!p.getInventory().getChestplate().equals(chestplate)){
+                        p.getInventory().addItem(item);
+                    }
+                } else {
+                    p.sendMessage(plugin.getLang().get("messages.equipement"));
                 }
-            } else {
-                p.sendMessage(plugin.getLang().get("messages.equipement"));
             }
 
             ChatColor finalC = c;
@@ -780,7 +782,13 @@ public class PlayerListener implements Listener {
                     e.setCancelled(true);
                     return;
                 }
-                return;
+                if (plugin.getCm().isNoFallDamage()){
+                    if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)){
+                        if (e.getDamage() <= 6.0 && p.getHealth() > 2.0){
+                            e.setCancelled(true);
+                        }
+                    }
+                }
             }
         }
     }
@@ -1027,6 +1035,14 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
+    public void onConsume(PlayerItemConsumeEvent e) {
+        Player p = e.getPlayer();
+        if (e.getItem().getType().equals(Material.POTION)) {
+            p.setItemInHand(null);
+        }
+    }
+
+    @EventHandler
     public void onTeleport(PlayerTeleportEvent e) {
         Location from = e.getFrom();
         Location to = e.getTo();
@@ -1087,6 +1103,7 @@ public class PlayerListener implements Listener {
                 team.sendTitle(plugin.getLang().get("titles.dropped.title"), plugin.getLang().get("titles.dropped.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"), 0, 40, 0);
             }
         }
+        p.sendMessage(plugin.getLang().get("messages.respawn"));
         p.setFireTicks(0);
         for (PotionEffect ef : p.getActivePotionEffects()) {
             p.removePotionEffect(ef.getType());

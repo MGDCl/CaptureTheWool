@@ -14,7 +14,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage;
+    private boolean kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -68,6 +68,8 @@ public class ConfigManager {
         this.maxMultiplier = plugin.getConfig().getInt("gameDefaults.maxMultiplier");
         this.broadcastGame = plugin.getConfig().getBoolean("chat.broadcastGame");
         this.joinMessage = plugin.getConfig().getBoolean("chat.joinMessage");
+        this.supportItems = plugin.getConfig().getBoolean("gameDefaults.supportItems");
+        this.noFallDamage = plugin.getConfig().getBoolean("gameDefaults.noFallDamage");
         this.streak2 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak2")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
         this.streak3 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak3")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
         this.streak4 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak4")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
