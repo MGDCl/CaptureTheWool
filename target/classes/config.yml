@@ -11,7 +11,6 @@ bungeeMode:
   lobbyServer: lobby
 addons:
   placeholdersAPI: true
-  NametagEdit: true
 mainLobby: null
 mobGriefing: false
 progressBarAmount: 10
@@ -32,9 +31,11 @@ redPanel:
   material: STAINED_GLASS_PANE
   data: 14
 gameDefaults:
-  autoJoinFinish: true
+  autoJoinFinish: false
   hunger: false
   instaKillOnVoid: true
+  supportItems: false
+  noFallDamage: false
   maxMultiplier: 5
   starting: 30
   timeToKill: 30
@@ -84,11 +85,11 @@ chat:
   broadcastGame: true
 items:
   lobby:
-    enabled: true
+    enabled: false
     slot: 4
     cmd: /ctw lobby
   lobby2:
-    enabled: true
+    enabled: false
     slot: 0
     cmd: /ctw join
 materials:

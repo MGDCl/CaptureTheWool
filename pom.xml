@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>io.github</groupId>
     <artifactId>UltraCTW</artifactId>
     <packaging>jar</packaging>
 
     <name>UltraCTW</name>
-    <description>Edited by MGDCl</description>
-    <version>2.4.5</version>
+    <description>UltraCaptureTheWool by MGDCl</description>
+    <version>2.4.6</version>
     <url>https://github.com/MGDCl</url>
 
     <properties>
@@ -43,17 +43,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.comphenix.protocol</groupId>
             <artifactId>ProtocolLib</artifactId>
             <version>4.8.0</version>
-        </dependency>
-        <dependency>
-            <groupId>localrepo</groupId>
-            <artifactId>spigot-1.8.8</artifactId>
-            <version>2.13</version>
-            <systemPath>C:/Users/pc/OneDrive/Escritorio/repo/spigot-1.8.8.jar</systemPath>
-            <type>jar</type>
-            <scope>system</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.clip</groupId>
@@ -65,16 +64,14 @@
             <groupId>localrepo</groupId>
             <artifactId>UltraCTW-WEOld</artifactId>
             <version>2.13</version>
-            <systemPath>C:/Users/pc/OneDrive/Escritorio/repo/UltraCTW-WEOld.jar</systemPath>
-            <type>jar</type>
+            <systemPath>${project.basedir}/lib/UltraCTW-WEOld.jar</systemPath>
             <scope>system</scope>
         </dependency>
         <dependency>
             <groupId>localrepo</groupId>
             <artifactId>UltraCTW-WENew</artifactId>
-            <version>2.13</version>
-            <systemPath>C:/Users/pc/OneDrive/Escritorio/repo/UltraCTW-WENew.jar</systemPath>
-            <type>jar</type>
+            <version>1.0</version>
+            <systemPath>${project.basedir}/lib/UltraCTW-WENew.jar</systemPath>
             <scope>system</scope>
         </dependency>
         <dependency>
@@ -93,13 +90,13 @@
             <groupId>com.nametagedit</groupId>
             <artifactId>nametagedit</artifactId>
             <version>4.4.16</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>localrepo</groupId>
             <artifactId>UltraCTW-LobbyProtect</artifactId>
-            <version>2.13</version>
-            <systemPath>C:/Users/pc/OneDrive/Escritorio/repo/UltraCTW-LobbyProtect.jar</systemPath>
-            <type>jar</type>
+            <version>1.0</version>
+            <systemPath>${project.basedir}/lib/UltraCTW-LobbyProtect.jar</systemPath>
             <scope>system</scope>
         </dependency>
     </dependencies>
