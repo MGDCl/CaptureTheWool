@@ -11,7 +11,7 @@ public class PlayerCTW implements CTWPlayer {
     private final HashMap<Integer, List<Integer>> kits = new HashMap<>();
     private ArrayList<Integer> shopkeepers = new ArrayList<>(), partings = new ArrayList<>(), killeffects = new ArrayList<>(), wineffects = new ArrayList<>(), windances = new ArrayList<>(), killsounds = new ArrayList<>(), taunts = new ArrayList<>(), trails = new ArrayList<>();
     private double coins = 0.0, bounty = 0.0;
-    private int woolCaptured = 0, kills = 0, bowKills = 0, bowKillDistance = 0, deaths = 0, wins = 0, shots = 0, sShots = 0, walked = 0, played = 0, broken = 0, placed = 0, maxBowDistance = 0;
+    private int killsWoolHolder = 0, woolStolen = 0, woolCaptured = 0, kills = 0, bowKills = 0, bowKillDistance = 0, deaths = 0, wins = 0, loses = 0, shots = 0, sShots = 0, walked = 0, played = 0, broken = 0, placed = 0, maxBowDistance = 0;
     private int kit = 999999, kitLevel = 1, level = 1, xp = 0, shopKeeper = 0, winDance = 999999, winEffect = 0, killEffect = 999999, taunt = 0, trail = 999999, parting = 999999, killSound = 999999, assists = 0, kill5 = 0, kill25 = 0, kill50 = 0;
 
     @Override
@@ -507,6 +507,46 @@ public class PlayerCTW implements CTWPlayer {
     @Override
     public void addWinEffects(int id) {
         this.wineffects.add(id);
+    }
+
+    @Override
+    public void addWoolStolen() {
+        this.woolStolen += 1;
+    }
+
+    @Override
+    public int getWoolStolen() {
+        return woolStolen;
+    }
+
+    @Override
+    public void setWoolStolen(int woolStolen) {
+        this.woolStolen = woolStolen;
+    }
+
+    @Override
+    public void addKillsWoolHolder() {
+        this.killsWoolHolder+= 1;
+    }
+
+    @Override
+    public int getKillsWoolHolder() {
+        return killsWoolHolder;
+    }
+
+    @Override
+    public void setKillsWoolHolder(int killsWoolHolder) {
+        this.killsWoolHolder = killsWoolHolder;
+    }
+
+    @Override
+    public int getLoses(){
+        return loses;
+    }
+
+    @Override
+    public void setLoses(int loses){
+        this.loses = loses;
     }
 
 }

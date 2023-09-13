@@ -390,6 +390,8 @@ public class MySQLDatabase implements IDatabase {
         now.setShopkeepers(pd.getShopkeepers());
         now.setBounty(pd.getBounty());
         now.setWoolCaptured(pd.getWoolCaptured());
+        now.setWoolStolen(pd.getWoolStolen());
+        now.setKillsWoolHolder(pd.getKillsWoolHolder());
         now.setXp(pd.getXp());
         now.setLevel(pd.getLevel());
         now.setPlaced(pd.getPlaced());
@@ -399,6 +401,7 @@ public class MySQLDatabase implements IDatabase {
         now.setsShots(pd.getsShots());
         now.setShots(pd.getShots());
         now.setWins(pd.getWins());
+        now.setLoses(pd.getLoses());
         now.setDeaths(pd.getDeaths());
         now.setShopKeeper(pd.getShopKeeper());
         now.setKillEffect(pd.getKillEffect());

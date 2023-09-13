@@ -197,4 +197,20 @@ public interface CTWPlayer {
     void addWinDances(int id);
 
     void addWinEffects(int id);
+
+    void addWoolStolen();
+
+    int getWoolStolen();
+
+    void setWoolStolen(int woolStolen);
+
+    void addKillsWoolHolder();
+
+    int getKillsWoolHolder();
+
+    void setKillsWoolHolder(int killsWoolHolder);
+
+    int getLoses();
+
+    void setLoses(int loses);
 }

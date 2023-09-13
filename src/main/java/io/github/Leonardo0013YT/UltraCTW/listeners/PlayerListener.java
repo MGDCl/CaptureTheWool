@@ -463,6 +463,16 @@ public class PlayerListener implements Listener {
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
             if (team.checkWools()) {
                 g.win(team);
+                g.getTeams().values().stream().filter(t -> (t.getId() != team.getId())).forEach(t -> {
+                    for (Player loses : t.getMembers()){
+                        CTWPlayer lose = plugin.getDb().getCTWPlayer(loses);
+                        lose.setLoses(lose.getLoses() + 1);
+                        lose.setXp(lose.getXp() + 10);
+                        lose.addCoins(10);
+                        loses.sendMessage("Perdiste causa :c");
+                        plugin.getLvl().checkUpgrade(loses);
+                    }
+                });
             }
             return;
         } else {
@@ -701,6 +711,8 @@ public class PlayerListener implements Listener {
             gp.addCoins(plugin.getCm().getGCoinsPickup());
             ctw.addCoins(plugin.getCm().getCoinsPickup());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpPickup());
+            ctw.addWoolStolen();
+            p.sendMessage(plugin.getLang().get("messages.woolPickup").replace("<coins>", String.valueOf(plugin.getCm().getGCoinsPickup())).replace("<wool>", c.name()));
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
 
             if (plugin.getCm().isSupportItems()){
@@ -921,7 +933,6 @@ public class PlayerListener implements Listener {
         } else {
             executeTauntDefault(p, g);
         }
-
         plugin.getTgm().executeRewards(p, p.getMaxHealth());
 
         new BukkitRunnable() {
@@ -1084,6 +1095,7 @@ public class PlayerListener implements Listener {
     }
 
     private void respawn(Team team, Game g, Player p) {
+        Player d = p.getKiller();
         p.closeInventory();
         p.getInventory().clear();
         p.setNoDamageTicks(40);
@@ -1101,6 +1113,12 @@ public class PlayerListener implements Listener {
             if (team.getInProgress().get(c).isEmpty()) {
                 g.sendGameMessage(plugin.getLang().get("messages.lost").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"));
                 team.sendTitle(plugin.getLang().get("titles.dropped.title"), plugin.getLang().get("titles.dropped.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<player>", p.getDisplayName()).replaceAll("<color>", c + "").replaceAll("<wool>", c + "⬛"), 0, 40, 0);
+            }
+            if (d != null){
+                CTWPlayer ctw = plugin.getDb().getCTWPlayer(d);
+                GamePlayer gp = g.getGamePlayer(d);
+                gp.addCoins(20);
+                ctw.addKillsWoolHolder();
             }
         }
         p.sendMessage(plugin.getLang().get("messages.respawn"));

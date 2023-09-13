@@ -161,6 +161,12 @@ public class Placeholders extends PlaceholderExpansion {
         if (id.equals("captured")) {
             return "" + sw.getWoolCaptured();
         }
+        if (id.equals("wool_stolen")){
+            return "" + sw.getWoolStolen();
+        }
+        if (id.equals("wool_holder")){
+            return "" + sw.getKillsWoolHolder();
+        }
         if (id.equals("xp")) {
             return "" + sw.getXp();
         }
@@ -182,6 +188,9 @@ public class Placeholders extends PlaceholderExpansion {
         }
         if (id.equals("wins")) {
             return "" + sw.getWins();
+        }
+        if (id.equals("loses")) {
+            return "" + sw.getLoses();
         }
         if (id.equals("deaths")) {
             return "" + sw.getDeaths();

@@ -162,6 +162,14 @@ public class Team {
         return members.size();
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public Collection<Player> getMembers() {
+        return this.members;
+    }
+
     public Squared getPlayerSquared(Player p) {
         for (Squared s : squareds) {
             if (s.isInCuboid(p)) {

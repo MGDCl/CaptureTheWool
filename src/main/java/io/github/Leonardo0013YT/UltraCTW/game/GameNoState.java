@@ -414,7 +414,10 @@ public class GameNoState implements Game {
                 }
                 if (count == 5 || count == 4 || count == 3 || count == 2 || count == 1 ) {
                     for(Player on : cached){
-                        plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.ending.title").replaceAll("<map>", g.getName()).replaceAll("<time>", String.valueOf(count)), plugin.getLang().get("titles.ending.subtitle").replaceAll("<time>", String.valueOf(count)), 0, 40, 0, on);
+                        int games = plugin.getGm().getGames().size();
+                        if (plugin.getCm().isAutoJoinFinish() && games > 1){
+                            plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.ending.title").replaceAll("<map>", g.getName()).replaceAll("<time>", String.valueOf(count)), plugin.getLang().get("titles.ending.subtitle").replaceAll("<time>", String.valueOf(count)), 0, 40, 0, on);
+                        }
                     }
                 }
                 count--;

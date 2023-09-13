@@ -179,6 +179,7 @@ messages:
   morePlayers: "&aMore players have joined, bringing forward the start of the game!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
   noArenas: "&cNo games available!"
+  woolPickup: "(+<coins> for collecting <wool> wool)"
   respawn: "&eRespawned!"
   newPlayer: |-
     &a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
