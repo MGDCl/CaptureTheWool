@@ -469,7 +469,6 @@ public class PlayerListener implements Listener {
                         lose.setLoses(lose.getLoses() + 1);
                         lose.setXp(lose.getXp() + 10);
                         lose.addCoins(10);
-                        loses.sendMessage("Perdiste causa :c");
                         plugin.getLvl().checkUpgrade(loses);
                     }
                 });
