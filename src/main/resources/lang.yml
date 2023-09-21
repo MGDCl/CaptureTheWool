@@ -107,6 +107,9 @@ streaks:
   quarter: "&b&lQUADRUPLE "
   penta: "&6&lPENTA "
 messages:
+  reloadLang: "&aThe lang.yml file has been reloaded!"
+  noReload: "&cYou cannot reload the plugin if there are players in the game!"
+  reload: "&cThe plugin has been reloaded, this is not recommended because it can cause errors, it is recommended to restart the server!"
   kickCTW: "&cYou can't log in when the game is started."
   noIngame: '&cYou can''t execute that command in a game.'
   noPlaceHopper: "&cYou can't put hoppers in this place."

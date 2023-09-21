@@ -1,6 +1,7 @@
 package io.github.Leonardo0013YT.UltraCTW.cmds;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
+import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.UltraInventory;
 import io.github.Leonardo0013YT.UltraCTW.setup.*;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
@@ -32,6 +33,44 @@ public class SetupCMD implements CommandExecutor {
                 return true;
             }
             switch (args[0].toLowerCase()) {
+                case "reload":
+                    if (args.length == 1){
+                        if (plugin.getGm().isPlayerInGame(p)) {
+                            p.sendMessage(plugin.getLang().get("messages.noReload"));
+                            return true;
+                        }
+                        Game game = plugin.getGm().getSelectedGame();
+                        if (!game.getPlayers().isEmpty()) {
+                            p.sendMessage(this.plugin.getLang().get("messages.noReload"));
+                            return true;
+                        }
+                        plugin.reload();
+                        p.sendMessage(plugin.getLang().get(p, "messages.reload"));
+                        return true;
+                    }
+                    switch(args[1].toLowerCase()){
+                        case "lang":
+                            plugin.reloadLang();
+                            p.sendMessage(plugin.getLang().get(p, "messages.reloadLang"));
+                            break;
+                        case "config":
+                            if (plugin.getGm().isPlayerInGame(p)) {
+                                p.sendMessage(plugin.getLang().get("messages.noReload"));
+                                return true;
+                            }
+                            Game game = plugin.getGm().getSelectedGame();
+                            if (!game.getPlayers().isEmpty()) {
+                                p.sendMessage(this.plugin.getLang().get("messages.noReload"));
+                                return true;
+                            }
+                            plugin.reload();
+                            p.sendMessage(plugin.getLang().get(p, "messages.reload"));
+                            break;
+                        default:
+                            sendHelp(sender);
+                            break;
+                    }
+                    break;
                 case "delete":
                     if (args.length < 2) {
                         sendHelp(p);
@@ -240,10 +279,6 @@ public class SetupCMD implements CommandExecutor {
                     plugin.reloadConfig();
                     plugin.getCm().reload();
                     p.sendMessage(plugin.getLang().get("setup.setMainLobby"));
-                    break;
-                case "reload":
-                    plugin.reload();
-                    p.sendMessage(plugin.getLang().get("setup.reload"));
                     break;
                 case "inventory":
                     if (args.length < 2) {
