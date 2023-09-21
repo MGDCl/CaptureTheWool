@@ -107,6 +107,9 @@ streaks:
   quarter: "&b&lQUADRUPLE "
   penta: "&6&lPENTA "
 messages:
+  reloadLang: "&aThe lang.yml file has been reloaded!"
+  noReload: "&cYou cannot reload the plugin if there are players in the game!"
+  reload: "&cThe plugin has been reloaded, this is not recommended because it can cause errors, it is recommended to restart the server!"
   kickCTW: "&cYou can't log in when the game is started."
   noIngame: '&cYou can''t execute that command in a game.'
   noPlaceHopper: "&cYou can't put hoppers in this place."
@@ -122,6 +125,7 @@ messages:
   multiplier: "&aThe &b<type> &amultiplier has been activated by &6<name> &aof &x<amount> &afor &e<time>&a."
   multiplierFinish: "&aThe &b<type> &amultiplier of &6<name> &ahas been end."
   kill: "<streak>KILL! &8+&6<coins> Coins &7and &8+&b<xp> XP"
+  assists: "&aYou've assisted in the death of &e<name>&a in <percent>."
   streak: "&c&lSTREAK! &7of &c<kills> &7kills by <nameStreak>"
   bounty: "&6&lBOUNTY! &7of &6&l<coins> &7for <name> for high streak."
   bountyClaimed: "&6&lBOUNTY CLAIMED! <killer> &7killed <death> &7for &6&l<coins>"

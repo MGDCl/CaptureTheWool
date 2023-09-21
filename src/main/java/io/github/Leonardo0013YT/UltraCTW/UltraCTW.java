@@ -459,4 +459,8 @@ public class UltraCTW extends JavaPlugin {
     public void reloadLang() {
         lang.reload();
     }
+
+    public Settings getSources() {
+        return this.sources;
+    }
 }

@@ -196,7 +196,7 @@ public class CTWCMD implements CommandExecutor {
                     }
                     plugin.getGm().addPlayerGame(p, game.getId());
                     break;
-                case "forcestart":reload
+                case "forcestart":
                     if (!p.hasPermission("ctw.forcestart")) {
                         p.sendMessage(plugin.getLang().get(p, "messages.noPermission"));
                         return true;

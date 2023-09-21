@@ -316,4 +316,24 @@ public class ConfigManager {
     public List<String> getLoseCommands() {
         return this.loseCommands;
     }
+
+    public boolean isLCMDEnabled() {
+        return this.lCMDEnabled;
+    }
+
+    public List<String> getLevelCommands() {
+        return this.levelCommands;
+    }
+
+    public Sound getUpgradeSound() {
+        return this.upgradeSound;
+    }
+
+    public double getGCoinsAssists() {
+        return this.gCoinsAssists;
+    }
+
+    public int getXpAssists() {
+        return this.xpAssists;
+    }
 }

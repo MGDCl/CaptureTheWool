@@ -1123,6 +1123,7 @@ public class PlayerListener implements Listener {
                 ctw.addKillsWoolHolder();
             }
         }
+        Game games = plugin.getGm().getSelectedGame();
         p.sendMessage(plugin.getLang().get("messages.respawn"));
         p.setFireTicks(0);
         for (PotionEffect ef : p.getActivePotionEffects()) {
