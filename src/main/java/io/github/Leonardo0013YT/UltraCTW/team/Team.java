@@ -2,6 +2,7 @@ package io.github.Leonardo0013YT.UltraCTW.team;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.Game;
+import io.github.Leonardo0013YT.UltraCTW.listeners.PlayerListener;
 import io.github.Leonardo0013YT.UltraCTW.objects.Squared;
 import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
@@ -196,4 +197,39 @@ public class Team {
         return id == team.id && kills == team.kills && color == team.color;
     }
 
+    public ChatColor getColor() {
+        return this.color;
+    }
+
+    public String getPrefix() {
+        return this.prefix;
+    }
+
+    public Location getSpawn() {
+        return this.spawn;
+    }
+
+    public Map<Location, ChatColor> getWools() {
+        return this.wools;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Collection<ChatColor> getCaptured() {
+        return this.captured;
+    }
+
+    public Map<ChatColor, ArrayList<UUID>> getInProgress() {
+        return this.inProgress;
+    }
+
+    public ArrayList<ChatColor> getColors() {
+        return this.colors;
+    }
+
+    public Map<ChatColor, Item> getDropped() {
+        return this.dropped;
+    }
 }

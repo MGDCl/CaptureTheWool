@@ -41,35 +41,69 @@ public class GamePlayer {
     }
 
     public void addCoins(double amount) {
-        coins += amount;
+        this.coins += amount;
     }
 
     public void addKill() {
-        kills++;
+        this.kills++;
     }
 
     public void addDeath() {
-        deaths++;
+        this.deaths++;
     }
 
     public void removeCoins(double amount) {
-        coins -= amount;
+        this.coins -= amount;
     }
 
-    public int getXP() {
-        return xp;
+    public Player getP() {
+        return this.p;
     }
 
-    public void addXP(int xp) {
-        this.xp += xp;
+    public void setP(Player p) {
+        this.p = p;
     }
 
-    public int getSouls() {
-        return souls;
+    public int getKills() {
+        return this.kills;
     }
 
-    public void addSouls(int souls) {
-        this.souls += souls;
+    public void setKills(int kills) {
+        this.kills = kills;
     }
 
+    public int getDeaths() {
+        return this.deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
+    }
+
+
+    public double getCoins() {
+        return this.coins;
+    }
+
+    public void setCoins(double coins) {
+        this.coins = (int) coins;
+    }
+
+
+    public void setInv(ItemStack[] inv) {
+        this.inv = inv;
+    }
+
+
+    public void setArmor(ItemStack[] armor) {
+        this.armor = armor;
+    }
+
+    public boolean isReset() {
+        return this.reset;
+    }
+
+    public void setReset(boolean reset) {
+        this.reset = reset;
+    }
 }

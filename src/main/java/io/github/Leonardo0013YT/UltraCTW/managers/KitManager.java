@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 @Getter
@@ -66,4 +67,7 @@ public class KitManager {
         }
     }
 
+    public ArrayList<Integer> getDefaultKits() {
+        return this.defaultKits;
+    }
 }

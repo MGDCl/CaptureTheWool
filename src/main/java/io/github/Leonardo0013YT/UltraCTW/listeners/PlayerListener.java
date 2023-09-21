@@ -469,6 +469,9 @@ public class PlayerListener implements Listener {
                         lose.setLoses(lose.getLoses() + 1);
                         lose.setXp(lose.getXp() + 10);
                         lose.addCoins(10);
+                        if (plugin.getCm().isLoseCommands()) {
+                            plugin.getCm().getLoseCommands().forEach(s -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), s.replaceAll("<player>", loses.getName())));
+                        }
                         plugin.getLvl().checkUpgrade(loses);
                     }
                 });
@@ -814,7 +817,7 @@ public class PlayerListener implements Listener {
             }
             if (e.getDamager() instanceof Projectile && ((Projectile) e.getDamager()).getShooter() instanceof Player) {
                 Player d = (Player) ((Projectile) e.getDamager()).getShooter();
-                if (checkDamage(e, p, d));
+                checkDamage(e, p, d);
             }
         }
     }

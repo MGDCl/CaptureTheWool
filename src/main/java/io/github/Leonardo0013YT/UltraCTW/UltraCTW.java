@@ -277,11 +277,183 @@ public class UltraCTW extends JavaPlugin {
     }
 
     public String toStringCTWPlayer(CTWPlayer pd) {
-        return ctw.toJson(pd, CTWPlayer.class);
+        return this.ctw.toJson(pd, CTWPlayer.class);
     }
 
     public CTWPlayer fromStringCTWPlayer(String data) {
-        return ctw.fromJson(data, CTWPlayer.class);
+        return this.ctw.fromJson(data, CTWPlayer.class);
+    }
+
+    public Settings getArenas() {
+        return this.arenas;
+    }
+
+    public Settings getLang() {
+        return this.lang;
+    }
+
+    public Settings getMenus() {
+        return this.menus;
+    }
+
+    public Settings getKits() {
+        return this.kits;
+    }
+
+    public Settings getWindance() {
+        return this.windance;
+    }
+
+    public Settings getWineffect() {
+        return this.wineffect;
+    }
+
+    public Settings getKillsound() {
+        return this.killsound;
+    }
+
+    public Settings getTaunt() {
+        return this.taunt;
+    }
+
+    public Settings getTrail() {
+        return this.trail;
+    }
+
+    public Settings getKilleffect() {
+        return this.killeffect;
+    }
+
+    public Settings getShopkeepers() {
+        return this.shopkeepers;
+    }
+
+    public Settings getLevels() {
+        return this.levels;
+    }
+
+    public Settings getShop() {
+        return this.shop;
+    }
+
+    public boolean isDebugMode() {
+        return this.debugMode;
+    }
+
+    public boolean isStop() {
+        return this.stop;
+    }
+
+    public GameManager getGm() {
+        return this.gm;
+    }
+
+    public ConfigManager getCm() {
+        return this.cm;
+    }
+
+    public AddonManager getAdm() {
+        return this.adm;
+    }
+
+    public SetupManager getSm() {
+        return this.sm;
+    }
+
+    public SetupMenu getSem() {
+        return this.sem;
+    }
+
+    public ItemManager getIm() {
+        return this.im;
+    }
+
+    public KitManager getKm() {
+        return this.km;
+    }
+
+    public ScoreboardManager getSb() {
+        return this.sb;
+    }
+
+    public WorldController getWc() {
+        return this.wc;
+    }
+
+    public UltraInventoryMenu getUim() {
+        return this.uim;
+    }
+
+    public GameMenu getGem() {
+        return this.gem;
+    }
+
+    public IDatabase getDb() {
+        return this.db;
+    }
+
+    public VersionController getVc() {
+        return this.vc;
+    }
+
+    public WinDancesManager getWdm() {
+        return this.wdm;
+    }
+
+    public WinEffectsManager getWem() {
+        return this.wem;
+    }
+
+    public TrailsManager getTlm() {
+        return this.tlm;
+    }
+
+    public TauntsManager getTm() {
+        return this.tm;
+    }
+
+    public KillSoundManager getKsm() {
+        return this.ksm;
+    }
+
+    public KillEffectsManager getKem() {
+        return this.kem;
+    }
+
+    public ShopKeepersManager getSkm() {
+        return this.skm;
+    }
+
+    public TaggedManager getTgm() {
+        return this.tgm;
+    }
+
+    public LevelManager getLvl() {
+        return this.lvl;
+    }
+
+    public ShopManager getShm() {
+        return this.shm;
+    }
+
+    public NPCManager getNpc() {
+        return this.npc;
+    }
+
+    public InjectionManager getIjm() {
+        return this.ijm;
+    }
+
+    public StreakManager getStm() {
+        return this.stm;
+    }
+
+    public TopManager getTop() {
+        return this.top;
+    }
+
+    public MultiplierManager getMm() {
+        return this.mm;
     }
 
 }

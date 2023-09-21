@@ -2,7 +2,6 @@ package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.utils.ItemUtils;
-import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XMaterial;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
@@ -10,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 @Getter
 public class ItemManager {
 
-    private final ItemStack setup, points, teams, lobby, lobby2, leave, pickaxe;
+    private final ItemStack setup, points, teams, lobby, lobby2, leave;
 
     public ItemManager(UltraCTW plugin) {
         this.lobby2 = new ItemUtils(XMaterial.PAPER).setDisplayName(plugin.getLang().get("items.lobby2.nameItem")).setLore(plugin.getLang().get("items.lobby2.loreItem")).build();
@@ -19,7 +18,29 @@ public class ItemManager {
         this.points = new ItemUtils(XMaterial.STICK).setDisplayName(plugin.getLang().get("items.points.nameItem")).setLore(plugin.getLang().get("items.points.loreItem")).build();
         this.teams = new ItemUtils(XMaterial.WHITE_WOOL).setDisplayName(plugin.getLang().get("items.teams.nameItem")).setLore(plugin.getLang().get("items.teams.loreItem")).build();
         this.leave = new ItemUtils(XMaterial.NETHER_STAR).setDisplayName(plugin.getLang().get("items.leave.nameItem")).setLore(plugin.getLang().get("items.leave.loreItem")).build();
-        this.pickaxe = NBTEditor.set(new ItemUtils(XMaterial.WOODEN_PICKAXE).build(), "PICKAXE", "FLAG", "PICKAXE", "DEFAULT");
     }
 
+    public ItemStack getSetup() {
+        return this.setup;
+    }
+
+    public ItemStack getPoints() {
+        return this.points;
+    }
+
+    public ItemStack getTeams() {
+        return this.teams;
+    }
+
+    public ItemStack getLobby() {
+        return this.lobby;
+    }
+
+    public ItemStack getLeave() {
+        return this.leave;
+    }
+
+    public ItemStack getLobby2() {
+        return this.lobby2;
+    }
 }

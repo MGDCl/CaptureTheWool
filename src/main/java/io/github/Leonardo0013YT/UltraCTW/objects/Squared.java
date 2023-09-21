@@ -47,4 +47,11 @@ public class Squared {
         return this.isInCuboid(e.getLocation());
     }
 
+    public boolean isNoBreak() {
+        return this.noBreak;
+    }
+
+    public boolean isNoEntry() {
+        return this.noEntry;
+    }
 }

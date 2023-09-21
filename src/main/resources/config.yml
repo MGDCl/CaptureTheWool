@@ -34,13 +34,12 @@ gameDefaults:
   autoJoinFinish: false
   hunger: false
   instaKillOnVoid: true
-  supportItems: false
-  noFallDamage: false
-  maxMultiplier: 5
+  supportItems: true
+  noFallDamage: true
+  maxMultiplier: 4
   starting: 30
   timeToKill: 30
   limitOfYSpawn: 40
-  ironGenerating: 10
   gcoins:
     kill: 3
     win: 10
@@ -99,6 +98,10 @@ win-commands:
   enabled: false
   cmds:
     - "say <player> is a pro!"
+lose-commands:
+  enabled: true
+  cmds:
+    - "say <player> is a loser!"
 level-commands:
   enabled: false
   cmds:
@@ -117,3 +120,5 @@ whitelistedCMD:
   - /stats
   - /join
   - /tell
+  - /r
+  - /ping

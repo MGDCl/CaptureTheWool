@@ -19,4 +19,11 @@ public class Multiplier {
         this.amount = amount;
     }
 
+    public double getAmount() {
+        return this.amount;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }

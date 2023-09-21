@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -135,11 +136,18 @@ public class GameManager {
 
     public Game getBungee() {
         if (bungee == null) {
-            if (games.size() > 0) {
+            if (!games.isEmpty()) {
                 bungee = this.games.get(0);
             }
         }
         return bungee;
     }
 
+    public HashMap<Integer, Game> getGames() {
+        return this.games;
+    }
+
+    public HashMap<String, Integer> getGameNames() {
+        return this.gameNames;
+    }
 }

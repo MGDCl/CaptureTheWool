@@ -1,6 +1,7 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
+import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
+    private boolean kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, loseCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -23,7 +24,7 @@ public class ConfigManager {
     private int gCoinsPickup, xpPickup, coinsPickup, ironGenerating, updatePlayersPlaceholder, limitOfYSpawn, itemLobbySlot, itemLobby2Slot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
     private double bountyMin, bountyMax, bountyPerKill;
     private String bungeeModeLobbyServer, itemLobbyCMD, itemLobby2CMD;
-    private List<String> winCommands, levelCommands, killCommands, deathCommands;
+    private List<String> winCommands, levelCommands, loseCommands, killCommands, deathCommands;
     private List<String> whitelistedCMD, noDrop, breakBypass;
 
     public ConfigManager(UltraCTW plugin) {
@@ -33,10 +34,12 @@ public class ConfigManager {
 
     public void reload() {
         this.wCMDEnabled = plugin.getConfig().getBoolean("win-commands.enabled");
+        this.loseCMDEnabled = plugin.getConfig().getBoolean("lose-commands.enabled");
         this.lCMDEnabled = plugin.getConfig().getBoolean("level-commands.enabled");
         this.kCMDEnabled = plugin.getConfig().getBoolean("kill-commands.enabled");
         this.dCMDEnabled = plugin.getConfig().getBoolean("death-commands.enabled");
         this.winCommands = plugin.getConfig().getStringList("win-commands.cmds");
+        this.loseCommands = plugin.getConfig().getStringList("lose-commands.cmds");
         this.levelCommands = plugin.getConfig().getStringList("level-commands.cmds");
         this.killCommands = plugin.getConfig().getStringList("kill-commands.cmds");
         this.deathCommands = plugin.getConfig().getStringList("death-commands.cmds");
@@ -49,7 +52,6 @@ public class ConfigManager {
         this.statsCMD = plugin.getConfig().getBoolean("statsCMD");
         this.mobGriefing = plugin.getConfig().getBoolean("mobGriefing");
         this.totalBreak = plugin.getConfig().getBoolean("breakMap.totalBreak");
-        this.ironGenerating = plugin.getConfig().getInt("gameDefaults.ironGenerating");
         this.updatePlayersPlaceholder = plugin.getConfig().getInt("updatePlayersPlaceholder");
         this.lobbyScoreboard = plugin.getConfig().getBoolean("lobbyScoreboard");
         this.hungerCTW = plugin.getConfig().getBoolean("gameDefaults.hunger");
@@ -116,5 +118,202 @@ public class ConfigManager {
         this.killEffectSquid = Sound.valueOf(plugin.getConfig().getString("sounds.killeffects.squid"));
         this.back = Material.valueOf(plugin.getConfig().getString("materials.closeitem"));
         this.noDrop = plugin.getConfig().getStringList("gameDefaults.noDrop");
+    }
+
+    public boolean isPlaceholdersAPI() {
+        return this.placeholdersAPI;
+    }
+
+    public boolean isBungeeModeEnabled() {
+        return this.bungeeModeEnabled;
+    }
+
+    public boolean isStatsCMD() {
+        return this.statsCMD;
+    }
+
+    public boolean isBroadcastGame() {
+        return this.broadcastGame;
+    }
+
+    public String getBungeeModeLobbyServer() {
+        return this.bungeeModeLobbyServer;
+    }
+
+    public Location getMainLobby() {
+        return this.mainLobby;
+    }
+
+    public long getUpdatePlayersPlaceholder() {
+        return this.updatePlayersPlaceholder;
+    }
+
+    public boolean isKickOnStarted() {
+        return this.kickOnStarted;
+    }
+
+    public List<String> getBreakBypass() {
+        return this.breakBypass;
+    }
+
+    public boolean isTotalBreak() {
+        return this.totalBreak;
+    }
+
+    public boolean isHungerCTW() {
+        return this.hungerCTW;
+    }
+
+    public int getLimitOfYSpawn() {
+        return this.limitOfYSpawn;
+    }
+
+    public double getGCoinsCapture() {
+        return this.gCoinsCapture;
+    }
+
+    public double getCoinsCapture() {
+        return this.coinsCapture;
+    }
+
+    public int getXpCapture() {
+        return this.xpCapture;
+    }
+
+    public XSound getCaptured() {
+        return this.captured;
+    }
+
+    public boolean isInstaKillOnVoidCTW() {
+        return this.instaKillOnVoidCTW;
+    }
+
+    public List<String> getNoDrop() {
+        return this.noDrop;
+    }
+
+    public XSound getPickUpTeam() {
+        return this.pickUpTeam;
+    }
+
+    public double getGCoinsPickup() {
+        return this.gCoinsPickup;
+    }
+
+    public double getCoinsPickup() {
+        return this.coinsPickup;
+    }
+
+    public int getXpPickup() {
+        return this.xpPickup;
+    }
+
+    public boolean isSupportItems() {
+        return this.supportItems;
+    }
+
+    public XSound getPickUpOthers() {
+        return this.pickUpOthers;
+    }
+
+    public boolean isNoFallDamage() {
+        return this.noFallDamage;
+    }
+
+    public boolean isDCMDEnabled() {
+        return this.dCMDEnabled;
+    }
+
+    public List<String> getDeathCommands() {
+        return this.deathCommands;
+    }
+
+    public boolean isKCMDEnabled() {
+        return this.dCMDEnabled;
+    }
+
+    public List<String> getKillCommands() {
+        return this.killCommands;
+    }
+
+    public String getItemLobbyCMD() {
+        return this.itemLobbyCMD;
+    }
+
+    public String getItemLobby2CMD() {
+        return this.itemLobby2CMD;
+    }
+
+    public List<String> getWhitelistedCMD() {
+        return this.whitelistedCMD;
+    }
+
+    public boolean isItemLobbyEnabled() {
+        return this.itemLobbyEnabled;
+    }
+
+    public int getItemLobbySlot() {
+        return this.itemLobbySlot;
+    }
+
+    public boolean isItemLobby2Enabled() {
+        return this.itemLobby2Enabled;
+    }
+
+    public int getItemLobby2Slot() {
+        return this.itemLobby2Slot;
+    }
+
+    public boolean isJoinMessage() {
+        return this.joinMessage;
+    }
+
+    public boolean isWCMDEnabled() {
+        return this.wCMDEnabled;
+    }
+
+    public List<String> getWinCommands() {
+        return this.winCommands;
+    }
+
+    public int getXpWin() {
+        return this.xpWin;
+    }
+
+    public int getCoinsWin() {
+        return this.coinsWin;
+    }
+
+    public int getStarting() {
+        return this.starting;
+    }
+
+    public Sound getCancelStartSound() {
+        return this.cancelStartSound;
+    }
+
+    public boolean isAutoJoinFinish() {
+        return this.autoJoinFinish;
+    }
+
+    public double getCoinsKill() {
+        return this.coinsKill;
+    }
+
+    public double getGCoinsKills() {
+        return this.gCoinsKills;
+    }
+
+    public int getXpKill() {
+        return this.xpKill;
+    }
+
+
+    public boolean isLoseCommands() {
+        return this.loseCMDEnabled;
+    }
+
+    public List<String> getLoseCommands() {
+        return this.loseCommands;
     }
 }
