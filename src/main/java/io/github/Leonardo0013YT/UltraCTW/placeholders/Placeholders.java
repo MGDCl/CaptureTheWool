@@ -6,6 +6,7 @@ import io.github.Leonardo0013YT.UltraCTW.objects.Level;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class Placeholders extends PlaceholderExpansion {
 
@@ -15,16 +16,16 @@ public class Placeholders extends PlaceholderExpansion {
         this.plugin = plugin;
     }
 
-    public String getIdentifier() {
+    public @NotNull String getIdentifier() {
         return "ctw";
     }
 
-    public String getAuthor() {
+    public @NotNull String getAuthor() {
         return "Leonardo0013YT";
     }
 
-    public String getVersion() {
-        return "2.4.7";
+    public @NotNull String getVersion() {
+        return "2.4.8";
     }
 
     @Override

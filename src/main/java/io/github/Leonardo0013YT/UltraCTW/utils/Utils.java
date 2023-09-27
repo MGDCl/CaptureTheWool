@@ -305,6 +305,42 @@ public class Utils {
         return null;
     }
 
+    public static String getWoolColor(ChatColor color) {
+        if (color.equals(ChatColor.AQUA))
+            return plugin.getLang().get("woolname.aqua");
+        if (color.equals(ChatColor.DARK_AQUA))
+            return plugin.getLang().get("woolname.dark_aqua");
+        if (color.equals(ChatColor.BLUE))
+            return plugin.getLang().get("woolname.blue");
+        if (color.equals(ChatColor.DARK_BLUE))
+            return plugin.getLang().get("woolname.dark_blue");
+        if (color.equals(ChatColor.RED))
+            return plugin.getLang().get("woolname.red");
+        if (color.equals(ChatColor.DARK_RED))
+            return plugin.getLang().get("woolname.dark_red");
+        if (color.equals(ChatColor.GRAY))
+            return plugin.getLang().get("woolname.gray");
+        if (color.equals(ChatColor.DARK_GRAY))
+            return plugin.getLang().get("woolname.dark_gray");
+        if (color.equals(ChatColor.GREEN))
+            return plugin.getLang().get("woolname.green");
+        if (color.equals(ChatColor.DARK_GREEN))
+            return plugin.getLang().get("woolname.dark_green");
+        if (color.equals(ChatColor.LIGHT_PURPLE))
+            return plugin.getLang().get("woolname.light_purple");
+        if (color.equals(ChatColor.DARK_PURPLE))
+            return plugin.getLang().get("woolname.dark_purple");
+        if (color.equals(ChatColor.BLACK))
+            return plugin.getLang().get("woolname.black");
+        if (color.equals(ChatColor.WHITE))
+            return plugin.getLang().get("woolname.white");
+        if (color.equals(ChatColor.YELLOW))
+            return plugin.getLang().get("woolname.yellow");
+        if (color.equals(ChatColor.GOLD))
+            return plugin.getLang().get("woolname.gold");
+        return "";
+    }
+
     public static XMaterial getXMaterialByColor(ChatColor color) {
         if (color.equals(ChatColor.AQUA)) {
             return XMaterial.LIGHT_BLUE_WOOL;

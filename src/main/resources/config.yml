@@ -32,6 +32,7 @@ redPanel:
   data: 14
 gameDefaults:
   autoJoinFinish: false
+  woolRadio: false
   hunger: false
   instaKillOnVoid: true
   supportItems: true

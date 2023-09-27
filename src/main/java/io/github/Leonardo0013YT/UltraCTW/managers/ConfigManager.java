@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
-import io.github.Leonardo0013YT.UltraCTW.utils.NBTEditor;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 import lombok.Getter;
@@ -15,7 +14,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, loseCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
+    private boolean woolRadio, kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, loseCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -56,6 +55,7 @@ public class ConfigManager {
         this.lobbyScoreboard = plugin.getConfig().getBoolean("lobbyScoreboard");
         this.hungerCTW = plugin.getConfig().getBoolean("gameDefaults.hunger");
         this.instaKillOnVoidCTW = plugin.getConfig().getBoolean("gameDefaults.instaKillOnVoid");
+        this.woolRadio = plugin.getConfig().getBoolean("gameDefaults.woolRadio");
         this.breakMap = plugin.getConfig().getBoolean("breakMap.enabled");
         this.breakBypass = plugin.getConfig().getStringList("breakMap.bypass");
         this.kitLevelsOrder = plugin.getConfig().getBoolean("kitLevelsOrder");
@@ -186,6 +186,10 @@ public class ConfigManager {
 
     public boolean isInstaKillOnVoidCTW() {
         return this.instaKillOnVoidCTW;
+    }
+
+    public boolean isWoolRadio() {
+        return this.woolRadio;
     }
 
     public List<String> getNoDrop() {
@@ -339,5 +343,9 @@ public class ConfigManager {
 
     public boolean isLobbyScoreboard() {
         return this.lobbyScoreboard;
+    }
+
+    public int getProgressBarAmount() {
+        return this.progressBarAmount;
     }
 }
