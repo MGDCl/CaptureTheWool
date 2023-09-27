@@ -336,4 +336,8 @@ public class ConfigManager {
     public int getXpAssists() {
         return this.xpAssists;
     }
+
+    public boolean isLobbyScoreboard() {
+        return this.lobbyScoreboard;
+    }
 }

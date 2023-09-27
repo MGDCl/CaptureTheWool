@@ -20,7 +20,7 @@ public class Level {
         this.level = plugin.getLevels().getInt(path + ".level");
         this.xp = plugin.getLevels().getInt(path + ".xp");
         this.levelUp = plugin.getLevels().getInt(path + ".levelUp");
-        this.prefix = plugin.getLevels().get(null, path + ".prefix");
+        prefix = plugin.getLevels().get(path + ".prefix");
         this.rewards = plugin.getLevels().getList(path + ".rewards");
     }
 
