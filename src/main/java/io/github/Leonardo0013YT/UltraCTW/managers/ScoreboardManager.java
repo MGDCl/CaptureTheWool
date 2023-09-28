@@ -55,7 +55,7 @@ public class ScoreboardManager {
                 Team t1 = game.getTeamByID(0);
                 Team t2 = game.getTeamByID(1);
                 if (!scoreboard.hasBoard(p)) {
-                    scoreboard.createBoard(p, simple(p, plugin.getLang().get(p, "scoreboards.simple-game.title"), game, team, gp, t1, t2));
+                    scoreboard.createBoard(p, simple(p, plugin.getLang().get(p, "scoreboards.simple-game.title"), game, team, gp, t1, t2).replaceAll("<tcolor>", team.getColor() + ""));
                 }
                 scoreboard.getBoard(p).setAll(simple(p, plugin.getLang().get(p, "scoreboards.simple-game.lines"), game, team, gp, t1, t2).split("\\n"));
             }
@@ -81,6 +81,7 @@ public class ScoreboardManager {
         if (ctw == null) return s;
         Level level = plugin.getLvl().getLevel(p);
         return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
+                .replace("<id>", String.valueOf(game.getId()))
                 .replace("<date>", Utils.getDate())
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<max>", String.valueOf(game.getMax()))
@@ -93,6 +94,7 @@ public class ScoreboardManager {
         if (ctw == null) return s;
         Level level = plugin.getLvl().getLevel(p);
         return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
+                .replace("<id>", String.valueOf(game.getId()))
                 .replace("<date>", Utils.getDate())
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<time>", Utils.convertTime(game.getStarting()))
@@ -107,6 +109,7 @@ public class ScoreboardManager {
         Level level = plugin.getLvl().getLevel(p);
         return s.replace("<levelUp>", String.valueOf(level.getLevelUp()))
                 .replace("<date>", Utils.getDate())
+                .replace("<id>", String.valueOf(game.getId()))
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<gcoins>", Utils.format(ctw.getCoins()))
                 .replace("<coins>", Utils.format(gp.getCoins()))

@@ -20,7 +20,7 @@ public class ConfigManager {
     private Material back, redPanelMaterial;
     private Sound streak2, streak3, streak4, streak5, upgradeSound, cancelStartSound, wineffectschicken, wineffectsvulcanfire, wineffectvulcanwool, wineffectnotes, killEffectTNT, killEffectSquid;
     private XSound pickUpTeam, pickUpOthers, captured;
-    private int gCoinsPickup, xpPickup, coinsPickup, ironGenerating, updatePlayersPlaceholder, limitOfYSpawn, itemLobbySlot, itemLobby2Slot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
+    private int gCoinsPickup, xpPickup, coinsPickup, updatePlayersPlaceholder, limitOfYSpawn, itemLobbySlot, itemLobby2Slot, maxMultiplier, gCoinsKills, gCoinsWins, gCoinsAssists, gCoinsCapture, coinsKill, coinsWin, coinsAssists, coinsCapture, xpKill, xpWin, xpAssists, xpCapture, starting, progressBarAmount, timeToKill;
     private double bountyMin, bountyMax, bountyPerKill;
     private String bungeeModeLobbyServer, itemLobbyCMD, itemLobby2CMD;
     private List<String> winCommands, levelCommands, loseCommands, killCommands, deathCommands;

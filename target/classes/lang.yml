@@ -54,9 +54,9 @@ scoreboards:
       &7
       &emc.spigot.net
   simple-game:
-    title: "&e&lCAPTURE THE WOOL"
+    title: "<tcolor>&lCAPTURE THE WOOL"
     lines: |-
-      &7<date>
+      &7<date> &8mctw<id>
       &fGame time: &a<time> ⌛
       &fGold: &6<coins> &6⛂⛃
       &7
@@ -183,17 +183,17 @@ messages:
   morePlayers: "&aMore players have joined, bringing forward the start of the game!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
   noArenas: "&cNo games available!"
-  woolPickup: "&6(+<coins> for collecting <wool> wool)"
+  woolPickup: "&6(+<coins> for pickup <woolname> wool)"
   respawn: "&eRespawned!"
-  teamPickup: '&a ➤ &e¡<tcolor><player> recogió la <color>Lana <woolname>&e!'
-  otherPickup: '&c&l ! ! <tcolor><player> recogió tu <color>Lana <woolname> &c&l! !'
+  teamPickup: '&a ➤ &e¡<tcolor><player> &epicked up the <woolname><color> Wool&e!'
+  otherPickup: '&c&l ! ! <tcolor><player> &epicked up the <woolname><color> Wool&c&l! !'
   teamCaptured:
     - <center>&7
-    - <center>&c&l¡<tcolor>&l<player> &a&lcapturó la <color>&lLana <woolname>&a&l!
+    - <center>&c&l¡<tcolor>&l<player> &a&lcaptured the <woolname> <color>Wool &a&l!
     - <center>&7
   otherCaptured:
     - <center>&7
-    - <center>&c&l¡<tcolor>&l<player> &c&lcapturó la <color>&lLana <woolname>&c&l!
+    - <center>&c&l¡<tcolor>&l<player> &c&lcaptured the <woolname> <color>Wool&c&l!
     - <center>&7
   newPlayer: |-
     &a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
@@ -254,6 +254,27 @@ messages:
   coins: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
   xpYou: '&f    &3+<amount> &fby your multiplier &cx<value>'
   coinsYou: '&f    &6+<amount> &fby your multiplier &cx<value>'
+  summonarylose: |-
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+    <center>&7
+    <center>&f&lRewards Summary
+    <center>&7
+    &7Total XP: &3<xpLose>
+    <xpGame>
+    <multiplierXP>
+    <multiplierXPYou>
+    &7Total Coins: &6<coinsLose>
+    <coinsGame>
+    <multiplierCoins>
+    <multiplierCoinsYou>
+    <center>&7
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+  xpGameLose: '&f    &3+<amount> &ffor participating in the game.'
+  coinsGameLose: '&f    &6+<amount> &ffor participating in the game.'
+  xpLose: '&f    &3+<amount> &fmultiplier &a<player> &cx<value>'
+  coinsLose: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
+  xpYouLose: '&f    &3+<amount> &fby your multiplier &cx<value>'
+  coinsYouLose: '&f    &6+<amount> &fby your multiplier &cx<value>'
   help:
     - "&co&m----------------------------------------------o"
     - "&e"
@@ -276,16 +297,16 @@ topFormat: "&e&l<top> &7- <name> &7- &6<amount>"
 titles:
   teamPickup:
     title: ""
-    subtitle: "<tcolor><player> &erecogio la <color>Lana <woolname>!"
+    subtitle: "<tcolor><player> &epicked up the <woolname> <color>Wool!"
   otherPickup:
     title: ""
-    subtitle: "<tcolor><player> &erecogio tu <color>Lana <woolname>!"
+    subtitle: "<tcolor><player> &epicked up your <woolname> <color>Wool!"
   teamCaptured:
     title: ""
-    subtitle: "<tcolor><player> &ecapturo la <color>Lana <woolname>!"
+    subtitle: "<tcolor><player> &ecaptured the <woolname> <color>Wool !"
   otherCaptured:
     title: ""
-    subtitle: "<tcolor><player> &ecapturo tu <color>Lana <woolname>!"
+    subtitle: "<tcolor><player> &ecaptured the <woolname> <color>Wool!"
   dropped:
     title: ""
     subtitle: "&c&l<tcolor><player> &edropped <wool>"
@@ -312,8 +333,8 @@ titles:
     subtitle: '&7You have leveled up <level>'
 actionbar:
   noTeam: "&fUse &e&l/join &fto join a team!"
-  myTeam: "<tcolor>&lYOU ARE ON THE TEAM &l<team>"
-  randomTeam: "&eYou were sent to the team <team>"
+  myTeam: "<tcolor>&lYOU ARE ON THE &l<team> TEAM"
+  randomTeam: "&eYou were sent to the <team> team"
   levelup: '&e&lNEW LEVEL You have reached the &e&lLEVEL <level>'
   double: '&c&lDOUBLEKILL'
   three: '&a&lTRIPEKILL'
@@ -354,22 +375,22 @@ prefix:
   yellow: "&e[Y]"
   gold: "&6[G]"
 woolname:
-  aqua: '&3Celeste'
-  dark_aqua: '&bCyan'
-  blue: '&9Azul'
-  dark_blue: '&1Azul'
-  red: '&cRoja'
-  dark_red: '&4Roja'
-  gray: '&7Gris'
-  dark_gray: '&8Gris'
-  green: '&aLime'
-  dark_green: '&2Verde'
-  light_purple: '&dRosa'
-  dark_purple: '&5Morada'
-  black: '&0Negra'
-  white: '&fWhite'
-  yellow: '&eAmarilla'
-  gold: '&6Naranja'
+  aqua: "&bAqua"
+  dark_blue: "&1Dark Blue"
+  black: "&0Black"
+  blue: "&9Blue"
+  dark_aqua: "&3Dark Aqua"
+  dark_red: "&4Dark Red"
+  red: "&cRed"
+  dark_gray: "&8Dark Gray"
+  gray: "&7Gray"
+  dark_green: "&2Dark Green"
+  green: "&aGreen"
+  light_purple: "&dLight Purple"
+  dark_purple: "&5Dark Purple"
+  white: "&fWhite"
+  yellow: "&eYellow"
+  gold: "&6Gold"
 motds:
   WAITING: '&aWaiting... &9Info: &e<map> &b<players>&7/&b<max>'
   STARTING: '&eStarting... &9Info: &e<map> &b<players>&7/&b<max>'

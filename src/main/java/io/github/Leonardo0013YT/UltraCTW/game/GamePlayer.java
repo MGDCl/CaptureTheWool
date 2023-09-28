@@ -11,10 +11,13 @@ import org.bukkit.inventory.ItemStack;
 public class GamePlayer {
 
     private Player p;
-    private int kills, deaths = 0, PiUpgrade = 0;
+    private int kills;
+    private int deaths = 0;
+    private final int PiUpgrade = 0;
     private int coins;
     private ItemStack[] inv, armor;
-    private int  xp, souls;
+    private final int  xp;
+    private final int souls;
     private boolean reset;
     private String pickaxeKey, teamHaste;
 
@@ -53,7 +56,7 @@ public class GamePlayer {
     }
 
     public void removeCoins(double amount) {
-        this.coins -= amount;
+        this.coins -= (int) amount;
     }
 
     public Player getP() {
