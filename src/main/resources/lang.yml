@@ -198,13 +198,13 @@ messages:
   newPlayer: |-
     &a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
   joinMessage: |-
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7
     <center>&f&l<player> welcome to Capture the wool v<version>!
     <center>&7
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
   start:
-    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "<center>&7"
     - "<center>&f&lCAPTURE THE WOOL"
     - "<center>&7"
@@ -213,9 +213,9 @@ messages:
     - "<center>&e&lget a streak of eliminations, bounty"
     - "<center>&e&lfor killing someone with a streak, have fun."
     - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
   win: |-
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7
     <center>&f&lCAPTURE THE WOOL
     &7Wools:            <captured>
@@ -225,7 +225,7 @@ messages:
     <center>&6&l2nd Killer &7- <color2><top2> &7- <number2>
     <center>&c&l3rt Killer &7- <color3><top3> &7- <number3>
     <center>&7"
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
   newLevel:
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "<center>&e&lCONGRATULATIONS!"
@@ -234,7 +234,7 @@ messages:
     - "<center>&7"
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
   summonary: |-
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7
     <center>&f&lRewards Summary
     <center>&7
@@ -247,7 +247,7 @@ messages:
     <multiplierCoins>
     <multiplierCoinsYou>
     <center>&7
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
   xpGame: '&f    &3+<amount> &fwon in game.'
   coinsGame: '&f    &6+<amount> &fwon in game.'
   xp: '&f    &3+<amount> &fmultiplier &a<player> &cx<value>'
@@ -276,14 +276,14 @@ messages:
   xpYouLose: '&f    &3+<amount> &fby your multiplier &cx<value>'
   coinsYouLose: '&f    &6+<amount> &fby your multiplier &cx<value>'
   help:
-    - "&co&m----------------------------------------------o"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "&e"
     - "§a/ctw join §7- §eEnter a game"
     - "§a/join §7- §eChoose a team"
     - "§a/leave §7- §eLeave the game"
     - "§a/stats §7- §eShow your stats"
     - "&e"
-    - "§co§m----------------------------------------------o"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
 holograms:
   kits:
     - "&e&lCAPTURE THE WOOL"

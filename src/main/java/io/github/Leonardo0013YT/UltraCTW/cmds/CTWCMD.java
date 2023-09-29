@@ -310,7 +310,7 @@ public class CTWCMD implements CommandExecutor {
                                 p.sendMessage(plugin.getLang().get(p, "setup.noNumber"));
                                 return true;
                             }
-                            plugin.getDb().createMultiplier("COINS", on.getName(), amount, System.currentTimeMillis() + (seconds * 1000), b -> {
+                            plugin.getDb().createMultiplier("COINS", on.getName(), amount, System.currentTimeMillis() + (seconds * 1000L), b -> {
                                 if (b) {
                                     plugin.getDb().loadMultipliers(b1 -> {
                                         if (b1) {
@@ -340,7 +340,7 @@ public class CTWCMD implements CommandExecutor {
                                 p.sendMessage(plugin.getLang().get(p, "setup.noNumber"));
                                 return true;
                             }
-                            plugin.getDb().createMultiplier("XP", on3.getName(), amount3, System.currentTimeMillis() + (seconds3 * 1000), b -> {
+                            plugin.getDb().createMultiplier("XP", on3.getName(), amount3, System.currentTimeMillis() + (seconds3 * 1000L), b -> {
                                 if (b) {
                                     plugin.getDb().loadMultipliers(b1 -> {
                                         if (b1) {

@@ -32,7 +32,7 @@ public class Team {
     private final Game game;
     private final ChatColor color;
     private final int id;
-    private int kills;
+    private final int kills;
     private final Location spawn;
     private final String name;
     private final String prefix;
@@ -140,9 +140,6 @@ public class Team {
         members.forEach(m -> m.sendMessage(msg));
     }
 
-    public void addKill() {
-        kills++;
-    }
 
     public void reset() {
         members.clear();
@@ -172,15 +169,6 @@ public class Team {
 
     public Collection<Player> getMembers() {
         return this.members;
-    }
-
-    public Squared getPlayerSquared(Player p) {
-        for (Squared s : squareds) {
-            if (s.isInCuboid(p)) {
-                return s;
-            }
-        }
-        return null;
     }
 
     public Squared getPlayerSquared(Location loc) {

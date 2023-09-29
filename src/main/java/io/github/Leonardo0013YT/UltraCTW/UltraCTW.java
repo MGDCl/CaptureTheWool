@@ -143,6 +143,7 @@ public class UltraCTW extends JavaPlugin {
         getCommand("ctw").setExecutor(new CTWCMD(this));
         getCommand("leave").setExecutor(new LeaveCommand(this));
         getCommand("join").setExecutor(new JoinCommand(this));
+        getCommand("shout").setExecutor(new ShoutCommand(this));
         if (cm.isStatsCMD()) {
             getCommand("stats").setExecutor(new StatsCMD(this));
         }

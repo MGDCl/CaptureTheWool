@@ -6,8 +6,8 @@
     <packaging>jar</packaging>
 
     <name>UltraCTW</name>
-    <description>UltraCaptureTheWool by MGDCl</description>
-    <version>2.4.8</version>
+    <description>UltraCaptureTheWool fork by MGDCl</description>
+    <version>2.4.9</version>
     <url>https://github.com/MGDCl</url>
 
     <properties>

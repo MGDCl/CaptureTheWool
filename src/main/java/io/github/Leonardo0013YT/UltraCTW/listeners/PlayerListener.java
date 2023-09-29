@@ -43,7 +43,6 @@ import org.bukkit.util.Vector;
 
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -127,13 +126,7 @@ public class PlayerListener implements Listener {
     public void onTNT(EntityExplodeEvent e) {
         Game g = plugin.getGm().getSelectedGame();
         if (g.isState(State.GAME)){
-            Iterator<Block> iter = e.blockList().iterator();
-            while (iter.hasNext()) {
-                Block block = iter.next();
-                if(!block.getType().equals(Material.WOOD)) {
-                    iter.remove();
-                }
-            }
+            e.blockList().removeIf(block -> !block.getType().equals(Material.WOOD));
         }
     }
 
@@ -308,7 +301,7 @@ public class PlayerListener implements Listener {
             ChatColor to = team.getWools().get(l);
             if (!to.equals(c)) {
                 e.setCancelled(true);
-                p.sendMessage(plugin.getLang().get("messages.incorrectWool").replaceAll("<wool>", c + "" + c.name()));
+                p.sendMessage(plugin.getLang().get("messages.incorrectWool").replaceAll("<wool>", c + c.name()));
                 return;
             }
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
@@ -449,7 +442,9 @@ public class PlayerListener implements Listener {
             if (g.getLobbyProtection() != null) {
                 Squared s = g.getLobbyProtection();
                 if (!s.isInCuboid(p)) {
-                    p.teleport(g.getLobby());
+                    if (g.getLobby().distance(p.getLocation()) > 200.0D){
+                        p.teleport(g.getLobby());
+                    }
                 }
                 if (t.getY() <= 10) {
                     p.teleport(g.getLobby());
@@ -554,7 +549,7 @@ public class PlayerListener implements Listener {
         }, 1L);
     }
 
-    @EventHandler
+    @EventHandler @Deprecated
     public void onPickUp(PlayerPickupItemEvent e) {
         Player p = e.getPlayer();
         Item i = e.getItem();

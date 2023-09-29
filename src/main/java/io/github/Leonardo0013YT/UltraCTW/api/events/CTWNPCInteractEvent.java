@@ -9,8 +9,8 @@ import org.bukkit.event.HandlerList;
 public class CTWNPCInteractEvent extends Event implements Cancellable {
 
     private static final HandlerList HANDLERS_LIST = new HandlerList();
-    private Player player;
-    private NPC npc;
+    private final Player player;
+    private final NPC npc;
     private boolean isCancelled = false;
 
     public CTWNPCInteractEvent(Player player, NPC npc) {

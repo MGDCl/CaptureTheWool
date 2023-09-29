@@ -35,14 +35,10 @@ public class KillEffectTNT implements KillEffect, Cloneable {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (plugin.getVc().is1_12()) {
-                    loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
-                } else {
-                    loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
-                    loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
-                    loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
-                    loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
-                }
+                loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
+                loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
+                loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
+                loc.getWorld().playEffect(loc, Effect.EXPLOSION_LARGE, 1);
                 p.playSound(p.getLocation(), plugin.getCm().getKillEffectTNT(), 1.0f, 1.0f);
                 primed.remove();
             }

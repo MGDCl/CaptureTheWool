@@ -7,13 +7,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class StatsCMD implements CommandExecutor {
-
     private final UltraCTW plugin;
-
     public StatsCMD(UltraCTW plugin) {
         this.plugin = plugin;
     }
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {

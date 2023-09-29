@@ -25,7 +25,7 @@ public class Placeholders extends PlaceholderExpansion {
     }
 
     public @NotNull String getVersion() {
-        return "2.4.8";
+        return "2.4.9";
     }
 
     @Override

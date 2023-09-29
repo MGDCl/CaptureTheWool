@@ -44,14 +44,17 @@ gameDefaults:
   gcoins:
     kill: 3
     win: 10
+    pickup: 50
     capture: 10
   coins:
     kill: 5
     win: 20
+    pickup: 5
     capture: 10
   xp:
     kill: 5
     win: 10
+    pickup: 2
     capture: 10
   noDrop:
     - WOOL
@@ -100,7 +103,7 @@ win-commands:
   cmds:
     - "say <player> is a pro!"
 lose-commands:
-  enabled: true
+  enabled: false
   cmds:
     - "say <player> is a loser!"
 level-commands:

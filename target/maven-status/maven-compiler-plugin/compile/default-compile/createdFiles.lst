@@ -115,6 +115,7 @@ io\github\Leonardo0013YT\UltraCTW\setup\KitSetup.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\WinEffectChicken.class
 io\github\Leonardo0013YT\UltraCTW\listeners\WorldListener.class
 io\github\Leonardo0013YT\UltraCTW\scoreboard\bukkit\util\NMS$Version.class
+io\github\Leonardo0013YT\UltraCTW\cmds\ShoutCommand.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\killeffects\KillEffectSquid.class
 io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener.class
 io\github\Leonardo0013YT\UltraCTW\setup\TeamSetup.class

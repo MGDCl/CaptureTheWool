@@ -1,17 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.utils;
 
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 public class CenterMessage {
-
-    public static void sendCenteredMessage(Player player, String string) {
-        player.sendMessage(getCenteredMessage(string));
-    }
-
-    public static void sendCenteredMessage(CommandSender commandSender, String string) {
-        commandSender.sendMessage(getCenteredMessage(string));
-    }
 
     public static String getCenteredMessage(String string) {
         Object object;
@@ -43,7 +32,7 @@ public class CenterMessage {
         for (int n2 = 0; n2 < n4; n2 += n5) {
             ((StringBuilder) object).append(" ");
         }
-        return object.toString() + string;
+        return object + string;
     }
 
     public enum DefaultFontInfo {
@@ -144,8 +133,8 @@ public class CenterMessage {
         SPACE(' ', 3),
         DEFAULT('a', 4);
 
-        private char character;
-        private int length;
+        private final char character;
+        private final int length;
 
         DefaultFontInfo(char c, int n2) {
             this.character = c;

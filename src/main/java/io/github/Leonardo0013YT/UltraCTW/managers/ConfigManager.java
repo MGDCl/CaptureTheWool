@@ -1,5 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
+import com.comphenix.net.bytebuddy.dynamic.DynamicType;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
@@ -347,5 +348,29 @@ public class ConfigManager {
 
     public int getProgressBarAmount() {
         return this.progressBarAmount;
+    }
+
+    public boolean isMobGriefing() {
+        return this.mobGriefing;
+    }
+
+    public Sound getKillEffectSquid() {
+        return this.killEffectSquid;
+    }
+
+    public Sound getKillEffectTNT() {
+        return this.killEffectTNT;
+    }
+
+    public boolean isRedPanelInLocked() {
+        return this.redPanelInLocked;
+    }
+
+    public Material getRedPanelMaterial() {
+        return this.redPanelMaterial;
+    }
+
+    public short getRedPanelData() {
+        return this.redPanelData;
     }
 }

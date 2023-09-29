@@ -14,7 +14,6 @@ public class VersionController {
     private NMS nms;
     private final boolean is1_13to15 = false;
     private final boolean is1_9to15 = false;
-    private final boolean is1_12 = false;
     private final NMSReflection reflection;
 
     public VersionController(UltraCTW plugin) {
@@ -45,13 +44,11 @@ public class VersionController {
     }
 
     public NPC createNewNPC() {
-        switch (version) {
-            case "v1_8_R3":
-                return new NPC_v1_8_r3(plugin);
-            default:
-                plugin.sendLogMessage("§cYou have an outdated version §e1.8§c, please use version §a1.8.8§c.");
-                disable();
-                break;
+        if (version.equals("v1_8_R3")) {
+            return new NPC_v1_8_r3(plugin);
+        } else {
+            plugin.sendLogMessage("§cYou have an outdated version §e1.8§c, please use version §a1.8.8§c.");
+            disable();
         }
         return null;
     }
@@ -73,15 +70,12 @@ public class VersionController {
         return version;
     }
 
-    public boolean is1_12() {
-        return is1_12;
-    }
-
-    public boolean is1_9to15() {
-        return is1_9to15;
-    }
 
     public boolean is1_13to16() {
         return is1_13to15;
+    }
+
+    public boolean is1_9to15() {
+        return this.is1_9to15;
     }
 }
