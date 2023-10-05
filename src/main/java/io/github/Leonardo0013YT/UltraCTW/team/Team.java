@@ -36,6 +36,8 @@ public class Team {
     private final Location spawn;
     private final String name;
     private final String prefix;
+    private final String particles;
+
 
     public Team(UltraCTW plugin, Game game, String path, int id) {
         this.plugin = plugin;
@@ -46,6 +48,7 @@ public class Team {
         this.color = ChatColor.valueOf(plugin.getArenas().get(path + ".color"));
         this.name = plugin.getLang().get("teams." + color.name().toLowerCase());
         this.prefix = plugin.getLang().get("prefix." + color.name().toLowerCase());
+        this.particles = plugin.getLang().get("particles." + color.name().toLowerCase());
         for (String c : plugin.getArenas().getConfig().getConfigurationSection(path + ".spawners").getKeys(false)) {
             String nowPath = path + ".spawners." + c;
             spawners.put(Utils.getStringLocation(plugin.getArenas().get(nowPath + ".loc")), ChatColor.valueOf(plugin.getArenas().get(nowPath + ".color")));
@@ -222,5 +225,9 @@ public class Team {
 
     public Map<ChatColor, Item> getDropped() {
         return this.dropped;
+    }
+
+    public String getParticles() {
+        return this.particles;
     }
 }

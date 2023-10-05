@@ -25,7 +25,7 @@ public class Placeholders extends PlaceholderExpansion {
     }
 
     public @NotNull String getVersion() {
-        return "2.4.9";
+        return "2.5.0";
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Placeholders extends PlaceholderExpansion {
             return "" + plugin.getGm().getGameSize("wool");
         }
         if (id.equals("game_name")){
-            return "" + plugin.getGm().getSelectedGame().getName();
+            return plugin.getGm().getSelectedGame().getName();
         }
         if (id.equals("game_state")){
             return "" + plugin.getGm().getSelectedGame().getState();
@@ -94,55 +94,55 @@ public class Placeholders extends PlaceholderExpansion {
             return "" + sw.getTrails().size();
         }
         if (id.equals("percentage_trails")) {
-            return "" + Utils.getProgressBar(sw.getTrails().size(), plugin.getTlm().getTrailsSize());
+            return Utils.getProgressBar(sw.getTrails().size(), plugin.getTlm().getTrailsSize());
         }
         if (id.equals("bar_trails")) {
-            return "" + Utils.getProgressBar(sw.getTrails().size(), plugin.getTlm().getTrailsSize(), plugin.getCm().getProgressBarAmount());
+            return Utils.getProgressBar(sw.getTrails().size(), plugin.getTlm().getTrailsSize(), plugin.getCm().getProgressBarAmount());
         }
         if (id.equals("unlocked_windances")) {
             return "" + sw.getWindances().size();
         }
         if (id.equals("percentage_windances")) {
-            return "" + Utils.getProgressBar(sw.getWindances().size(), plugin.getWdm().getWinDancesSize());
+            return Utils.getProgressBar(sw.getWindances().size(), plugin.getWdm().getWinDancesSize());
         }
         if (id.equals("bar_windances")) {
-            return "" + Utils.getProgressBar(sw.getWindances().size(), plugin.getWdm().getWinDancesSize(), plugin.getCm().getProgressBarAmount());
+            return Utils.getProgressBar(sw.getWindances().size(), plugin.getWdm().getWinDancesSize(), plugin.getCm().getProgressBarAmount());
         }
         if (id.equals("unlocked_wineffects")) {
             return "" + sw.getWineffects().size();
         }
         if (id.equals("percentage_wineffects")) {
-            return "" + Utils.getProgressBar(sw.getWineffects().size(), plugin.getWem().getWinEffectsSize());
+            return Utils.getProgressBar(sw.getWineffects().size(), plugin.getWem().getWinEffectsSize());
         }
         if (id.equals("bar_wineffects")) {
-            return "" + Utils.getProgressBar(sw.getWineffects().size(), plugin.getWem().getWinEffectsSize(), plugin.getCm().getProgressBarAmount());
+            return Utils.getProgressBar(sw.getWineffects().size(), plugin.getWem().getWinEffectsSize(), plugin.getCm().getProgressBarAmount());
         }
         if (id.equals("unlocked_taunts")) {
             return "" + sw.getTaunts().size();
         }
         if (id.equals("percentage_taunts")) {
-            return "" + Utils.getProgressBar(sw.getTaunts().size(), plugin.getTm().getTauntsSize());
+            return Utils.getProgressBar(sw.getTaunts().size(), plugin.getTm().getTauntsSize());
         }
         if (id.equals("bar_taunts")) {
-            return "" + Utils.getProgressBar(sw.getTaunts().size(), plugin.getTm().getTauntsSize(), plugin.getCm().getProgressBarAmount());
+            return Utils.getProgressBar(sw.getTaunts().size(), plugin.getTm().getTauntsSize(), plugin.getCm().getProgressBarAmount());
         }
         if (id.equals("unlocked_killsounds")) {
             return "" + sw.getKillsounds().size();
         }
         if (id.equals("percentage_killsounds")) {
-            return "" + Utils.getProgressBar(sw.getKillsounds().size(), plugin.getKsm().getKillSoundsSize());
+            return Utils.getProgressBar(sw.getKillsounds().size(), plugin.getKsm().getKillSoundsSize());
         }
         if (id.equals("bar_killsounds")) {
-            return "" + Utils.getProgressBar(sw.getKillsounds().size(), plugin.getKsm().getKillSoundsSize(), plugin.getCm().getProgressBarAmount());
+            return Utils.getProgressBar(sw.getKillsounds().size(), plugin.getKsm().getKillSoundsSize(), plugin.getCm().getProgressBarAmount());
         }
         if (id.equals("unlocked_killeffects")) {
             return "" + sw.getKilleffects().size();
         }
         if (id.equals("percentage_killeffects")) {
-            return "" + Utils.getProgressBar(sw.getKilleffects().size(), plugin.getKem().getKillEffectSize());
+            return Utils.getProgressBar(sw.getKilleffects().size(), plugin.getKem().getKillEffectSize());
         }
         if (id.equals("bar_killeffects")) {
-            return "" + Utils.getProgressBar(sw.getKilleffects().size(), plugin.getKem().getKillEffectSize(), plugin.getCm().getProgressBarAmount());
+            return Utils.getProgressBar(sw.getKilleffects().size(), plugin.getKem().getKillEffectSize(), plugin.getCm().getProgressBarAmount());
         }
         if (id.equals("level_prefix")) {
             return plugin.getLvl().getLevelPrefix(p);

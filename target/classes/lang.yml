@@ -152,6 +152,9 @@ messages:
   leaveGame: "&cYou're out of the game."
   selectShopKeeper: "&aYou've selected the trail: &e<shopkeeper>"
   selectTrail: "&aYou've selected the trail: &e<trail>"
+  receivedkit: "&aYou've received the kit: &e<kit>"
+  noGold: "&cNeed <gold> gold to buy this."
+  received: "&aYou've received the item: &e<name>"
   selectTaunt: "&aYou've selected the taunt: &e<taunt>"
   selectKillSound: "&aYou've selected the killsound: &e<killsound>"
   selectKillEffect: "&aYou've selected the killeffect: &e<killeffect>"
@@ -181,6 +184,7 @@ messages:
   insufficientP: "&cMore players are needed!"
   forceStart: "&cGame start has been forced!"
   morePlayers: "&aMore players have joined, bringing forward the start of the game!"
+  particlesText: "THE <team> TEAM HAS WON!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
   noArenas: "&cNo games available!"
   woolPickup: "&6(+<coins> for pickup <woolname> wool)"
@@ -198,13 +202,13 @@ messages:
   newPlayer: |-
     &a<player> &ehas joined &7(&b<size>&7/&b<max>&7)
   joinMessage: |-
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7
     <center>&f&l<player> welcome to Capture the wool v<version>!
     <center>&7
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
   start:
-    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "<center>&7"
     - "<center>&f&lCAPTURE THE WOOL"
     - "<center>&7"
@@ -213,9 +217,9 @@ messages:
     - "<center>&e&lget a streak of eliminations, bounty"
     - "<center>&e&lfor killing someone with a streak, have fun."
     - "<center>&7"
-    - "<center>&a&m&l---------------------------------------------"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
   win: |-
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7
     <center>&f&lCAPTURE THE WOOL
     &7Wools:            <captured>
@@ -225,7 +229,7 @@ messages:
     <center>&6&l2nd Killer &7- <color2><top2> &7- <number2>
     <center>&c&l3rt Killer &7- <color3><top3> &7- <number3>
     <center>&7"
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
   newLevel:
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "<center>&e&lCONGRATULATIONS!"
@@ -234,7 +238,7 @@ messages:
     - "<center>&7"
     - "<center>&a&l&m▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
   summonary: |-
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7
     <center>&f&lRewards Summary
     <center>&7
@@ -247,7 +251,7 @@ messages:
     <multiplierCoins>
     <multiplierCoinsYou>
     <center>&7
-    <center>&a&m&l---------------------------------------------
+    <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
   xpGame: '&f    &3+<amount> &fwon in game.'
   coinsGame: '&f    &6+<amount> &fwon in game.'
   xp: '&f    &3+<amount> &fmultiplier &a<player> &cx<value>'
@@ -275,15 +279,33 @@ messages:
   coinsLose: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
   xpYouLose: '&f    &3+<amount> &fby your multiplier &cx<value>'
   coinsYouLose: '&f    &6+<amount> &fby your multiplier &cx<value>'
+  killmultiplier: |-
+    <center>&f&lMurder Multiplier in coins and exp
+    <center>&7
+    &7Total XP: &3<xpKill>
+    <multiplierXPYou>
+    &7Total Coins: &6<coinsKill>
+    <multiplierCoinsYou>
+  xpGameKill: '&f    &3+<amount> &ffor murdering a player'
+  coinsGameKill: '&f    &6+<amount> &ffor murdering a player'
+  xpKill: '&f    &3+<amount> &fmultiplier &a<player> &cx<value>'
+  coinsKill: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
+  xpYouKill: '&f    &3+<amount> &fby your multiplier &cx<value>'
+  coinsYouKill: '&f    &6+<amount> &fby your multiplier &cx<value>'
+tips:
+  1: '&b&lTIP: &eYou can buy items at the shopkeeper located in your base!'
+  2: '&b&lTIP: &eEntering the enemy wool room rewards you with better gear!'
+  3: '&b&lTIP: &eYou can buy speed potions and other useful items at the shopkeeper located in your base!'
+  4: '&b&lTIP: &eYou can craft items that help you build stronger defenses!'
   help:
-    - "&co&m----------------------------------------------o"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
     - "&e"
     - "§a/ctw join §7- §eEnter a game"
     - "§a/join §7- §eChoose a team"
     - "§a/leave §7- §eLeave the game"
     - "§a/stats §7- §eShow your stats"
     - "&e"
-    - "§co§m----------------------------------------------o"
+    - "<center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"
 holograms:
   kits:
     - "&e&lCAPTURE THE WOOL"
@@ -391,6 +413,23 @@ woolname:
   white: "&fWhite"
   yellow: "&eYellow"
   gold: "&6Gold"
+particles:
+  aqua: "AQUA"
+  dark_blue: "DARK_BLUE"
+  black: "BLACK"
+  blue: "BLUE"
+  dark_aqua: "DARK_AQUA"
+  dark_red: "DARK_RED"
+  red: "RED"
+  dark_gray: "DARK_GRAY"
+  gray: "GRAY"
+  dark_green: "DARK_GREEN"
+  green: "GREEN"
+  light_purple: "LIGHT_PURPLE"
+  dark_purple: "DARK_PURPLE"
+  white: "WHITE"
+  yellow: "YELLOW"
+  gold: "GOLD"
 motds:
   WAITING: '&aWaiting... &9Info: &e<map> &b<players>&7/&b<max>'
   STARTING: '&eStarting... &9Info: &e<map> &b<players>&7/&b<max>'

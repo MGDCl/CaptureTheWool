@@ -41,7 +41,7 @@ wineffects:
           - <status>
     type: vulcanwool
     name: "Vulcan Wool"
-    price: 2000
+    price: 20000
     isBuy: true
     slot: 11
     page: 1
@@ -65,7 +65,7 @@ wineffects:
           - <status>
     type: ghosts
     name: "Ghosts"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 12
     page: 1
@@ -89,7 +89,7 @@ wineffects:
           - <status>
     type: storm
     name: "Storm"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 13
     page: 1
@@ -112,7 +112,7 @@ wineffects:
           - <status>
     type: crazyblocks
     name: "Crazy Blocks"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 14
     page: 1
@@ -135,7 +135,7 @@ wineffects:
           - <status>
     type: chickens
     name: "chickens"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 15
     page: 1
@@ -158,7 +158,7 @@ wineffects:
           - <status>
     type: guardian
     name: "guardian"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 16
     page: 1
@@ -181,7 +181,7 @@ wineffects:
           - <status>
     type: dragon
     name: "dragon"
-    price: 2500
+    price: 250000
     isBuy: true
     slot: 19
     page: 1
@@ -204,7 +204,7 @@ wineffects:
           - <status>
     type: wither
     name: "wither"
-    price: 2500
+    price: 250000
     isBuy: true
     slot: 20
     page: 1
@@ -227,7 +227,7 @@ wineffects:
           - <status>
     type: daredevil
     name: "daredevil"
-    price: 2500
+    price: 350000
     isBuy: true
     slot: 21
     page: 1
@@ -250,7 +250,7 @@ wineffects:
           - <status>
     type: icewalker
     name: "Ice Walker"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 22
     page: 1
@@ -273,7 +273,7 @@ wineffects:
           - <status>
     type: notes
     name: "Notes"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 23
     page: 1
@@ -297,7 +297,7 @@ wineffects:
           - <status>
     type: vulcanfire
     name: "Vulcan Fire"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 24
     page: 1
@@ -321,7 +321,7 @@ wineffects:
           - <status>
     type: catrain
     name: "Cat Rain"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 25
     page: 1
@@ -345,7 +345,7 @@ wineffects:
           - <status>
     type: catrain
     name: "TNT"
-    price: 2500
+    price: 25000
     isBuy: true
     slot: 26
     page: 1

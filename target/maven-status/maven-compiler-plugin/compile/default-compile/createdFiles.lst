@@ -75,6 +75,7 @@ io\github\Leonardo0013YT\UltraCTW\menus\GameMenu.class
 io\github\Leonardo0013YT\UltraCTW\placeholders\Placeholders.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\UltraInventory.class
 io\github\Leonardo0013YT\UltraCTW\listeners\SetupListener$4.class
+io\github\Leonardo0013YT\UltraCTW\utils\EffectUtils.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\taunts\Taunt.class
 io\github\Leonardo0013YT\UltraCTW\setup\ArenaSetup.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\KitAttribute.class
@@ -172,6 +173,7 @@ io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceDestroyIsland.clas
 io\github\Leonardo0013YT\UltraCTW\cosmetics\windances\WinDanceWolfs.class
 io\github\Leonardo0013YT\UltraCTW\game\GameNoState$2.class
 io\github\Leonardo0013YT\UltraCTW\utils\NBTEditor$MinecraftVersion.class
+io\github\Leonardo0013YT\UltraCTW\utils\EffectUtils$1.class
 io\github\Leonardo0013YT\UltraCTW\scoreboard\bukkit\BPlayerBoard$ObjectiveMode.class
 io\github\Leonardo0013YT\UltraCTW\interfaces\Migrator.class
 io\github\Leonardo0013YT\UltraCTW\cmds\StatsCMD.class
@@ -202,6 +204,7 @@ io\github\Leonardo0013YT\UltraCTW\objects\ProtocolLib$1.class
 io\github\Leonardo0013YT\UltraCTW\objects\Multiplier.class
 io\github\Leonardo0013YT\UltraCTW\cosmetics\wineffects\UltraWinEffect.class
 io\github\Leonardo0013YT\UltraCTW\nms\npc\NPC_v1_8_r3.class
+io\github\Leonardo0013YT\UltraCTW\utils\Utils$1.class
 io\github\Leonardo0013YT\UltraCTW\managers\LevelManager.class
 io\github\Leonardo0013YT\UltraCTW\calls\CallBackAPI.class
 io\github\Leonardo0013YT\UltraCTW\listeners\PlayerListener$2.class

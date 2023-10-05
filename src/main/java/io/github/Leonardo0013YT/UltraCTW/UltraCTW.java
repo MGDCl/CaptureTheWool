@@ -4,6 +4,7 @@ import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import de.slikey.effectlib.EffectManager;
 import io.github.Leonardo0013YT.UltraCTW.adapters.ICTWPlayerAdapter;
 import io.github.Leonardo0013YT.UltraCTW.cmds.*;
 import io.github.Leonardo0013YT.UltraCTW.config.Settings;
@@ -21,6 +22,7 @@ import io.github.Leonardo0013YT.UltraCTW.menus.SetupMenu;
 import io.github.Leonardo0013YT.UltraCTW.menus.UltraInventoryMenu;
 import io.github.Leonardo0013YT.UltraCTW.objects.ProtocolLib;
 import io.github.Leonardo0013YT.UltraCTW.placeholders.Placeholders;
+import io.github.Leonardo0013YT.UltraCTW.utils.EffectUtils;
 import io.github.Leonardo0013YT.UltraCTW.utils.MetricsLite;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -66,6 +68,8 @@ public class UltraCTW extends JavaPlugin {
     private StreakManager stm;
     private TopManager top;
     private MultiplierManager mm;
+    private EffectUtils eu;
+    private EffectManager em;
 
     public static UltraCTW get() {
         return instance;
@@ -138,6 +142,8 @@ public class UltraCTW extends JavaPlugin {
         stm = new StreakManager(this);
         top = new TopManager(this);
         mm = new MultiplierManager();
+        em = new EffectManager(this);
+        eu = new EffectUtils(this);
         new ProtocolLib(this);
         getCommand("ctws").setExecutor(new SetupCMD(this));
         getCommand("ctw").setExecutor(new CTWCMD(this));
@@ -252,8 +258,8 @@ public class UltraCTW extends JavaPlugin {
         getConfig().addDefault("sounds.wineffects.vulcanfire", "FUSE");
         getConfig().addDefault("sounds.wineffects.notes", "FIREWORK_LAUNCH");
         getConfig().addDefault("sounds.wineffects.chicken", "FIREWORK_LAUNCH");
-        getConfig().addDefault("sounds.pickUpTeam", "FIREWORK_LAUNCH");
-        getConfig().addDefault("sounds.pickUpOthers", "WITHER_HURT");
+        getConfig().addDefault("sounds.pickUpTeam", "NOTE_PLING");
+        getConfig().addDefault("sounds.pickUpOthers", "ENDERMAN_TELEPORT");
         getConfig().addDefault("sounds.captured", "LEVEL_UP");
         getConfig().addDefault("sounds.killeffects.tnt", "EXPLODE");
         getConfig().addDefault("sounds.killeffects.squid", "ITEM_PICKUP");
@@ -463,5 +469,13 @@ public class UltraCTW extends JavaPlugin {
 
     public Settings getSources() {
         return this.sources;
+    }
+
+    public EffectUtils getEffectUtils() {
+        return eu;
+    }
+
+    public EffectManager getEffectManager() {
+        return em;
     }
 }

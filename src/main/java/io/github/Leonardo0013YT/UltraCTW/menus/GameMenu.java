@@ -24,7 +24,7 @@ import java.util.List;
 
 public class GameMenu {
 
-    private final List<Integer> slots = Arrays.asList(10, 16, 19, 20, 21, 22, 23, 24, 25, 28);;
+    private final List<Integer> slots = Arrays.asList(10, 16, 19, 20, 21, 22, 23, 24, 25, 28);
     private final List<Integer> shop = Arrays.asList(10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 28, 29, 30, 31, 32, 33, 34);
     private final UltraCTW plugin;
 
@@ -49,22 +49,22 @@ public class GameMenu {
         if (game != null){
             inv.setItem(22, getGameItem(game));
         }
-        ItemStack stats = new ItemStack(339, 1);
-        ItemMeta meta = stats.getItemMeta();
-        meta.setDisplayName(plugin.getLang().get("menus.join.stats.nameItem"));
+        //stats
         CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
-        String lore = plugin.getLang().get("menus.join.stats.loreItem").replaceAll("<kills>", String.valueOf(ctw.getKills())).replaceAll("<deaths>", String.valueOf(ctw.getDeaths())).replaceAll("<coins>", Utils.format(ctw.getCoins())).replaceAll("<captured>", String.valueOf(ctw.getWoolCaptured())).replaceAll("<level>", String.valueOf(ctw.getLevel())).replaceAll("<wins>", String.valueOf(ctw.getWins())).replaceAll("<xp>", String.valueOf(ctw.getXp())).replaceAll("<played>", String.valueOf(ctw.getPlayed())).replaceAll("<shots>", String.valueOf(ctw.getShots())).replaceAll("<sShots>", String.valueOf(ctw.getsShots())).replaceAll("<bowkills>", String.valueOf(ctw.getBowKills())).replaceAll("<bowdistance>", String.valueOf(ctw.getBowKillDistance())).replaceAll("<bowmaxdistance>", String.valueOf(ctw.getMaxBowDistance()));
-        meta.setLore(lore.isEmpty() ? new ArrayList<>() : Arrays.asList(lore.split("\\n")));
+        ItemStack stats = new ItemUtils(XMaterial.PAPER).setDisplayName(plugin.getLang().get("menus.join.stats.nameItem")).setLore(plugin.getLang().get("menus.join.stats.loreItem").replace("<kills>", String.valueOf(ctw.getKills())).replace("<assists>", String.valueOf(ctw.getAssists())).replace("<deaths>", String.valueOf(ctw.getDeaths())).replace("<coins>", Utils.format(ctw.getCoins())).replace("<woolStolen>", String.valueOf(ctw.getWoolStolen())).replace("<woolHolder>", String.valueOf(ctw.getKillsWoolHolder())).replace("<captured>", String.valueOf(ctw.getWoolCaptured())).replace("<wins>", String.valueOf(ctw.getWins())).replace("<loses>", String.valueOf(ctw.getLoses())).replace("<played>", String.valueOf(ctw.getPlayed())).replace("<sShots>", String.valueOf(ctw.getsShots())).replace("<bowkills>", String.valueOf(ctw.getBowKills()))).build();
+        ItemMeta meta = stats.getItemMeta();
         stats.setItemMeta(meta);
         inv.setItem(36, stats);
-
-        ItemStack close = new ItemStack(166, 1);
+        //close
+        ItemStack close = new ItemUtils(XMaterial.BARRIER).setDisplayName(plugin.getLang().get("menus.join.close.nameItem")).setLore(plugin.getLang().get("menus.join.close.loreItem")).build();
         ItemMeta meta2 = close.getItemMeta();
-        meta2.setDisplayName(plugin.getLang().get("menus.join.close.nameItem"));
-        String lore2 = plugin.getLang().get("menus.join.close.loreItem");
-        meta2.setLore(lore2.isEmpty() ? new ArrayList<>() : Arrays.asList(lore2.split("\\n")));
         close.setItemMeta(meta2);
         inv.setItem(44, close);
+        //settings
+        ItemStack settings = new ItemUtils(XMaterial.ANVIL).setDisplayName(plugin.getLang().get("menus.join.settings.nameItem")).setLore(plugin.getLang().get("menus.join.settings.loreItem")).build();
+        ItemMeta meta3 = settings.getItemMeta();
+        settings.setItemMeta(meta3);
+        inv.setItem(40, settings);
         p.openInventory(inv);
     }
 
@@ -90,13 +90,13 @@ public class GameMenu {
         return leather;
     }
 
-    private ItemStack getGameItem(Game game){//TODO SAME
-        ItemStack wool = new ItemStack(35, 1);
+    private ItemStack getGameItem(Game game){
+        ItemStack wool = new ItemUtils(XMaterial.WHITE_WOOL).build();
         ItemMeta meta = wool.getItemMeta();
         meta.setDisplayName(plugin.getLang().get("menus.join.wool.nameItem"));
         List<String> lore = new ArrayList<>();
         lore.add("");
-        lore.add(plugin.getLang().get("menus.join.wool.map").replace("<map>", game.getName()));
+        lore.add(plugin.getLang().get("menus.join.wool.map").replace("<map>", game.getName().replaceAll("_", " ")));
         lore.add("");
         if (game.isState(State.WAITING)){
             if (wool.getDurability() != (short) 0){

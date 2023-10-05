@@ -40,4 +40,8 @@ public class ShopItem implements Purchasable {
     public boolean needPermToBuy() {
         return false;
     }
+
+    public ItemStack getItem() {
+        return this.item;
+    }
 }

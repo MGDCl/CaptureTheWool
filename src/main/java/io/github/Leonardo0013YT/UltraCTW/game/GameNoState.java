@@ -5,10 +5,8 @@ import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.enums.NPCType;
 import io.github.Leonardo0013YT.UltraCTW.enums.State;
 import io.github.Leonardo0013YT.UltraCTW.interfaces.*;
-import io.github.Leonardo0013YT.UltraCTW.objects.Multiplier;
 import io.github.Leonardo0013YT.UltraCTW.objects.Squared;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
-import io.github.Leonardo0013YT.UltraCTW.utils.CenterMessage;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
 
@@ -49,8 +47,6 @@ public class GameNoState implements Game {
     private final int max;
     private final int worldTime;
     private State state;
-    private UUID player;
-    private HashMap<ChatColor, Player> captured;
 
     public GameNoState(UltraCTW plugin, String path, int id) {
         this.name = plugin.getArenas().get(path + ".name");
@@ -265,7 +261,7 @@ public class GameNoState implements Game {
                         for (Location s : npcShop) {
                             plugin.getSkm().spawnShopKeeper(on, s, ctw.getShopKeeper(), NPCType.SHOP);
                         }
-                        NametagEdit.getApi().setNametag(on,t.getPrefix() + " " + t.getColor() + "", "");
+                        NametagEdit.getApi().setNametag(on, t.getPrefix() + " " + t.getColor(), "");
                         for (Player c : cached) {
                             c.showPlayer(on);
                             on.showPlayer(c);
@@ -279,7 +275,6 @@ public class GameNoState implements Game {
         if (isState(State.GAME)) {
             time++;
             teams.values().forEach(Team::updateSpawner);
-
             for(Player on : cached){
                 Team t = getTeamPlayer(on);
                 if (t == null) {
@@ -287,8 +282,19 @@ public class GameNoState implements Game {
                 } else {
                     sendGameActionBar(on, plugin.getLang().get("actionbar.myTeam").replaceAll("<tcolor>", t.getColor() + "").replaceAll("<team>", t.getName()));
                 }
+                if (time == 60 || time == 300 || time == 540 || time == 780 || time == 1020){
+                    on.sendMessage(plugin.getLang().get("tips.1"));
+                }
+                if (time == 120 || time == 360 || time == 600 || time == 840 || time == 1080){
+                    on.sendMessage(plugin.getLang().get("tips.2"));
+                }
+                if (time == 180 || time == 420 || time == 660 || time == 900 || time == 1140){
+                    on.sendMessage(plugin.getLang().get("tips.3"));
+                }
+                if (time == 240 || time == 480 || time == 720 || time == 960 || time == 1200){
+                    on.sendMessage(plugin.getLang().get("tips.4"));
+                }
             }
-            //TODO agregar mensajes de TIPS, toggleables por la config
         }
     }
 
@@ -340,57 +346,18 @@ public class GameNoState implements Game {
                 on.sendMessage(s.replaceAll("&", "§").replaceAll("<captured>", Utils.getWoolsString(team)).replaceAll("<winner>", gw.getWinner()).replaceAll("<members>", gw.Members()).replaceAll("<wcolor>", gw.getTeamWin().getColor() + "").replaceAll("<number1>", s1[1]).replaceAll("<top1>", s1[0]).replaceAll("<color1>", "" + ChatColor.valueOf(s1[2])).replaceAll("<number2>", s2[1]).replaceAll("<top2>", s2[0]).replaceAll("<color2>", "" + ChatColor.valueOf(s2[2])).replaceAll("<number3>", s3[1]).replaceAll("<top3>", s3[0]).replaceAll("<color3>", "" + ChatColor.valueOf(s3[2])));
             }
         }
+        UltraCTW.get().getEffectUtils().sentWinParticles(team, this);
+        UltraCTW.get().getEffectUtils().winBaseEffect(team, this);
         plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.lose.title").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), plugin.getLang().get("titles.lose.subtitle").replaceAll("<tcolor>", team.getColor() + "").replaceAll("<winner>", gw.getWinner()), 0, 80, 0, cached.stream().filter(on -> !team.getMembers().contains(on)).collect(Collectors.toList()));
         for (Player w : team.getMembers()) {
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(w);
             if (ctw == null) continue;
+            ctw.addCoins(plugin.getCm().getCoinsWin());
+            ctw.setXp(ctw.getXp() + plugin.getCm().getXpWin());
             if (plugin.getCm().isWCMDEnabled()) {
                 plugin.getCm().getWinCommands().forEach(c -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), c.replaceAll("<player>", w.getName())));
             }
-
-            int gxp = plugin.getCm().getXpWin();
-            int gcoins = plugin.getCm().getCoinsWin();
-            ctw.setXp(ctw.getXp() + (int) plugin.getMm().getPlayerMultiplier(w, "XP", gxp));
-            ctw.addCoins((int) plugin.getMm().getPlayerMultiplier(w, "COINS", gcoins));
-            Multiplier mx = plugin.getMm().getServerMultiplier("XP");
-            Multiplier mc = plugin.getMm().getServerMultiplier("COINS");
-            for (String s : plugin.getLang().get(w, "messages.summonary").split("\\n")) {
-                if (s.contains("<center>")) {
-                    w.sendMessage(CenterMessage.getCenteredMessage(s.replaceAll("<center>", "")));
-                } else if (s.contains("<xpGame>")) {
-                    w.sendMessage(plugin.getLang().get(w, "messages.xpGame").replaceAll("<amount>", String.valueOf(gxp)));
-                } else if (s.contains("<coinsGame>")) {
-                    w.sendMessage(plugin.getLang().get(w, "messages.coinsGame").replaceAll("<amount>", String.valueOf(gcoins)));
-                } else if (s.contains("<multiplierXP>")) {
-                    if (mx != null) {
-                        double amount = (mx.getAmount() * gxp) - gxp;
-                        w.sendMessage(plugin.getLang().get(w, "messages.xp").replaceAll("<amount>", String.valueOf(amount)).replace("<player>", mx.getName()).replaceAll("<value>", "" + mx.getAmount()));
-                        ctw.setXp((int) amount);
-                    }
-                } else if (s.contains("<multiplierXPYou>")) {
-                    if (plugin.getMm().getPlayerMultiplier(w, "XP", gxp) > 1) {
-                        String mxp = String.valueOf(plugin.getMm().getPlayerMultiplier(w, "XP"));
-                        String xp = String.valueOf(plugin.getMm().getPlayerMultiplier(w, "XP", gxp));
-                        w.sendMessage(plugin.getLang().get(w, "messages.xpYou").replaceAll("<amount>", xp).replaceAll("<value>", mxp));
-                    }
-                }else if (s.contains("<multiplierCoins>")) {
-                    if (mc != null) {
-                        double amount = (mc.getAmount() * gcoins) - gcoins;
-                        w.sendMessage(plugin.getLang().get(w, "messages.coins").replaceAll("<amount>", String.valueOf(amount)).replace("<player>", mc.getName()).replaceAll("<value>", "" + mc.getAmount()));
-                        ctw.addCoins((int) amount);
-                    }
-                } else if (s.contains("<multiplierCoinsYou>")) {
-                    if (plugin.getMm().getPlayerMultiplier(w, "COINS", gcoins) > 1) {
-                        String mxp = String.valueOf(plugin.getMm().getPlayerMultiplier(w, "COINS"));
-                        String xp = String.valueOf(plugin.getMm().getPlayerMultiplier(w, "COINS", gcoins));
-                        w.sendMessage(plugin.getLang().get(w, "messages.coinsYou").replaceAll("<amount>", xp).replaceAll("<value>", mxp));
-                    }
-                } else {
-                    w.sendMessage(s.replaceAll("<xp>", "" + gxp)
-                            .replaceAll("<coins>", "" + gcoins)
-                            .replaceAll("<souls>", "" + 0));
-                }
-            }
+            Utils.sendWinRewards(plugin, w);
             ctw.setWins(ctw.getWins() + 1);
             plugin.getLvl().checkUpgrade(w);
             plugin.getWem().execute(this, w, ctw.getWinEffect());
@@ -402,7 +369,7 @@ public class GameNoState implements Game {
 
         new BukkitRunnable() {
             int count = 9;
-            Game g = plugin.getGm().getSelectedGame();
+            final Game g = plugin.getGm().getSelectedGame();
             @Override
             public void run() {
                 if(count==0) {
@@ -459,20 +426,16 @@ public class GameNoState implements Game {
     }
 
     @Override
-    public void addKill(Player p, boolean bowKill) {//TODO agregar multiplicadores
+    public void addKill(Player p, boolean bowKill) {
         if (gamePlayer.containsKey(p)) {
             GamePlayer gp = gamePlayer.get(p);
             gp.setKills(gp.getKills() + 1);
-            gp.addCoins(plugin.getCm().getCoinsKill());
+            gp.addCoins(plugin.getCm().getGCoinsKills());
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
-            ctw.addCoins(plugin.getCm().getGCoinsKills());
+            ctw.addCoins(plugin.getCm().getCoinsKill());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpKill());
-            ItemStack i = new ItemStack(322, 1);
-            if (p.getInventory().firstEmpty() == -1) {
-                p.sendMessage("sexo");
-            } else {
-                p.getInventory().addItem(i);
-            }
+            p.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 1));
+            Utils.sendKillRewards(plugin, p);
             if (bowKill) {
                 ctw.setBowKills(ctw.getBowKills() + 1);
             } else {
@@ -564,7 +527,7 @@ public class GameNoState implements Game {
             for (Location s : npcShop) {
                 plugin.getSkm().spawnShopKeeper(p, s, ctw.getShopKeeper(), NPCType.SHOP);
             }
-            NametagEdit.getApi().setNametag(p, team.getPrefix() + " " +team.getColor() + "", "");
+            NametagEdit.getApi().setNametag(p, team.getPrefix() + " " +team.getColor(), "");
             cached.forEach(o -> o.showPlayer(p));
         }
     }

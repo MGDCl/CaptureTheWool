@@ -16,6 +16,8 @@ import io.github.Leonardo0013YT.UltraCTW.interfaces.Purchasable;
 import io.github.Leonardo0013YT.UltraCTW.objects.ShopItem;
 import io.github.Leonardo0013YT.UltraCTW.team.Team;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
+import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -61,25 +63,31 @@ public class ShopManager {
             Game g = plugin.getGm().getGameByPlayer(p);
             GamePlayer gp = g.getGamePlayer(p);
             if (gp.getCoins() < purchasable.getPrice()) {
-                p.sendMessage(plugin.getLang().get(p, "messages.noCoins"));
+                p.sendMessage(plugin.getLang().get(p, "messages.noGold").replace("<gold>", String.valueOf(purchasable.getPrice())));
+                p.playSound(p.getLocation(), XSound.BLOCK_ANVIL_LAND.parseSound(),1.0F, 1.0F);
                 return;
             }
             ShopItem si = (ShopItem) purchasable;
             p.getInventory().addItem(si.getItem());
             gp.setCoins(gp.getCoins() - si.getPrice());
+            p.sendMessage(plugin.getLang().get(p, "messages.received").replace("<name>", ChatColor.stripColor(si.getItem().getItemMeta().getDisplayName())));
+            p.playSound(p.getLocation(), XSound.ENTITY_PLAYER_LEVELUP.parseSound(),2.0F, 2.0F);
             return;
         } else if (purchasable instanceof KitLevel) {
             Game g = plugin.getGm().getGameByPlayer(p);
             if (g != null) {
                 GamePlayer gp = g.getGamePlayer(p);
                 if (gp.getCoins() < purchasable.getPrice()) {
-                    p.sendMessage(plugin.getLang().get(p, "messages.noCoins"));
+                    p.sendMessage(plugin.getLang().get(p, "messages.noGold").replace("<gold>", String.valueOf(purchasable.getPrice())));
+                    p.playSound(p.getLocation(), XSound.BLOCK_ANVIL_LAND.parseSound(),1.0F, 1.0F);
                     return;
                 }
                 KitLevel k = (KitLevel) purchasable;
                 gp.setCoins(gp.getCoins() - k.getPrice());
                 Team team = g.getTeamPlayer(p);
                 plugin.getKm().giveKit(p, k.getKitID(), k.getLevel(), team);
+                p.sendMessage(plugin.getLang().get(p, "messages.receivedkit").replace("<name>", k.getKit().getName()));
+                p.playSound(p.getLocation(), XSound.ENTITY_PLAYER_LEVELUP.parseSound(),2.0F, 2.0F);
             } else {
                 KitLevel k = (KitLevel) purchasable;
                 if (plugin.getCm().isKitLevelsOrder() && !isLastLevel(sw, k)) {
