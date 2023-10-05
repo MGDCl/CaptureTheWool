@@ -95,6 +95,10 @@ public class WinEffectsManager {
                 we = new WinEffectTNT();
                 we.start(p, game);
                 break;
+            case "letters":
+                we = new WinEffectFireworksLetters();
+                we.start(p, game);
+                break;
             default:
                 we = new WinEffectVulcanWool();
                 we.start(p, game);

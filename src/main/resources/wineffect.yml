@@ -350,3 +350,27 @@ wineffects:
     slot: 26
     page: 1
     permission: ultractw.wineffects.tnt
+  letters:
+    id: 15
+    icon:
+      ==: org.bukkit.inventory.ItemStack
+      type: COAL_BLOCK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: §aFireworks Letters
+        lore:
+          - '§eDescription:'
+          - §7Write your name wit
+          - §7fireworks!
+          - §7
+          - <price>
+          - §7
+          - <status>
+    type: letters
+    name: "Fireworks Letters"
+    price: 50000
+    isBuy: true
+    slot: 27
+    page: 1
+    permission: ultractw.wineffects.letters
