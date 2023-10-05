@@ -187,7 +187,7 @@ messages:
   particlesText: "THE <team> TEAM HAS WON!"
   equipement: "&aYou have received some objects to be able to carry the wool!"
   noArenas: "&cNo games available!"
-  woolPickup: "&6(+<coins> for pickup <woolname> wool)"
+  woolPickup: "&6(+<gold> for pickup <woolname> wool)"
   respawn: "&eRespawned!"
   teamPickup: '&a ➤ &e¡<tcolor><player> &epicked up the <woolname><color> Wool&e!'
   otherPickup: '&c&l ! ! <tcolor><player> &epicked up the <woolname><color> Wool&c&l! !'
