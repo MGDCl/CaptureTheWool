@@ -189,6 +189,7 @@ messages:
   noArenas: "&cNo games available!"
   woolPickup: "&6(+<gold> for pickup <woolname> wool)"
   respawn: "&eRespawned!"
+  notOnline: "&cThe player is not online!"
   teamPickup: '&a ➤ &e¡<tcolor><player> &epicked up the <woolname><color> Wool&e!'
   otherPickup: '&c&l ! ! <tcolor><player> &epicked up the <woolname><color> Wool&c&l! !'
   teamCaptured:
