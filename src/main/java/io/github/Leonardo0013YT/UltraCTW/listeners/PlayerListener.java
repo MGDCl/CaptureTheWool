@@ -550,6 +550,7 @@ public class PlayerListener implements Listener {
             ctw.addCoins(plugin.getCm().getCoinsPickup());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpPickup());
             ctw.addWoolStolen();
+            gp.setWoolStolen(gp.getWoolStolen() + 1);
             sendTab(p);
             p.sendMessage(plugin.getLang().get("messages.woolPickup").replace("<gold>", String.valueOf(gcp)).replace("<woolname>", Utils.getWoolColor(c)));
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
@@ -910,6 +911,7 @@ public class PlayerListener implements Listener {
                 GamePlayer gp = g.getGamePlayer(d);
                 gp.addCoins(20);
                 ctw.addKillsWoolHolder();
+                gp.setKillsWoolHolder(gp.getKillsWoolHolder() + 1);
                 sendTab(d);
             }
         }

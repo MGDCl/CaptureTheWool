@@ -86,7 +86,7 @@ public class ScoreboardManager {
                 .replace("<now>", String.valueOf(ctw.getXp()))
                 .replace("<max>", String.valueOf(game.getMax()))
                 .replace("<players>", String.valueOf(game.getPlayers().size()))
-                .replace("<map>", game.getName());
+                .replace("<map>", game.getName().replace("_", " "));
     }
 
     public String starting(Player p, String s, Game game) {
@@ -100,7 +100,7 @@ public class ScoreboardManager {
                 .replace("<time>", Utils.convertTime(game.getStarting()))
                 .replace("<max>", String.valueOf(game.getMax()))
                 .replace("<players>", String.valueOf(game.getPlayers().size()))
-                .replace("<map>", game.getName());
+                .replace("<map>", game.getName().replace("_", " "));
     }
 
     public String simple(Player p, String s, Game game, Team team, GamePlayer gp, Team t1, Team t2) {
