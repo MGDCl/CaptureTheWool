@@ -347,7 +347,7 @@ wineffects:
     name: "TNT"
     price: 25000
     isBuy: true
-    slot: 26
+    slot: 28
     page: 1
     permission: ultractw.wineffects.tnt
   letters:
@@ -371,6 +371,6 @@ wineffects:
     name: "Fireworks Letters"
     price: 50000
     isBuy: true
-    slot: 27
+    slot: 29
     page: 1
     permission: ultractw.wineffects.letters

@@ -259,6 +259,13 @@ messages:
   coins: '&f    &6+<amount> &fmultiplier &a<player> &cx<value>'
   xpYou: '&f    &3+<amount> &fby your multiplier &cx<value>'
   coinsYou: '&f    &6+<amount> &fby your multiplier &cx<value>'
+  tabheader: |-
+    &bYou are playing in &e&lMC.SPIGOT.COM
+    &6&lYour Statistics
+    &fKills: &a<kills>  &fAssists: &a<assists>  &fDeaths: &a<deaths>
+    &fKills WoolHolders: &a<killsWoolHolder>  &fWools Stolens: &a<woolStolen>
+    &f
+  tabheather: '&a¡Ranks, Boosters and MORE! &c&lSTORE.SPIGOT.COM'
   summonarylose: |-
     <center>&a▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
     <center>&7

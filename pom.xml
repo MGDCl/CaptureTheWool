@@ -106,6 +106,13 @@
             <systemPath>${project.basedir}/lib/UltraCTW-LobbyProtect.jar</systemPath>
             <scope>system</scope>
         </dependency>
+        <dependency>
+            <groupId>localrepo</groupId>
+            <artifactId>TTA</artifactId>
+            <version>5.5</version>
+            <systemPath>${project.basedir}/lib/TTA-5.5.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
     </dependencies>
 
     <build>

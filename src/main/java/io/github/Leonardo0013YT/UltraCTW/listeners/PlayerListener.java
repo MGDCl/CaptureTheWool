@@ -1,6 +1,7 @@
 package io.github.Leonardo0013YT.UltraCTW.listeners;
 
 import com.nametagedit.plugin.NametagEdit;
+import de.Herbystar.TTA.TTA_Methods;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.api.events.CTWNPCInteractEvent;
 import io.github.Leonardo0013YT.UltraCTW.api.events.PlayerLoadEvent;
@@ -549,6 +550,7 @@ public class PlayerListener implements Listener {
             ctw.addCoins(plugin.getCm().getCoinsPickup());
             ctw.setXp(ctw.getXp() + plugin.getCm().getXpPickup());
             ctw.addWoolStolen();
+            sendTab(p);
             p.sendMessage(plugin.getLang().get("messages.woolPickup").replace("<gold>", String.valueOf(gcp)).replace("<woolname>", Utils.getWoolColor(c)));
             NametagEdit.getApi().setSuffix(p, " " + Utils.getWoolsTag(team));
             if (plugin.getCm().isSupportItems()){
@@ -908,6 +910,7 @@ public class PlayerListener implements Listener {
                 GamePlayer gp = g.getGamePlayer(d);
                 gp.addCoins(20);
                 ctw.addKillsWoolHolder();
+                sendTab(d);
             }
         }
         p.sendMessage(plugin.getLang().get("messages.respawn"));
@@ -925,6 +928,12 @@ public class PlayerListener implements Listener {
         if (plugin.getCm().isItemLobby2Enabled()) {
             p.getInventory().setItem(plugin.getCm().getItemLobby2Slot(), plugin.getIm().getLobby2());
         }
+    }
+
+    public void sendTab(Player p){
+        Game g = plugin.getGm().getSelectedGame();
+        GamePlayer gp = g.getGamePlayer(p);
+        TTA_Methods.sendTablist(p, plugin.getLang().get("messages.tabheader").replace("<kills>", String.valueOf(gp.getKills())).replace("<deaths>", String.valueOf(gp.getDeaths())).replace("<assists>", String.valueOf(gp.getAssists())).replace("<woolStolen>", String.valueOf(gp.getWoolStolen())).replace("<killsWoolHolder>", String.valueOf(gp.getKillsWoolHolder())), plugin.getLang().get("messages.tabheather"));
     }
 
     private void sendJoinMessage(Player p){

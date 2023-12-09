@@ -11,7 +11,7 @@ public class GameWin {
 
     private String winner = "";
     private Team teamWin;
-    private TreeMap<String, Integer> sorted_map;
+    private final TreeMap<String, Integer> sorted_map;
     private final Game game;
 
     public GameWin(Game game) {

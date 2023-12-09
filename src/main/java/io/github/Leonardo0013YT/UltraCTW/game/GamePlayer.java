@@ -13,7 +13,11 @@ public class GamePlayer {
     private Player p;
     private int kills;
     private int deaths = 0;
-    private final int PiUpgrade = 0;
+    private int assists = 0;
+
+    private int woolStolen = 0;
+
+    private int killsWoolHolder = 0;
     private int coins;
     private ItemStack[] inv, armor;
     private final int  xp;
@@ -108,5 +112,29 @@ public class GamePlayer {
 
     public void setReset(boolean reset) {
         this.reset = reset;
+    }
+
+    public int getAssists(){
+        return this.assists;
+    }
+
+    public void setAssists(int assists){
+        this.assists = assists;
+    }
+
+    public int getWoolStolen(){
+        return this.woolStolen;
+    }
+
+    public void setWoolStolen(int woolStolen){
+        this.woolStolen = woolStolen;
+    }
+
+    public int getKillsWoolHolder(){
+        return this.killsWoolHolder;
+    }
+
+    public void setKillsWoolHolder(int killsWoolHolder){
+        this.killsWoolHolder = killsWoolHolder;
     }
 }

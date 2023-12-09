@@ -1,6 +1,7 @@
 package io.github.Leonardo0013YT.UltraCTW.game;
 
 import com.nametagedit.plugin.NametagEdit;
+import de.Herbystar.TTA.TTA_Methods;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.enums.NPCType;
 import io.github.Leonardo0013YT.UltraCTW.enums.State;
@@ -113,6 +114,7 @@ public class GameNoState implements Game {
         p.sendMessage(plugin.getLang().get("messages.play"));
         plugin.getGem().createTeamsMenu(p, game);
         checkStart();
+        sendTabNoGame(p);
         morePlayers();
     }
 
@@ -134,6 +136,7 @@ public class GameNoState implements Game {
         plugin.getTgm().removeTag(p);
         checkCancel();
         checkWin();
+        sendTabNoGame(p);
         p.setGameMode(GameMode.ADVENTURE);
     }
 
@@ -145,6 +148,16 @@ public class GameNoState implements Game {
                 plugin.broadcastGame(this);
             }
         }
+    }
+
+    public void sendTab(Player p){
+        Game g = plugin.getGm().getSelectedGame();
+        GamePlayer gp = g.getGamePlayer(p);
+        TTA_Methods.sendTablist(p, plugin.getLang().get("messages.tabheader").replace("<kills>", String.valueOf(gp.getKills())).replace("<deaths>", String.valueOf(gp.getDeaths())).replace("<assists>", String.valueOf(gp.getAssists())).replace("<woolStolen>", String.valueOf(gp.getWoolStolen())).replace("<killsWoolHolder>", String.valueOf(gp.getKillsWoolHolder())), plugin.getLang().get("messages.tabheather"));
+    }
+
+    public void sendTabNoGame(Player p){
+        TTA_Methods.sendTablist(p,plugin.getLang().get("messages.tabnogame"), plugin.getLang().get("messages.tabheather"));
     }
 
     public void morePlayers(){
@@ -254,6 +267,7 @@ public class GameNoState implements Game {
                         plugin.getKm().giveDefaultKit(on, this, t);
                         Utils.updateSB(on);
                         inGame.add(on);
+                        sendTab(on);
                         inLobby.remove(on);
                         for (Location k : npcKits) {
                             plugin.getSkm().spawnShopKeeper(on, k, ctw.getShopKeeper(), NPCType.KITS);
@@ -441,6 +455,7 @@ public class GameNoState implements Game {
             } else {
                 ctw.setKills(ctw.getKills() + 1);
             }
+            sendTab(p);
             plugin.getLvl().checkUpgrade(p);
         }
     }
@@ -452,6 +467,7 @@ public class GameNoState implements Game {
             gp.setDeaths(gp.getDeaths() + 1);
             CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
             ctw.setDeaths(ctw.getDeaths() + 1);
+            sendTab(p);
         }
     }
 
@@ -518,6 +534,7 @@ public class GameNoState implements Game {
             p.teleport(team.getSpawn());
             plugin.getKm().giveDefaultKit(p, this, team);
             Utils.updateSB(p);
+            sendTab(p);
             inGame.add(p);
             inLobby.remove(p);
             p.setGameMode(GameMode.SURVIVAL);
