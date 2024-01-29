@@ -29,13 +29,13 @@ public class ShoutCommand implements CommandExecutor {
                     p.sendMessage(plugin.getLang().get(p, "messages.noIngame"));
                     return true;
                 }
-                if (team == null){
-                    p.sendMessage(plugin.getLang().get("messages.notInGame"));
-                    return true;
-                }
                 if (args.length == 0) {
-                    p.sendMessage("Usa /shout <msg> para escribir en global");
+                    p.sendMessage(plugin.getLang().get("messages.shoutcmd"));
                 } else {
+                    if (team == null){
+                        sendGlobalMsgEsp(args, p);
+                        return true;
+                    }
                     sendGlobalMsg(args, p);
                 }
             } else {
@@ -58,6 +58,26 @@ public class ShoutCommand implements CommandExecutor {
                 b++;
             }
             String mFormat = plugin.getLang().get(p, "chat.global").replaceAll("<team>", team.getPrefix()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName());
+            mFormat = mFormat.replaceAll("<msg>", msg.toString());
+            for (Player on : game.getCached()) {
+                on.sendMessage(mFormat);
+            }
+        });
+    }
+
+    private void sendGlobalMsgEsp(final String[] msgList, final Player p) {
+        Game game = plugin.getGm().getSelectedGame();
+        Bukkit.getScheduler().runTaskAsynchronously(UltraCTW.get(), () -> {
+            StringBuilder msg = new StringBuilder();
+            byte b;
+            int i;
+            String[] arrayOfString;
+            for (i = (arrayOfString = msgList).length, b = 0; b < i; ) {
+                String s = arrayOfString[b];
+                msg.append(s).append(" ");
+                b++;
+            }
+            String mFormat = plugin.getLang().get(p, "chat.spec").replaceAll("<player>", p.getName());
             mFormat = mFormat.replaceAll("<msg>", msg.toString());
             for (Player on : game.getCached()) {
                 on.sendMessage(mFormat);
