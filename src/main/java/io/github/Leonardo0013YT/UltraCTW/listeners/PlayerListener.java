@@ -159,7 +159,7 @@ public class PlayerListener implements Listener {
                 e.getRecipients().clear();
                 e.getRecipients().addAll(w.getPlayers());
                 String msg = formatMainLobby(p, e.getMessage());
-                msg = msg.replaceAll("%", "%%");
+                msg = msg.replace("%", "%%");
                 e.setFormat(msg);
             }
         }
@@ -189,19 +189,19 @@ public class PlayerListener implements Listener {
     }
 
     private String formatMainLobby(Player p, String msg) {
-        return plugin.getLang().get(p, "chat.mainLobby").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
+        return plugin.getLang().get(p, "chat.mainLobby").replace("<player>", p.getName()).replace("<msg>", msg);
     }
 
     private String formatLobby(Player p, String msg) {
-        return plugin.getLang().get(p, "chat.lobby").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
+        return plugin.getLang().get(p, "chat.lobby").replace("<player>", p.getName()).replace("<msg>", msg);
     }
 
     private String formatTeam(Player p, Team team, String msg) {
-        return plugin.getLang().get(p, "chat.team").replaceAll("<team>", team.getPrefix()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg);
+        return plugin.getLang().get(p, "chat.team").replace("<team>", team.getPrefix()).replace("<color>", team.getColor() + "").replace("<player>", p.getName()).replace("<msg>", msg);
     }
 
     private String formatGame(Player p, Team team, String msg) {
-        return plugin.getLang().get(p, "chat.global").replaceAll("<team>", team.getPrefix()).replaceAll("<color>", team.getColor() + "").replaceAll("<player>", p.getName()).replaceAll("<msg>", msg.replaceFirst("!", ""));
+        return plugin.getLang().get(p, "chat.global").replace("<team>", team.getPrefix()).replace("<color>", team.getColor() + "").replace("<player>", p.getName()).replace("<msg>", msg.replaceFirst("!", ""));
     }
 
     @EventHandler

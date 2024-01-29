@@ -1,7 +1,6 @@
 package io.github.Leonardo0013YT.UltraCTW.game;
 
 import com.nametagedit.plugin.NametagEdit;
-import de.Herbystar.TTA.BossBar.NMS_BossBar;
 import de.Herbystar.TTA.TTA_Methods;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.enums.NPCType;
