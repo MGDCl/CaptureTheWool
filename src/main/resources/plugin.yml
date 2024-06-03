@@ -1,12 +1,13 @@
 name: UltraCaptureTheWool
 main: io.github.Leonardo0013YT.UltraCTW.UltraCTW
-version: 2.5.3
+version: 2.5.4
 author: Leonardo0013YT
-description: UltraCTW edited by MGDCl
+description: UltraCTW fork by DCl
 softdepend: [ PlaceholderAPI ]
 depend: [ NametagEdit, ProtocolLib, WorldEdit, FastAsyncWorldEdit ]
 commands:
   stats:
+    aliases: [ ks ]
   ctws:
     aliases: [ ctwadmin ]
   ctw:
