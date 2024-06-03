@@ -296,17 +296,19 @@ public class GameNoState implements Game {
                 } else {
                     sendGameActionBar(on, plugin.getLang().get("actionbar.myTeam").replaceAll("<tcolor>", t.getColor() + "").replaceAll("<team>", t.getName()));
                 }
-                if (time == 60 || time == 300 || time == 540 || time == 780 || time == 1020){
-                    on.sendMessage(plugin.getLang().get("tips.1"));
-                }
-                if (time == 120 || time == 360 || time == 600 || time == 840 || time == 1080){
-                    on.sendMessage(plugin.getLang().get("tips.2"));
-                }
-                if (time == 180 || time == 420 || time == 660 || time == 900 || time == 1140){
-                    on.sendMessage(plugin.getLang().get("tips.3"));
-                }
-                if (time == 240 || time == 480 || time == 720 || time == 960 || time == 1200){
-                    on.sendMessage(plugin.getLang().get("tips.4"));
+                if (plugin.getCm().isToggleTips()) {
+                    if (time == 60 || time == 300 || time == 540 || time == 780 || time == 1020){
+                        on.sendMessage(plugin.getLang().get("tips.1"));
+                    }
+                    if (time == 120 || time == 360 || time == 600 || time == 840 || time == 1080){
+                        on.sendMessage(plugin.getLang().get("tips.2"));
+                    }
+                    if (time == 180 || time == 420 || time == 660 || time == 900 || time == 1140){
+                        on.sendMessage(plugin.getLang().get("tips.3"));
+                    }
+                    if (time == 240 || time == 480 || time == 720 || time == 960 || time == 1200){
+                        on.sendMessage(plugin.getLang().get("tips.4"));
+                    }
                 }
             }
         }
@@ -616,6 +618,72 @@ public class GameNoState implements Game {
             on.sendMessage(plugin.getLang().get("messages.balancedTeam").replaceAll("<team>", minor.getName()));
             on.playSound(on.getLocation(), XSound.ENTITY_PLAYER_LEVELUP.parseSound(), 1.0f, 1.0f);
         }
+    }
+
+    @Override
+    public void CycleMap(Game game) {
+        if (plugin.isStop()) return;
+        plugin.getGm().reset(this);
+        setState(State.FINISH);
+        for (Player on : cached) {
+            setSpect(on);
+        }
+        ArrayList<Player> back = new ArrayList<>(cached);
+        new BukkitRunnable() {
+            int count = 9;
+            final Game g = plugin.getGm().getSelectedGame();
+            @Override
+            public void run() {
+                if(count==0) {
+                    cancel();
+                    return;
+                }
+                for(Player on : cached){
+                    on.sendMessage(plugin.getLang().get("messages.ending").replaceAll("<count>", String.valueOf(count)).replaceAll("<s>", (count > 1) ? "s" : ""));
+                }
+                if (count == 5 || count == 4 || count == 3 || count == 2 || count == 1 ) {
+                    for(Player on : cached){
+                        int games = plugin.getGm().getGames().size();
+                        if (plugin.getCm().isAutoJoinFinish() && games > 1){
+                            plugin.getVc().getReflection().sendTitle(plugin.getLang().get("titles.ending.title").replaceAll("<map>", g.getName()).replaceAll("<time>", String.valueOf(count)), plugin.getLang().get("titles.ending.subtitle").replaceAll("<time>", String.valueOf(count)), 0, 40, 0, on);
+                        }
+                    }
+                }
+                count--;
+            }
+        }.runTaskTimer(plugin, 20L, 20L);
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                int games = plugin.getGm().getGames().size();
+                if (plugin.getCm().isAutoJoinFinish() && games > 1){
+                    for (Player on : back) {
+                        if (on == null || !on.isOnline()) continue;
+                        Game g = plugin.getGm().getSelectedGame();
+                        plugin.getGm().addPlayerGame(on, g.getId());
+                        NametagEdit.getApi().clearNametag(on);
+                        NametagEdit.getApi().reloadNametag(on);
+                        on.sendMessage(plugin.getLang().get("messages.newGame").replaceAll("<map>", g.getName()));
+                    }
+                } else {
+                    if (plugin.getCm().isBungeeModeEnabled()){
+                        for (Player on : back) {
+                            if (on == null || !on.isOnline()) continue;
+                            plugin.sendToServer(on, plugin.getCm().getBungeeModeLobbyServer());
+                            on.sendMessage(plugin.getLang().get("messages.bLobby"));
+                        }
+                    } else {
+                        for (Player on : back) {
+                            if (on == null || !on.isOnline()) continue;
+                            plugin.getGm().removePlayerGame(on, true);
+                            on.sendMessage(plugin.getLang().get("messages.sendLobby"));
+                        }
+                    }
+                }
+            }
+        }.runTaskLater(plugin, 20 * 10);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this::reset, 20 * 13);
     }
 
     @Override

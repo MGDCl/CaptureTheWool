@@ -1,6 +1,5 @@
 package io.github.Leonardo0013YT.UltraCTW.managers;
 
-import com.comphenix.net.bytebuddy.dynamic.DynamicType;
 import io.github.Leonardo0013YT.UltraCTW.UltraCTW;
 import io.github.Leonardo0013YT.UltraCTW.utils.Utils;
 import io.github.Leonardo0013YT.UltraCTW.xseries.XSound;
@@ -15,7 +14,7 @@ import java.util.List;
 public class ConfigManager {
 
     private final UltraCTW plugin;
-    private boolean woolRadio, kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, loseCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
+    private boolean woolRadio, toggleTips, kickOnStarted, sendLobbyOnQuit, bungeeModeEnabled, bungeeModeAutoJoin, bungeeModeKickOnFinish, wCMDEnabled, loseCMDEnabled, lCMDEnabled, kCMDEnabled, dCMDEnabled, statsCMD, autoJoinFinish, mobGriefing, totalBreak,instaKillOnVoidCTW, lobbyScoreboard, hungerCTW, breakMap, kitLevelsOrder, excluideDefKits, itemLobbyEnabled, itemLobby2Enabled, placeholdersAPI, redPanelInLocked, broadcastGame, joinMessage, supportItems, noFallDamage;
     private Location mainLobby;
     private short redPanelData;
     private Material back, redPanelMaterial;
@@ -71,6 +70,7 @@ public class ConfigManager {
         this.maxMultiplier = plugin.getConfig().getInt("gameDefaults.maxMultiplier");
         this.broadcastGame = plugin.getConfig().getBoolean("chat.broadcastGame");
         this.joinMessage = plugin.getConfig().getBoolean("chat.joinMessage");
+        this.toggleTips = plugin.getConfig().getBoolean("chat.toggleTips");
         this.supportItems = plugin.getConfig().getBoolean("gameDefaults.supportItems");
         this.noFallDamage = plugin.getConfig().getBoolean("gameDefaults.noFallDamage");
         this.streak2 = XSound.matchXSound(plugin.getConfig().getString("sounds.streak2")).orElse(XSound.UI_BUTTON_CLICK).parseSound();
@@ -275,6 +275,10 @@ public class ConfigManager {
 
     public boolean isWCMDEnabled() {
         return this.wCMDEnabled;
+    }
+
+    public boolean isToggleTips() {
+        return this.toggleTips;
     }
 
     public List<String> getWinCommands() {

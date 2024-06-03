@@ -49,6 +49,13 @@ public class ScoreboardManager {
                 scoreboard.getBoard(p).setAll(starting(p, plugin.getLang().get(p, "scoreboards.starting.lines"), game).split("\\n"));
             } else {
                 if (team == null) {
+                    Team t1 = game.getTeamByID(0);
+                    Team t2 = game.getTeamByID(1);
+                    if (!scoreboard.hasBoard(p)) {
+                        scoreboard.createBoard(p, spectators(p, plugin.getLang().get(p, "scoreboards.spect.title"), game, t1, t2));
+                    }
+                    scoreboard.getBoard(p).setAll(spectators(p, plugin.getLang().get(p, "scoreboards.spect.lines"), game, t1, t2).split("\\n"));
+                    scoreboard.getBoard(p).setName(plugin.getLang().get(p, "scoreboards.spect.title"));
                     return;
                 }
                 GamePlayer gp = game.getGamePlayer(p);
@@ -125,6 +132,23 @@ public class ScoreboardManager {
                 .replace("<team>", team.getName())
                 .replace("<kills>", String.valueOf(gp.getKills()))
                 .replace("<deaths>", String.valueOf(gp.getDeaths()));
+    }
+
+    public String spectators(Player p, String s, Game game, Team t1, Team t2){
+        CTWPlayer ctw = plugin.getDb().getCTWPlayer(p);
+        if (ctw == null) return s;
+        return s.replace("<date>", Utils.getDate())
+                .replace("<la>", String.valueOf('⇦'))
+                .replace("<time>", Utils.convertTime(game.getTime()))
+                .replace("<id>", String.valueOf(game.getId()))
+                .replace("<T1p>", String.valueOf(t1.getTeamSize()))
+                .replace("<T2p>", String.valueOf(t2.getTeamSize()))
+                .replace("<T1Color>", String.valueOf(t1.getColor()))
+                .replace("<T2Color>", String.valueOf(t2.getColor()))
+                .replace("<T1Wools>", Utils.getWoolsString(t1))
+                .replace("<T2Wools>", Utils.getWoolsString(t2))
+                .replace("<T1>", plugin.getLang().get("scoreboards.team").replace("<TColor>", t1.getColor() + "").replace("<TName>", t1.getName()))
+                .replace("<T2>", plugin.getLang().get("scoreboards.team").replace("<TColor>", t2.getColor() + "").replace("<TName>", t2.getName()));
     }
 
     public void remove(Player p) {

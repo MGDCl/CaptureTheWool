@@ -50,6 +50,8 @@ public interface Game {
 
     int getTime();
 
+    void CycleMap(Game game);
+
     boolean isState(State state);
 
     boolean isNearby(Location loc);

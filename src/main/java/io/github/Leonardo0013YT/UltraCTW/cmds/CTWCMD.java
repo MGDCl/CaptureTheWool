@@ -221,6 +221,34 @@ public class CTWCMD implements CommandExecutor {
                     g.setStarting(6);
                     g.sendGameMessage(plugin.getLang().get("messages.forceStart"));
                     break;
+                case "mapcycle":
+                    if (!p.hasPermission("ctw.admin")) {
+                        p.sendMessage(plugin.getLang().get(p, "messages.noPermission"));
+                        return true;
+                    }
+                    if (plugin.getGm().isPlayerInGame(p)) {
+                        Game game2 = plugin.getGm().getSelectedGame();
+                        int games = plugin.getGm().getGames().size();
+                        if (game2 == null) {
+                            p.sendMessage(plugin.getLang().get("messages.noGame"));
+                            return true;
+                        }
+                        if (game2.isState(State.WAITING) || game2.isState(State.FINISH) || game2.isState(State.RESTARTING)) {
+                            p.sendMessage(plugin.getLang().get(p, "messages.noIngame"));
+                            return true;
+                        }
+                        if (game2.getCached().size() < 6) {
+                            p.sendMessage(plugin.getLang().get("messages.insufficientP"));
+                            return true;
+                        }
+                        if (games < 1) {
+                            p.sendMessage("¡solo hay 1 mapa!");
+                            return true;
+                        }
+                        game2.CycleMap(game2);
+                        game2.sendGameMessage("§aCambiando de mapa...");
+                    }
+                    break;
                 case "menu":
                     if (plugin.getCm().isBungeeModeEnabled()){
                         return true;

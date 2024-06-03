@@ -86,6 +86,7 @@ bounty:
 chat:
   joinMessage: true
   broadcastGame: true
+  toggleTips: false
 items:
   lobby:
     enabled: false

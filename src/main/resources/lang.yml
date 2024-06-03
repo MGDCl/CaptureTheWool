@@ -70,6 +70,19 @@ scoreboards:
       &fDeaths: &c<deaths> ☠
       &7
       &emc.spigot.net
+  spect:
+    title: "&6&lCTW"
+    lines: |-
+      &7<date> &8mctw<id>
+      &fGame time: &a<time> ⌛
+      &7
+      &c<T1> &7<T1p>
+      <T1Wools>
+      &7
+      &9<T2> &7<T2p>
+      <T2Wools>
+      &7
+      &emc.spigot.net
 progressBar:
   symbol: "|"
   in: "&3"
