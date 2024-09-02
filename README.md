@@ -22,7 +22,8 @@ Changelog:
 - Other minor changes
 
 If you have any errors or any suggestions, you can ask me.
-My discord: itzdcl
+My discord: jonatandcl
 
-Discord support: https://discord.com/invite/3RRWVTGveD
+Discord support: null
+Test Server: mc.minigamesdcl.com
 
