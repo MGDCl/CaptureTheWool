@@ -25,7 +25,7 @@ If you have any errors or any suggestions, you can ask me.
 
 My discord: jonatandcl
 
-Discord support: null
+Discord support: https://discord.gg/fv8DpmwrFa
 
 Test Server: mc.minigamesdcl.com
 
